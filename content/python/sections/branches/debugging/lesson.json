@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-debugging-basics",
+  "sectionId": "branches",
+  "title": "Отладка и трассировка ошибок",
+  "slug": "debugging",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_a",
+    "sk08"
+  ],
+  "skillIds": [
+    "SK08"
+  ],
+  "sourcePaths": [
+    "docs/basics/debugging.md",
+    "docs/python-plus/exceptions.md"
+  ],
+  "exerciseOrder": [
+    "python-debugging-basics-guided-1",
+    "python-debugging-basics-guided-2",
+    "python-debugging-basics-checkpoint"
+  ],
+  "checkpointExerciseId": "python-debugging-basics-checkpoint"
+}

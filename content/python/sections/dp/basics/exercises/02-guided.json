@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "python-dp-basics-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-dp-basics"
+  },
+  "kind": "guided",
+  "title": "Максимальная сумма без соседей",
+  "statement": "Верните максимальную сумму несоседних неотрицательных элементов.",
+  "difficulty": "standard",
+  "starterCode": "def max_non_adjacent(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def max_non_adjacent(values):\n    previous, current = 0, 0\n    for value in values:\n        previous, current = current, max(current, previous + value)\n    return current",
+  "examples": [
+    {
+      "input": "[[2,7,9,3,1]]",
+      "output": "12"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "max_non_adjacent",
+    "tests": [
+      {
+        "args": [
+          [
+            2,
+            7,
+            9,
+            3,
+            1
+          ]
+        ],
+        "expectedReturn": 12
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

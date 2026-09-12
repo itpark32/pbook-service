@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-dp-basics",
+  "sectionId": "dp",
+  "title": "Основы динамического программирования",
+  "slug": "basics",
+  "readingMinutes": 15,
+  "practiceMinutes": 40,
+  "tags": [
+    "python",
+    "batch_f",
+    "sk41"
+  ],
+  "skillIds": [
+    "SK41"
+  ],
+  "sourcePaths": [
+    "authored:dynamic-programming"
+  ],
+  "exerciseOrder": [
+    "python-dp-basics-guided-1",
+    "python-dp-basics-guided-2",
+    "python-dp-basics-checkpoint"
+  ],
+  "checkpointExerciseId": "python-dp-basics-checkpoint"
+}

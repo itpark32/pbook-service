@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-loops-min-max-average",
+  "sectionId": "loops",
+  "title": "Минимум, максимум и среднее",
+  "slug": "min-max-average",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_b",
+    "sk13"
+  ],
+  "skillIds": [
+    "SK13"
+  ],
+  "sourcePaths": [
+    "docs/loops/accumulators.md"
+  ],
+  "exerciseOrder": [
+    "python-loops-min-max-average-guided-1",
+    "python-loops-min-max-average-guided-2",
+    "python-loops-min-max-average-checkpoint"
+  ],
+  "checkpointExerciseId": "python-loops-min-max-average-checkpoint"
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "python-recursion-basics-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-recursion-basics"
+  },
+  "kind": "guided",
+  "title": "Рекурсивный факториал",
+  "statement": "Реализуйте рекурсивную функцию `factorial(n)` для n ≥ 0.",
+  "difficulty": "intro",
+  "starterCode": "def factorial(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)",
+  "examples": [
+    {
+      "input": "[5]",
+      "output": "120"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "factorial",
+    "tests": [
+      {
+        "args": [
+          5
+        ],
+        "expectedReturn": 120
+      },
+      {
+        "args": [
+          0
+        ],
+        "expectedReturn": 1
+      }
+    ],
+    "structuralConstraints": {
+      "requireRecursion": [
+        "factorial"
+      ]
+    }
+  }
+}

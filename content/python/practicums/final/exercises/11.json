@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-final-task-11",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-final"
+  },
+  "kind": "practicum",
+  "title": "11. В двоичную",
+  "statement": "Верните двоичную запись неотрицательного n без префикса.",
+  "difficulty": "standard",
+  "starterCode": "def to_binary(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def to_binary(n):\n    if n == 0:\n        return '0'\n    digits = ''\n    while n:\n        digits = str(n % 2) + digits\n        n //= 2\n    return digits",
+  "examples": [
+    {
+      "input": "[10]",
+      "output": "\"1010\""
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "to_binary",
+    "tests": [
+      {
+        "args": [
+          10
+        ],
+        "expectedReturn": "1010"
+      },
+      {
+        "args": [
+          0
+        ],
+        "expectedReturn": "0"
+      }
+    ]
+  }
+}

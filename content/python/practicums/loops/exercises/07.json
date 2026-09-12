@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-loops-task-07",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-loops"
+  },
+  "kind": "practicum",
+  "title": "7. Последняя цифра",
+  "statement": "Выведите последнюю цифру неотрицательного целого числа.",
+  "difficulty": "standard",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "n = int(input())\nprint(n % 10)",
+  "examples": [
+    {
+      "input": "247\n",
+      "output": "7\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "247\n",
+        "expectedOutput": "7\n"
+      },
+      {
+        "input": "0\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

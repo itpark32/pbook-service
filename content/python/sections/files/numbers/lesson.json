@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-files-numbers",
+  "sectionId": "files",
+  "title": "Числовые данные в файлах",
+  "slug": "numbers",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_d",
+    "sk31"
+  ],
+  "skillIds": [
+    "SK31"
+  ],
+  "sourcePaths": [
+    "docs/files/numbers.md"
+  ],
+  "exerciseOrder": [
+    "python-files-numbers-guided-1",
+    "python-files-numbers-guided-2",
+    "python-files-numbers-checkpoint"
+  ],
+  "checkpointExerciseId": "python-files-numbers-checkpoint"
+}

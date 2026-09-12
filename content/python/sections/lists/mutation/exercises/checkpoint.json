@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-mutation-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-mutation"
+  },
+  "kind": "checkpoint",
+  "title": "Индексы чётных",
+  "statement": "Верните индексы всех чётных элементов списка.",
+  "difficulty": "challenge",
+  "starterCode": "def even_indices(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def even_indices(values):\n    return [i for i, value in enumerate(values) if value % 2 == 0]",
+  "examples": [
+    {
+      "input": "[[3,4,6]]",
+      "output": "[1,2]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "even_indices",
+    "tests": [
+      {
+        "args": [
+          [
+            3,
+            4,
+            6
+          ]
+        ],
+        "expectedReturn": [
+          1,
+          2
+        ]
+      },
+      {
+        "args": [
+          [
+            1,
+            3
+          ]
+        ],
+        "expectedReturn": []
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-linear-search",
+  "sectionId": "lists",
+  "title": "Линейный поиск",
+  "slug": "linear-search",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_c",
+    "sk21"
+  ],
+  "skillIds": [
+    "SK21"
+  ],
+  "sourcePaths": [
+    "docs/lists/linear-search.md"
+  ],
+  "exerciseOrder": [
+    "python-lists-linear-search-guided-1",
+    "python-lists-linear-search-guided-2",
+    "python-lists-linear-search-checkpoint"
+  ],
+  "checkpointExerciseId": "python-lists-linear-search-checkpoint"
+}

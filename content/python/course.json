@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "id": "python",
+  "title": "Python для школьников",
+  "description": "Последовательный курс алгоритмического программирования на Python",
+  "requiredSkillIds": [
+    "SK01",
+    "SK02",
+    "SK03",
+    "SK04",
+    "SK05",
+    "SK06",
+    "SK07",
+    "SK08",
+    "SK09",
+    "SK10",
+    "SK11",
+    "SK12",
+    "SK13",
+    "SK14",
+    "SK15",
+    "SK16",
+    "SK17",
+    "SK18",
+    "SK19",
+    "SK20",
+    "SK21",
+    "SK22",
+    "SK23",
+    "SK24",
+    "SK25",
+    "SK26",
+    "SK27",
+    "SK28",
+    "SK29",
+    "SK30",
+    "SK31",
+    "SK32",
+    "SK33",
+    "SK34",
+    "SK35",
+    "SK36",
+    "SK37",
+    "SK38",
+    "SK39",
+    "SK40",
+    "SK41",
+    "SK42",
+    "SK43",
+    "SK44"
+  ],
+  "sections": [
+    {
+      "id": "basics",
+      "title": "Основы Python",
+      "lessonIds": [
+        "python-basics-input-output",
+        "python-basics-types-arithmetic",
+        "python-basics-div-mod-digits",
+        "python-basics-logic"
+      ]
+    },
+    {
+      "id": "branches",
+      "title": "Ветвления и отладка",
+      "lessonIds": [
+        "python-branches-if-else",
+        "python-branches-elif-ranges",
+        "python-branches-compound",
+        "python-debugging-basics"
+      ]
+    },
+    {
+      "id": "loops",
+      "title": "Циклы и последовательности",
+      "lessonIds": [
+        "python-loops-while",
+        "python-loops-for-range",
+        "python-loops-nested",
+        "python-loops-accumulators",
+        "python-loops-min-max-average",
+        "python-loops-sequences",
+        "python-loops-tracing"
+      ]
+    },
+    {
+      "id": "strings",
+      "title": "Строки",
+      "lessonIds": [
+        "python-strings-basics",
+        "python-strings-methods-slices",
+        "python-strings-algorithms",
+        "python-strings-runs"
+      ]
+    },
+    {
+      "id": "lists",
+      "title": "Списки и матрицы",
+      "lessonIds": [
+        "python-lists-basics",
+        "python-lists-mutation",
+        "python-lists-processing",
+        "python-lists-linear-search",
+        "python-lists-neighbours",
+        "python-lists-2d",
+        "python-lists-matrices"
+      ]
+    },
+    {
+      "id": "collections",
+      "title": "Множества и словари",
+      "lessonIds": [
+        "python-collections-sets",
+        "python-collections-dicts-frequency"
+      ]
+    },
+    {
+      "id": "functions",
+      "title": "Функции",
+      "lessonIds": [
+        "python-functions-basics",
+        "python-functions-scope-decomposition"
+      ]
+    },
+    {
+      "id": "recursion",
+      "title": "Рекурсия",
+      "lessonIds": [
+        "python-recursion-basics",
+        "python-recursion-calculations"
+      ]
+    },
+    {
+      "id": "files",
+      "title": "Файлы",
+      "lessonIds": [
+        "python-files-basics",
+        "python-files-numbers",
+        "python-files-text"
+      ]
+    },
+    {
+      "id": "algorithms",
+      "title": "Поиск и сортировка",
+      "lessonIds": [
+        "python-algorithms-binary-search",
+        "python-algorithms-selection-sort",
+        "python-algorithms-python-sort"
+      ]
+    },
+    {
+      "id": "numbers",
+      "title": "Числовые алгоритмы",
+      "lessonIds": [
+        "python-numbers-divisibility-divisors",
+        "python-numbers-primes-gcd",
+        "python-numbers-bases"
+      ]
+    },
+    {
+      "id": "efficiency",
+      "title": "Перебор и эффективность",
+      "lessonIds": [
+        "python-brute-force-basics",
+        "python-complexity-basics"
+      ]
+    },
+    {
+      "id": "dp",
+      "title": "Динамическое программирование",
+      "lessonIds": [
+        "python-dp-basics"
+      ]
+    },
+    {
+      "id": "graphs",
+      "title": "Графы",
+      "lessonIds": [
+        "python-graphs-basics",
+        "python-graphs-traversal",
+        "python-graphs-paths"
+      ]
+    }
+  ],
+  "practicums": [
+    {
+      "id": "python-practicum-first-programs",
+      "title": "Практикум 1. Первые программы",
+      "path": "practicums/first-programs"
+    },
+    {
+      "id": "python-practicum-loops",
+      "title": "Практикум 2. Циклы",
+      "path": "practicums/loops"
+    },
+    {
+      "id": "python-practicum-data",
+      "title": "Практикум 3. Строки и коллекции",
+      "path": "practicums/data"
+    },
+    {
+      "id": "python-practicum-functions-files",
+      "title": "Практикум 4. Функции, рекурсия и файлы",
+      "path": "practicums/functions-files"
+    },
+    {
+      "id": "python-practicum-algorithms",
+      "title": "Практикум 5. Алгоритмы",
+      "path": "practicums/algorithms"
+    },
+    {
+      "id": "python-practicum-final",
+      "title": "Практикум 6. Итоговый",
+      "path": "practicums/final"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "section",
+      "id": "basics"
+    },
+    {
+      "type": "section",
+      "id": "branches"
+    },
+    {
+      "type": "practicum",
+      "id": "python-practicum-first-programs"
+    },
+    {
+      "type": "section",
+      "id": "loops"
+    },
+    {
+      "type": "practicum",
+      "id": "python-practicum-loops"
+    },
+    {
+      "type": "section",
+      "id": "strings"
+    },
+    {
+      "type": "section",
+      "id": "lists"
+    },
+    {
+      "type": "section",
+      "id": "collections"
+    },
+    {
+      "type": "practicum",
+      "id": "python-practicum-data"
+    },
+    {
+      "type": "section",
+      "id": "functions"
+    },
+    {
+      "type": "section",
+      "id": "recursion"
+    },
+    {
+      "type": "section",
+      "id": "files"
+    },
+    {
+      "type": "practicum",
+      "id": "python-practicum-functions-files"
+    },
+    {
+      "type": "section",
+      "id": "algorithms"
+    },
+    {
+      "type": "section",
+      "id": "numbers"
+    },
+    {
+      "type": "section",
+      "id": "efficiency"
+    },
+    {
+      "type": "practicum",
+      "id": "python-practicum-algorithms"
+    },
+    {
+      "type": "section",
+      "id": "dp"
+    },
+    {
+      "type": "section",
+      "id": "graphs"
+    },
+    {
+      "type": "practicum",
+      "id": "python-practicum-final"
+    }
+  ]
+}

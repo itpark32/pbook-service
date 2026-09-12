@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "python-brute-force-basics-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-brute-force-basics"
+  },
+  "kind": "guided",
+  "title": "Тройки с заданной суммой",
+  "statement": "Посчитайте тройки индексов i < j < k с суммой target.",
+  "difficulty": "standard",
+  "starterCode": "def triple_count(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def triple_count(values, target):\n    count = 0\n    for i in range(len(values)):\n        for j in range(i + 1, len(values)):\n            for k in range(j + 1, len(values)):\n                if values[i] + values[j] + values[k] == target:\n                    count += 1\n    return count",
+  "examples": [
+    {
+      "input": "[[1,2,3,4],6]",
+      "output": "1"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "triple_count",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          6
+        ],
+        "expectedReturn": 1
+      },
+      {
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

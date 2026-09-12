@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-runs",
+  "sectionId": "strings",
+  "title": "Состояние и серии символов",
+  "slug": "runs",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_c",
+    "sk18"
+  ],
+  "skillIds": [
+    "SK18"
+  ],
+  "sourcePaths": [
+    "docs/strings/algorithms.md"
+  ],
+  "exerciseOrder": [
+    "python-strings-runs-guided-1",
+    "python-strings-runs-guided-2",
+    "python-strings-runs-checkpoint"
+  ],
+  "checkpointExerciseId": "python-strings-runs-checkpoint"
+}

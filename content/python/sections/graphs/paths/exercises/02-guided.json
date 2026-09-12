@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "python-graphs-paths-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-graphs-paths"
+  },
+  "kind": "guided",
+  "title": "Взвешенное расстояние",
+  "statement": "Верните длину кратчайшего пути в неориентированном графе с неотрицательными весами или -1.",
+  "difficulty": "standard",
+  "starterCode": "def weighted_distance(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def weighted_distance(n, edges, start, finish):\n    import heapq\n    graph = [[] for _ in range(n)]\n    for left, right, weight in edges:\n        graph[left].append((right, weight))\n        graph[right].append((left, weight))\n    distance = [float('inf')] * n\n    distance[start] = 0\n    queue = [(0, start)]\n    while queue:\n        current, vertex = heapq.heappop(queue)\n        if current != distance[vertex]:\n            continue\n        for neighbour, weight in graph[vertex]:\n            candidate = current + weight\n            if candidate < distance[neighbour]:\n                distance[neighbour] = candidate\n                heapq.heappush(queue, (candidate, neighbour))\n    return -1 if distance[finish] == float('inf') else distance[finish]",
+  "examples": [
+    {
+      "input": "[4,[[0,1,5],[0,2,1],[2,1,1],[1,3,2]],0,3]",
+      "output": "4"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "weighted_distance",
+    "tests": [
+      {
+        "args": [
+          4,
+          [
+            [
+              0,
+              1,
+              5
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              1,
+              3,
+              2
+            ]
+          ],
+          0,
+          3
+        ],
+        "expectedReturn": 4
+      },
+      {
+        "args": [
+          2,
+          [],
+          0,
+          1
+        ],
+        "expectedReturn": -1
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "python-numbers-divisibility-divisors-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-numbers-divisibility-divisors"
+  },
+  "kind": "guided",
+  "title": "Делители",
+  "statement": "Верните делители положительного n по возрастанию.",
+  "difficulty": "intro",
+  "starterCode": "def divisors(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def divisors(n):\n    return [value for value in range(1, n + 1) if n % value == 0]",
+  "examples": [
+    {
+      "input": "[6]",
+      "output": "[1,2,3,6]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "divisors",
+    "tests": [
+      {
+        "args": [
+          6
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          3,
+          6
+        ]
+      },
+      {
+        "args": [
+          1
+        ],
+        "expectedReturn": [
+          1
+        ]
+      }
+    ]
+  }
+}

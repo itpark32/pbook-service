@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-basics-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-basics"
+  },
+  "kind": "guided",
+  "title": "Удвоение",
+  "statement": "Верните новый список, в котором каждый элемент удвоен.",
+  "difficulty": "standard",
+  "starterCode": "def doubled(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def doubled(values):\n    return [value * 2 for value in values]",
+  "examples": [
+    {
+      "input": "[[1,-2,0]]",
+      "output": "[2,-4,0]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "doubled",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            -2,
+            0
+          ]
+        ],
+        "expectedReturn": [
+          2,
+          -4,
+          0
+        ]
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": []
+      }
+    ]
+  }
+}

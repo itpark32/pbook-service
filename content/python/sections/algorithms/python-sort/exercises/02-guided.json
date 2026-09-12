@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "python-algorithms-python-sort-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-algorithms-python-sort"
+  },
+  "kind": "guided",
+  "title": "По убыванию",
+  "statement": "Верните новый список, отсортированный по убыванию.",
+  "difficulty": "standard",
+  "starterCode": "def descending(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def descending(values):\n    return sorted(values, reverse=True)",
+  "examples": [
+    {
+      "input": "[[3,1,2]]",
+      "output": "[3,2,1]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "descending",
+    "tests": [
+      {
+        "args": [
+          [
+            3,
+            1,
+            2
+          ]
+        ],
+        "expectedReturn": [
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": []
+      }
+    ]
+  }
+}

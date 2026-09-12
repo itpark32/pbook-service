@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-runs-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-runs"
+  },
+  "kind": "guided",
+  "title": "Максимальная серия",
+  "statement": "Реализуйте `max_run(text)`, возвращающую длину самой длинной серии одинаковых соседних символов.",
+  "difficulty": "intro",
+  "starterCode": "def max_run(text):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def max_run(text):\n    best = current = 0\n    previous = None\n    for char in text:\n        if char == previous:\n            current += 1\n        else:\n            previous = char\n            current = 1\n        best = max(best, current)\n    return best",
+  "examples": [
+    {
+      "input": "[\"aaabbc\"]",
+      "output": "3"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "max_run",
+    "tests": [
+      {
+        "args": [
+          "aaabbc"
+        ],
+        "expectedReturn": 3
+      },
+      {
+        "args": [
+          ""
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          "x"
+        ],
+        "expectedReturn": 1
+      }
+    ]
+  }
+}

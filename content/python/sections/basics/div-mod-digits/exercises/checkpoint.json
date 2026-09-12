@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-basics-div-mod-digits-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-basics-div-mod-digits"
+  },
+  "kind": "checkpoint",
+  "title": "Сумма цифр",
+  "statement": "Дано трёхзначное неотрицательное число. Выведите сумму его цифр.",
+  "difficulty": "challenge",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "n = int(input())\nprint(n // 100 + n // 10 % 10 + n % 10)",
+  "examples": [
+    {
+      "input": "247\n",
+      "output": "13\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "247\n",
+        "expectedOutput": "13\n"
+      },
+      {
+        "input": "100\n",
+        "expectedOutput": "1\n"
+      }
+    ]
+  }
+}

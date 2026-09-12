@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "python-algorithms-binary-search-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-algorithms-binary-search"
+  },
+  "kind": "guided",
+  "title": "Левая граница",
+  "statement": "Верните индекс первого элемента, не меньшего target.",
+  "difficulty": "standard",
+  "starterCode": "def lower_bound(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def lower_bound(values, target):\n    left, right = 0, len(values)\n    while left < right:\n        middle = (left + right) // 2\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle\n    return left",
+  "examples": [
+    {
+      "input": "[[1,3,3,7],3]",
+      "output": "1"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "lower_bound",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            3,
+            3,
+            7
+          ],
+          3
+        ],
+        "expectedReturn": 1
+      },
+      {
+        "args": [
+          [
+            1,
+            2
+          ],
+          9
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

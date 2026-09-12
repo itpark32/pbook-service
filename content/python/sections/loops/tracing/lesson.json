@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-loops-tracing",
+  "sectionId": "loops",
+  "title": "Трассировка программ",
+  "slug": "tracing",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_b",
+    "sk15"
+  ],
+  "skillIds": [
+    "SK15"
+  ],
+  "sourcePaths": [
+    "docs/loops/tracing.md"
+  ],
+  "exerciseOrder": [
+    "python-loops-tracing-guided-1",
+    "python-loops-tracing-guided-2",
+    "python-loops-tracing-checkpoint"
+  ],
+  "checkpointExerciseId": "python-loops-tracing-checkpoint"
+}

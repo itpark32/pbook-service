@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-methods-slices-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-methods-slices"
+  },
+  "kind": "checkpoint",
+  "title": "Палиндром",
+  "statement": "Выведите `YES`, если строка читается одинаково в обе стороны, иначе `NO`.",
+  "difficulty": "challenge",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "text = input()\nprint('YES' if text == text[::-1] else 'NO')",
+  "examples": [
+    {
+      "input": "level\n",
+      "output": "YES\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "level\n",
+        "expectedOutput": "YES\n"
+      },
+      {
+        "input": "python\n",
+        "expectedOutput": "NO\n"
+      },
+      {
+        "input": "\n",
+        "expectedOutput": "YES\n"
+      }
+    ]
+  }
+}

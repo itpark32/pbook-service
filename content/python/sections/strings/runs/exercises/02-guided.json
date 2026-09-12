@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-runs-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-runs"
+  },
+  "kind": "guided",
+  "title": "Число смен",
+  "statement": "Реализуйте `changes(text)`: число позиций, где символ отличается от предыдущего.",
+  "difficulty": "standard",
+  "starterCode": "def changes(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def changes(text):\n    return sum(text[i] != text[i - 1] for i in range(1, len(text)))",
+  "examples": [
+    {
+      "input": "[\"aabcca\"]",
+      "output": "3"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "changes",
+    "tests": [
+      {
+        "args": [
+          "aabcca"
+        ],
+        "expectedReturn": 3
+      },
+      {
+        "args": [
+          ""
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          "xxx"
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

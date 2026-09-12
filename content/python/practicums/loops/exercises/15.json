@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-loops-task-15",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-loops"
+  },
+  "kind": "practicum",
+  "title": "15. Имя и приветствие",
+  "statement": "Прочитайте имя и выведите: `Привет, <имя>!`",
+  "difficulty": "challenge",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "name = input()\nprint(f'Привет, {name}!')",
+  "examples": [
+    {
+      "input": "Аня\n",
+      "output": "Привет, Аня!\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "Аня\n",
+        "expectedOutput": "Привет, Аня!\n"
+      },
+      {
+        "input": "Макс\n",
+        "expectedOutput": "Привет, Макс!\n"
+      }
+    ]
+  }
+}

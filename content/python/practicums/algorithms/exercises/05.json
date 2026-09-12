@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-05",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "5. Сумма цифр",
+  "statement": "Реализуйте функцию `sum_digits(n)` для неотрицательного целого числа.",
+  "difficulty": "intro",
+  "starterCode": "def sum_digits(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def sum_digits(n):\n    total = 0\n    while n > 0:\n        total += n % 10\n        n //= 10\n    return total",
+  "examples": [
+    {
+      "input": "[247]",
+      "output": "13"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "sum_digits",
+    "tests": [
+      {
+        "args": [
+          247
+        ],
+        "expectedReturn": 13
+      },
+      {
+        "args": [
+          0
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          1000
+        ],
+        "expectedReturn": 1
+      }
+    ]
+  }
+}

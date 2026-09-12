@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-basics-types-arithmetic-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-basics-types-arithmetic"
+  },
+  "kind": "checkpoint",
+  "title": "Стоимость покупки",
+  "statement": "Даны цена одной вещи и количество. Выведите общую стоимость.",
+  "difficulty": "challenge",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "price, count = map(int, input().split())\nprint(price * count)",
+  "examples": [
+    {
+      "input": "120 3\n",
+      "output": "360\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "120 3\n",
+        "expectedOutput": "360\n"
+      },
+      {
+        "input": "7 0\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

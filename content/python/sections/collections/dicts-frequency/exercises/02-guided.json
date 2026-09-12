@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "python-collections-dicts-frequency-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-collections-dicts-frequency"
+  },
+  "kind": "guided",
+  "title": "Самый частый",
+  "statement": "Верните самый частый элемент; при равенстве — лексикографически меньший. Для пустого списка верните None.",
+  "difficulty": "standard",
+  "starterCode": "def most_frequent(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def most_frequent(values):\n    if not values:\n        return None\n    counts = {}\n    for value in values:\n        counts[value] = counts.get(value, 0) + 1\n    return min(counts, key=lambda value: (-counts[value], value))",
+  "examples": [
+    {
+      "input": "[[\"b\",\"a\",\"b\"]]",
+      "output": "\"b\""
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "most_frequent",
+    "tests": [
+      {
+        "args": [
+          [
+            "b",
+            "a",
+            "b"
+          ]
+        ],
+        "expectedReturn": "b"
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": null
+      }
+    ]
+  }
+}

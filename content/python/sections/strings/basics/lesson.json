@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-basics",
+  "sectionId": "strings",
+  "title": "Строки: символы и индексы",
+  "slug": "basics",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_c",
+    "sk16"
+  ],
+  "skillIds": [
+    "SK16"
+  ],
+  "sourcePaths": [
+    "docs/strings/basics.md"
+  ],
+  "exerciseOrder": [
+    "python-strings-basics-guided-1",
+    "python-strings-basics-guided-2",
+    "python-strings-basics-checkpoint"
+  ],
+  "checkpointExerciseId": "python-strings-basics-checkpoint"
+}

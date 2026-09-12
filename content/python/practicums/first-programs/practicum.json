@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-first-programs",
+  "title": "Практикум 1. Первые программы",
+  "slug": "first-programs",
+  "skillIds": [
+    "SK01",
+    "SK02",
+    "SK03",
+    "SK04",
+    "SK05",
+    "SK06",
+    "SK07",
+    "SK08"
+  ],
+  "exerciseOrder": [
+    "python-practicum-first-programs-task-01",
+    "python-practicum-first-programs-task-02",
+    "python-practicum-first-programs-task-03",
+    "python-practicum-first-programs-task-04",
+    "python-practicum-first-programs-task-05",
+    "python-practicum-first-programs-task-06",
+    "python-practicum-first-programs-task-07",
+    "python-practicum-first-programs-task-08",
+    "python-practicum-first-programs-task-09",
+    "python-practicum-first-programs-task-10",
+    "python-practicum-first-programs-task-11",
+    "python-practicum-first-programs-task-12"
+  ]
+}

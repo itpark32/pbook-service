@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "python-collections-dicts-frequency-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-collections-dicts-frequency"
+  },
+  "kind": "checkpoint",
+  "title": "Инверсия словаря",
+  "statement": "Поменяйте местами ключи и значения словаря с уникальными значениями.",
+  "difficulty": "challenge",
+  "starterCode": "def invert(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def invert(mapping):\n    return {value: key for key, value in mapping.items()}",
+  "examples": [
+    {
+      "input": "[{\"a\":1,\"b\":2}]",
+      "output": "{\"1\":\"a\",\"2\":\"b\"}"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "invert",
+    "tests": [
+      {
+        "args": [
+          {
+            "a": 1,
+            "b": 2
+          }
+        ],
+        "expectedReturn": {
+          "1": "a",
+          "2": "b"
+        }
+      }
+    ]
+  }
+}

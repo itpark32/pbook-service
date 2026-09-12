@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "python-debugging-basics-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-debugging-basics"
+  },
+  "kind": "guided",
+  "title": "В диапазоне",
+  "statement": "Даны число, левая и правая границы. Выведите `YES`, если число лежит в диапазоне включительно, иначе `NO`.",
+  "difficulty": "standard",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "x, left, right = map(int, input().split())\nprint('YES' if left <= x <= right else 'NO')",
+  "examples": [
+    {
+      "input": "5 1 10\n",
+      "output": "YES\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5 1 10\n",
+        "expectedOutput": "YES\n"
+      },
+      {
+        "input": "11 1 10\n",
+        "expectedOutput": "NO\n"
+      },
+      {
+        "input": "1 1 10\n",
+        "expectedOutput": "YES\n"
+      }
+    ]
+  }
+}

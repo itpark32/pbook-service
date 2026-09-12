@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-numbers-bases",
+  "sectionId": "numbers",
+  "title": "Системы счисления",
+  "slug": "bases",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_e",
+    "sk38"
+  ],
+  "skillIds": [
+    "SK38"
+  ],
+  "sourcePaths": [
+    "docs/numbers/bases.md"
+  ],
+  "exerciseOrder": [
+    "python-numbers-bases-guided-1",
+    "python-numbers-bases-guided-2",
+    "python-numbers-bases-checkpoint"
+  ],
+  "checkpointExerciseId": "python-numbers-bases-checkpoint"
+}

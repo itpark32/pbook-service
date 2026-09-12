@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "python-collections-dicts-frequency-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-collections-dicts-frequency"
+  },
+  "kind": "guided",
+  "title": "Таблица частот",
+  "statement": "Верните словарь частот элементов.",
+  "difficulty": "intro",
+  "starterCode": "def frequencies(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def frequencies(values):\n    result = {}\n    for value in values:\n        result[value] = result.get(value, 0) + 1\n    return result",
+  "examples": [
+    {
+      "input": "[[\"a\",\"b\",\"a\"]]",
+      "output": "{\"a\":2,\"b\":1}"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "frequencies",
+    "tests": [
+      {
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
+        ],
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": {}
+      }
+    ]
+  }
+}

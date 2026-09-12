@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-01",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "1. Последнее вхождение",
+  "statement": "Верните индекс последнего вхождения target или -1.",
+  "difficulty": "intro",
+  "starterCode": "def find_last(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def find_last(values, target):\n    answer = -1\n    for i, value in enumerate(values):\n        if value == target:\n            answer = i\n    return answer",
+  "examples": [
+    {
+      "input": "[[4,2,4],4]",
+      "output": "2"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "find_last",
+    "tests": [
+      {
+        "args": [
+          [
+            4,
+            2,
+            4
+          ],
+          4
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          [
+            1
+          ],
+          2
+        ],
+        "expectedReturn": -1
+      }
+    ]
+  }
+}

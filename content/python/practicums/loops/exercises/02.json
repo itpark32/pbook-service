@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-loops-task-02",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-loops"
+  },
+  "kind": "practicum",
+  "title": "2. Факториал",
+  "statement": "Дано N ≥ 0. Выведите произведение чисел от 1 до N.",
+  "difficulty": "intro",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "n = int(input())\nproduct = 1\nfor value in range(2, n + 1):\n    product *= value\nprint(product)",
+  "examples": [
+    {
+      "input": "5\n",
+      "output": "120\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n",
+        "expectedOutput": "120\n"
+      },
+      {
+        "input": "0\n",
+        "expectedOutput": "1\n"
+      }
+    ]
+  }
+}

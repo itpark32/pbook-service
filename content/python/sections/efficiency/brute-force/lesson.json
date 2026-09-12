@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-brute-force-basics",
+  "sectionId": "efficiency",
+  "title": "Полный перебор",
+  "slug": "brute-force",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_e",
+    "sk39"
+  ],
+  "skillIds": [
+    "SK39"
+  ],
+  "sourcePaths": [
+    "docs/brute-force/basics.md"
+  ],
+  "exerciseOrder": [
+    "python-brute-force-basics-guided-1",
+    "python-brute-force-basics-guided-2",
+    "python-brute-force-basics-checkpoint"
+  ],
+  "checkpointExerciseId": "python-brute-force-basics-checkpoint"
+}

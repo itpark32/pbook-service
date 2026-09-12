@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-processing",
+  "sectionId": "lists",
+  "title": "Обработка списков",
+  "slug": "processing",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_c",
+    "sk20"
+  ],
+  "skillIds": [
+    "SK20"
+  ],
+  "sourcePaths": [
+    "docs/lists/processing.md"
+  ],
+  "exerciseOrder": [
+    "python-lists-processing-guided-1",
+    "python-lists-processing-guided-2",
+    "python-lists-processing-checkpoint"
+  ],
+  "checkpointExerciseId": "python-lists-processing-checkpoint"
+}

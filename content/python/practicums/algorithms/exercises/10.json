@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-10",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "10. Делители",
+  "statement": "Верните делители положительного n по возрастанию.",
+  "difficulty": "standard",
+  "starterCode": "def divisors(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def divisors(n):\n    return [value for value in range(1, n + 1) if n % value == 0]",
+  "examples": [
+    {
+      "input": "[6]",
+      "output": "[1,2,3,6]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "divisors",
+    "tests": [
+      {
+        "args": [
+          6
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          3,
+          6
+        ]
+      },
+      {
+        "args": [
+          1
+        ],
+        "expectedReturn": [
+          1
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "python-algorithms-python-sort-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-algorithms-python-sort"
+  },
+  "kind": "checkpoint",
+  "title": "По длине",
+  "statement": "Верните строки, отсортированные сначала по длине, затем лексикографически.",
+  "difficulty": "challenge",
+  "starterCode": "def by_length(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def by_length(words):\n    return sorted(words, key=lambda word: (len(word), word))",
+  "examples": [
+    {
+      "input": "[[\"bbb\",\"a\",\"cc\",\"bb\"]]",
+      "output": "[\"a\",\"bb\",\"cc\",\"bbb\"]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "by_length",
+    "tests": [
+      {
+        "args": [
+          [
+            "bbb",
+            "a",
+            "cc",
+            "bb"
+          ]
+        ],
+        "expectedReturn": [
+          "a",
+          "bb",
+          "cc",
+          "bbb"
+        ]
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": []
+      }
+    ]
+  }
+}

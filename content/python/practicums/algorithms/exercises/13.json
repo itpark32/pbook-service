@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-13",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "13. Эхо",
+  "statement": "Прочитайте строку и выведите её без изменений.",
+  "difficulty": "challenge",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "print(input())",
+  "examples": [
+    {
+      "input": "Python\n",
+      "output": "Python\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "Python\n",
+        "expectedOutput": "Python\n"
+      },
+      {
+        "input": "42\n",
+        "expectedOutput": "42\n"
+      }
+    ]
+  }
+}

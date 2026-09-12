@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-loops-accumulators-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-loops-accumulators"
+  },
+  "kind": "guided",
+  "title": "Положительные элементы",
+  "statement": "В первой строке N, во второй N целых чисел. Выведите количество положительных.",
+  "difficulty": "intro",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value > 0 for value in values[:n]))",
+  "examples": [
+    {
+      "input": "5\n-1 2 0 3 4\n",
+      "output": "3\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n-1 2 0 3 4\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "0\n\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-functions-basics",
+  "sectionId": "functions",
+  "title": "Функции: параметры и return",
+  "slug": "basics",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_d",
+    "sk26"
+  ],
+  "skillIds": [
+    "SK26"
+  ],
+  "sourcePaths": [
+    "docs/functions/basics.md"
+  ],
+  "exerciseOrder": [
+    "python-functions-basics-guided-1",
+    "python-functions-basics-guided-2",
+    "python-functions-basics-checkpoint"
+  ],
+  "checkpointExerciseId": "python-functions-basics-checkpoint"
+}

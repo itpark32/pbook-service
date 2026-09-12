@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-matrices",
+  "sectionId": "lists",
+  "title": "Алгоритмы обработки матриц",
+  "slug": "matrix-algorithms",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_c",
+    "sk23"
+  ],
+  "skillIds": [
+    "SK23"
+  ],
+  "sourcePaths": [
+    "docs/lists/2d-lists.md"
+  ],
+  "exerciseOrder": [
+    "python-lists-matrices-guided-1",
+    "python-lists-matrices-guided-2",
+    "python-lists-matrices-checkpoint"
+  ],
+  "checkpointExerciseId": "python-lists-matrices-checkpoint"
+}

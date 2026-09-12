@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-basics-div-mod-digits-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-basics-div-mod-digits"
+  },
+  "kind": "guided",
+  "title": "Десятки",
+  "statement": "Выведите цифру десятков неотрицательного числа.",
+  "difficulty": "standard",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "n = int(input())\nprint(n // 10 % 10)",
+  "examples": [
+    {
+      "input": "247\n",
+      "output": "4\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "247\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "8\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

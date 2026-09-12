@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "python-complexity-basics-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-complexity-basics"
+  },
+  "kind": "guided",
+  "title": "Пары с заданной суммой",
+  "statement": "Посчитайте пары индексов i < j, сумма элементов которых равна target.",
+  "difficulty": "intro",
+  "starterCode": "def pair_count(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def pair_count(values, target):\n    count = 0\n    for i in range(len(values)):\n        for j in range(i + 1, len(values)):\n            if values[i] + values[j] == target:\n                count += 1\n    return count",
+  "examples": [
+    {
+      "input": "[[1,2,3,4],5]",
+      "output": "2"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "pair_count",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          5
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-final-task-03",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-final"
+  },
+  "kind": "practicum",
+  "title": "3. Только в одном",
+  "statement": "Верните количество значений, встречающихся только в одной из двух коллекций.",
+  "difficulty": "intro",
+  "starterCode": "def symmetric_count(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def symmetric_count(left, right):\n    return len(set(left) ^ set(right))",
+  "examples": [
+    {
+      "input": "[[1,2],[2,3]]",
+      "output": "2"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "symmetric_count",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          [],
+          []
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

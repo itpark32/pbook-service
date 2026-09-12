@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-algorithms-binary-search",
+  "sectionId": "algorithms",
+  "title": "Двоичный поиск",
+  "slug": "binary-search",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_e",
+    "sk33"
+  ],
+  "skillIds": [
+    "SK33"
+  ],
+  "sourcePaths": [
+    "docs/algorithms/search.md"
+  ],
+  "exerciseOrder": [
+    "python-algorithms-binary-search-guided-1",
+    "python-algorithms-binary-search-guided-2",
+    "python-algorithms-binary-search-checkpoint"
+  ],
+  "checkpointExerciseId": "python-algorithms-binary-search-checkpoint"
+}

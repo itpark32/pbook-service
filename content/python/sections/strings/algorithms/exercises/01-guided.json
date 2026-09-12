@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-algorithms-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-algorithms"
+  },
+  "kind": "guided",
+  "title": "Количество букв a",
+  "statement": "Прочитайте строку и выведите количество латинских букв `a`.",
+  "difficulty": "intro",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "text = input()\nprint(text.count('a'))",
+  "examples": [
+    {
+      "input": "abracadabra\n",
+      "output": "5\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "abracadabra\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "Python\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

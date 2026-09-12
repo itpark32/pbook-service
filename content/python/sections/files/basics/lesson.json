@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-files-basics",
+  "sectionId": "files",
+  "title": "Чтение и запись файлов",
+  "slug": "basics",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_d",
+    "sk30"
+  ],
+  "skillIds": [
+    "SK30"
+  ],
+  "sourcePaths": [
+    "docs/files/basics.md"
+  ],
+  "exerciseOrder": [
+    "python-files-basics-guided-1",
+    "python-files-basics-guided-2",
+    "python-files-basics-checkpoint"
+  ],
+  "checkpointExerciseId": "python-files-basics-checkpoint"
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-functions-files-task-02",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-functions-files"
+  },
+  "kind": "practicum",
+  "title": "2. Главная диагональ",
+  "statement": "Верните сумму главной диагонали квадратной матрицы.",
+  "difficulty": "intro",
+  "starterCode": "def diagonal_sum(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def diagonal_sum(matrix):\n    return sum(matrix[i][i] for i in range(len(matrix)))",
+  "examples": [
+    {
+      "input": "[[[1,2],[3,4]]]",
+      "output": "5"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "diagonal_sum",
+    "tests": [
+      {
+        "args": [
+          [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        ],
+        "expectedReturn": 5
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

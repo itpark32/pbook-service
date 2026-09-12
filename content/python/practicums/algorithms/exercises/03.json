@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-03",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "3. Общие значения",
+  "statement": "Верните отсортированный список общих значений двух коллекций.",
+  "difficulty": "intro",
+  "starterCode": "def common(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def common(left, right):\n    return sorted(set(left) & set(right))",
+  "examples": [
+    {
+      "input": "[[3,1,2],[2,3,4]]",
+      "output": "[2,3]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "common",
+    "tests": [
+      {
+        "args": [
+          [
+            3,
+            1,
+            2
+          ],
+          [
+            2,
+            3,
+            4
+          ]
+        ],
+        "expectedReturn": [
+          2,
+          3
+        ]
+      },
+      {
+        "args": [
+          [],
+          [
+            1
+          ]
+        ],
+        "expectedReturn": []
+      }
+    ]
+  }
+}

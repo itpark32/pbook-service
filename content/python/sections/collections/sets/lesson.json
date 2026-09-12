@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-collections-sets",
+  "sectionId": "collections",
+  "title": "Множества",
+  "slug": "sets",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_c",
+    "sk24"
+  ],
+  "skillIds": [
+    "SK24"
+  ],
+  "sourcePaths": [
+    "docs/collections/tuples-sets.md"
+  ],
+  "exerciseOrder": [
+    "python-collections-sets-guided-1",
+    "python-collections-sets-guided-2",
+    "python-collections-sets-checkpoint"
+  ],
+  "checkpointExerciseId": "python-collections-sets-checkpoint"
+}

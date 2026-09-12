@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "python-files-basics-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-files-basics"
+  },
+  "kind": "checkpoint",
+  "title": "Самая длинная строка",
+  "statement": "В `lines.txt` записан текст. Запишите первую самую длинную строку без перевода строки в `answer.txt`.",
+  "difficulty": "challenge",
+  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
+  "hints": [
+    "Откройте файл через with, чтобы он закрылся автоматически.",
+    "Удаляйте перевод строки только там, где он мешает обработке."
+  ],
+  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
+  "examples": [],
+  "fileExamples": [
+    {
+      "title": "Пример файлов",
+      "files": [
+        {
+          "path": "lines.txt",
+          "content": "кот\nпрограммирование\nкод\n"
+        }
+      ]
+    }
+  ],
+  "judge": {
+    "type": "files",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
+      }
+    ]
+  }
+}

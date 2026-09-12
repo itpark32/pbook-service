@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "python-complexity-basics-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-complexity-basics"
+  },
+  "kind": "checkpoint",
+  "title": "Лучший допустимый",
+  "statement": "Верните наибольшее число из values, не превосходящее limit, или None.",
+  "difficulty": "challenge",
+  "starterCode": "def best_allowed(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def best_allowed(values, limit):\n    candidates = [value for value in values if value <= limit]\n    return max(candidates, default=None)",
+  "examples": [
+    {
+      "input": "[[2,9,5],6]",
+      "output": "5"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "best_allowed",
+    "tests": [
+      {
+        "args": [
+          [
+            2,
+            9,
+            5
+          ],
+          6
+        ],
+        "expectedReturn": 5
+      },
+      {
+        "args": [
+          [
+            8
+          ],
+          3
+        ],
+        "expectedReturn": null
+      }
+    ]
+  }
+}

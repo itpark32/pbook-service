@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-files-text",
+  "sectionId": "files",
+  "title": "Текстовые данные в файлах",
+  "slug": "text",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_d",
+    "sk32"
+  ],
+  "skillIds": [
+    "SK32"
+  ],
+  "sourcePaths": [
+    "docs/files/text.md"
+  ],
+  "exerciseOrder": [
+    "python-files-text-guided-1",
+    "python-files-text-guided-2",
+    "python-files-text-checkpoint"
+  ],
+  "checkpointExerciseId": "python-files-text-checkpoint"
+}

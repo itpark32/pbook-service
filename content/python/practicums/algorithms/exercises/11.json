@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-11",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "11. НОД",
+  "statement": "Верните наибольший общий делитель двух неотрицательных чисел.",
+  "difficulty": "challenge",
+  "starterCode": "def gcd(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a",
+  "examples": [
+    {
+      "input": "[18,24]",
+      "output": "6"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "gcd",
+    "tests": [
+      {
+        "args": [
+          18,
+          24
+        ],
+        "expectedReturn": 6
+      },
+      {
+        "args": [
+          7,
+          0
+        ],
+        "expectedReturn": 7
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-complexity-basics",
+  "sectionId": "efficiency",
+  "title": "Оценка сложности",
+  "slug": "complexity",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_e",
+    "sk40"
+  ],
+  "skillIds": [
+    "SK40"
+  ],
+  "sourcePaths": [
+    "docs/complexity/basics.md"
+  ],
+  "exerciseOrder": [
+    "python-complexity-basics-guided-1",
+    "python-complexity-basics-guided-2",
+    "python-complexity-basics-checkpoint"
+  ],
+  "checkpointExerciseId": "python-complexity-basics-checkpoint"
+}

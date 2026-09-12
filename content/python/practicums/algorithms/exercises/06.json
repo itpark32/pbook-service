@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-06",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "6. Рекурсивная степень",
+  "statement": "Реализуйте рекурсивную функцию `power(a, n)` для n ≥ 0.",
+  "difficulty": "standard",
+  "starterCode": "def power(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def power(a, n):\n    if n == 0:\n        return 1\n    return a * power(a, n - 1)",
+  "examples": [
+    {
+      "input": "[2,5]",
+      "output": "32"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "power",
+    "tests": [
+      {
+        "args": [
+          2,
+          5
+        ],
+        "expectedReturn": 32
+      },
+      {
+        "args": [
+          9,
+          0
+        ],
+        "expectedReturn": 1
+      }
+    ],
+    "structuralConstraints": {
+      "requireRecursion": [
+        "power"
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-numbers-primes-gcd",
+  "sectionId": "numbers",
+  "title": "Простые числа и НОД",
+  "slug": "primes-gcd",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_e",
+    "sk37"
+  ],
+  "skillIds": [
+    "SK37"
+  ],
+  "sourcePaths": [
+    "docs/numbers/primes-gcd.md"
+  ],
+  "exerciseOrder": [
+    "python-numbers-primes-gcd-guided-1",
+    "python-numbers-primes-gcd-guided-2",
+    "python-numbers-primes-gcd-checkpoint"
+  ],
+  "checkpointExerciseId": "python-numbers-primes-gcd-checkpoint"
+}

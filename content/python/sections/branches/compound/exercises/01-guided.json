@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "python-branches-compound-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-branches-compound"
+  },
+  "kind": "guided",
+  "title": "Знак числа",
+  "statement": "Выведите `positive`, `negative` или `zero` в зависимости от числа.",
+  "difficulty": "intro",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "n = int(input())\nif n > 0:\n    print('positive')\nelif n < 0:\n    print('negative')\nelse:\n    print('zero')",
+  "examples": [
+    {
+      "input": "8\n",
+      "output": "positive\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "8\n",
+        "expectedOutput": "positive\n"
+      },
+      {
+        "input": "-2\n",
+        "expectedOutput": "negative\n"
+      },
+      {
+        "input": "0\n",
+        "expectedOutput": "zero\n"
+      }
+    ]
+  }
+}

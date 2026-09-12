@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-13",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "13. Сумма чётных",
+  "statement": "В первой строке N, во второй N чисел. Выведите сумму чётных элементов.",
+  "difficulty": "challenge",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value for value in values[:n] if value % 2 == 0))",
+  "examples": [
+    {
+      "input": "5\n1 2 3 4 5\n",
+      "output": "6\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n1 2 3 4 5\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "3\n1 3 5\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

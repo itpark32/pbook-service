@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-matrices-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-matrices"
+  },
+  "kind": "checkpoint",
+  "title": "Максимум матрицы",
+  "statement": "Верните максимальный элемент матрицы или None для пустой матрицы.",
+  "difficulty": "challenge",
+  "starterCode": "def matrix_max(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def matrix_max(matrix):\n    return max((value for row in matrix for value in row), default=None)",
+  "examples": [
+    {
+      "input": "[[[1,7],[3]]]",
+      "output": "7"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "matrix_max",
+    "tests": [
+      {
+        "args": [
+          [
+            [
+              1,
+              7
+            ],
+            [
+              3
+            ]
+          ]
+        ],
+        "expectedReturn": 7
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": null
+      }
+    ]
+  }
+}

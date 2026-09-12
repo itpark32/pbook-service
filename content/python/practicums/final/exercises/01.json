@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-final-task-01",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-final"
+  },
+  "kind": "practicum",
+  "title": "1. Равные пары",
+  "statement": "Посчитайте пары одинаковых соседних элементов.",
+  "difficulty": "intro",
+  "starterCode": "def equal_pairs(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def equal_pairs(values):\n    return sum(values[i] == values[i - 1] for i in range(1, len(values)))",
+  "examples": [
+    {
+      "input": "[[1,1,2,2]]",
+      "output": "2"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "equal_pairs",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            1,
+            2,
+            2
+          ]
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

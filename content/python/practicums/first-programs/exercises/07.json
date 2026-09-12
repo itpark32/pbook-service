@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-first-programs-task-07",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-first-programs"
+  },
+  "kind": "practicum",
+  "title": "7. Делимость",
+  "statement": "Выведите `YES`, если число положительное и делится на 3, иначе `NO`.",
+  "difficulty": "standard",
+  "starterCode": "",
+  "hints": [
+    "Разберите входные данные до вычислений.",
+    "Проверьте решение на граничном примере."
+  ],
+  "solution": "n = int(input())\nprint('YES' if n > 0 and n % 3 == 0 else 'NO')",
+  "examples": [
+    {
+      "input": "12\n",
+      "output": "YES\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "12\n",
+        "expectedOutput": "YES\n"
+      },
+      {
+        "input": "-3\n",
+        "expectedOutput": "NO\n"
+      },
+      {
+        "input": "10\n",
+        "expectedOutput": "NO\n"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "python-numbers-bases-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-numbers-bases"
+  },
+  "kind": "checkpoint",
+  "title": "Сумма цифр в основании",
+  "statement": "Верните сумму цифр n в системе с основанием base от 2 до 10.",
+  "difficulty": "challenge",
+  "starterCode": "def base_digit_sum(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def base_digit_sum(n, base):\n    total = 0\n    while n:\n        total += n % base\n        n //= base\n    return total",
+  "examples": [
+    {
+      "input": "[10,2]",
+      "output": "2"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "base_digit_sum",
+    "tests": [
+      {
+        "args": [
+          10,
+          2
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          25,
+          10
+        ],
+        "expectedReturn": 7
+      },
+      {
+        "args": [
+          0,
+          3
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

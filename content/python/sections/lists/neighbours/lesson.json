@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-neighbours",
+  "sectionId": "lists",
+  "title": "Соседи, пары и тройки",
+  "slug": "neighbours",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_c",
+    "sk22"
+  ],
+  "skillIds": [
+    "SK22"
+  ],
+  "sourcePaths": [
+    "docs/lists/neighbours.md"
+  ],
+  "exerciseOrder": [
+    "python-lists-neighbours-guided-1",
+    "python-lists-neighbours-guided-2",
+    "python-lists-neighbours-checkpoint"
+  ],
+  "checkpointExerciseId": "python-lists-neighbours-checkpoint"
+}

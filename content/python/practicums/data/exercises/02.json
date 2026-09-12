@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-02",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "2. Суммы строк",
+  "statement": "Верните список сумм строк матрицы.",
+  "difficulty": "intro",
+  "starterCode": "def row_sums(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def row_sums(matrix):\n    return [sum(row) for row in matrix]",
+  "examples": [
+    {
+      "input": "[[[1,2],[3,4]]]",
+      "output": "[3,7]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "row_sums",
+    "tests": [
+      {
+        "args": [
+          [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        ],
+        "expectedReturn": [
+          3,
+          7
+        ]
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": []
+      }
+    ]
+  }
+}

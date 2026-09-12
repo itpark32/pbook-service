@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-graphs-paths",
+  "sectionId": "graphs",
+  "title": "Пути в графах",
+  "slug": "paths",
+  "readingMinutes": 18,
+  "practiceMinutes": 40,
+  "tags": [
+    "python",
+    "batch_f",
+    "sk44"
+  ],
+  "skillIds": [
+    "SK44"
+  ],
+  "sourcePaths": [
+    "docs/graphs/paths.md"
+  ],
+  "exerciseOrder": [
+    "python-graphs-paths-guided-1",
+    "python-graphs-paths-guided-2",
+    "python-graphs-paths-checkpoint"
+  ],
+  "checkpointExerciseId": "python-graphs-paths-checkpoint"
+}

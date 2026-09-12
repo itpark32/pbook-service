@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-basics-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-basics"
+  },
+  "kind": "guided",
+  "title": "Сумма положительных",
+  "statement": "Верните сумму положительных элементов списка.",
+  "difficulty": "intro",
+  "starterCode": "def positive_sum(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def positive_sum(values):\n    return sum(value for value in values if value > 0)",
+  "examples": [
+    {
+      "input": "[[1,-2,3]]",
+      "output": "4"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "positive_sum",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            -2,
+            3
+          ]
+        ],
+        "expectedReturn": 4
+      },
+      {
+        "args": [
+          [
+            -5,
+            0
+          ]
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

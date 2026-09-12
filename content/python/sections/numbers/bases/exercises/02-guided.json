@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "python-numbers-bases-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-numbers-bases"
+  },
+  "kind": "guided",
+  "title": "Из двоичной",
+  "statement": "Верните значение корректной двоичной строки.",
+  "difficulty": "standard",
+  "starterCode": "def from_binary(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def from_binary(text):\n    value = 0\n    for digit in text:\n        value = value * 2 + int(digit)\n    return value",
+  "examples": [
+    {
+      "input": "[\"1010\"]",
+      "output": "10"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "from_binary",
+    "tests": [
+      {
+        "args": [
+          "1010"
+        ],
+        "expectedReturn": 10
+      },
+      {
+        "args": [
+          "0"
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

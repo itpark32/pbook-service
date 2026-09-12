@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-graphs-traversal",
+  "sectionId": "graphs",
+  "title": "Обходы DFS и BFS",
+  "slug": "traversal",
+  "readingMinutes": 18,
+  "practiceMinutes": 40,
+  "tags": [
+    "python",
+    "batch_f",
+    "sk43"
+  ],
+  "skillIds": [
+    "SK43"
+  ],
+  "sourcePaths": [
+    "docs/graphs/basics.md",
+    "docs/graphs/paths.md"
+  ],
+  "exerciseOrder": [
+    "python-graphs-traversal-guided-1",
+    "python-graphs-traversal-guided-2",
+    "python-graphs-traversal-checkpoint"
+  ],
+  "checkpointExerciseId": "python-graphs-traversal-checkpoint"
+}

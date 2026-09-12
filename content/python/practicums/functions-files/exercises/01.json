@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-functions-files-task-01",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-functions-files"
+  },
+  "kind": "practicum",
+  "title": "1. Количество вхождений",
+  "statement": "Верните количество элементов, равных target.",
+  "difficulty": "intro",
+  "starterCode": "def count_target(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def count_target(values, target):\n    count = 0\n    for value in values:\n        if value == target:\n            count += 1\n    return count",
+  "examples": [
+    {
+      "input": "[[1,1,2],1]",
+      "output": "2"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "count_target",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            1,
+            2
+          ],
+          1
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

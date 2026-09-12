@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-04",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "4. Самый частый",
+  "statement": "Верните самый частый элемент; при равенстве — лексикографически меньший. Для пустого списка верните None.",
+  "difficulty": "intro",
+  "starterCode": "def most_frequent(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def most_frequent(values):\n    if not values:\n        return None\n    counts = {}\n    for value in values:\n        counts[value] = counts.get(value, 0) + 1\n    return min(counts, key=lambda value: (-counts[value], value))",
+  "examples": [
+    {
+      "input": "[[\"b\",\"a\",\"b\"]]",
+      "output": "\"b\""
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "most_frequent",
+    "tests": [
+      {
+        "args": [
+          [
+            "b",
+            "a",
+            "b"
+          ]
+        ],
+        "expectedReturn": "b"
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "python-algorithms-binary-search-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-algorithms-binary-search"
+  },
+  "kind": "checkpoint",
+  "title": "Есть ли значение",
+  "statement": "Верните True, если target есть в отсортированном списке.",
+  "difficulty": "challenge",
+  "starterCode": "def contains_sorted(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def contains_sorted(values, target):\n    left, right = 0, len(values)\n    while left < right:\n        middle = (left + right) // 2\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle\n    return left < len(values) and values[left] == target",
+  "examples": [
+    {
+      "input": "[[1,4,9],4]",
+      "output": "true"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "contains_sorted",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            4,
+            9
+          ],
+          4
+        ],
+        "expectedReturn": true
+      },
+      {
+        "args": [
+          [
+            1,
+            4
+          ],
+          3
+        ],
+        "expectedReturn": false
+      }
+    ]
+  }
+}

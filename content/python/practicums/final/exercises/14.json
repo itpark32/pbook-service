@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-final-task-14",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-final"
+  },
+  "kind": "practicum",
+  "title": "14. Степени вершин",
+  "statement": "По числу вершин и списку неориентированных рёбер верните степени вершин.",
+  "difficulty": "standard",
+  "starterCode": "def degrees(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def degrees(n, edges):\n    result = [0] * n\n    for left, right in edges:\n        result[left] += 1\n        result[right] += 1\n    return result",
+  "examples": [
+    {
+      "input": "[4,[[0,1],[1,2]]]",
+      "output": "[1,2,1,0]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "degrees",
+    "tests": [
+      {
+        "args": [
+          4,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "args": [
+          0,
+          []
+        ],
+        "expectedReturn": []
+      }
+    ]
+  }
+}

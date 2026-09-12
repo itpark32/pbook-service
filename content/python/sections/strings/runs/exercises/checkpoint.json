@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-runs-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-runs"
+  },
+  "kind": "checkpoint",
+  "title": "Первая длинная серия",
+  "statement": "Реализуйте `first_double(text)`: индекс первого символа первой пары одинаковых соседей или -1.",
+  "difficulty": "challenge",
+  "starterCode": "def first_double(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def first_double(text):\n    for i in range(len(text) - 1):\n        if text[i] == text[i + 1]:\n            return i\n    return -1",
+  "examples": [
+    {
+      "input": "[\"abcc\"]",
+      "output": "2"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "first_double",
+    "tests": [
+      {
+        "args": [
+          "abcc"
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          "abc"
+        ],
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          "aa"
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

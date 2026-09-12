@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "python-algorithms-python-sort-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-algorithms-python-sort"
+  },
+  "kind": "guided",
+  "title": "Сортировка выбором",
+  "statement": "Верните новый список, отсортированный выбором по возрастанию.",
+  "difficulty": "intro",
+  "starterCode": "def selection_sort(...):\n    pass\n",
+  "hints": [
+    "Сначала сформулируйте, что функция должна вернуть.",
+    "Проверьте пустые и граничные данные."
+  ],
+  "solution": "def selection_sort(values):\n    result = list(values)\n    for left in range(len(result)):\n        smallest = left\n        for i in range(left + 1, len(result)):\n            if result[i] < result[smallest]:\n                smallest = i\n        result[left], result[smallest] = result[smallest], result[left]\n    return result",
+  "examples": [
+    {
+      "input": "[[3,1,2]]",
+      "output": "[1,2,3]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "selection_sort",
+    "tests": [
+      {
+        "args": [
+          [
+            3,
+            1,
+            2
+          ]
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": []
+      }
+    ]
+  }
+}

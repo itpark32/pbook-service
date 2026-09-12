@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "python-branches-elif-ranges",
+  "sectionId": "branches",
+  "title": "elif и диапазоны",
+  "slug": "elif-ranges",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_a",
+    "sk06"
+  ],
+  "skillIds": [
+    "SK06"
+  ],
+  "sourcePaths": [
+    "docs/basics/conditions.md"
+  ],
+  "exerciseOrder": [
+    "python-branches-elif-ranges-guided-1",
+    "python-branches-elif-ranges-guided-2",
+    "python-branches-elif-ranges-checkpoint"
+  ],
+  "checkpointExerciseId": "python-branches-elif-ranges-checkpoint"
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "python-files-text-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-files-text"
+  },
+  "kind": "guided",
+  "title": "Удвоенные значения",
+  "statement": "Прочитайте числа из `input.txt` и запишите их удвоенные значения в `output.txt` через пробел.",
+  "difficulty": "standard",
+  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
+  "hints": [
+    "Откройте файл через with, чтобы он закрылся автоматически.",
+    "Удаляйте перевод строки только там, где он мешает обработке."
+  ],
+  "solution": "with open('input.txt', encoding='utf-8') as source:\n    values = list(map(int, source.read().split()))\nwith open('output.txt', 'w', encoding='utf-8') as target:\n    target.write(' '.join(str(value * 2) for value in values))",
+  "examples": [],
+  "fileExamples": [
+    {
+      "title": "Пример файлов",
+      "files": [
+        {
+          "path": "input.txt",
+          "content": "2 -3 0\n"
+        }
+      ]
+    }
+  ],
+  "judge": {
+    "type": "files",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "inputFiles": [
+          {
+            "path": "input.txt",
+            "content": "2 -3 0\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "output.txt",
+            "content": "4 -6 0"
+          }
+        ]
+      }
+    ]
+  }
+}
