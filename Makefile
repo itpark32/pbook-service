@@ -1,4 +1,4 @@
-.PHONY: import-content validate-content test-content-solutions test-validator test-backend test-frontend lint format up
+.PHONY: import-content validate-content test-content-solutions test-validator acceptance test-backend test-frontend lint format up
 
 import-content:
 	node scripts/import-metodichka.mjs --through=F --reset
@@ -11,6 +11,9 @@ test-content-solutions:
 
 test-validator:
 	node scripts/validate-content.test.mjs
+
+acceptance:
+	node scripts/final-acceptance.mjs
 
 test-backend:
 	cd backend && go test ./...
