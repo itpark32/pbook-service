@@ -1,14 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import type {
   CSSProperties,
   KeyboardEvent as ReactKeyboardEvent,
   PointerEvent as ReactPointerEvent
 } from "react";
-import Editor from "@monaco-editor/react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Link, Navigate, Route, Routes, useSearchParams } from "react-router-dom";
-import { lessonContents } from "./content";
+import { Link, Navigate, Route, Routes, useParams, useSearchParams } from "react-router-dom";
+import { courseEntries, loadLessonContent } from "./content";
 import type { LessonContent } from "./content";
 import { judgeFiles, judgeFunction, judgeStdinStdout } from "./lib/judge";
 import { guestProgress } from "./lib/progress";
@@ -26,6 +25,19 @@ import type {
   RunResult,
   StdinStdoutJudge
 } from "./types";
+
+const MonacoEditor = lazy(() => import("@monaco-editor/react"));
+let sharedRuntime: PythonRuntime | null = null;
+function getSharedRuntime() {
+  if (!sharedRuntime) sharedRuntime = new PythonRuntime();
+  return sharedRuntime;
+}
+
+function safeMarkdownUrl(value: string) {
+  const trimmed = value.trim();
+  if (/^(https?:|mailto:|#|\/)/i.test(trimmed) || !/^[a-z][a-z\d+.-]*:/i.test(trimmed)) return trimmed;
+  return "";
+}
 
 function printable(value: string) {
   return value || "(пусто)";
@@ -115,7 +127,7 @@ function ExerciseWorkspace({
   onCheckpoint: () => void;
   onCompleted: (exerciseId: string) => void;
 }) {
-  const runtime = useMemo(() => new PythonRuntime(), []);
+  const runtimeRef = useRef<PythonRuntime | null>(null);
   const [code, setCode] = useState(() => guestProgress.getCode(exercise.id, exercise.starterCode));
   const [stdin, setStdin] = useState(() => guestProgress.getStdin(exercise.id));
   const [result, setResult] = useState<RunResult | FileRunResult | null>(null);
@@ -141,7 +153,6 @@ function ExerciseWorkspace({
     setSolutionDialogOpen(false);
     setSelectedFileExample(0);
   }, [exercise]);
-  useEffect(() => () => runtime.dispose(), [runtime]);
   useEffect(() => {
     let active = true;
     setCloudReady(false);
@@ -193,6 +204,7 @@ function ExerciseWorkspace({
     setRunning(true);
     setJudge(null);
     setPythonStatus("Python выполняет программу…");
+    const runtime = runtimeRef.current ?? (runtimeRef.current = getSharedRuntime());
     const next =
       exercise.judge.type === "files"
         ? await runtime.runFiles(code, exercise.fileExamples?.[selectedFileExample]?.files ?? [])
@@ -209,6 +221,7 @@ function ExerciseWorkspace({
     setRunning(true);
     setResult(null);
     setPythonStatus("Проверяем тесты…");
+    const runtime = runtimeRef.current ?? (runtimeRef.current = getSharedRuntime());
     const next =
       exercise.judge.type === "function"
         ? await judgeFunction(runtime, exercise as Exercise & { judge: FunctionJudge }, code)
@@ -334,14 +347,16 @@ function ExerciseWorkspace({
         </section>
       ) : null}
       <div className="editor-wrap">
-        <Editor
-          height="330px"
-          language="python"
-          value={code}
-          onChange={(value) => setCode(value ?? "")}
-          theme={theme === "dark" ? "vs-dark" : "light"}
-          options={{ minimap: { enabled: false }, fontSize: 15, automaticLayout: true, tabSize: 4 }}
-        />
+        <Suspense fallback={<div className="editor-loading">Открываем редактор…</div>}>
+          <MonacoEditor
+            height="330px"
+            language="python"
+            value={code}
+            onChange={(value) => setCode(value ?? "")}
+            theme={theme === "dark" ? "vs-dark" : "vs"}
+            options={{ minimap: { enabled: false }, fontSize: 15, automaticLayout: true, tabSize: 4 }}
+          />
+        </Suspense>
       </div>
       <p className="runtime-status">{pythonStatus}</p>
       {saveStatus && <p className="cloud-status" aria-live="polite">{saveStatus}</p>}
@@ -572,10 +587,10 @@ function LessonPage({
               </button>
             </div>
             <p className="eyebrow">Раздел</p>
-            {[...new Set(lessonContents.map((item) => item.sectionTitle))].map((sectionTitle) => (
+            {[...new Set(courseEntries.map((item) => item.sectionTitle))].map((sectionTitle) => (
               <div className="course-nav-section" key={sectionTitle}>
                 <h2>{sectionTitle}</h2>
-                {lessonContents.filter((item) => item.sectionTitle === sectionTitle).map((item) => (
+                {courseEntries.filter((item) => item.sectionTitle === sectionTitle).map((item) => (
                   <Link
                     key={item.lesson.id}
                     className={
@@ -632,7 +647,7 @@ function LessonPage({
               </button>
             </div>
             <p className="eyebrow">Python для школьников</p>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={safeMarkdownUrl}>{markdown}</ReactMarkdown>
           </article>
         )}
         {visiblePanes.theory && visiblePanes.practice && (
@@ -723,17 +738,17 @@ function Home({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme
       <main className="home home--landing">
         <section className="home-hero" aria-labelledby="home-title">
           <p className="eyebrow">Интерактивный курс IT-ПАРКА</p>
-          <h1 id="home-title">Научись думать и программировать на Python</h1>
+          <h1 id="home-title">Python: от первой программы до алгоритмов</h1>
           <p className="home-lead">
-            Не просто запоминайте команды: разбирайте алгоритмы, пишите код, проверяйте себя и
-            находите ошибки прямо в браузере.
+            Это курс программирования для школьников: разбирайте алгоритмы, пишите код,
+            проверяйте себя и находите ошибки прямо в браузере.
           </p>
           <div className="home-actions">
             <Link className="button home-start" to="/python/basics/input-output">
               Начать изучение <span aria-hidden="true">→</span>
             </Link>
           </div>
-          <p className="home-note">Начнём с ввода, вывода и первых переменных.</p>
+          <p className="home-note">Начнём с ввода, вывода и первых переменных. Аккаунт не нужен, чтобы попробовать урок.</p>
         </section>
         <section className="home-principles" aria-label="Как устроено обучение">
           <article>
@@ -759,9 +774,58 @@ function Home({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme
             </p>
           </article>
         </section>
+        <section className="home-overview" aria-label="О курсе">
+          <article className="education-card">
+            <p className="eyebrow">Как заниматься</p>
+            <h2>Один урок — один понятный цикл</h2>
+            <ol>
+              <li>Прочитайте короткое объяснение и разберите пример.</li>
+              <li>Решите задачи в редакторе и посмотрите протокол тестов.</li>
+              <li>Закрепите навык контрольной задачей или практикумом.</li>
+            </ol>
+          </article>
+          <article className="education-card">
+            <p className="eyebrow">Что изучаем</p>
+            <h2>Школьная информатика через Python</h2>
+            <p>Переменные, ветвления, циклы, строки, списки, функции, файлы, алгоритмы, графы и динамическое программирование.</p>
+            <p>Курс помогает освоить программирование и алгоритмическое мышление; это не тренажёр конкретного экзамена.</p>
+          </article>
+          <article className="education-card education-card--accent">
+            <p className="eyebrow">Практикумы</p>
+            <h2>Большие серии задач</h2>
+            <p>После ключевых блоков есть практикумы: в них задачи идут от простой к составной и проверяются прямо в браузере.</p>
+            <Link className="text-link" to="/python/practicums/first-programs">Открыть первый практикум →</Link>
+          </article>
+        </section>
+        <section className="itpark-panel" aria-label="Об IT-ПАРКЕ">
+          <div>
+            <p className="eyebrow">IT-ПАРК</p>
+            <h2>Образовательная среда для тех, кто хочет создавать</h2>
+            <p>Курс подготовлен IT-ПАРКОМ. Здесь можно учиться самостоятельно, а затем продолжить путь в проектах и занятиях сообщества.</p>
+          </div>
+          <div className="itpark-links">
+            <a href="https://itpark32.ru/" target="_blank" rel="noreferrer">Сайт IT-ПАРКА</a>
+            <a href="https://vk.ru/itpark32" target="_blank" rel="noreferrer">IT-ПАРК во ВКонтакте</a>
+            <a href="https://t.me/itpark32" target="_blank" rel="noreferrer">IT-ПАРК в Telegram</a>
+          </div>
+        </section>
       </main>
     </>
   );
+}
+
+function LessonRoute({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme: () => void }) {
+  const { sectionId, slug } = useParams();
+  const path = `/python/${sectionId}/${slug}`;
+  const [content, setContent] = useState<LessonContent | null>(null);
+  useEffect(() => {
+    let live = true;
+    setContent(null);
+    loadLessonContent(path).then((next) => { if (live) setContent(next ?? null); }).catch(() => { if (live) setContent(null); });
+    return () => { live = false; };
+  }, [path]);
+  if (!content) return <main className="lesson-loading" aria-live="polite">Загружаем урок…</main>;
+  return <LessonPage key={content.lesson.id} content={content} theme={theme} onToggleTheme={onToggleTheme} />;
 }
 
 function ProgressMigration() {
@@ -819,20 +883,7 @@ export default function App() {
       <Route path="/invite/:token" element={<InvitePage theme={theme} onToggleTheme={toggleTheme} />} />
       <Route path="/teacher/groups" element={<TeacherGroupsPage theme={theme} onToggleTheme={toggleTheme} />} />
       <Route path="/admin" element={<AdminPage theme={theme} onToggleTheme={toggleTheme} />} />
-      {lessonContents.map((content) => (
-        <Route
-          key={content.lesson.id}
-          path={content.path}
-          element={
-            <LessonPage
-              key={content.lesson.id}
-              content={content}
-              theme={theme}
-              onToggleTheme={toggleTheme}
-            />
-          }
-        />
-      ))}
+      <Route path="/python/:sectionId/:slug" element={<LessonRoute theme={theme} onToggleTheme={toggleTheme} />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes></>
   );

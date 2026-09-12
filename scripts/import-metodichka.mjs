@@ -435,7 +435,7 @@ function writeBackendCatalog(course) {
     `const teacherCourseExerciseCount = ${includedLessons.length * 3 + activePracticums.reduce((total, item) => total + item.count, 0)}`,
     "",
     "var teacherCoursePracticums = []struct {",
-    "\tID string",
+    "\tID    string",
     "\tTitle string",
     "\tTotal int",
     "}{",
@@ -444,6 +444,43 @@ function writeBackendCatalog(course) {
     ""
   ];
   writeFileSync(join(projectRoot, "backend/course_catalog_generated.go"), lines.join("\n"));
+}
+
+function writeFrontendCatalog() {
+  const lessonEntries = includedLessons.map((item) => ({
+    id: item.id,
+    sectionId: item.sectionId,
+    title: item.title,
+    slug: item.slug,
+    skillIds: item.skillIds,
+    exerciseOrder: lessonExercises(item).map((exercise) => exercise.id),
+    exerciseTitles: lessonExercises(item).map((exercise, index) => ({
+      id: exercise.id,
+      title: exercise.title,
+      path: `sections/${item.sectionId}/${item.slug}/exercises/${index === 2 ? "checkpoint.json" : `${String(index + 1).padStart(2, "0")}-guided.json`}`
+    }))
+  }));
+  const practicumEntries = practicumDefinitions
+    .filter((item) => includedBatches.includes(item.batch))
+    .map((item) => {
+      const availableLessons = includedLessons.filter(
+        (lesson) => batches.indexOf(lesson.batch) <= batches.indexOf(item.batch)
+      );
+      const exercises = practicumExercises(item, availableLessons);
+      return {
+        id: item.id,
+        title: item.title,
+        slug: item.slug,
+        skillIds: [...new Set(availableLessons.flatMap((lesson) => lesson.skillIds))],
+        exerciseOrder: exercises.map((exercise) => exercise.id),
+        exerciseTitles: exercises.map((exercise, index) => ({
+          id: exercise.id,
+          title: exercise.title,
+          path: `practicums/${item.slug}/exercises/${String(index + 1).padStart(2, "0")}.json`
+        }))
+      };
+    });
+  writeFileSync(join(contentRoot, "frontend-manifest.json"), json({ lessons: lessonEntries, practicums: practicumEntries }));
 }
 
 if (process.argv.includes("--reset")) {
@@ -461,4 +498,5 @@ writeFileSync(join(contentRoot, "course.json"), json(course));
 writeFileSync(join(contentRoot, "source-manifest.json"), json(manifest));
 writeReports(manifest, course);
 writeBackendCatalog(course);
+writeFrontendCatalog();
 console.log(`Imported batches A–${through}: ${includedLessons.length} lessons, ${course.practicums.length} practicums.`);

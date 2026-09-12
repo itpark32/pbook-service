@@ -93,7 +93,12 @@ function validateLinks(markdownFiles, contentRoot, errors, knownRoutes = new Set
     const text = readFileSync(markdownPath, "utf8");
     const links = text.matchAll(/\[[^\]]*\]\(([^)]+)\)/g);
     for (const match of links) {
-      const href = match[1].split("#")[0].trim();
+      const rawHref = match[1].trim();
+      if (/^(javascript|vbscript|data):/i.test(rawHref)) {
+        errors.push(`${relative(contentRoot, markdownPath)}: unsafe URL ${rawHref}`);
+        continue;
+      }
+      const href = rawHref.split("#")[0].trim();
       if (!href || /^(https?:|mailto:|#)/.test(href)) continue;
       if (href.startsWith("/python/")) {
         if (!knownRoutes.has(href)) errors.push(`${relative(contentRoot, markdownPath)}: broken platform route ${match[1]}`);

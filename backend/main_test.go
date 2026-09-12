@@ -79,3 +79,17 @@ func TestTokenURL(t *testing.T) {
 		t.Fatalf("token URL = %q", got)
 	}
 }
+
+func TestOriginValidation(t *testing.T) {
+	auth := &authService{appOrigin: "https://learn.example.test/"}
+	valid := httptest.NewRequest(http.MethodPost, "/", nil)
+	valid.Header.Set("Origin", "https://learn.example.test")
+	if !auth.acceptsOrigin(valid) {
+		t.Fatal("configured origin must be accepted regardless of trailing slash")
+	}
+	invalid := httptest.NewRequest(http.MethodPost, "/", nil)
+	invalid.Header.Set("Origin", "https://attacker.example.test")
+	if auth.acceptsOrigin(invalid) {
+		t.Fatal("unexpected origin must be rejected")
+	}
+}

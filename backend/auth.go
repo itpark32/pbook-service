@@ -57,9 +57,27 @@ func clientAddress(remoteAddress string) string {
 	return remoteAddress
 }
 
+func canonicalOrigin(value string) string {
+	parsed, err := url.Parse(strings.TrimSpace(value))
+	if err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") || parsed.Host == "" || parsed.User != nil || parsed.RawQuery != "" || parsed.Fragment != "" {
+		return ""
+	}
+	return parsed.Scheme + "://" + parsed.Host
+}
+
+func (s *authService) acceptsOrigin(r *http.Request) bool {
+	origin := r.Header.Get("Origin")
+	// SameSite cookies protect non-script cross-site submissions. When a browser does
+	// send Origin (fetch/XHR and modern form posts), require the configured UI origin.
+	if origin == "" {
+		return true
+	}
+	return canonicalOrigin(origin) != "" && canonicalOrigin(origin) == canonicalOrigin(s.appOrigin)
+}
+
 func (s *authService) protect(action string, next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if origin := r.Header.Get("Origin"); origin != "" && s.appOrigin != "" && origin != s.appOrigin {
+		if !s.acceptsOrigin(r) {
 			writeError(w, http.StatusForbidden, "invalid_origin", "Запрос отклонён.")
 			return
 		}

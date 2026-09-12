@@ -46,6 +46,11 @@ try {
   lesson.sourcePaths = ["docs/not-imported.md"];
   writeFileSync(lessonPath, JSON.stringify(lesson));
   assert.throws(() => validateContent(temporary, { solutions: false }), /missing from source manifest/);
+  lesson.sourcePaths = ["docs/basics/conditions.md"];
+  writeFileSync(lessonPath, JSON.stringify(lesson));
+  const markdownPath = join(temporary, "sections/branches/if-else/lesson.md");
+  writeFileSync(markdownPath, `${readFileSync(markdownPath, "utf8")}\n\n[unsafe](javascript:alert(1))`);
+  assert.throws(() => validateContent(temporary, { solutions: false }), /unsafe URL/);
 
   console.log("validator tests passed");
 } finally {
