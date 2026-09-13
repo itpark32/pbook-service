@@ -9,40 +9,36 @@
   "title": "Старт первой серии",
   "statement": "Найдите начало первой серии длиной не меньше двух.\n\nТренируемый приём: серии одинаковых символов.",
   "difficulty": "intro",
-  "starterCode": "def first_double(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «серии одинаковых символов».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def first_double(text):\n    for i in range(len(text) - 1):\n        if text[i] == text[i + 1]:\n            return i\n    return -1",
+  "solution": "text = input()\nanswer = -1\nfor i in range(len(text) - 1):\n    if text[i] == text[i + 1]:\n        answer = i\n        break\nprint(answer)",
   "examples": [
     {
-      "input": "[\"abcc\"]",
-      "output": "2"
+      "input": "abcc\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "first_double",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          "abcc"
-        ],
-        "expectedReturn": 2
+        "input": "abcc\n",
+        "expectedOutput": "2\n"
       },
       {
-        "args": [
-          "abc"
-        ],
-        "expectedReturn": -1
+        "input": "abc\n",
+        "expectedOutput": "-1\n"
       },
       {
-        "args": [
-          "aa"
-        ],
-        "expectedReturn": 0
+        "input": "aa\n",
+        "expectedOutput": "0\n"
       }
     ]
   }

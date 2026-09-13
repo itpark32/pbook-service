@@ -9,58 +9,36 @@
   "title": "Сумма главной диагонали",
   "statement": "Обработайте только клетки, у которых номера строки и столбца совпадают.\n\nТренируемый приём: матрицы и координаты.",
   "difficulty": "standard",
-  "starterCode": "def diagonal_sum(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «матрицы и координаты».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def diagonal_sum(matrix):\n    return sum(matrix[i][i] for i in range(len(matrix)))",
+  "solution": "n = int(input())\ntotal = 0\nfor i in range(n):\n    row = list(map(int, input().split()))\n    total += row[i]\nprint(total)",
   "examples": [
     {
-      "input": "[[[1,2],[3,4]]]",
-      "output": "5"
+      "input": "2\n1 2\n3 4\n",
+      "output": "5\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "diagonal_sum",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            [
-              1,
-              2
-            ],
-            [
-              3,
-              4
-            ]
-          ]
-        ],
-        "expectedReturn": 5
+        "input": "2\n1 2\n3 4\n",
+        "expectedOutput": "5\n"
       },
       {
-        "args": [
-          []
-        ],
-        "expectedReturn": 0
+        "input": "1\n-7\n",
+        "expectedOutput": "-7\n"
       },
       {
-        "args": [
-          [
-            [
-              1,
-              2
-            ],
-            [
-              3,
-              4
-            ]
-          ]
-        ],
-        "expectedReturn": 5
+        "input": "3\n1 0 0\n0 2 0\n0 0 3\n",
+        "expectedOutput": "6\n"
       }
     ]
   }

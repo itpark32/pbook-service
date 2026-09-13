@@ -37,8 +37,8 @@
         "expectedOutput": "a\n"
       },
       {
-        "input": "python\n\n",
-        "expectedOutput": "nohtyp\n"
+        "input": "\n",
+        "expectedOutput": "\n"
       }
     ]
   }

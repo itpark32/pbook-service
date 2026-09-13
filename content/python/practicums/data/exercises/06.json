@@ -7,71 +7,39 @@
   },
   "kind": "practicum",
   "title": "6. обмен минимумом",
-  "statement": "Практикум: обмен минимумом. Скопируйте список и выполните один обмен по найденному индексу.\n\nТренируемый приём: изменение списка по индексу.",
+  "statement": "Практикум: обмен минимумом. Найдите минимум нужной части списка перед последующим изменением.\n\nТренируемый приём: изменение списка по индексу.",
   "difficulty": "standard",
-  "starterCode": "def selection_step(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Сначала вспомните основной приём: обмен минимумом.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def selection_step(values):\n    result = list(values)\n    if not result:\n        return result\n    smallest = 0\n    for i in range(1, len(result)):\n        if result[i] < result[smallest]:\n            smallest = i\n    result[0], result[smallest] = result[smallest], result[0]\n    return result",
+  "solution": "n, start = map(int, input().split())\nvalues = list(map(int, input().split()))\nsmallest = values[start]\nfor i in range(start + 1, n):\n    if values[i] < smallest:\n        smallest = values[i]\nprint(smallest)",
   "examples": [
     {
-      "input": "[[4,2,3,1]]",
-      "output": "[1,2,3,4]"
+      "input": "4 1\n5 2 7 1\n",
+      "output": "1\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "selection_step",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            4,
-            2,
-            3,
-            1
-          ]
-        ],
-        "expectedReturn": [
-          1,
-          2,
-          3,
-          4
-        ]
+        "input": "4 1\n5 2 7 1\n",
+        "expectedOutput": "1\n"
       },
       {
-        "args": [
-          []
-        ],
-        "expectedReturn": []
+        "input": "3 0\n4 4 4\n",
+        "expectedOutput": "4\n"
       },
       {
-        "args": [
-          [
-            4,
-            2,
-            3,
-            1
-          ]
-        ],
-        "expectedReturn": [
-          1,
-          2,
-          3,
-          4
-        ]
+        "input": "1 0\n-3\n",
+        "expectedOutput": "-3\n"
       }
-    ],
-    "structuralConstraints": {
-      "forbidCalls": [
-        "sorted"
-      ],
-      "forbidMethods": [
-        "sort"
-      ]
-    }
+    ]
   }
 }

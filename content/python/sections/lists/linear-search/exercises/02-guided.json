@@ -9,53 +9,36 @@
   "title": "Последний нужный индекс",
   "statement": "При проходе обновляйте ответ на каждом совпадении.\n\nТренируемый приём: линейный поиск.",
   "difficulty": "standard",
-  "starterCode": "def find_last(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «линейный поиск».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def find_last(values, target):\n    answer = -1\n    for i, value in enumerate(values):\n        if value == target:\n            answer = i\n    return answer",
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ntarget = int(input())\nanswer = -1\nfor i in range(n):\n    if values[i] == target:\n        answer = i\nprint(answer)",
   "examples": [
     {
-      "input": "[[4,2,4],4]",
-      "output": "2"
+      "input": "3\n4 2 4\n4\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "find_last",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            4,
-            2,
-            4
-          ],
-          4
-        ],
-        "expectedReturn": 2
+        "input": "3\n4 2 4\n4\n",
+        "expectedOutput": "2\n"
       },
       {
-        "args": [
-          [
-            1
-          ],
-          2
-        ],
-        "expectedReturn": -1
+        "input": "1\n1\n2\n",
+        "expectedOutput": "-1\n"
       },
       {
-        "args": [
-          [
-            4,
-            2,
-            4
-          ],
-          4
-        ],
-        "expectedReturn": 2
+        "input": "0\n\n0\n",
+        "expectedOutput": "-1\n"
       }
     ]
   }

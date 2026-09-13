@@ -9,53 +9,36 @@
   "title": "10. перебор пар",
   "statement": "Практикум: перебор пар. Переберите все пары индексов с i меньше j и посчитайте нужные пары.\n\nТренируемый приём: вложенные циклы.",
   "difficulty": "standard",
-  "starterCode": "def pair_count(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Сначала вспомните основной приём: перебор пар.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def pair_count(values, target):\n    count = 0\n    for i in range(len(values)):\n        for j in range(i + 1, len(values)):\n            if values[i] + values[j] == target:\n                count += 1\n    return count",
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ntarget = int(input())\ncount = 0\nfor i in range(n):\n    for j in range(i + 1, n):\n        if values[i] + values[j] == target:\n            count += 1\nprint(count)",
   "examples": [
     {
-      "input": "[[1,2,3,4],5]",
-      "output": "2"
+      "input": "4\n1 2 3 4\n5\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "pair_count",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            1,
-            2,
-            3,
-            4
-          ],
-          5
-        ],
-        "expectedReturn": 2
+        "input": "4\n1 2 3 4\n5\n",
+        "expectedOutput": "2\n"
       },
       {
-        "args": [
-          [],
-          0
-        ],
-        "expectedReturn": 0
+        "input": "3\n1 1 1\n2\n",
+        "expectedOutput": "3\n"
       },
       {
-        "args": [
-          [
-            1,
-            2,
-            3,
-            4
-          ],
-          5
-        ],
-        "expectedReturn": 2
+        "input": "1\n7\n7\n",
+        "expectedOutput": "0\n"
       }
     ]
   }

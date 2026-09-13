@@ -7,52 +7,38 @@
   },
   "kind": "guided",
   "title": "Первый нужный индекс",
-  "statement": "Остановите поиск на первом вхождении цели или верните -1.\n\nТренируемый приём: линейный поиск.",
+  "statement": "Остановите поиск на первом вхождении цели или выведите -1.\n\nТренируемый приём: линейный поиск.",
   "difficulty": "intro",
-  "starterCode": "def find_first(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «линейный поиск».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def find_first(values, target):\n    for i, value in enumerate(values):\n        if value == target:\n            return i\n    return -1",
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ntarget = int(input())\nanswer = -1\nfor i in range(n):\n    if values[i] == target:\n        answer = i\n        break\nprint(answer)",
   "examples": [
     {
-      "input": "[[4,2,4],4]",
-      "output": "0"
+      "input": "3\n4 2 4\n4\n",
+      "output": "0\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "find_first",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            4,
-            2,
-            4
-          ],
-          4
-        ],
-        "expectedReturn": 0
+        "input": "3\n4 2 4\n4\n",
+        "expectedOutput": "0\n"
       },
       {
-        "args": [
-          [
-            1,
-            2
-          ],
-          9
-        ],
-        "expectedReturn": -1
+        "input": "2\n1 2\n9\n",
+        "expectedOutput": "-1\n"
       },
       {
-        "args": [
-          [],
-          1
-        ],
-        "expectedReturn": -1
+        "input": "0\n\n1\n",
+        "expectedOutput": "-1\n"
       }
     ]
   }

@@ -641,7 +641,7 @@
         },
         {
           "id": "python-lists-mutation-guided-2",
-          "title": "Обмен с минимумом",
+          "title": "Минимум перед изменением",
           "path": "sections/lists/mutation/exercises/02-guided.json"
         },
         {
@@ -853,12 +853,12 @@
       "exerciseTitles": [
         {
           "id": "python-collections-dicts-frequency-guided-1",
-          "title": "Частоты букв",
+          "title": "Частота цели",
           "path": "sections/collections/dicts-frequency/exercises/01-guided.json"
         },
         {
           "id": "python-collections-dicts-frequency-guided-2",
-          "title": "Обратное соответствие",
+          "title": "Число ключей словаря",
           "path": "sections/collections/dicts-frequency/exercises/02-guided.json"
         },
         {

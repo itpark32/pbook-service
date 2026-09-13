@@ -7,50 +7,38 @@
   },
   "kind": "checkpoint",
   "title": "Частый победитель",
-  "statement": "Выберите наиболее частый элемент, предусмотрев пустой вход и ничью.\n\nТренируемый приём: словари и таблицы частот.",
+  "statement": "Выберите наиболее частое слово, предусмотрев ничью.\n\nТренируемый приём: словари и таблицы частот.",
   "difficulty": "challenge",
-  "starterCode": "def most_frequent(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «словари и таблицы частот».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def most_frequent(values):\n    if not values:\n        return None\n    counts = {}\n    for value in values:\n        counts[value] = counts.get(value, 0) + 1\n    return min(counts, key=lambda value: (-counts[value], value))",
+  "solution": "n = int(input())\nwords = input().split()\ncounts = {}\nfor word in words[:n]:\n    counts[word] = counts.get(word, 0) + 1\nbest = None\nfor word in counts:\n    if best is None or counts[word] > counts[best] or counts[word] == counts[best] and word < best:\n        best = word\nprint(best)",
   "examples": [
     {
-      "input": "[[\"b\",\"a\",\"b\"]]",
-      "output": "\"b\""
+      "input": "3\nb a b\n",
+      "output": "b\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "most_frequent",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            "b",
-            "a",
-            "b"
-          ]
-        ],
-        "expectedReturn": "b"
+        "input": "3\nb a b\n",
+        "expectedOutput": "b\n"
       },
       {
-        "args": [
-          []
-        ],
-        "expectedReturn": null
+        "input": "2\nb a\n",
+        "expectedOutput": "a\n"
       },
       {
-        "args": [
-          [
-            "b",
-            "a",
-            "b"
-          ]
-        ],
-        "expectedReturn": "b"
+        "input": "1\nx\n",
+        "expectedOutput": "x\n"
       }
     ]
   }

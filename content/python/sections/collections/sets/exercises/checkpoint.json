@@ -9,55 +9,36 @@
   "title": "Только один список",
   "statement": "Определите количество значений из симметрической разности двух наборов.\n\nТренируемый приём: множества и уникальные значения.",
   "difficulty": "challenge",
-  "starterCode": "def symmetric_count(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «множества и уникальные значения».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def symmetric_count(left, right):\n    return len(set(left) ^ set(right))",
+  "solution": "n, m = map(int, input().split())\nleft = set(map(int, input().split()))\nright = set(map(int, input().split()))\nprint(len(left ^ right))",
   "examples": [
     {
-      "input": "[[1,2],[2,3]]",
-      "output": "2"
+      "input": "2 2\n1 2\n2 3\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "symmetric_count",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            1,
-            2
-          ],
-          [
-            2,
-            3
-          ]
-        ],
-        "expectedReturn": 2
+        "input": "2 2\n1 2\n2 3\n",
+        "expectedOutput": "2\n"
       },
       {
-        "args": [
-          [],
-          []
-        ],
-        "expectedReturn": 0
+        "input": "0 0\n\n\n",
+        "expectedOutput": "0\n"
       },
       {
-        "args": [
-          [
-            1,
-            2
-          ],
-          [
-            2,
-            3
-          ]
-        ],
-        "expectedReturn": 2
+        "input": "1 1\n5\n5\n",
+        "expectedOutput": "0\n"
       }
     ]
   }

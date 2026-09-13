@@ -7,7 +7,7 @@
   },
   "kind": "guided",
   "title": "Подсчёт символа методом",
-  "statement": "Используйте строковый метод, чтобы узнать число букв a.\n\nТренируемый приём: методы строк и срезы.",
+  "statement": "Используйте проход по строке, чтобы узнать число букв a.\n\nТренируемый приём: методы строк и срезы.",
   "difficulty": "intro",
   "starterCode": "# Напишите решение здесь.\n",
   "hints": [
@@ -15,7 +15,7 @@
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "text = input()\nprint(text.count('a'))",
+  "solution": "text = input()\ncount = 0\nfor char in text:\n    if char == 'a':\n        count += 1\nprint(count)",
   "examples": [
     {
       "input": "abracadabra\n",
@@ -37,8 +37,8 @@
         "expectedOutput": "0\n"
       },
       {
-        "input": "abracadabra\n\n",
-        "expectedOutput": "5\n"
+        "input": "aaa\n",
+        "expectedOutput": "3\n"
       }
     ]
   }

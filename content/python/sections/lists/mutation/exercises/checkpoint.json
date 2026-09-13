@@ -9,51 +9,36 @@
   "title": "Подсчёт до изменения",
   "statement": "Перед заменой элементов проверьте, сколько раз встречается целевое значение.\n\nТренируемый приём: изменение списка по индексу.",
   "difficulty": "challenge",
-  "starterCode": "def count_target(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «изменение списка по индексу».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def count_target(values, target):\n    count = 0\n    for value in values:\n        if value == target:\n            count += 1\n    return count",
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ntarget = int(input())\ncount = 0\nfor value in values[:n]:\n    if value == target:\n        count += 1\nprint(count)",
   "examples": [
     {
-      "input": "[[1,1,2],1]",
-      "output": "2"
+      "input": "3\n1 1 2\n1\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "count_target",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            1,
-            1,
-            2
-          ],
-          1
-        ],
-        "expectedReturn": 2
+        "input": "3\n1 1 2\n1\n",
+        "expectedOutput": "2\n"
       },
       {
-        "args": [
-          [],
-          0
-        ],
-        "expectedReturn": 0
+        "input": "0\n\n0\n",
+        "expectedOutput": "0\n"
       },
       {
-        "args": [
-          [
-            1,
-            1,
-            2
-          ],
-          1
-        ],
-        "expectedReturn": 2
+        "input": "3\n2 2 2\n2\n",
+        "expectedOutput": "3\n"
       }
     ]
   }

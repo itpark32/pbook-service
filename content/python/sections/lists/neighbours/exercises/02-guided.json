@@ -9,50 +9,36 @@
   "title": "Равные соседние пары",
   "statement": "Посчитайте границы, на которых два соседних элемента равны.\n\nТренируемый приём: соседние элементы.",
   "difficulty": "standard",
-  "starterCode": "def equal_pairs(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «соседние элементы».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def equal_pairs(values):\n    return sum(values[i] == values[i - 1] for i in range(1, len(values)))",
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ncount = 0\nfor i in range(1, n):\n    if values[i] == values[i - 1]:\n        count += 1\nprint(count)",
   "examples": [
     {
-      "input": "[[1,1,2,2]]",
-      "output": "2"
+      "input": "4\n1 1 2 2\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "equal_pairs",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            1,
-            1,
-            2,
-            2
-          ]
-        ],
-        "expectedReturn": 2
+        "input": "4\n1 1 2 2\n",
+        "expectedOutput": "2\n"
       },
       {
-        "args": [
-          []
-        ],
-        "expectedReturn": 0
+        "input": "1\n5\n",
+        "expectedOutput": "0\n"
       },
       {
-        "args": [
-          [
-            1,
-            1,
-            2,
-            2
-          ]
-        ],
-        "expectedReturn": 2
+        "input": "0\n\n",
+        "expectedOutput": "0\n"
       }
     ]
   }

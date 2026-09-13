@@ -7,66 +7,39 @@
   },
   "kind": "practicum",
   "title": "11. минимум в хвосте",
-  "statement": "Практикум: минимум в хвосте. Для заданной позиции пройдите оставшуюся часть списка и найдите индекс минимума.\n\nТренируемый приём: вложенные циклы.",
+  "statement": "Практикум: минимум в хвосте. Для заданной позиции пройдите оставшуюся часть списка и найдите минимум.\n\nТренируемый приём: вложенные циклы.",
   "difficulty": "challenge",
-  "starterCode": "def minimum_index(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Сначала вспомните основной приём: минимум в хвосте.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def minimum_index(values, start):\n    smallest = start\n    for i in range(start + 1, len(values)):\n        if values[i] < values[smallest]:\n            smallest = i\n    return smallest",
+  "solution": "n, start = map(int, input().split())\nvalues = list(map(int, input().split()))\nsmallest = values[start]\nfor i in range(start + 1, n):\n    if values[i] < smallest:\n        smallest = values[i]\nprint(smallest)",
   "examples": [
     {
-      "input": "[[5,2,7,1],1]",
-      "output": "3"
+      "input": "4 1\n5 2 7 1\n",
+      "output": "1\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "minimum_index",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            5,
-            2,
-            7,
-            1
-          ],
-          1
-        ],
-        "expectedReturn": 3
+        "input": "4 1\n5 2 7 1\n",
+        "expectedOutput": "1\n"
       },
       {
-        "args": [
-          [
-            3
-          ],
-          0
-        ],
-        "expectedReturn": 0
+        "input": "3 0\n4 4 4\n",
+        "expectedOutput": "4\n"
       },
       {
-        "args": [
-          [
-            5,
-            2,
-            7,
-            1
-          ],
-          1
-        ],
-        "expectedReturn": 3
+        "input": "1 0\n-3\n",
+        "expectedOutput": "-3\n"
       }
-    ],
-    "structuralConstraints": {
-      "forbidCalls": [
-        "sorted"
-      ],
-      "forbidMethods": [
-        "sort"
-      ]
-    }
+    ]
   }
 }

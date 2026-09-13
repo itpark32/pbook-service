@@ -7,69 +7,38 @@
   },
   "kind": "guided",
   "title": "Общие участники",
-  "statement": "Найдите пересечение двух наборов и верните его в отсортированном виде.\n\nТренируемый приём: множества и уникальные значения.",
+  "statement": "Найдите пересечение двух наборов и определите его размер.\n\nТренируемый приём: множества и уникальные значения.",
   "difficulty": "standard",
-  "starterCode": "def common(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «множества и уникальные значения».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def common(left, right):\n    return sorted(set(left) & set(right))",
+  "solution": "n, m = map(int, input().split())\nleft = set(map(int, input().split()))\nright = set(map(int, input().split()))\nprint(len(left & right))",
   "examples": [
     {
-      "input": "[[3,1,2],[2,3,4]]",
-      "output": "[2,3]"
+      "input": "3 3\n3 1 2\n2 3 4\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "common",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            3,
-            1,
-            2
-          ],
-          [
-            2,
-            3,
-            4
-          ]
-        ],
-        "expectedReturn": [
-          2,
-          3
-        ]
+        "input": "3 3\n3 1 2\n2 3 4\n",
+        "expectedOutput": "2\n"
       },
       {
-        "args": [
-          [],
-          [
-            1
-          ]
-        ],
-        "expectedReturn": []
+        "input": "0 1\n\n1\n",
+        "expectedOutput": "0\n"
       },
       {
-        "args": [
-          [
-            3,
-            1,
-            2
-          ],
-          [
-            2,
-            3,
-            4
-          ]
-        ],
-        "expectedReturn": [
-          2,
-          3
-        ]
+        "input": "2 2\n5 5\n5 6\n",
+        "expectedOutput": "1\n"
       }
     ]
   }

@@ -9,40 +9,36 @@
   "title": "Самая длинная серия",
   "statement": "Храните длину текущей серии и лучший результат при одном проходе.\n\nТренируемый приём: проход по символам и состояние.",
   "difficulty": "challenge",
-  "starterCode": "def max_run(text):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «проход по символам и состояние».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def max_run(text):\n    best = current = 0\n    previous = None\n    for char in text:\n        if char == previous:\n            current += 1\n        else:\n            previous = char\n            current = 1\n        best = max(best, current)\n    return best",
+  "solution": "text = input()\nbest = 0\ncurrent = 0\nprevious = None\nfor char in text:\n    if char == previous:\n        current += 1\n    else:\n        previous = char\n        current = 1\n    if current > best:\n        best = current\nprint(best)",
   "examples": [
     {
-      "input": "[\"aaabbc\"]",
-      "output": "3"
+      "input": "aaabbc\n",
+      "output": "3\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "max_run",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          "aaabbc"
-        ],
-        "expectedReturn": 3
+        "input": "aaabbc\n",
+        "expectedOutput": "3\n"
       },
       {
-        "args": [
-          ""
-        ],
-        "expectedReturn": 0
+        "input": "\n",
+        "expectedOutput": "0\n"
       },
       {
-        "args": [
-          "x"
-        ],
-        "expectedReturn": 1
+        "input": "x\n",
+        "expectedOutput": "1\n"
       }
     ]
   }

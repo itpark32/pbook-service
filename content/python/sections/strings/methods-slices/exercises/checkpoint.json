@@ -15,7 +15,7 @@
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "text = input()\nprint('YES' if text == text[::-1] else 'NO')",
+  "solution": "text = input()\nif text == text[::-1]:\n    print('YES')\nelse:\n    print('NO')",
   "examples": [
     {
       "input": "level\n",

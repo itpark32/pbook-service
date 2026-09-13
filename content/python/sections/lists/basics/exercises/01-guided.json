@@ -7,58 +7,38 @@
   },
   "kind": "guided",
   "title": "Удвоенный список",
-  "statement": "Верните новый список с удвоенными значениями исходного списка.\n\nТренируемый приём: создание списка, индексы и проход.",
+  "statement": "Выведите новый список с удвоенными значениями исходного списка.\n\nТренируемый приём: создание списка, индексы и проход.",
   "difficulty": "intro",
-  "starterCode": "def doubled(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «создание списка, индексы и проход».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def doubled(values):\n    return [value * 2 for value in values]",
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nresult = []\nfor value in values[:n]:\n    result.append(str(value * 2))\nprint(' '.join(result))",
   "examples": [
     {
-      "input": "[[1,-2,0]]",
-      "output": "[2,-4,0]"
+      "input": "3\n1 -2 0\n",
+      "output": "2 -4 0\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "doubled",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            1,
-            -2,
-            0
-          ]
-        ],
-        "expectedReturn": [
-          2,
-          -4,
-          0
-        ]
+        "input": "3\n1 -2 0\n",
+        "expectedOutput": "2 -4 0\n"
       },
       {
-        "args": [
-          []
-        ],
-        "expectedReturn": []
+        "input": "1\n7\n",
+        "expectedOutput": "14\n"
       },
       {
-        "args": [
-          [
-            1,
-            -2,
-            0
-          ]
-        ],
-        "expectedReturn": [
-          2,
-          -4,
-          0
-        ]
+        "input": "0\n\n",
+        "expectedOutput": "\n"
       }
     ]
   }

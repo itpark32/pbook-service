@@ -7,60 +7,38 @@
   },
   "kind": "practicum",
   "title": "16. частотный выбор",
-  "statement": "Практикум: частотный выбор. Для уникальных значений поменяйте местами ключ и значение словаря.\n\nТренируемый приём: словари и таблицы частот.",
+  "statement": "Практикум: частотный выбор. Постройте таблицу частот и определите число разных ключей.\n\nТренируемый приём: словари и таблицы частот.",
   "difficulty": "standard",
-  "starterCode": "def invert(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Сначала вспомните основной приём: частотный выбор.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def invert(mapping):\n    return {value: key for key, value in mapping.items()}",
+  "solution": "n = int(input())\nwords = input().split()\ncounts = {}\nfor word in words[:n]:\n    counts[word] = counts.get(word, 0) + 1\nprint(len(counts))",
   "examples": [
     {
-      "input": "[{\"a\":1,\"b\":2}]",
-      "output": "{\"1\":\"a\",\"2\":\"b\"}"
+      "input": "3\na b a\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "invert",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          {
-            "a": 1,
-            "b": 2
-          }
-        ],
-        "expectedReturn": {
-          "1": "a",
-          "2": "b"
-        }
+        "input": "3\na b a\n",
+        "expectedOutput": "2\n"
       },
       {
-        "args": [
-          {
-            "a": 1,
-            "b": 2
-          }
-        ],
-        "expectedReturn": {
-          "1": "a",
-          "2": "b"
-        }
+        "input": "1\nx\n",
+        "expectedOutput": "1\n"
       },
       {
-        "args": [
-          {
-            "a": 1,
-            "b": 2
-          }
-        ],
-        "expectedReturn": {
-          "1": "a",
-          "2": "b"
-        }
+        "input": "0\n\n",
+        "expectedOutput": "0\n"
       }
     ]
   }

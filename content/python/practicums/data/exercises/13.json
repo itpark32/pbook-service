@@ -7,56 +7,38 @@
   },
   "kind": "practicum",
   "title": "13. частоты",
-  "statement": "Практикум: частоты. Постройте словарь: каждому элементу поставьте в соответствие число встреч.\n\nТренируемый приём: словари и таблицы частот.",
+  "statement": "Практикум: частоты. Постройте словарь: каждому слову поставьте в соответствие число встреч.\n\nТренируемый приём: словари и таблицы частот.",
   "difficulty": "standard",
-  "starterCode": "def frequencies(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Сначала вспомните основной приём: частоты.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def frequencies(values):\n    result = {}\n    for value in values:\n        result[value] = result.get(value, 0) + 1\n    return result",
+  "solution": "n = int(input())\nwords = input().split()\ntarget = input()\ncounts = {}\nfor word in words[:n]:\n    counts[word] = counts.get(word, 0) + 1\nprint(counts.get(target, 0))",
   "examples": [
     {
-      "input": "[[\"a\",\"b\",\"a\"]]",
-      "output": "{\"a\":2,\"b\":1}"
+      "input": "3\na b a\na\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "frequencies",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            "a",
-            "b",
-            "a"
-          ]
-        ],
-        "expectedReturn": {
-          "a": 2,
-          "b": 1
-        }
+        "input": "3\na b a\na\n",
+        "expectedOutput": "2\n"
       },
       {
-        "args": [
-          []
-        ],
-        "expectedReturn": {}
+        "input": "0\n\nx\n",
+        "expectedOutput": "0\n"
       },
       {
-        "args": [
-          [
-            "a",
-            "b",
-            "a"
-          ]
-        ],
-        "expectedReturn": {
-          "a": 2,
-          "b": 1
-        }
+        "input": "2\nred blue\ngreen\n",
+        "expectedOutput": "0\n"
       }
     ]
   }

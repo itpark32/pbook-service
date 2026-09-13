@@ -9,47 +9,36 @@
   "title": "Положительная сумма",
   "statement": "Пройдите список и сложите только положительные значения.\n\nТренируемый приём: создание списка, индексы и проход.",
   "difficulty": "challenge",
-  "starterCode": "def positive_sum(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
     "Определите, какие данные нужны для шага «создание списка, индексы и проход».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def positive_sum(values):\n    return sum(value for value in values if value > 0)",
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ntotal = 0\nfor value in values[:n]:\n    if value > 0:\n        total += value\nprint(total)",
   "examples": [
     {
-      "input": "[[1,-2,3]]",
-      "output": "4"
+      "input": "3\n1 -2 3\n",
+      "output": "4\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "positive_sum",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            1,
-            -2,
-            3
-          ]
-        ],
-        "expectedReturn": 4
+        "input": "3\n1 -2 3\n",
+        "expectedOutput": "4\n"
       },
       {
-        "args": [
-          [
-            -5,
-            0
-          ]
-        ],
-        "expectedReturn": 0
+        "input": "2\n-5 0\n",
+        "expectedOutput": "0\n"
       },
       {
-        "args": [
-          []
-        ],
-        "expectedReturn": 0
+        "input": "0\n\n",
+        "expectedOutput": "0\n"
       }
     ]
   }
