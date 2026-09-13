@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/loops/sequences.md"
   ],
+  "localSourcePath": "content-source/python/sections/loops/sequences.md",
   "exerciseOrder": [
     "python-loops-sequences-guided-1",
     "python-loops-sequences-guided-2",

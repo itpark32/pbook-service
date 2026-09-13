@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/strings/algorithms.md"
   ],
+  "localSourcePath": "content-source/python/sections/strings/runs.md",
   "exerciseOrder": [
     "python-strings-runs-guided-1",
     "python-strings-runs-guided-2",

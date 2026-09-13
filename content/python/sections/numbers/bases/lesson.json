@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_e",
-    "sk38"
+    "sk39"
   ],
   "skillIds": [
-    "SK38"
+    "SK39"
   ],
   "sourcePaths": [
     "docs/numbers/bases.md"
   ],
+  "localSourcePath": "content-source/python/sections/numbers/bases.md",
   "exerciseOrder": [
     "python-numbers-bases-guided-1",
     "python-numbers-bases-guided-2",

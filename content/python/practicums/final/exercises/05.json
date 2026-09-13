@@ -6,29 +6,29 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "5. достижимость",
-  "statement": "Практикум: достижимость. Соберите список смежности и определите достижимые от start вершины.\n\nТренируемый приём: список смежности.",
+  "title": "5. соседи вершин",
+  "statement": "Практикум: соседи вершин. Постройте список смежности и по его длинам определите число соседей каждой вершины.\n\nТренируемый приём: список смежности.",
   "difficulty": "standard",
-  "starterCode": "def reachable(...):\n    pass\n",
+  "starterCode": "def degrees(...):\n    pass\n",
   "hints": [
-    "Сначала вспомните основной приём: достижимость.",
+    "Сначала вспомните основной приём: соседи вершин.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def reachable(n, edges, start):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    seen = {start}\n    stack = [start]\n    while stack:\n        vertex = stack.pop()\n        for neighbour in graph[vertex]:\n            if neighbour not in seen:\n                seen.add(neighbour)\n                stack.append(neighbour)\n    return sorted(seen)",
+  "solution": "def degrees(n, edges):\n    result = [0] * n\n    for left, right in edges:\n        result[left] += 1\n        result[right] += 1\n    return result",
   "examples": [
     {
-      "input": "[5,[[0,1],[1,2],[3,4]],0]",
-      "output": "[0,1,2]"
+      "input": "[4,[[0,1],[1,2]]]",
+      "output": "[1,2,1,0]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "reachable",
+    "functionName": "degrees",
     "tests": [
       {
         "args": [
-          5,
+          4,
           [
             [
               0,
@@ -37,33 +37,26 @@
             [
               1,
               2
-            ],
-            [
-              3,
-              4
             ]
-          ],
-          0
+          ]
         ],
         "expectedReturn": [
+          1,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "args": [
           0,
-          1,
-          2
-        ]
-      },
-      {
-        "args": [
-          1,
-          [],
-          0
+          []
         ],
-        "expectedReturn": [
-          0
-        ]
+        "expectedReturn": []
       },
       {
         "args": [
-          5,
+          4,
           [
             [
               0,
@@ -72,18 +65,14 @@
             [
               1,
               2
-            ],
-            [
-              3,
-              4
             ]
-          ],
-          0
+          ]
         ],
         "expectedReturn": [
-          0,
           1,
-          2
+          2,
+          1,
+          0
         ]
       }
     ]

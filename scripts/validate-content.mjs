@@ -335,8 +335,8 @@ export function validateContent(contentRoot = DEFAULT_ROOT, options = {}) {
     if (!knownSkills.has(skill)) errors.push(`course: invalid required skill ${skill}`);
     if (!coveredSkills.has(skill)) errors.push(`curriculum: missing required skill ${skill}`);
   }
-  if (!manifest || typeof manifest.commit !== "string" || !/^[0-9a-f]{40}$/.test(manifest.commit)) {
-    errors.push("source-manifest.json: valid source commit is required");
+  if (!manifest || typeof manifest.upstreamCommit !== "string" || !/^[0-9a-f]{40}$/.test(manifest.upstreamCommit)) {
+    errors.push("source-manifest.json: valid upstream commit is required");
   }
   const manifestedSources = new Set((manifest?.files ?? []).map((file) => file.path));
   for (const lesson of lessons) {
@@ -347,13 +347,13 @@ export function validateContent(contentRoot = DEFAULT_ROOT, options = {}) {
     }
   }
   if (manifest?.importedThroughBatch === "F") {
-    const expectedSkills = Array.from({ length: 44 }, (_, index) => `SK${String(index + 1).padStart(2, "0")}`);
+    const expectedSkills = Array.from({ length: 46 }, (_, index) => `SK${String(index + 1).padStart(2, "0")}`);
     for (const skill of expectedSkills) {
       if (!(course.requiredSkillIds ?? []).includes(skill)) errors.push(`curriculum: final import is missing ${skill}`);
     }
-    if (lessons.length !== 47) errors.push(`curriculum: final import needs 47 lessons, got ${lessons.length}`);
+    if (lessons.length !== 49) errors.push(`curriculum: final import needs 49 lessons, got ${lessons.length}`);
     if (practicums.length !== 6) errors.push(`curriculum: final import needs 6 practicums, got ${practicums.length}`);
-    if (exercises.length < 230) errors.push(`curriculum: final import needs at least 230 exercises, got ${exercises.length}`);
+    if (exercises.length !== 239) errors.push(`curriculum: final import needs exactly 239 exercises, got ${exercises.length}`);
   }
   for (const exercise of exercises) {
     if (exercise.schemaVersion !== 1) errors.push(`${exercise.id}: unsupported schemaVersion`);

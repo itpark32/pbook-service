@@ -2,21 +2,22 @@
   "schemaVersion": 1,
   "id": "python-graphs-paths",
   "sectionId": "graphs",
-  "title": "Пути в графах",
+  "title": "Пути и расстояния в невзвешенном графе",
   "slug": "paths",
   "readingMinutes": 18,
   "practiceMinutes": 40,
   "tags": [
     "python",
     "batch_f",
-    "sk44"
+    "sk45"
   ],
   "skillIds": [
-    "SK44"
+    "SK45"
   ],
   "sourcePaths": [
     "docs/graphs/paths.md"
   ],
+  "localSourcePath": "content-source/python/sections/graphs/paths.md",
   "exerciseOrder": [
     "python-graphs-paths-guided-1",
     "python-graphs-paths-guided-2",

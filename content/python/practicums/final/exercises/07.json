@@ -6,25 +6,25 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "7. расстояние BFS",
-  "statement": "Практикум: расстояние BFS. Обходите граф слоями и запишите первое расстояние до каждой вершины.\n\nТренируемый приём: обходы DFS и BFS.",
+  "title": "7. достижимость BFS",
+  "statement": "Практикум: достижимость BFS. Обходите граф слоями и отметьте все вершины, до которых можно дойти от старта.\n\nТренируемый приём: обходы DFS и BFS.",
   "difficulty": "standard",
-  "starterCode": "def shortest_distance(...):\n    pass\n",
+  "starterCode": "def reachable(...):\n    pass\n",
   "hints": [
-    "Сначала вспомните основной приём: расстояние BFS.",
+    "Сначала вспомните основной приём: достижимость BFS.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def shortest_distance(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    distance = [-1] * n\n    distance[start] = 0\n    queue = [start]\n    for vertex in queue:\n        for neighbour in graph[vertex]:\n            if distance[neighbour] == -1:\n                distance[neighbour] = distance[vertex] + 1\n                queue.append(neighbour)\n    return distance[finish]",
+  "solution": "def reachable(n, edges, start):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    seen = {start}\n    stack = [start]\n    while stack:\n        vertex = stack.pop()\n        for neighbour in graph[vertex]:\n            if neighbour not in seen:\n                seen.add(neighbour)\n                stack.append(neighbour)\n    return sorted(seen)",
   "examples": [
     {
-      "input": "[5,[[0,1],[1,2],[0,3],[3,2]],0,2]",
-      "output": "2"
+      "input": "[5,[[0,1],[1,2],[3,4]],0]",
+      "output": "[0,1,2]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "shortest_distance",
+    "functionName": "reachable",
     "tests": [
       {
         "args": [
@@ -39,32 +39,27 @@
               2
             ],
             [
-              0,
-              3
-            ],
-            [
               3,
-              2
+              4
             ]
           ],
-          0,
-          2
+          0
         ],
-        "expectedReturn": 2
+        "expectedReturn": [
+          0,
+          1,
+          2
+        ]
       },
       {
         "args": [
-          3,
-          [
-            [
-              0,
-              1
-            ]
-          ],
-          0,
-          2
+          1,
+          [],
+          0
         ],
-        "expectedReturn": -1
+        "expectedReturn": [
+          0
+        ]
       },
       {
         "args": [
@@ -79,18 +74,17 @@
               2
             ],
             [
-              0,
-              3
-            ],
-            [
               3,
-              2
+              4
             ]
           ],
-          0,
-          2
+          0
         ],
-        "expectedReturn": 2
+        "expectedReturn": [
+          0,
+          1,
+          2
+        ]
       }
     ]
   }

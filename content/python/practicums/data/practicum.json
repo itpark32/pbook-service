@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "python-practicum-data",
-  "title": "Практикум 3. Строки и коллекции",
+  "title": "Практикум 3. Строки и структуры данных",
   "slug": "data",
   "skillIds": [
     "SK01",
@@ -28,7 +28,8 @@
     "SK22",
     "SK23",
     "SK24",
-    "SK25"
+    "SK25",
+    "SK26"
   ],
   "exerciseOrder": [
     "python-practicum-data-task-01",
@@ -45,6 +46,8 @@
     "python-practicum-data-task-12",
     "python-practicum-data-task-13",
     "python-practicum-data-task-14",
-    "python-practicum-data-task-15"
+    "python-practicum-data-task-15",
+    "python-practicum-data-task-16",
+    "python-practicum-data-task-17"
   ]
 }

@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/lists/processing.md"
   ],
+  "localSourcePath": "content-source/python/sections/lists/processing.md",
   "exerciseOrder": [
     "python-lists-processing-guided-1",
     "python-lists-processing-guided-2",

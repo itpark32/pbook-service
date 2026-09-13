@@ -6,49 +6,49 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "9. число путей DAG",
-  "statement": "Практикум: число путей DAG. Посчитайте пути по ориентированному ациклическому графу с мемоизацией.\n\nТренируемый приём: пути и расстояния в графах.",
+  "title": "9. расстояние BFS",
+  "statement": "Практикум: расстояние BFS. Обходите невзвешенный граф слоями: первая встреча вершины задаёт число рёбер до неё.\n\nТренируемый приём: пути и расстояния в невзвешенном графе.",
   "difficulty": "challenge",
-  "starterCode": "def count_paths(...):\n    pass\n",
+  "starterCode": "def shortest_distance(...):\n    pass\n",
   "hints": [
-    "Сначала вспомните основной приём: число путей DAG.",
+    "Сначала вспомните основной приём: расстояние BFS.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def count_paths(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n    memo = {}\n    def visit(vertex):\n        if vertex == finish:\n            return 1\n        if vertex not in memo:\n            memo[vertex] = sum(visit(neighbour) for neighbour in graph[vertex])\n        return memo[vertex]\n    return visit(start)",
+  "solution": "def shortest_distance(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    distance = [-1] * n\n    distance[start] = 0\n    queue = [start]\n    for vertex in queue:\n        for neighbour in graph[vertex]:\n            if distance[neighbour] == -1:\n                distance[neighbour] = distance[vertex] + 1\n                queue.append(neighbour)\n    return distance[finish]",
   "examples": [
     {
-      "input": "[4,[[0,1],[0,2],[1,3],[2,3]],0,3]",
+      "input": "[5,[[0,1],[1,2],[0,3],[3,2]],0,2]",
       "output": "2"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "count_paths",
+    "functionName": "shortest_distance",
     "tests": [
       {
         "args": [
-          4,
+          5,
           [
             [
               0,
               1
             ],
             [
-              0,
+              1,
               2
             ],
             [
-              1,
+              0,
               3
             ],
             [
-              2,
-              3
+              3,
+              2
             ]
           ],
           0,
-          3
+          2
         ],
         "expectedReturn": 2
       },
@@ -64,31 +64,31 @@
           0,
           2
         ],
-        "expectedReturn": 0
+        "expectedReturn": -1
       },
       {
         "args": [
-          4,
+          5,
           [
             [
               0,
               1
             ],
             [
-              0,
+              1,
               2
             ],
             [
-              1,
+              0,
               3
             ],
             [
-              2,
-              3
+              3,
+              2
             ]
           ],
           0,
-          3
+          2
         ],
         "expectedReturn": 2
       }

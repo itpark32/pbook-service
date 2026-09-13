@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_e",
-    "sk39"
+    "sk40"
   ],
   "skillIds": [
-    "SK39"
+    "SK40"
   ],
   "sourcePaths": [
     "docs/brute-force/basics.md"
   ],
+  "localSourcePath": "content-source/python/sections/efficiency/brute-force.md",
   "exerciseOrder": [
     "python-brute-force-basics-guided-1",
     "python-brute-force-basics-guided-2",

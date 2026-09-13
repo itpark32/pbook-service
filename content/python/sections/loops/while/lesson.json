@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/loops/while.md"
   ],
+  "localSourcePath": "content-source/python/sections/loops/while.md",
   "exerciseOrder": [
     "python-loops-while-guided-1",
     "python-loops-while-guided-2",

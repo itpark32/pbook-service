@@ -47,7 +47,9 @@
     "SK41",
     "SK42",
     "SK43",
-    "SK44"
+    "SK44",
+    "SK45",
+    "SK46"
   ],
   "sections": [
     {
@@ -108,10 +110,11 @@
     },
     {
       "id": "collections",
-      "title": "Множества и словари",
+      "title": "Коллекции и структуры данных",
       "lessonIds": [
         "python-collections-sets",
-        "python-collections-dicts-frequency"
+        "python-collections-dicts-frequency",
+        "python-collections-stack-queue"
       ]
     },
     {
@@ -178,7 +181,8 @@
       "lessonIds": [
         "python-graphs-basics",
         "python-graphs-traversal",
-        "python-graphs-paths"
+        "python-graphs-paths",
+        "python-graphs-dijkstra"
       ]
     }
   ],
@@ -195,7 +199,7 @@
     },
     {
       "id": "python-practicum-data",
-      "title": "Практикум 3. Строки и коллекции",
+      "title": "Практикум 3. Строки и структуры данных",
       "path": "practicums/data"
     },
     {

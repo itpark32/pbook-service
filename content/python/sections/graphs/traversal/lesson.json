@@ -9,15 +9,16 @@
   "tags": [
     "python",
     "batch_f",
-    "sk43"
+    "sk44"
   ],
   "skillIds": [
-    "SK43"
+    "SK44"
   ],
   "sourcePaths": [
     "docs/graphs/basics.md",
     "docs/graphs/paths.md"
   ],
+  "localSourcePath": "content-source/python/sections/graphs/traversal.md",
   "exerciseOrder": [
     "python-graphs-traversal-guided-1",
     "python-graphs-traversal-guided-2",

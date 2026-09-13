@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "python-collections-sets",
   "sectionId": "collections",
-  "title": "Множества",
+  "title": "Кортежи и множества",
   "slug": "sets",
   "readingMinutes": 15,
   "practiceMinutes": 30,
@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/collections/tuples-sets.md"
   ],
+  "localSourcePath": "content-source/python/sections/collections/sets.md",
   "exerciseOrder": [
     "python-collections-sets-guided-1",
     "python-collections-sets-guided-2",

@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_e",
-    "sk37"
+    "sk38"
   ],
   "skillIds": [
-    "SK37"
+    "SK38"
   ],
   "sourcePaths": [
     "docs/numbers/primes-gcd.md"
   ],
+  "localSourcePath": "content-source/python/sections/numbers/primes-gcd.md",
   "exerciseOrder": [
     "python-numbers-primes-gcd-guided-1",
     "python-numbers-primes-gcd-guided-2",

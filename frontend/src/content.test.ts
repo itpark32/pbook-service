@@ -14,9 +14,9 @@ describe("lesson content manifest", () => {
   });
 
   it("exposes the complete curriculum and unique direct routes", () => {
-    expect(courseEntries.filter((content) => !content.isPracticum)).toHaveLength(47);
+    expect(courseEntries.filter((content) => !content.isPracticum)).toHaveLength(49);
     expect(courseEntries.filter((content) => content.isPracticum)).toHaveLength(6);
     expect(new Set(courseEntries.map((content) => content.path)).size).toBe(courseEntries.length);
-    expect(new Set(courseEntries.flatMap((content) => content.lesson.skillIds)).size).toBe(44);
+    expect(new Set(courseEntries.flatMap((content) => content.lesson.skillIds)).size).toBe(46);
   });
 });

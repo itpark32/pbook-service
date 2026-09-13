@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_d",
-    "sk27"
+    "sk28"
   ],
   "skillIds": [
-    "SK27"
+    "SK28"
   ],
   "sourcePaths": [
     "docs/functions/scope-decomposition.md"
   ],
+  "localSourcePath": "content-source/python/sections/functions/scope-decomposition.md",
   "exerciseOrder": [
     "python-functions-scope-decomposition-guided-1",
     "python-functions-scope-decomposition-guided-2",

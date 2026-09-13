@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/lists/2d-lists.md"
   ],
+  "localSourcePath": "content-source/python/sections/lists/matrix-algorithms.md",
   "exerciseOrder": [
     "python-lists-matrices-guided-1",
     "python-lists-matrices-guided-2",

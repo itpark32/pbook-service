@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/basics/input-output-variables.md"
   ],
+  "localSourcePath": "content-source/python/sections/basics/input-output.md",
   "exerciseOrder": [
     "python-basics-input-output-guided-1",
     "python-basics-input-output-guided-2",

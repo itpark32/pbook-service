@@ -30,6 +30,7 @@ var teacherCourseLessons = []string{
 	"python-lists-matrices",
 	"python-collections-sets",
 	"python-collections-dicts-frequency",
+	"python-collections-stack-queue",
 	"python-functions-basics",
 	"python-functions-scope-decomposition",
 	"python-recursion-basics",
@@ -49,19 +50,20 @@ var teacherCourseLessons = []string{
 	"python-graphs-basics",
 	"python-graphs-traversal",
 	"python-graphs-paths",
+	"python-graphs-dijkstra",
 }
 
-const teacherCourseExerciseCount = 230
+const teacherCourseExerciseCount = 239
 
 var teacherCoursePracticums = []struct {
-	ID    string
+	ID string
 	Title string
 	Total int
 }{
 	{ID: "python-practicum-first-programs", Title: "Практикум 1. Первые программы", Total: 12},
 	{ID: "python-practicum-loops", Title: "Практикум 2. Циклы", Total: 15},
-	{ID: "python-practicum-data", Title: "Практикум 3. Строки и коллекции", Total: 15},
+	{ID: "python-practicum-data", Title: "Практикум 3. Строки и структуры данных", Total: 17},
 	{ID: "python-practicum-functions-files", Title: "Практикум 4. Функции, рекурсия и файлы", Total: 12},
 	{ID: "python-practicum-algorithms", Title: "Практикум 5. Алгоритмы", Total: 15},
-	{ID: "python-practicum-final", Title: "Практикум 6. Итоговый", Total: 20},
+	{ID: "python-practicum-final", Title: "Практикум 6. Итоговый", Total: 21},
 }

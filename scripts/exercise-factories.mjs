@@ -186,6 +186,11 @@ const profiles = {
     func("Число путей в DAG", "Для ориентированного ациклического графа верните число путей из start в finish.", "count_paths", "def count_paths(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n    memo = {}\n    def visit(vertex):\n        if vertex == finish:\n            return 1\n        if vertex not in memo:\n            memo[vertex] = sum(visit(neighbour) for neighbour in graph[vertex])\n        return memo[vertex]\n    return visit(start)", [[[4, [[0, 1], [0, 2], [1, 3], [2, 3]], 0, 3], 2], [[3, [[0, 1]], 0, 2], 0]]),
     func("Взвешенное расстояние", "Верните длину кратчайшего пути в неориентированном графе с неотрицательными весами или -1.", "weighted_distance", "def weighted_distance(n, edges, start, finish):\n    import heapq\n    graph = [[] for _ in range(n)]\n    for left, right, weight in edges:\n        graph[left].append((right, weight))\n        graph[right].append((left, weight))\n    distance = [float('inf')] * n\n    distance[start] = 0\n    queue = [(0, start)]\n    while queue:\n        current, vertex = heapq.heappop(queue)\n        if current != distance[vertex]:\n            continue\n        for neighbour, weight in graph[vertex]:\n            candidate = current + weight\n            if candidate < distance[neighbour]:\n                distance[neighbour] = candidate\n                heapq.heappush(queue, (candidate, neighbour))\n    return -1 if distance[finish] == float('inf') else distance[finish]", [[[4, [[0, 1, 5], [0, 2, 1], [2, 1, 1], [1, 3, 2]], 0, 3], 4], [[2, [], 0, 1], -1]]),
     func("Восстановление пути", "Верните один кратчайший по числу рёбер путь от start к finish или пустой список.", "shortest_path", "def shortest_path(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    parent = {start: None}\n    queue = [start]\n    for vertex in queue:\n        for neighbour in graph[vertex]:\n            if neighbour not in parent:\n                parent[neighbour] = vertex\n                queue.append(neighbour)\n    if finish not in parent:\n        return []\n    path = []\n    vertex = finish\n    while vertex is not None:\n        path.append(vertex)\n        vertex = parent[vertex]\n    return path[::-1]", [[[4, [[0, 1], [1, 3], [0, 2], [2, 3]], 0, 3], [0, 1, 3]], [[3, [[0, 1]], 0, 2], []]])
+  ],
+  dijkstra: [
+    func("Расстояния от старта", "Реализуйте `shortest_distances(n, edges, start)`: верните расстояния от start во взвешенном неориентированном графе; недостижимые вершины обозначьте -1.", "shortest_distances", "def shortest_distances(n, edges, start):\n    import heapq\n    graph = [[] for _ in range(n)]\n    for left, right, weight in edges:\n        graph[left].append((right, weight))\n        graph[right].append((left, weight))\n    distance = [None] * n\n    distance[start] = 0\n    heap = [(0, start)]\n    while heap:\n        current, vertex = heapq.heappop(heap)\n        if current != distance[vertex]:\n            continue\n        for neighbour, weight in graph[vertex]:\n            candidate = current + weight\n            if distance[neighbour] is None or candidate < distance[neighbour]:\n                distance[neighbour] = candidate\n                heapq.heappush(heap, (candidate, neighbour))\n    return [-1 if value is None else value for value in distance]", [[[4, [[0, 1, 5], [0, 2, 1], [2, 1, 1], [1, 3, 2]], 0], [0, 2, 1, 4]], [[3, [[0, 1, 7]], 0], [0, 7, -1]], [[1, [], 0], [0]]]),
+    func("Недостижимая цель", "Реализуйте `weighted_distance(n, edges, start, finish)`: верните стоимость самого дешёвого пути или -1, если пути нет.", "weighted_distance", "def weighted_distance(n, edges, start, finish):\n    import heapq\n    graph = [[] for _ in range(n)]\n    for left, right, weight in edges:\n        graph[left].append((right, weight))\n        graph[right].append((left, weight))\n    distance = [None] * n\n    distance[start] = 0\n    heap = [(0, start)]\n    while heap:\n        current, vertex = heapq.heappop(heap)\n        if current != distance[vertex]:\n            continue\n        for neighbour, weight in graph[vertex]:\n            candidate = current + weight\n            if distance[neighbour] is None or candidate < distance[neighbour]:\n                distance[neighbour] = candidate\n                heapq.heappush(heap, (candidate, neighbour))\n    return -1 if distance[finish] is None else distance[finish]", [[[4, [[0, 1, 8], [0, 2, 2], [2, 1, 2], [1, 3, 3], [2, 3, 10]], 0, 3], 7], [[3, [[0, 1, 1]], 0, 2], -1], [[2, [[0, 1, 4]], 1, 0], 4]]),
+    func("Лучший маршрут", "Реализуйте `cheapest_route(n, edges, start, finish)`: верните один маршрут минимальной стоимости или пустой список, если финиш недостижим.", "cheapest_route", "def cheapest_route(n, edges, start, finish):\n    import heapq\n    graph = [[] for _ in range(n)]\n    for left, right, weight in edges:\n        graph[left].append((right, weight))\n        graph[right].append((left, weight))\n    distance = [None] * n\n    parent = [None] * n\n    distance[start] = 0\n    heap = [(0, start)]\n    while heap:\n        current, vertex = heapq.heappop(heap)\n        if current != distance[vertex]:\n            continue\n        for neighbour, weight in graph[vertex]:\n            candidate = current + weight\n            if distance[neighbour] is None or candidate < distance[neighbour]:\n                distance[neighbour] = candidate\n                parent[neighbour] = vertex\n                heapq.heappush(heap, (candidate, neighbour))\n    if distance[finish] is None:\n        return []\n    path = []\n    vertex = finish\n    while vertex is not None:\n        path.append(vertex)\n        vertex = parent[vertex]\n    return path[::-1]", [[[4, [[0, 1, 8], [0, 2, 2], [2, 1, 2], [1, 3, 3], [2, 3, 10]], 0, 3], [0, 2, 1, 3]], [[3, [[0, 1, 1]], 0, 2], []], [[1, [], 0, 0], [0]]])
   ]
 };
 
@@ -236,6 +241,11 @@ const earlyProfiles = {
     stdin("Частота цели", "В первой строке N, во второй N слов, в третьей target. Выведите число вхождений target, используя словарь.", "n = int(input())\nwords = input().split()\ntarget = input()\ncounts = {}\nfor word in words[:n]:\n    counts[word] = counts.get(word, 0) + 1\nprint(counts.get(target, 0))", [["3\na b a\na\n", "2\n"], ["0\n\nx\n", "0\n"], ["2\nred blue\ngreen\n", "0\n"]]),
     stdin("Частый элемент", "В первой строке N, во второй N слов. Выведите наиболее частое слово; при равенстве — лексикографически меньшее.", "n = int(input())\nwords = input().split()\ncounts = {}\nfor word in words[:n]:\n    counts[word] = counts.get(word, 0) + 1\nbest = None\nfor word in counts:\n    if best is None or counts[word] > counts[best] or counts[word] == counts[best] and word < best:\n        best = word\nprint(best)", [["3\nb a b\n", "b\n"], ["2\nb a\n", "a\n"], ["1\nx\n", "x\n"]]),
     stdin("Число разных ключей", "В первой строке N, во второй N слов. Постройте словарь частот и выведите число его ключей.", "n = int(input())\nwords = input().split()\ncounts = {}\nfor word in words[:n]:\n    counts[word] = counts.get(word, 0) + 1\nprint(len(counts))", [["3\na b a\n", "2\n"], ["1\nx\n", "1\n"], ["0\n\n", "0\n"]])
+  ],
+  stackQueue: [
+    stdin("История действий", "В первой строке N, затем N команд: `+ X` добавить X в стек, `-` снять последний элемент. Для каждой команды `-` выведите снятый элемент.", "n = int(input())\nstack = []\nfor _ in range(n):\n    command = input().split()\n    if command[0] == '+':\n        stack.append(command[1])\n    else:\n        print(stack.pop())", [["5\n+ red\n+ blue\n-\n+ green\n-\n", "blue\ngreen\n"], ["2\n+ 7\n-\n", "7\n"], ["6\n+ a\n+ b\n-\n-\n+ c\n-\n", "b\na\nc\n"]]),
+    stdin("Очередь заявок", "В первой строке N, затем N команд: `+ X` поставить X в очередь, `-` обслужить первого. Для каждой команды `-` выведите обслуженный элемент.", "n = int(input())\nqueue = []\nhead = 0\nfor _ in range(n):\n    command = input().split()\n    if command[0] == '+':\n        queue.append(command[1])\n    else:\n        print(queue[head])\n        head += 1", [["5\n+ ann\n+ bob\n-\n+ cat\n-\n", "ann\nbob\n"], ["2\n+ 10\n-\n", "10\n"], ["6\n+ a\n+ b\n-\n-\n+ c\n-\n", "a\nb\nc\n"]]),
+    stdin("Проверка скобок", "Прочитайте строку из круглых скобок. Выведите YES, если каждая открывающая скобка закрыта в правильном порядке, иначе NO.", "text = input()\nstack = []\nok = True\nfor char in text:\n    if char == '(':\n        stack.append(char)\n    elif not stack:\n        ok = False\n    else:\n        stack.pop()\nif ok and not stack:\n    print('YES')\nelse:\n    print('NO')", [["(()())\n", "YES\n"], ["())(\n", "NO\n"], ["((())\n", "NO\n"]])
   ]
 };
 
@@ -410,6 +420,11 @@ export const lessonProfiles = {
     [earlyProfiles.dicts[2], "Число ключей словаря", "Постройте таблицу частот и определите число разных ключей."],
     [earlyProfiles.dicts[1], "Частый победитель", "Выберите наиболее частое слово, предусмотрев ничью."]
   ]),
+  "python-collections-stack-queue": profile("стек и очередь", [
+    [earlyProfiles.stackQueue[0], "История действий стеком", "Добавляйте действие в конец списка и снимайте последнее выполненное действие."],
+    [earlyProfiles.stackQueue[1], "Обслуживание очереди", "Храните элементы в списке и перемещайте отдельный индекс головы вместо удаления из начала."],
+    [earlyProfiles.stackQueue[2], "Баланс круглых скобок", "Открывающую скобку кладите в стек, а закрывающей снимайте последнюю ожидающую скобку."]
+  ]),
   "python-functions-basics": profile("параметры и return", [
     [profiles.function[0], "Функция чётности", "Напишите функцию, которая получает число и возвращает булево значение."],
     [profiles.function[1], "Функция большего", "Верните большее из двух чисел с помощью if, не вызывая max."],
@@ -492,18 +507,23 @@ export const lessonProfiles = {
   ]),
   "python-graphs-basics": profile("список смежности", [
     [profiles.graph[0], "Степени вершин", "По рёбрам неориентированного графа постройте список степеней вершин."],
-    [profiles.graph[1], "Компонента старта", "Соберите список смежности и определите достижимые от start вершины."],
-    [profiles.graph[2], "Расстояние по рёбрам", "На графе со списком смежности найдите длину кратчайшего пути в рёбрах."]
+    [profiles.graph[0], "Количество соседей", "Постройте список смежности и по его длинам определите число соседей каждой вершины."],
+    [profiles.graph[0], "Вершины без рёбер", "По степеням найдите, сколько вершин не участвует ни в одном ребре."]
   ]),
   "python-graphs-traversal": profile("обходы DFS и BFS", [
     [profiles.graph[1], "Достижимые DFS", "Используйте стек или очередь, чтобы отметить все достижимые вершины."],
-    [profiles.graph[2], "Расстояния BFS", "Обходите граф слоями и запишите первое расстояние до каждой вершины."],
-    [profiles.graph_paths[2], "Восстановление BFS-пути", "Сохраните родителя при первом посещении вершины и восстановите путь."]
+    [profiles.graph[1], "Достижимость BFS", "Обходите граф слоями и отметьте все вершины, до которых можно дойти от старта."],
+    [profiles.graph[1], "Размер компоненты", "Запустите обход от старта и посчитайте число впервые посещённых вершин."]
   ]),
-  "python-graphs-paths": profile("пути и расстояния в графах", [
-    [profiles.graph_paths[0], "Число путей DAG", "Посчитайте пути по ориентированному ациклическому графу с мемоизацией."],
-    [profiles.graph_paths[1], "Взвешенное расстояние", "Поддерживайте лучшую известную дистанцию и выбирайте следующую вершину по весу."],
+  "python-graphs-paths": profile("пути и расстояния в невзвешенном графе", [
+    [profiles.graph[2], "Расстояние BFS", "Обходите невзвешенный граф слоями: первая встреча вершины задаёт число рёбер до неё."],
+    [profiles.graph_paths[2], "Родители BFS", "При первом посещении вершины сохраните вершину, из которой вы в неё пришли."],
     [profiles.graph_paths[2], "Один кратчайший путь", "После BFS восстановите последовательность вершин от финиша к старту."]
+  ]),
+  "python-graphs-dijkstra": profile("алгоритм Дейкстры", [
+    [profiles.dijkstra[0], "Расстояния от старта", "Обновляйте лучшую дистанцию до соседа и храните кандидатов в куче."],
+    [profiles.dijkstra[1], "Стоимость маршрута", "Пропускайте устаревшие записи кучи и верните -1, если путь не найден."],
+    [profiles.dijkstra[2], "Дешёвый маршрут", "Помимо дистанции храните родителя вершины, чтобы восстановить маршрут минимальной стоимости."]
   ])
 };
 
@@ -561,43 +581,45 @@ export const practicumProfiles = {
   ],
   "python-practicum-data": [
     curate("python-strings-basics", 0, "intro", "частота буквы", ["SK16"]), curate("python-strings-methods-slices", 1, "intro", "разворот строки", ["SK17"]),
-    curate("python-strings-algorithms", 0, "standard", "первая пара", ["SK18"]), curate("python-strings-runs", 2, "standard", "длинная серия", ["SK19"]),
-    curate("python-lists-basics", 1, "intro", "индексы чётных", ["SK20"]), curate("python-lists-mutation", 1, "standard", "обмен минимумом", ["SK21"]),
-    curate("python-lists-processing", 0, "standard", "фильтрация", ["SK22"]), curate("python-lists-linear-search", 0, "standard", "первый индекс", ["SK23"]),
-    curate("python-lists-neighbours", 2, "challenge", "локальные вершины", ["SK24"]), curate("python-lists-2d", 0, "standard", "суммы строк", ["SK24"]),
-    curate("python-lists-matrices", 1, "challenge", "диагональ", ["SK24"]), curate("python-collections-sets", 1, "standard", "пересечение", ["SK24"]),
+    curate("python-strings-algorithms", 0, "standard", "первая пара", ["SK18"]), curate("python-strings-runs", 2, "standard", "длинная серия", ["SK18"]),
+    curate("python-lists-basics", 1, "intro", "индексы чётных", ["SK19"]), curate("python-lists-mutation", 1, "standard", "обмен минимумом", ["SK19"]),
+    curate("python-lists-processing", 0, "standard", "фильтрация", ["SK20"]), curate("python-lists-linear-search", 0, "standard", "первый индекс", ["SK21"]),
+    curate("python-lists-neighbours", 2, "challenge", "локальные вершины", ["SK22"]), curate("python-lists-2d", 0, "standard", "суммы строк", ["SK23"]),
+    curate("python-lists-matrices", 1, "challenge", "диагональ", ["SK23"]), curate("python-collections-sets", 1, "standard", "пересечение", ["SK24"]),
     curate("python-collections-dicts-frequency", 0, "standard", "частоты", ["SK25"]), curate("python-collections-dicts-frequency", 2, "challenge", "частый элемент", ["SK25"]),
-    curate("python-strings-algorithms", 2, "challenge", "серии символов", ["SK18"])
+    curate("python-strings-algorithms", 2, "challenge", "серии символов", ["SK18"]), curate("python-collections-stack-queue", 0, "standard", "история действий", ["SK26"]),
+    curate("python-collections-stack-queue", 1, "challenge", "очередь заявок", ["SK26"])
   ],
   "python-practicum-functions-files": [
-    curate("python-functions-basics", 0, "intro", "булева функция", ["SK26"]), curate("python-functions-basics", 1, "intro", "сравнение параметров", ["SK26"]),
-    curate("python-functions-scope-decomposition", 1, "standard", "локальная функция", ["SK27"]), curate("python-functions-scope-decomposition", 2, "standard", "декомпозиция цифр", ["SK27"]),
-    curate("python-recursion-basics", 0, "standard", "рекурсивный факториал", ["SK28"]), curate("python-recursion-calculations", 1, "standard", "трассировка цифр", ["SK29"]),
-    curate("python-files-basics", 0, "intro", "сумма из файла", ["SK30"]), curate("python-files-basics", 1, "standard", "выходной файл", ["SK30"]),
-    curate("python-files-numbers", 0, "standard", "числа в файле", ["SK31"]), curate("python-files-text", 0, "challenge", "самая длинная строка", ["SK32"]),
-    curate("python-recursion-basics", 2, "challenge", "рекурсивная сумма цифр", ["SK28"]), curate("python-files-text", 2, "challenge", "частоты текста", ["SK32"])
+    curate("python-functions-basics", 0, "intro", "булева функция", ["SK27"]), curate("python-functions-basics", 1, "intro", "сравнение параметров", ["SK27"]),
+    curate("python-functions-scope-decomposition", 1, "standard", "локальная функция", ["SK28"]), curate("python-functions-scope-decomposition", 2, "standard", "декомпозиция цифр", ["SK28"]),
+    curate("python-recursion-basics", 0, "standard", "рекурсивный факториал", ["SK29"]), curate("python-recursion-calculations", 1, "standard", "трассировка цифр", ["SK30"]),
+    curate("python-files-basics", 0, "intro", "сумма из файла", ["SK31"]), curate("python-files-basics", 1, "standard", "выходной файл", ["SK31"]),
+    curate("python-files-numbers", 0, "standard", "числа в файле", ["SK32"]), curate("python-files-text", 0, "challenge", "самая длинная строка", ["SK33"]),
+    curate("python-recursion-basics", 2, "challenge", "рекурсивная сумма цифр", ["SK29"]), curate("python-files-text", 2, "challenge", "частоты текста", ["SK33"])
   ],
   "python-practicum-algorithms": [
-    curate("python-algorithms-binary-search", 0, "intro", "наличие ключа", ["SK33"]), curate("python-algorithms-binary-search", 1, "standard", "левая граница", ["SK33"]),
-    curate("python-algorithms-selection-sort", 0, "intro", "минимум хвоста", ["SK34"]), curate("python-algorithms-selection-sort", 2, "challenge", "сортировка выбором", ["SK34"]),
-    curate("python-algorithms-python-sort", 1, "standard", "ключ сортировки", ["SK35"]), curate("python-numbers-divisibility-divisors", 1, "standard", "перечень делителей", ["SK36"]),
-    curate("python-numbers-primes-gcd", 0, "standard", "простое число", ["SK37"]), curate("python-numbers-primes-gcd", 1, "challenge", "алгоритм Евклида", ["SK37"]),
-    curate("python-numbers-bases", 0, "standard", "двоичная запись", ["SK38"]), curate("python-numbers-bases", 1, "standard", "двоичное значение", ["SK38"]),
-    curate("python-brute-force-basics", 0, "standard", "перебор пар", ["SK39"]), curate("python-brute-force-basics", 1, "challenge", "перебор троек", ["SK39"]),
-    curate("python-complexity-basics", 0, "intro", "линейный поиск", ["SK40"]), curate("python-complexity-basics", 1, "standard", "квадратичный перебор", ["SK40"]),
-    curate("python-complexity-basics", 2, "challenge", "кубический перебор", ["SK40"])
+    curate("python-algorithms-binary-search", 0, "intro", "наличие ключа", ["SK34"]), curate("python-algorithms-binary-search", 1, "standard", "левая граница", ["SK34"]),
+    curate("python-algorithms-selection-sort", 0, "intro", "минимум хвоста", ["SK35"]), curate("python-algorithms-selection-sort", 2, "challenge", "сортировка выбором", ["SK35"]),
+    curate("python-algorithms-python-sort", 1, "standard", "ключ сортировки", ["SK36"]), curate("python-numbers-divisibility-divisors", 1, "standard", "перечень делителей", ["SK37"]),
+    curate("python-numbers-primes-gcd", 0, "standard", "простое число", ["SK38"]), curate("python-numbers-primes-gcd", 1, "challenge", "алгоритм Евклида", ["SK38"]),
+    curate("python-numbers-bases", 0, "standard", "двоичная запись", ["SK39"]), curate("python-numbers-bases", 1, "standard", "двоичное значение", ["SK39"]),
+    curate("python-brute-force-basics", 0, "standard", "перебор пар", ["SK40"]), curate("python-brute-force-basics", 1, "challenge", "перебор троек", ["SK40"]),
+    curate("python-complexity-basics", 0, "intro", "линейный поиск", ["SK41"]), curate("python-complexity-basics", 1, "standard", "квадратичный перебор", ["SK41"]),
+    curate("python-complexity-basics", 2, "challenge", "кубический перебор", ["SK41"])
   ],
   "python-practicum-final": [
-    curate("python-dp-basics", 0, "standard", "число путей", ["SK41"]), curate("python-dp-basics", 1, "challenge", "несоседний максимум", ["SK41"]),
-    curate("python-dp-basics", 2, "challenge", "минимум монет", ["SK41"]), curate("python-graphs-basics", 0, "intro", "степени вершин", ["SK42"]),
-    curate("python-graphs-basics", 1, "standard", "достижимость", ["SK42"]), curate("python-graphs-traversal", 0, "standard", "обход графа", ["SK43"]),
-    curate("python-graphs-traversal", 1, "standard", "расстояние BFS", ["SK43"]), curate("python-graphs-traversal", 2, "challenge", "восстановление пути", ["SK43"]),
-    curate("python-graphs-paths", 0, "challenge", "число путей DAG", ["SK44"]), curate("python-graphs-paths", 1, "challenge", "взвешенный путь", ["SK44"]),
-    curate("python-graphs-paths", 2, "challenge", "кратчайший маршрут", ["SK44"]), curate("python-algorithms-binary-search", 2, "standard", "бинарный индекс", ["SK33"]),
-    curate("python-algorithms-python-sort", 0, "standard", "сортировка данных", ["SK35"]), curate("python-numbers-primes-gcd", 1, "standard", "НОД", ["SK37"]),
-    curate("python-brute-force-basics", 2, "challenge", "лучший кандидат", ["SK39"]), curate("python-collections-dicts-frequency", 1, "standard", "частотный выбор", ["SK25"]),
-    curate("python-files-basics", 2, "standard", "файловый результат", ["SK30"]), curate("python-recursion-calculations", 0, "standard", "рекурсивная степень", ["SK29"]),
-    curate("python-lists-matrices", 2, "standard", "матрица", ["SK24"]), curate("python-loops-nested", 2, "challenge", "тройки", ["SK11"])
+    curate("python-dp-basics", 0, "standard", "число путей", ["SK42"]), curate("python-dp-basics", 1, "challenge", "несоседний максимум", ["SK42"]),
+    curate("python-dp-basics", 2, "challenge", "минимум монет", ["SK42"]), curate("python-graphs-basics", 0, "intro", "степени вершин", ["SK43"]),
+    curate("python-graphs-basics", 1, "standard", "соседи вершин", ["SK43"]), curate("python-graphs-traversal", 0, "standard", "обход графа", ["SK44"]),
+    curate("python-graphs-traversal", 1, "standard", "достижимость BFS", ["SK44"]), curate("python-graphs-traversal", 2, "challenge", "размер компоненты", ["SK44"]),
+    curate("python-graphs-paths", 0, "challenge", "расстояние BFS", ["SK45"]), curate("python-graphs-paths", 1, "challenge", "родители BFS", ["SK45"]),
+    curate("python-graphs-paths", 2, "challenge", "кратчайший маршрут", ["SK45"]), curate("python-graphs-dijkstra", 1, "challenge", "взвешенный путь", ["SK46"]),
+    curate("python-algorithms-binary-search", 2, "standard", "бинарный индекс", ["SK34"]), curate("python-algorithms-python-sort", 0, "standard", "сортировка данных", ["SK36"]),
+    curate("python-numbers-primes-gcd", 1, "standard", "НОД", ["SK38"]), curate("python-brute-force-basics", 2, "challenge", "лучший кандидат", ["SK40"]),
+    curate("python-collections-dicts-frequency", 1, "standard", "частотный выбор", ["SK25"]), curate("python-files-basics", 2, "standard", "файловый результат", ["SK31"]),
+    curate("python-recursion-calculations", 0, "standard", "рекурсивная степень", ["SK30"]), curate("python-lists-matrices", 2, "standard", "матрица", ["SK23"]),
+    curate("python-loops-nested", 2, "challenge", "тройки", ["SK11"])
   ]
 };
 

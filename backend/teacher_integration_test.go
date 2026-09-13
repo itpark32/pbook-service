@@ -101,7 +101,7 @@ func TestTeacherCabinetOnlyShowsOwnStudents(t *testing.T) {
 		t.Fatalf("foreign student leaked: %s", students.Body.String())
 	}
 	card := request(fmt.Sprintf("/api/v1/teacher/students/%d", studentAID))
-	if card.Code != http.StatusOK || !strings.Contains(card.Body.String(), "Гимназия №1") || !strings.Contains(card.Body.String(), `"totalLessons":47`) || !strings.Contains(card.Body.String(), `"totalExercises":230`) {
+	if card.Code != http.StatusOK || !strings.Contains(card.Body.String(), "Гимназия №1") || !strings.Contains(card.Body.String(), `"totalLessons":49`) || !strings.Contains(card.Body.String(), `"totalExercises":239`) {
 		t.Fatalf("own student card = %d: %s", card.Code, card.Body.String())
 	}
 	code := request(fmt.Sprintf("/api/v1/teacher/students/%d/exercises/python-branches-if-else-sign", studentAID))

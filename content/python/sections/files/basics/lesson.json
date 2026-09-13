@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_d",
-    "sk30"
+    "sk31"
   ],
   "skillIds": [
-    "SK30"
+    "SK31"
   ],
   "sourcePaths": [
     "docs/files/basics.md"
   ],
+  "localSourcePath": "content-source/python/sections/files/basics.md",
   "exerciseOrder": [
     "python-files-basics-guided-1",
     "python-files-basics-guided-2",

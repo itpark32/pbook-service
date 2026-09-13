@@ -6,56 +6,46 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "15. лучший кандидат",
-  "statement": "Практикум: лучший кандидат. Переберите кандидатов и оставьте лучший, не превышающий ограничение.\n\nТренируемый приём: полный перебор.",
-  "difficulty": "challenge",
-  "starterCode": "def best_allowed(...):\n    pass\n",
+  "title": "15. НОД",
+  "statement": "Практикум: НОД. Повторяйте замену пары чисел, пока второй остаток не станет равен нулю.\n\nТренируемый приём: простые числа и алгоритм Евклида.",
+  "difficulty": "standard",
+  "starterCode": "def gcd(...):\n    pass\n",
   "hints": [
-    "Сначала вспомните основной приём: лучший кандидат.",
+    "Сначала вспомните основной приём: НОД.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def best_allowed(values, limit):\n    candidates = [value for value in values if value <= limit]\n    return max(candidates, default=None)",
+  "solution": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a",
   "examples": [
     {
-      "input": "[[2,9,5],6]",
-      "output": "5"
+      "input": "[18,24]",
+      "output": "6"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "best_allowed",
+    "functionName": "gcd",
     "tests": [
       {
         "args": [
-          [
-            2,
-            9,
-            5
-          ],
-          6
+          18,
+          24
         ],
-        "expectedReturn": 5
+        "expectedReturn": 6
       },
       {
         "args": [
-          [
-            8
-          ],
-          3
+          7,
+          0
         ],
-        "expectedReturn": null
+        "expectedReturn": 7
       },
       {
         "args": [
-          [
-            2,
-            9,
-            5
-          ],
-          6
+          18,
+          24
         ],
-        "expectedReturn": 5
+        "expectedReturn": 6
       }
     ]
   }

@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/lists/basics.md"
   ],
+  "localSourcePath": "content-source/python/sections/lists/basics.md",
   "exerciseOrder": [
     "python-lists-basics-guided-1",
     "python-lists-basics-guided-2",

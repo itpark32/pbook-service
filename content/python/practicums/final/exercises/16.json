@@ -6,39 +6,56 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "16. частотный выбор",
-  "statement": "Практикум: частотный выбор. Постройте таблицу частот и определите число разных ключей.\n\nТренируемый приём: словари и таблицы частот.",
-  "difficulty": "standard",
-  "starterCode": "# Напишите решение здесь.\n",
+  "title": "16. лучший кандидат",
+  "statement": "Практикум: лучший кандидат. Переберите кандидатов и оставьте лучший, не превышающий ограничение.\n\nТренируемый приём: полный перебор.",
+  "difficulty": "challenge",
+  "starterCode": "def best_allowed(...):\n    pass\n",
   "hints": [
-    "Сначала вспомните основной приём: частотный выбор.",
+    "Сначала вспомните основной приём: лучший кандидат.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nwords = input().split()\ncounts = {}\nfor word in words[:n]:\n    counts[word] = counts.get(word, 0) + 1\nprint(len(counts))",
+  "solution": "def best_allowed(values, limit):\n    candidates = [value for value in values if value <= limit]\n    return max(candidates, default=None)",
   "examples": [
     {
-      "input": "3\na b a\n",
-      "output": "2\n"
+      "input": "[[2,9,5],6]",
+      "output": "5"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "best_allowed",
     "tests": [
       {
-        "input": "3\na b a\n",
-        "expectedOutput": "2\n"
+        "args": [
+          [
+            2,
+            9,
+            5
+          ],
+          6
+        ],
+        "expectedReturn": 5
       },
       {
-        "input": "1\nx\n",
-        "expectedOutput": "1\n"
+        "args": [
+          [
+            8
+          ],
+          3
+        ],
+        "expectedReturn": null
       },
       {
-        "input": "0\n\n",
-        "expectedOutput": "0\n"
+        "args": [
+          [
+            2,
+            9,
+            5
+          ],
+          6
+        ],
+        "expectedReturn": 5
       }
     ]
   }

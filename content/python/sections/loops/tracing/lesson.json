@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/loops/tracing.md"
   ],
+  "localSourcePath": "content-source/python/sections/loops/tracing.md",
   "exerciseOrder": [
     "python-loops-tracing-guided-1",
     "python-loops-tracing-guided-2",

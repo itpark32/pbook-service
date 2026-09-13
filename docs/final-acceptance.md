@@ -6,7 +6,7 @@ The automated acceptance command is:
 make acceptance
 ```
 
-It runs the complete content validator and reference solutions, then requires exactly 47 lessons, 6 practicums, 89 valid practicum task slots, SK01–SK44, and the absence of excluded exam / Python+ modules, classes, and dataclass sources.
+It runs the complete content validator and reference solutions, then requires exactly 49 lessons, 6 practicums, 92 valid practicum task slots, SK01–SK46, and the absence of excluded exam / Python+ modules, classes, and dataclass sources.
 
 The release gate also includes:
 

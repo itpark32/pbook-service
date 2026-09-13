@@ -6,29 +6,29 @@
     "id": "python-graphs-basics"
   },
   "kind": "checkpoint",
-  "title": "Расстояние по рёбрам",
-  "statement": "На графе со списком смежности найдите длину кратчайшего пути в рёбрах.\n\nТренируемый приём: список смежности.",
+  "title": "Вершины без рёбер",
+  "statement": "По степеням найдите, сколько вершин не участвует ни в одном ребре.\n\nТренируемый приём: список смежности.",
   "difficulty": "challenge",
-  "starterCode": "def shortest_distance(...):\n    pass\n",
+  "starterCode": "def degrees(...):\n    pass\n",
   "hints": [
     "Определите, какие данные нужны для шага «список смежности».",
     "Проследите решение на одном небольшом примере вручную.",
     "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def shortest_distance(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    distance = [-1] * n\n    distance[start] = 0\n    queue = [start]\n    for vertex in queue:\n        for neighbour in graph[vertex]:\n            if distance[neighbour] == -1:\n                distance[neighbour] = distance[vertex] + 1\n                queue.append(neighbour)\n    return distance[finish]",
+  "solution": "def degrees(n, edges):\n    result = [0] * n\n    for left, right in edges:\n        result[left] += 1\n        result[right] += 1\n    return result",
   "examples": [
     {
-      "input": "[5,[[0,1],[1,2],[0,3],[3,2]],0,2]",
-      "output": "2"
+      "input": "[4,[[0,1],[1,2]]]",
+      "output": "[1,2,1,0]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "shortest_distance",
+    "functionName": "degrees",
     "tests": [
       {
         "args": [
-          5,
+          4,
           [
             [
               0,
@@ -37,38 +37,26 @@
             [
               1,
               2
-            ],
-            [
-              0,
-              3
-            ],
-            [
-              3,
-              2
             ]
-          ],
-          0,
-          2
+          ]
         ],
-        "expectedReturn": 2
+        "expectedReturn": [
+          1,
+          2,
+          1,
+          0
+        ]
       },
       {
         "args": [
-          3,
-          [
-            [
-              0,
-              1
-            ]
-          ],
           0,
-          2
+          []
         ],
-        "expectedReturn": -1
+        "expectedReturn": []
       },
       {
         "args": [
-          5,
+          4,
           [
             [
               0,
@@ -77,20 +65,15 @@
             [
               1,
               2
-            ],
-            [
-              0,
-              3
-            ],
-            [
-              3,
-              2
             ]
-          ],
-          0,
-          2
+          ]
         ],
-        "expectedReturn": 2
+        "expectedReturn": [
+          1,
+          2,
+          1,
+          0
+        ]
       }
     ]
   }

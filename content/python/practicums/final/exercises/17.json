@@ -6,75 +6,39 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "17. файловый результат",
-  "statement": "Практикум: файловый результат. Прочитайте lines.txt и запишите первую самую длинную строку в answer.txt.\n\nТренируемый приём: чтение и запись файлов.",
+  "title": "17. частотный выбор",
+  "statement": "Практикум: частотный выбор. Постройте таблицу частот и определите число разных ключей.\n\nТренируемый приём: словари и таблицы частот.",
   "difficulty": "standard",
-  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Сначала вспомните основной приём: файловый результат.",
+    "Сначала вспомните основной приём: частотный выбор.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
-  "examples": [],
-  "fileExamples": [
+  "solution": "n = int(input())\nwords = input().split()\ncounts = {}\nfor word in words[:n]:\n    counts[word] = counts.get(word, 0) + 1\nprint(len(counts))",
+  "examples": [
     {
-      "title": "Пример файлов",
-      "files": [
-        {
-          "path": "lines.txt",
-          "content": "кот\nпрограммирование\nкод\n"
-        }
-      ]
+      "input": "3\na b a\n",
+      "output": "2\n"
     }
   ],
   "judge": {
-    "type": "files",
+    "type": "stdin_stdout",
     "comparison": {
       "mode": "normalized_text"
     },
     "tests": [
       {
-        "inputFiles": [
-          {
-            "path": "lines.txt",
-            "content": "кот\nпрограммирование\nкод\n"
-          }
-        ],
-        "expectedFiles": [
-          {
-            "path": "answer.txt",
-            "content": "программирование"
-          }
-        ]
+        "input": "3\na b a\n",
+        "expectedOutput": "2\n"
       },
       {
-        "inputFiles": [
-          {
-            "path": "lines.txt",
-            "content": "кот\nпрограммирование\nкод\n"
-          }
-        ],
-        "expectedFiles": [
-          {
-            "path": "answer.txt",
-            "content": "программирование"
-          }
-        ]
+        "input": "1\nx\n",
+        "expectedOutput": "1\n"
       },
       {
-        "inputFiles": [
-          {
-            "path": "lines.txt",
-            "content": "кот\nпрограммирование\nкод\n"
-          }
-        ],
-        "expectedFiles": [
-          {
-            "path": "answer.txt",
-            "content": "программирование"
-          }
-        ]
+        "input": "0\n\n",
+        "expectedOutput": "0\n"
       }
     ]
   }

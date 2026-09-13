@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/lists/basics.md"
   ],
+  "localSourcePath": "content-source/python/sections/lists/mutation.md",
   "exerciseOrder": [
     "python-lists-mutation-guided-1",
     "python-lists-mutation-guided-2",

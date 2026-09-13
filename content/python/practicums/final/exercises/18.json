@@ -6,52 +6,76 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "18. рекурсивная степень",
-  "statement": "Практикум: рекурсивная степень. Проследите уменьшение показателя до нуля и возврат произведений.\n\nТренируемый приём: трассировка рекурсивных вычислений.",
+  "title": "18. файловый результат",
+  "statement": "Практикум: файловый результат. Прочитайте lines.txt и запишите первую самую длинную строку в answer.txt.\n\nТренируемый приём: чтение и запись файлов.",
   "difficulty": "standard",
-  "starterCode": "def power(...):\n    pass\n",
+  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
   "hints": [
-    "Сначала вспомните основной приём: рекурсивная степень.",
+    "Сначала вспомните основной приём: файловый результат.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def power(a, n):\n    if n == 0:\n        return 1\n    return a * power(a, n - 1)",
-  "examples": [
+  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
+  "examples": [],
+  "fileExamples": [
     {
-      "input": "[2,5]",
-      "output": "32"
+      "title": "Пример файлов",
+      "files": [
+        {
+          "path": "lines.txt",
+          "content": "кот\nпрограммирование\nкод\n"
+        }
+      ]
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "power",
+    "type": "files",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          2,
-          5
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
         ],
-        "expectedReturn": 32
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
       },
       {
-        "args": [
-          9,
-          0
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
         ],
-        "expectedReturn": 1
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
       },
       {
-        "args": [
-          2,
-          5
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
         ],
-        "expectedReturn": 32
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
       }
-    ],
-    "structuralConstraints": {
-      "requireRecursion": [
-        "power"
-      ]
-    }
+    ]
   }
 }

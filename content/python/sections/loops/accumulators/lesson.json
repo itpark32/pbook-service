@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/loops/accumulators.md"
   ],
+  "localSourcePath": "content-source/python/sections/loops/accumulators.md",
   "exerciseOrder": [
     "python-loops-accumulators-guided-1",
     "python-loops-accumulators-guided-2",

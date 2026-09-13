@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/basics/conditions.md"
   ],
+  "localSourcePath": "content-source/python/sections/branches/elif-ranges.md",
   "exerciseOrder": [
     "python-branches-elif-ranges-guided-1",
     "python-branches-elif-ranges-guided-2",

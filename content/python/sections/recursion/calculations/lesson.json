@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_d",
-    "sk29"
+    "sk30"
   ],
   "skillIds": [
-    "SK29"
+    "SK30"
   ],
   "sourcePaths": [
     "docs/recursion/calculations.md"
   ],
+  "localSourcePath": "content-source/python/sections/recursion/calculations.md",
   "exerciseOrder": [
     "python-recursion-calculations-guided-1",
     "python-recursion-calculations-guided-2",

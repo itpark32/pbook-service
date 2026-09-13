@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_e",
-    "sk34"
+    "sk35"
   ],
   "skillIds": [
-    "SK34"
+    "SK35"
   ],
   "sourcePaths": [
     "docs/algorithms/simple-sorts.md"
   ],
+  "localSourcePath": "content-source/python/sections/algorithms/selection-sort.md",
   "exerciseOrder": [
     "python-algorithms-selection-sort-guided-1",
     "python-algorithms-selection-sort-guided-2",

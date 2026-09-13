@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "python-debugging-basics",
   "sectionId": "branches",
-  "title": "Отладка и трассировка ошибок",
+  "title": "Ошибки и отладка",
   "slug": "debugging",
   "readingMinutes": 15,
   "practiceMinutes": 30,
@@ -15,9 +15,9 @@
     "SK08"
   ],
   "sourcePaths": [
-    "docs/basics/debugging.md",
-    "docs/python-plus/exceptions.md"
+    "docs/basics/debugging.md"
   ],
+  "localSourcePath": "content-source/python/sections/branches/debugging.md",
   "exerciseOrder": [
     "python-debugging-basics-guided-1",
     "python-debugging-basics-guided-2",

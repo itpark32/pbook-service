@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_f",
-    "sk41"
+    "sk42"
   ],
   "skillIds": [
-    "SK41"
+    "SK42"
   ],
   "sourcePaths": [
-    "authored:dynamic-programming"
+    "authored:local"
   ],
+  "localSourcePath": "content-source/python/sections/dp/basics.md",
   "exerciseOrder": [
     "python-dp-basics-guided-1",
     "python-dp-basics-guided-2",

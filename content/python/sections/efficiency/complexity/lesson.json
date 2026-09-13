@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_e",
-    "sk40"
+    "sk41"
   ],
   "skillIds": [
-    "SK40"
+    "SK41"
   ],
   "sourcePaths": [
     "docs/complexity/basics.md"
   ],
+  "localSourcePath": "content-source/python/sections/efficiency/complexity.md",
   "exerciseOrder": [
     "python-complexity-basics-guided-1",
     "python-complexity-basics-guided-2",

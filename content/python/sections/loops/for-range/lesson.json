@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/loops/for-range.md"
   ],
+  "localSourcePath": "content-source/python/sections/loops/for-range.md",
   "exerciseOrder": [
     "python-loops-for-range-guided-1",
     "python-loops-for-range-guided-2",

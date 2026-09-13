@@ -4,7 +4,7 @@ export const sections = [
   { id: "loops", title: "Циклы и последовательности" },
   { id: "strings", title: "Строки" },
   { id: "lists", title: "Списки и матрицы" },
-  { id: "collections", title: "Множества и словари" },
+  { id: "collections", title: "Коллекции и структуры данных" },
   { id: "functions", title: "Функции" },
   { id: "recursion", title: "Рекурсия" },
   { id: "files", title: "Файлы" },
@@ -27,7 +27,7 @@ export const lessons = [
   lesson("python-branches-if-else", "branches", "if-else", "if и else", ["SK05"], ["docs/basics/conditions.md"], "A", "branch", "выбирать ровно один из двух вариантов с if и else"),
   lesson("python-branches-elif-ranges", "branches", "elif-ranges", "elif и диапазоны", ["SK06"], ["docs/basics/conditions.md"], "A", "ranges", "разбивать значения на несколько взаимоисключающих диапазонов"),
   lesson("python-branches-compound", "branches", "compound", "Составные и вложенные условия", ["SK07"], ["docs/basics/conditions.md", "docs/basics/logic.md"], "A", "logic", "объединять и вкладывать условия без лишних ветвей"),
-  lesson("python-debugging-basics", "branches", "debugging", "Отладка и трассировка ошибок", ["SK08"], ["docs/basics/debugging.md", "docs/python-plus/exceptions.md"], "A", "debug", "находить синтаксические, исполнительные и логические ошибки"),
+  lesson("python-debugging-basics", "branches", "debugging", "Ошибки и отладка", ["SK08"], ["docs/basics/debugging.md"], "A", "debug", "находить синтаксические, исполнительные и логические ошибки"),
 
   lesson("python-loops-while", "loops", "while", "Цикл while", ["SK09"], ["docs/loops/while.md"], "B", "loops", "повторять действия, пока условие истинно"),
   lesson("python-loops-for-range", "loops", "for-range", "Цикл for и range", ["SK10"], ["docs/loops/for-range.md"], "B", "loops", "перебирать известный диапазон значений"),
@@ -48,39 +48,41 @@ export const lessons = [
   lesson("python-lists-neighbours", "lists", "neighbours", "Соседи, пары и тройки", ["SK22"], ["docs/lists/neighbours.md"], "C", "neighbours", "обрабатывать соседние элементы без выхода за границы"),
   lesson("python-lists-2d", "lists", "2d-lists", "Двумерные списки", ["SK23"], ["docs/lists/2d-lists.md"], "C", "matrix", "создавать матрицы и обходить строки и столбцы"),
   lesson("python-lists-matrices", "lists", "matrix-algorithms", "Алгоритмы обработки матриц", ["SK23"], ["docs/lists/2d-lists.md"], "C", "matrix", "считать характеристики строк, столбцов и диагоналей"),
-  lesson("python-collections-sets", "collections", "sets", "Множества", ["SK24"], ["docs/collections/tuples-sets.md"], "C", "set", "хранить уникальные значения и выполнять операции над множествами"),
+  lesson("python-collections-sets", "collections", "sets", "Кортежи и множества", ["SK24"], ["docs/collections/tuples-sets.md"], "C", "set", "хранить уникальные значения и выполнять операции над множествами"),
   lesson("python-collections-dicts-frequency", "collections", "dicts-frequency", "Словари и частоты", ["SK25"], ["docs/collections/dicts-frequency.md"], "C", "dict", "связывать ключи со значениями и строить таблицы частот"),
+  lesson("python-collections-stack-queue", "collections", "stack-queue", "Стек и очередь", ["SK26"], ["docs/collections/tuples-sets.md"], "C", "stack_queue", "использовать стек и очередь и выбирать структуру по порядку обработки данных"),
 
-  lesson("python-functions-basics", "functions", "basics", "Функции: параметры и return", ["SK26"], ["docs/functions/basics.md"], "D", "function", "объявлять функции, передавать аргументы и возвращать результат"),
-  lesson("python-functions-scope-decomposition", "functions", "scope-decomposition", "Декомпозиция и область видимости", ["SK27"], ["docs/functions/scope-decomposition.md"], "D", "function", "разделять решение на функции и управлять локальными данными"),
-  lesson("python-recursion-basics", "recursion", "basics", "Основы рекурсии", ["SK28"], ["docs/recursion/basics.md"], "D", "recursion", "задавать базовый случай и рекурсивный переход"),
-  lesson("python-recursion-calculations", "recursion", "calculations", "Рекурсивные вычисления и трассировка", ["SK29"], ["docs/recursion/calculations.md"], "D", "recursion", "трассировать стек вызовов и проверять завершение рекурсии"),
-  lesson("python-files-basics", "files", "basics", "Чтение и запись файлов", ["SK30"], ["docs/files/basics.md"], "D", "files", "безопасно читать и записывать текстовые файлы"),
-  lesson("python-files-numbers", "files", "numbers", "Числовые данные в файлах", ["SK31"], ["docs/files/numbers.md"], "D", "files", "обрабатывать числа из файла потоково"),
-  lesson("python-files-text", "files", "text", "Текстовые данные в файлах", ["SK32"], ["docs/files/text.md"], "D", "files", "обрабатывать строки, слова и частоты из файла"),
+  lesson("python-functions-basics", "functions", "basics", "Функции: параметры и return", ["SK27"], ["docs/functions/basics.md"], "D", "function", "объявлять функции, передавать аргументы и возвращать результат"),
+  lesson("python-functions-scope-decomposition", "functions", "scope-decomposition", "Декомпозиция и область видимости", ["SK28"], ["docs/functions/scope-decomposition.md"], "D", "function", "разделять решение на функции и управлять локальными данными"),
+  lesson("python-recursion-basics", "recursion", "basics", "Основы рекурсии", ["SK29"], ["docs/recursion/basics.md"], "D", "recursion", "задавать базовый случай и рекурсивный переход"),
+  lesson("python-recursion-calculations", "recursion", "calculations", "Рекурсивные вычисления и трассировка", ["SK30"], ["docs/recursion/calculations.md"], "D", "recursion", "трассировать стек вызовов и проверять завершение рекурсии"),
+  lesson("python-files-basics", "files", "basics", "Чтение и запись файлов", ["SK31"], ["docs/files/basics.md"], "D", "files", "безопасно читать и записывать текстовые файлы"),
+  lesson("python-files-numbers", "files", "numbers", "Числовые данные в файлах", ["SK32"], ["docs/files/numbers.md"], "D", "files", "обрабатывать числа из файла потоково"),
+  lesson("python-files-text", "files", "text", "Текстовые данные в файлах", ["SK33"], ["docs/files/text.md"], "D", "files", "обрабатывать строки, слова и частоты из файла"),
 
-  lesson("python-algorithms-binary-search", "algorithms", "binary-search", "Двоичный поиск", ["SK33"], ["docs/algorithms/search.md"], "E", "binary", "искать значение в отсортированном массиве за логарифмическое время"),
-  lesson("python-algorithms-selection-sort", "algorithms", "selection-sort", "Простые сортировки", ["SK34"], ["docs/algorithms/simple-sorts.md"], "E", "simple_sort", "реализовывать сортировку выбором и понимать её шаги"),
-  lesson("python-algorithms-python-sort", "algorithms", "python-sort", "sort, sorted и key", ["SK35"], ["docs/algorithms/python-sort.md"], "E", "sort", "сортировать данные встроенными средствами и задавать ключ"),
-  lesson("python-numbers-divisibility-divisors", "numbers", "divisibility-divisors", "Делимость и делители", ["SK36"], ["docs/numbers/divisibility-divisors.md"], "E", "divisors", "проверять делимость и эффективно перечислять делители"),
-  lesson("python-numbers-primes-gcd", "numbers", "primes-gcd", "Простые числа и НОД", ["SK37"], ["docs/numbers/primes-gcd.md"], "E", "number", "проверять простоту и вычислять НОД алгоритмом Евклида"),
-  lesson("python-numbers-bases", "numbers", "bases", "Системы счисления", ["SK38"], ["docs/numbers/bases.md"], "E", "bases", "переводить целые числа между позиционными системами"),
-  lesson("python-brute-force-basics", "efficiency", "brute-force", "Полный перебор", ["SK39"], ["docs/brute-force/basics.md"], "E", "brute", "строить полный перебор и отсеивать неподходящие варианты"),
-  lesson("python-complexity-basics", "efficiency", "complexity", "Оценка сложности", ["SK40"], ["docs/complexity/basics.md"], "E", "complexity", "оценивать число операций и выбирать подходящий алгоритм"),
+  lesson("python-algorithms-binary-search", "algorithms", "binary-search", "Двоичный поиск", ["SK34"], ["docs/algorithms/search.md"], "E", "binary", "искать значение в отсортированном массиве за логарифмическое время"),
+  lesson("python-algorithms-selection-sort", "algorithms", "selection-sort", "Простые сортировки", ["SK35"], ["docs/algorithms/simple-sorts.md"], "E", "simple_sort", "реализовывать сортировку выбором и понимать её шаги"),
+  lesson("python-algorithms-python-sort", "algorithms", "python-sort", "sort, sorted и key", ["SK36"], ["docs/algorithms/python-sort.md"], "E", "sort", "сортировать данные встроенными средствами и задавать ключ"),
+  lesson("python-numbers-divisibility-divisors", "numbers", "divisibility-divisors", "Делимость и делители", ["SK37"], ["docs/numbers/divisibility-divisors.md"], "E", "divisors", "проверять делимость и эффективно перечислять делители"),
+  lesson("python-numbers-primes-gcd", "numbers", "primes-gcd", "Простые числа и НОД", ["SK38"], ["docs/numbers/primes-gcd.md"], "E", "number", "проверять простоту и вычислять НОД алгоритмом Евклида"),
+  lesson("python-numbers-bases", "numbers", "bases", "Системы счисления", ["SK39"], ["docs/numbers/bases.md"], "E", "bases", "переводить целые числа между позиционными системами"),
+  lesson("python-brute-force-basics", "efficiency", "brute-force", "Полный перебор", ["SK40"], ["docs/brute-force/basics.md"], "E", "brute", "строить полный перебор и отсеивать неподходящие варианты"),
+  lesson("python-complexity-basics", "efficiency", "complexity", "Оценка сложности", ["SK41"], ["docs/complexity/basics.md"], "E", "complexity", "оценивать число операций и выбирать подходящий алгоритм"),
 
-  lesson("python-dp-basics", "dp", "basics", "Основы динамического программирования", ["SK41"], [], "F", "dp", "выделять состояние, переход и базовые значения"),
-  lesson("python-graphs-basics", "graphs", "basics", "Представление графа", ["SK42"], ["docs/graphs/basics.md"], "F", "graph", "хранить граф списками смежности"),
-  lesson("python-graphs-traversal", "graphs", "traversal", "Обходы DFS и BFS", ["SK43"], ["docs/graphs/basics.md", "docs/graphs/paths.md"], "F", "graph", "обходить достижимые вершины в глубину и ширину"),
-  lesson("python-graphs-paths", "graphs", "paths", "Пути в графах", ["SK44"], ["docs/graphs/paths.md"], "F", "graph_paths", "находить пути и расстояния в графе")
+  lesson("python-dp-basics", "dp", "basics", "Основы динамического программирования", ["SK42"], [], "F", "dp", "выделять состояние, переход и базовые значения"),
+  lesson("python-graphs-basics", "graphs", "basics", "Представление графа", ["SK43"], ["docs/graphs/basics.md"], "F", "graph", "хранить граф списками смежности"),
+  lesson("python-graphs-traversal", "graphs", "traversal", "Обходы DFS и BFS", ["SK44"], ["docs/graphs/basics.md", "docs/graphs/paths.md"], "F", "graph", "обходить достижимые вершины в глубину и ширину"),
+  lesson("python-graphs-paths", "graphs", "paths", "Пути и расстояния в невзвешенном графе", ["SK45"], ["docs/graphs/paths.md"], "F", "graph_paths", "находить расстояния и восстанавливать пути в невзвешенном графе"),
+  lesson("python-graphs-dijkstra", "graphs", "dijkstra", "Алгоритм Дейкстры", ["SK46"], ["docs/graphs/paths.md"], "F", "dijkstra", "находить кратчайшие расстояния во взвешенном графе с неотрицательными рёбрами")
 ];
 
 export const practicums = [
   { id: "python-practicum-first-programs", slug: "first-programs", title: "Практикум 1. Первые программы", batch: "A", count: 12 },
   { id: "python-practicum-loops", slug: "loops", title: "Практикум 2. Циклы", batch: "B", count: 15 },
-  { id: "python-practicum-data", slug: "data", title: "Практикум 3. Строки и коллекции", batch: "C", count: 15 },
+  { id: "python-practicum-data", slug: "data", title: "Практикум 3. Строки и структуры данных", batch: "C", count: 17 },
   { id: "python-practicum-functions-files", slug: "functions-files", title: "Практикум 4. Функции, рекурсия и файлы", batch: "D", count: 12 },
   { id: "python-practicum-algorithms", slug: "algorithms", title: "Практикум 5. Алгоритмы", batch: "E", count: 15 },
-  { id: "python-practicum-final", slug: "final", title: "Практикум 6. Итоговый", batch: "F", count: 20 }
+  { id: "python-practicum-final", slug: "final", title: "Практикум 6. Итоговый", batch: "F", count: 21 }
 ];
 
 export const batchOrder = ["A", "B", "C", "D", "E", "F"];

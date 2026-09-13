@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_f",
-    "sk42"
+    "sk43"
   ],
   "skillIds": [
-    "SK42"
+    "SK43"
   ],
   "sourcePaths": [
     "docs/graphs/basics.md"
   ],
+  "localSourcePath": "content-source/python/sections/graphs/basics.md",
   "exerciseOrder": [
     "python-graphs-basics-guided-1",
     "python-graphs-basics-guided-2",

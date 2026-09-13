@@ -6,29 +6,29 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "8. восстановление пути",
-  "statement": "Практикум: восстановление пути. Сохраните родителя при первом посещении вершины и восстановите путь.\n\nТренируемый приём: обходы DFS и BFS.",
+  "title": "8. размер компоненты",
+  "statement": "Практикум: размер компоненты. Запустите обход от старта и посчитайте число впервые посещённых вершин.\n\nТренируемый приём: обходы DFS и BFS.",
   "difficulty": "challenge",
-  "starterCode": "def shortest_path(...):\n    pass\n",
+  "starterCode": "def reachable(...):\n    pass\n",
   "hints": [
-    "Сначала вспомните основной приём: восстановление пути.",
+    "Сначала вспомните основной приём: размер компоненты.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def shortest_path(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    parent = {start: None}\n    queue = [start]\n    for vertex in queue:\n        for neighbour in graph[vertex]:\n            if neighbour not in parent:\n                parent[neighbour] = vertex\n                queue.append(neighbour)\n    if finish not in parent:\n        return []\n    path = []\n    vertex = finish\n    while vertex is not None:\n        path.append(vertex)\n        vertex = parent[vertex]\n    return path[::-1]",
+  "solution": "def reachable(n, edges, start):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    seen = {start}\n    stack = [start]\n    while stack:\n        vertex = stack.pop()\n        for neighbour in graph[vertex]:\n            if neighbour not in seen:\n                seen.add(neighbour)\n                stack.append(neighbour)\n    return sorted(seen)",
   "examples": [
     {
-      "input": "[4,[[0,1],[1,3],[0,2],[2,3]],0,3]",
-      "output": "[0,1,3]"
+      "input": "[5,[[0,1],[1,2],[3,4]],0]",
+      "output": "[0,1,2]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "shortest_path",
+    "functionName": "reachable",
     "tests": [
       {
         "args": [
-          4,
+          5,
           [
             [
               0,
@@ -36,43 +36,34 @@
             ],
             [
               1,
-              3
-            ],
-            [
-              0,
               2
             ],
             [
-              2,
-              3
+              3,
+              4
             ]
           ],
-          0,
-          3
+          0
         ],
         "expectedReturn": [
           0,
           1,
-          3
+          2
         ]
       },
       {
         "args": [
-          3,
-          [
-            [
-              0,
-              1
-            ]
-          ],
-          0,
-          2
+          1,
+          [],
+          0
         ],
-        "expectedReturn": []
+        "expectedReturn": [
+          0
+        ]
       },
       {
         "args": [
-          4,
+          5,
           [
             [
               0,
@@ -80,24 +71,19 @@
             ],
             [
               1,
-              3
-            ],
-            [
-              0,
               2
             ],
             [
-              2,
-              3
+              3,
+              4
             ]
           ],
-          0,
-          3
+          0
         ],
         "expectedReturn": [
           0,
           1,
-          3
+          2
         ]
       }
     ]

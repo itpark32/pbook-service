@@ -220,7 +220,7 @@
     {
       "id": "python-debugging-basics",
       "sectionId": "branches",
-      "title": "Отладка и трассировка ошибок",
+      "title": "Ошибки и отладка",
       "slug": "debugging",
       "skillIds": [
         "SK08"
@@ -809,7 +809,7 @@
     {
       "id": "python-collections-sets",
       "sectionId": "collections",
-      "title": "Множества",
+      "title": "Кортежи и множества",
       "slug": "sets",
       "skillIds": [
         "SK24"
@@ -869,12 +869,43 @@
       ]
     },
     {
+      "id": "python-collections-stack-queue",
+      "sectionId": "collections",
+      "title": "Стек и очередь",
+      "slug": "stack-queue",
+      "skillIds": [
+        "SK26"
+      ],
+      "exerciseOrder": [
+        "python-collections-stack-queue-guided-1",
+        "python-collections-stack-queue-guided-2",
+        "python-collections-stack-queue-checkpoint"
+      ],
+      "exerciseTitles": [
+        {
+          "id": "python-collections-stack-queue-guided-1",
+          "title": "История действий стеком",
+          "path": "sections/collections/stack-queue/exercises/01-guided.json"
+        },
+        {
+          "id": "python-collections-stack-queue-guided-2",
+          "title": "Обслуживание очереди",
+          "path": "sections/collections/stack-queue/exercises/02-guided.json"
+        },
+        {
+          "id": "python-collections-stack-queue-checkpoint",
+          "title": "Баланс круглых скобок",
+          "path": "sections/collections/stack-queue/exercises/checkpoint.json"
+        }
+      ]
+    },
+    {
       "id": "python-functions-basics",
       "sectionId": "functions",
       "title": "Функции: параметры и return",
       "slug": "basics",
       "skillIds": [
-        "SK26"
+        "SK27"
       ],
       "exerciseOrder": [
         "python-functions-basics-guided-1",
@@ -905,7 +936,7 @@
       "title": "Декомпозиция и область видимости",
       "slug": "scope-decomposition",
       "skillIds": [
-        "SK27"
+        "SK28"
       ],
       "exerciseOrder": [
         "python-functions-scope-decomposition-guided-1",
@@ -936,7 +967,7 @@
       "title": "Основы рекурсии",
       "slug": "basics",
       "skillIds": [
-        "SK28"
+        "SK29"
       ],
       "exerciseOrder": [
         "python-recursion-basics-guided-1",
@@ -967,7 +998,7 @@
       "title": "Рекурсивные вычисления и трассировка",
       "slug": "calculations",
       "skillIds": [
-        "SK29"
+        "SK30"
       ],
       "exerciseOrder": [
         "python-recursion-calculations-guided-1",
@@ -998,7 +1029,7 @@
       "title": "Чтение и запись файлов",
       "slug": "basics",
       "skillIds": [
-        "SK30"
+        "SK31"
       ],
       "exerciseOrder": [
         "python-files-basics-guided-1",
@@ -1029,7 +1060,7 @@
       "title": "Числовые данные в файлах",
       "slug": "numbers",
       "skillIds": [
-        "SK31"
+        "SK32"
       ],
       "exerciseOrder": [
         "python-files-numbers-guided-1",
@@ -1060,7 +1091,7 @@
       "title": "Текстовые данные в файлах",
       "slug": "text",
       "skillIds": [
-        "SK32"
+        "SK33"
       ],
       "exerciseOrder": [
         "python-files-text-guided-1",
@@ -1091,7 +1122,7 @@
       "title": "Двоичный поиск",
       "slug": "binary-search",
       "skillIds": [
-        "SK33"
+        "SK34"
       ],
       "exerciseOrder": [
         "python-algorithms-binary-search-guided-1",
@@ -1122,7 +1153,7 @@
       "title": "Простые сортировки",
       "slug": "selection-sort",
       "skillIds": [
-        "SK34"
+        "SK35"
       ],
       "exerciseOrder": [
         "python-algorithms-selection-sort-guided-1",
@@ -1153,7 +1184,7 @@
       "title": "sort, sorted и key",
       "slug": "python-sort",
       "skillIds": [
-        "SK35"
+        "SK36"
       ],
       "exerciseOrder": [
         "python-algorithms-python-sort-guided-1",
@@ -1184,7 +1215,7 @@
       "title": "Делимость и делители",
       "slug": "divisibility-divisors",
       "skillIds": [
-        "SK36"
+        "SK37"
       ],
       "exerciseOrder": [
         "python-numbers-divisibility-divisors-guided-1",
@@ -1215,7 +1246,7 @@
       "title": "Простые числа и НОД",
       "slug": "primes-gcd",
       "skillIds": [
-        "SK37"
+        "SK38"
       ],
       "exerciseOrder": [
         "python-numbers-primes-gcd-guided-1",
@@ -1246,7 +1277,7 @@
       "title": "Системы счисления",
       "slug": "bases",
       "skillIds": [
-        "SK38"
+        "SK39"
       ],
       "exerciseOrder": [
         "python-numbers-bases-guided-1",
@@ -1277,7 +1308,7 @@
       "title": "Полный перебор",
       "slug": "brute-force",
       "skillIds": [
-        "SK39"
+        "SK40"
       ],
       "exerciseOrder": [
         "python-brute-force-basics-guided-1",
@@ -1308,7 +1339,7 @@
       "title": "Оценка сложности",
       "slug": "complexity",
       "skillIds": [
-        "SK40"
+        "SK41"
       ],
       "exerciseOrder": [
         "python-complexity-basics-guided-1",
@@ -1339,7 +1370,7 @@
       "title": "Основы динамического программирования",
       "slug": "basics",
       "skillIds": [
-        "SK41"
+        "SK42"
       ],
       "exerciseOrder": [
         "python-dp-basics-guided-1",
@@ -1370,7 +1401,7 @@
       "title": "Представление графа",
       "slug": "basics",
       "skillIds": [
-        "SK42"
+        "SK43"
       ],
       "exerciseOrder": [
         "python-graphs-basics-guided-1",
@@ -1385,12 +1416,12 @@
         },
         {
           "id": "python-graphs-basics-guided-2",
-          "title": "Компонента старта",
+          "title": "Количество соседей",
           "path": "sections/graphs/basics/exercises/02-guided.json"
         },
         {
           "id": "python-graphs-basics-checkpoint",
-          "title": "Расстояние по рёбрам",
+          "title": "Вершины без рёбер",
           "path": "sections/graphs/basics/exercises/checkpoint.json"
         }
       ]
@@ -1401,7 +1432,7 @@
       "title": "Обходы DFS и BFS",
       "slug": "traversal",
       "skillIds": [
-        "SK43"
+        "SK44"
       ],
       "exerciseOrder": [
         "python-graphs-traversal-guided-1",
@@ -1416,12 +1447,12 @@
         },
         {
           "id": "python-graphs-traversal-guided-2",
-          "title": "Расстояния BFS",
+          "title": "Достижимость BFS",
           "path": "sections/graphs/traversal/exercises/02-guided.json"
         },
         {
           "id": "python-graphs-traversal-checkpoint",
-          "title": "Восстановление BFS-пути",
+          "title": "Размер компоненты",
           "path": "sections/graphs/traversal/exercises/checkpoint.json"
         }
       ]
@@ -1429,10 +1460,10 @@
     {
       "id": "python-graphs-paths",
       "sectionId": "graphs",
-      "title": "Пути в графах",
+      "title": "Пути и расстояния в невзвешенном графе",
       "slug": "paths",
       "skillIds": [
-        "SK44"
+        "SK45"
       ],
       "exerciseOrder": [
         "python-graphs-paths-guided-1",
@@ -1442,18 +1473,49 @@
       "exerciseTitles": [
         {
           "id": "python-graphs-paths-guided-1",
-          "title": "Число путей DAG",
+          "title": "Расстояние BFS",
           "path": "sections/graphs/paths/exercises/01-guided.json"
         },
         {
           "id": "python-graphs-paths-guided-2",
-          "title": "Взвешенное расстояние",
+          "title": "Родители BFS",
           "path": "sections/graphs/paths/exercises/02-guided.json"
         },
         {
           "id": "python-graphs-paths-checkpoint",
           "title": "Один кратчайший путь",
           "path": "sections/graphs/paths/exercises/checkpoint.json"
+        }
+      ]
+    },
+    {
+      "id": "python-graphs-dijkstra",
+      "sectionId": "graphs",
+      "title": "Алгоритм Дейкстры",
+      "slug": "dijkstra",
+      "skillIds": [
+        "SK46"
+      ],
+      "exerciseOrder": [
+        "python-graphs-dijkstra-guided-1",
+        "python-graphs-dijkstra-guided-2",
+        "python-graphs-dijkstra-checkpoint"
+      ],
+      "exerciseTitles": [
+        {
+          "id": "python-graphs-dijkstra-guided-1",
+          "title": "Расстояния от старта",
+          "path": "sections/graphs/dijkstra/exercises/01-guided.json"
+        },
+        {
+          "id": "python-graphs-dijkstra-guided-2",
+          "title": "Стоимость маршрута",
+          "path": "sections/graphs/dijkstra/exercises/02-guided.json"
+        },
+        {
+          "id": "python-graphs-dijkstra-checkpoint",
+          "title": "Дешёвый маршрут",
+          "path": "sections/graphs/dijkstra/exercises/checkpoint.json"
         }
       ]
     }
@@ -1668,7 +1730,7 @@
     },
     {
       "id": "python-practicum-data",
-      "title": "Практикум 3. Строки и коллекции",
+      "title": "Практикум 3. Строки и структуры данных",
       "slug": "data",
       "skillIds": [
         "SK01",
@@ -1695,7 +1757,8 @@
         "SK22",
         "SK23",
         "SK24",
-        "SK25"
+        "SK25",
+        "SK26"
       ],
       "exerciseOrder": [
         "python-practicum-data-task-01",
@@ -1712,7 +1775,9 @@
         "python-practicum-data-task-12",
         "python-practicum-data-task-13",
         "python-practicum-data-task-14",
-        "python-practicum-data-task-15"
+        "python-practicum-data-task-15",
+        "python-practicum-data-task-16",
+        "python-practicum-data-task-17"
       ],
       "exerciseTitles": [
         {
@@ -1789,6 +1854,16 @@
           "id": "python-practicum-data-task-15",
           "title": "15. серии символов",
           "path": "practicums/data/exercises/15.json"
+        },
+        {
+          "id": "python-practicum-data-task-16",
+          "title": "16. история действий",
+          "path": "practicums/data/exercises/16.json"
+        },
+        {
+          "id": "python-practicum-data-task-17",
+          "title": "17. очередь заявок",
+          "path": "practicums/data/exercises/17.json"
         }
       ]
     },
@@ -1828,7 +1903,8 @@
         "SK29",
         "SK30",
         "SK31",
-        "SK32"
+        "SK32",
+        "SK33"
       ],
       "exerciseOrder": [
         "python-practicum-functions-files-task-01",
@@ -1951,7 +2027,8 @@
         "SK37",
         "SK38",
         "SK39",
-        "SK40"
+        "SK40",
+        "SK41"
       ],
       "exerciseOrder": [
         "python-practicum-algorithms-task-01",
@@ -2096,7 +2173,9 @@
         "SK41",
         "SK42",
         "SK43",
-        "SK44"
+        "SK44",
+        "SK45",
+        "SK46"
       ],
       "exerciseOrder": [
         "python-practicum-final-task-01",
@@ -2118,7 +2197,8 @@
         "python-practicum-final-task-17",
         "python-practicum-final-task-18",
         "python-practicum-final-task-19",
-        "python-practicum-final-task-20"
+        "python-practicum-final-task-20",
+        "python-practicum-final-task-21"
       ],
       "exerciseTitles": [
         {
@@ -2143,7 +2223,7 @@
         },
         {
           "id": "python-practicum-final-task-05",
-          "title": "5. достижимость",
+          "title": "5. соседи вершин",
           "path": "practicums/final/exercises/05.json"
         },
         {
@@ -2153,22 +2233,22 @@
         },
         {
           "id": "python-practicum-final-task-07",
-          "title": "7. расстояние BFS",
+          "title": "7. достижимость BFS",
           "path": "practicums/final/exercises/07.json"
         },
         {
           "id": "python-practicum-final-task-08",
-          "title": "8. восстановление пути",
+          "title": "8. размер компоненты",
           "path": "practicums/final/exercises/08.json"
         },
         {
           "id": "python-practicum-final-task-09",
-          "title": "9. число путей DAG",
+          "title": "9. расстояние BFS",
           "path": "practicums/final/exercises/09.json"
         },
         {
           "id": "python-practicum-final-task-10",
-          "title": "10. взвешенный путь",
+          "title": "10. родители BFS",
           "path": "practicums/final/exercises/10.json"
         },
         {
@@ -2178,48 +2258,53 @@
         },
         {
           "id": "python-practicum-final-task-12",
-          "title": "12. бинарный индекс",
+          "title": "12. взвешенный путь",
           "path": "practicums/final/exercises/12.json"
         },
         {
           "id": "python-practicum-final-task-13",
-          "title": "13. сортировка данных",
+          "title": "13. бинарный индекс",
           "path": "practicums/final/exercises/13.json"
         },
         {
           "id": "python-practicum-final-task-14",
-          "title": "14. НОД",
+          "title": "14. сортировка данных",
           "path": "practicums/final/exercises/14.json"
         },
         {
           "id": "python-practicum-final-task-15",
-          "title": "15. лучший кандидат",
+          "title": "15. НОД",
           "path": "practicums/final/exercises/15.json"
         },
         {
           "id": "python-practicum-final-task-16",
-          "title": "16. частотный выбор",
+          "title": "16. лучший кандидат",
           "path": "practicums/final/exercises/16.json"
         },
         {
           "id": "python-practicum-final-task-17",
-          "title": "17. файловый результат",
+          "title": "17. частотный выбор",
           "path": "practicums/final/exercises/17.json"
         },
         {
           "id": "python-practicum-final-task-18",
-          "title": "18. рекурсивная степень",
+          "title": "18. файловый результат",
           "path": "practicums/final/exercises/18.json"
         },
         {
           "id": "python-practicum-final-task-19",
-          "title": "19. матрица",
+          "title": "19. рекурсивная степень",
           "path": "practicums/final/exercises/19.json"
         },
         {
           "id": "python-practicum-final-task-20",
-          "title": "20. тройки",
+          "title": "20. матрица",
           "path": "practicums/final/exercises/20.json"
+        },
+        {
+          "id": "python-practicum-final-task-21",
+          "title": "21. тройки",
+          "path": "practicums/final/exercises/21.json"
         }
       ]
     }

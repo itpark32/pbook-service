@@ -10,8 +10,8 @@ cpSync(source, temporary, { recursive: true });
 
 try {
   assert.deepEqual(validateContent(temporary, { solutions: false }), {
-    lessons: 47,
-    exercises: 230,
+    lessons: 49,
+    exercises: 239,
     practicums: 6
   });
   assert.equal(compareOutput("30   \n", "30\n"), true);

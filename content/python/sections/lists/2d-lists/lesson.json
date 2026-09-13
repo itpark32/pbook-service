@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/lists/2d-lists.md"
   ],
+  "localSourcePath": "content-source/python/sections/lists/2d-lists.md",
   "exerciseOrder": [
     "python-lists-2d-guided-1",
     "python-lists-2d-guided-2",

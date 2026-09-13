@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/strings/basics.md"
   ],
+  "localSourcePath": "content-source/python/sections/strings/basics.md",
   "exerciseOrder": [
     "python-strings-basics-guided-1",
     "python-strings-basics-guided-2",

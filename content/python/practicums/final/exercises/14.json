@@ -6,46 +6,59 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "14. НОД",
-  "statement": "Практикум: НОД. Повторяйте замену пары чисел, пока второй остаток не станет равен нулю.\n\nТренируемый приём: простые числа и алгоритм Евклида.",
+  "title": "14. сортировка данных",
+  "statement": "Практикум: сортировка данных. Используйте встроенную сортировку для создания нового списка по убыванию.\n\nТренируемый приём: sorted, sort и ключ сортировки.",
   "difficulty": "standard",
-  "starterCode": "def gcd(...):\n    pass\n",
+  "starterCode": "def descending(...):\n    pass\n",
   "hints": [
-    "Сначала вспомните основной приём: НОД.",
+    "Сначала вспомните основной приём: сортировка данных.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a",
+  "solution": "def descending(values):\n    return sorted(values, reverse=True)",
   "examples": [
     {
-      "input": "[18,24]",
-      "output": "6"
+      "input": "[[3,1,2]]",
+      "output": "[3,2,1]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "gcd",
+    "functionName": "descending",
     "tests": [
       {
         "args": [
-          18,
-          24
+          [
+            3,
+            1,
+            2
+          ]
         ],
-        "expectedReturn": 6
+        "expectedReturn": [
+          3,
+          2,
+          1
+        ]
       },
       {
         "args": [
-          7,
-          0
+          []
         ],
-        "expectedReturn": 7
+        "expectedReturn": []
       },
       {
         "args": [
-          18,
-          24
+          [
+            3,
+            1,
+            2
+          ]
         ],
-        "expectedReturn": 6
+        "expectedReturn": [
+          3,
+          2,
+          1
+        ]
       }
     ]
   }

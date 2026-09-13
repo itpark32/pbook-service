@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/collections/dicts-frequency.md"
   ],
+  "localSourcePath": "content-source/python/sections/collections/dicts-frequency.md",
   "exerciseOrder": [
     "python-collections-dicts-frequency-guided-1",
     "python-collections-dicts-frequency-guided-2",

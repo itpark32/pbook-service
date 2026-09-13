@@ -18,6 +18,7 @@
     "docs/basics/conditions.md",
     "docs/basics/logic.md"
   ],
+  "localSourcePath": "content-source/python/sections/branches/compound.md",
   "exerciseOrder": [
     "python-branches-compound-guided-1",
     "python-branches-compound-guided-2",

@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/basics/types-arithmetic.md"
   ],
+  "localSourcePath": "content-source/python/sections/basics/types-arithmetic.md",
   "exerciseOrder": [
     "python-basics-types-arithmetic-guided-1",
     "python-basics-types-arithmetic-guided-2",

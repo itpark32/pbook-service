@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_d",
-    "sk31"
+    "sk32"
   ],
   "skillIds": [
-    "SK31"
+    "SK32"
   ],
   "sourcePaths": [
     "docs/files/numbers.md"
   ],
+  "localSourcePath": "content-source/python/sections/files/numbers.md",
   "exerciseOrder": [
     "python-files-numbers-guided-1",
     "python-files-numbers-guided-2",

@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/lists/linear-search.md"
   ],
+  "localSourcePath": "content-source/python/sections/lists/linear-search.md",
   "exerciseOrder": [
     "python-lists-linear-search-guided-1",
     "python-lists-linear-search-guided-2",

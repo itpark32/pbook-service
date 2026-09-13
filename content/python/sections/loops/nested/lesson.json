@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/loops/nested-loops.md"
   ],
+  "localSourcePath": "content-source/python/sections/loops/nested.md",
   "exerciseOrder": [
     "python-loops-nested-guided-1",
     "python-loops-nested-guided-2",

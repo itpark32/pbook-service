@@ -6,54 +6,90 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "12. бинарный индекс",
-  "statement": "Практикум: бинарный индекс. Верните индекс цели в отсортированном списке или -1.\n\nТренируемый приём: границы двоичного поиска.",
-  "difficulty": "standard",
-  "starterCode": "def binary_search(...):\n    pass\n",
+  "title": "12. взвешенный путь",
+  "statement": "Практикум: взвешенный путь. Пропускайте устаревшие записи кучи и верните -1, если путь не найден.\n\nТренируемый приём: алгоритм Дейкстры.",
+  "difficulty": "challenge",
+  "starterCode": "def weighted_distance(...):\n    pass\n",
   "hints": [
-    "Сначала вспомните основной приём: бинарный индекс.",
+    "Сначала вспомните основной приём: взвешенный путь.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def binary_search(values, target):\n    left, right = 0, len(values) - 1\n    while left <= right:\n        middle = (left + right) // 2\n        if values[middle] == target:\n            return middle\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle - 1\n    return -1",
+  "solution": "def weighted_distance(n, edges, start, finish):\n    import heapq\n    graph = [[] for _ in range(n)]\n    for left, right, weight in edges:\n        graph[left].append((right, weight))\n        graph[right].append((left, weight))\n    distance = [None] * n\n    distance[start] = 0\n    heap = [(0, start)]\n    while heap:\n        current, vertex = heapq.heappop(heap)\n        if current != distance[vertex]:\n            continue\n        for neighbour, weight in graph[vertex]:\n            candidate = current + weight\n            if distance[neighbour] is None or candidate < distance[neighbour]:\n                distance[neighbour] = candidate\n                heapq.heappush(heap, (candidate, neighbour))\n    return -1 if distance[finish] is None else distance[finish]",
   "examples": [
     {
-      "input": "[[1,3,5,7],5]",
-      "output": "2"
+      "input": "[4,[[0,1,8],[0,2,2],[2,1,2],[1,3,3],[2,3,10]],0,3]",
+      "output": "7"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "binary_search",
+    "functionName": "weighted_distance",
     "tests": [
       {
         "args": [
+          4,
           [
-            1,
-            3,
-            5,
-            7
+            [
+              0,
+              1,
+              8
+            ],
+            [
+              0,
+              2,
+              2
+            ],
+            [
+              2,
+              1,
+              2
+            ],
+            [
+              1,
+              3,
+              3
+            ],
+            [
+              2,
+              3,
+              10
+            ]
           ],
-          5
+          0,
+          3
         ],
-        "expectedReturn": 2
+        "expectedReturn": 7
       },
       {
         "args": [
+          3,
           [
-            1,
-            3
+            [
+              0,
+              1,
+              1
+            ]
           ],
+          0,
           2
         ],
         "expectedReturn": -1
       },
       {
         "args": [
-          [],
-          1
+          2,
+          [
+            [
+              0,
+              1,
+              4
+            ]
+          ],
+          1,
+          0
         ],
-        "expectedReturn": -1
+        "expectedReturn": 4
       }
     ]
   }

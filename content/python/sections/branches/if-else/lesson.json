@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/basics/conditions.md"
   ],
+  "localSourcePath": "content-source/python/sections/branches/if-else.md",
   "exerciseOrder": [
     "python-branches-if-else-guided-1",
     "python-branches-if-else-guided-2",

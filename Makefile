@@ -1,7 +1,19 @@
-.PHONY: import-content validate-content test-content-solutions test-validator test-exercise-bank exercise-redesign-map acceptance test-backend test-frontend lint format up
+.PHONY: import-content import-theory validate-content validate-lesson-content lesson-content-redesign-map test-import-theory test-content-solutions test-validator test-exercise-bank exercise-redesign-map acceptance test-backend test-frontend lint format up
 
 import-content:
 	node scripts/import-metodichka.mjs --through=F --reset
+
+import-theory:
+	node scripts/import-metodichka.mjs --through=F --theory-only
+
+validate-lesson-content:
+	node scripts/validate-lesson-content.mjs
+
+lesson-content-redesign-map:
+	node scripts/write-lesson-content-redesign-map.mjs
+
+test-import-theory:
+	node scripts/import-theory.test.mjs
 
 validate-content:
 	node scripts/validate-content.mjs

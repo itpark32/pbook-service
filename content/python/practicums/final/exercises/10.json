@@ -6,25 +6,25 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "10. взвешенный путь",
-  "statement": "Практикум: взвешенный путь. Поддерживайте лучшую известную дистанцию и выбирайте следующую вершину по весу.\n\nТренируемый приём: пути и расстояния в графах.",
+  "title": "10. родители BFS",
+  "statement": "Практикум: родители BFS. При первом посещении вершины сохраните вершину, из которой вы в неё пришли.\n\nТренируемый приём: пути и расстояния в невзвешенном графе.",
   "difficulty": "challenge",
-  "starterCode": "def weighted_distance(...):\n    pass\n",
+  "starterCode": "def shortest_path(...):\n    pass\n",
   "hints": [
-    "Сначала вспомните основной приём: взвешенный путь.",
+    "Сначала вспомните основной приём: родители BFS.",
     "Запустите решение на обычном и граничном примере.",
     "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def weighted_distance(n, edges, start, finish):\n    import heapq\n    graph = [[] for _ in range(n)]\n    for left, right, weight in edges:\n        graph[left].append((right, weight))\n        graph[right].append((left, weight))\n    distance = [float('inf')] * n\n    distance[start] = 0\n    queue = [(0, start)]\n    while queue:\n        current, vertex = heapq.heappop(queue)\n        if current != distance[vertex]:\n            continue\n        for neighbour, weight in graph[vertex]:\n            candidate = current + weight\n            if candidate < distance[neighbour]:\n                distance[neighbour] = candidate\n                heapq.heappush(queue, (candidate, neighbour))\n    return -1 if distance[finish] == float('inf') else distance[finish]",
+  "solution": "def shortest_path(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    parent = {start: None}\n    queue = [start]\n    for vertex in queue:\n        for neighbour in graph[vertex]:\n            if neighbour not in parent:\n                parent[neighbour] = vertex\n                queue.append(neighbour)\n    if finish not in parent:\n        return []\n    path = []\n    vertex = finish\n    while vertex is not None:\n        path.append(vertex)\n        vertex = parent[vertex]\n    return path[::-1]",
   "examples": [
     {
-      "input": "[4,[[0,1,5],[0,2,1],[2,1,1],[1,3,2]],0,3]",
-      "output": "4"
+      "input": "[4,[[0,1],[1,3],[0,2],[2,3]],0,3]",
+      "output": "[0,1,3]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "weighted_distance",
+    "functionName": "shortest_path",
     "tests": [
       {
         "args": [
@@ -32,38 +32,43 @@
           [
             [
               0,
+              1
+            ],
+            [
               1,
-              5
+              3
             ],
             [
               0,
-              2,
-              1
-            ],
-            [
-              2,
-              1,
-              1
-            ],
-            [
-              1,
-              3,
               2
+            ],
+            [
+              2,
+              3
             ]
           ],
           0,
           3
         ],
-        "expectedReturn": 4
+        "expectedReturn": [
+          0,
+          1,
+          3
+        ]
       },
       {
         "args": [
-          2,
-          [],
+          3,
+          [
+            [
+              0,
+              1
+            ]
+          ],
           0,
-          1
+          2
         ],
-        "expectedReturn": -1
+        "expectedReturn": []
       },
       {
         "args": [
@@ -71,29 +76,29 @@
           [
             [
               0,
+              1
+            ],
+            [
               1,
-              5
+              3
             ],
             [
               0,
-              2,
-              1
-            ],
-            [
-              2,
-              1,
-              1
-            ],
-            [
-              1,
-              3,
               2
+            ],
+            [
+              2,
+              3
             ]
           ],
           0,
           3
         ],
-        "expectedReturn": 4
+        "expectedReturn": [
+          0,
+          1,
+          3
+        ]
       }
     ]
   }

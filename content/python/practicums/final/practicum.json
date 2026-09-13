@@ -47,7 +47,9 @@
     "SK41",
     "SK42",
     "SK43",
-    "SK44"
+    "SK44",
+    "SK45",
+    "SK46"
   ],
   "exerciseOrder": [
     "python-practicum-final-task-01",
@@ -69,6 +71,7 @@
     "python-practicum-final-task-17",
     "python-practicum-final-task-18",
     "python-practicum-final-task-19",
-    "python-practicum-final-task-20"
+    "python-practicum-final-task-20",
+    "python-practicum-final-task-21"
   ]
 }

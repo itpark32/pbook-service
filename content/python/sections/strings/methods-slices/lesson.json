@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/strings/methods-slices.md"
   ],
+  "localSourcePath": "content-source/python/sections/strings/methods-slices.md",
   "exerciseOrder": [
     "python-strings-methods-slices-guided-1",
     "python-strings-methods-slices-guided-2",

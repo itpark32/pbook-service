@@ -9,14 +9,15 @@
   "tags": [
     "python",
     "batch_e",
-    "sk36"
+    "sk37"
   ],
   "skillIds": [
-    "SK36"
+    "SK37"
   ],
   "sourcePaths": [
     "docs/numbers/divisibility-divisors.md"
   ],
+  "localSourcePath": "content-source/python/sections/numbers/divisibility-divisors.md",
   "exerciseOrder": [
     "python-numbers-divisibility-divisors-guided-1",
     "python-numbers-divisibility-divisors-guided-2",

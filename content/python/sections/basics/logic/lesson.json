@@ -17,6 +17,7 @@
   "sourcePaths": [
     "docs/basics/logic.md"
   ],
+  "localSourcePath": "content-source/python/sections/basics/logic.md",
   "exerciseOrder": [
     "python-basics-logic-guided-1",
     "python-basics-logic-guided-2",
