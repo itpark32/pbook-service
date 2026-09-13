@@ -6,40 +6,61 @@
     "id": "python-collections-dicts-frequency"
   },
   "kind": "guided",
-  "title": "Самый частый",
-  "statement": "Верните самый частый элемент; при равенстве — лексикографически меньший. Для пустого списка верните None.",
+  "title": "Обратное соответствие",
+  "statement": "Для уникальных значений поменяйте местами ключ и значение словаря.\n\nТренируемый приём: словари и таблицы частот.",
   "difficulty": "standard",
-  "starterCode": "def most_frequent(...):\n    pass\n",
+  "starterCode": "def invert(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «словари и таблицы частот».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def most_frequent(values):\n    if not values:\n        return None\n    counts = {}\n    for value in values:\n        counts[value] = counts.get(value, 0) + 1\n    return min(counts, key=lambda value: (-counts[value], value))",
+  "solution": "def invert(mapping):\n    return {value: key for key, value in mapping.items()}",
   "examples": [
     {
-      "input": "[[\"b\",\"a\",\"b\"]]",
-      "output": "\"b\""
+      "input": "[{\"a\":1,\"b\":2}]",
+      "output": "{\"1\":\"a\",\"2\":\"b\"}"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "most_frequent",
+    "functionName": "invert",
     "tests": [
       {
         "args": [
-          [
-            "b",
-            "a",
-            "b"
-          ]
+          {
+            "a": 1,
+            "b": 2
+          }
         ],
-        "expectedReturn": "b"
+        "expectedReturn": {
+          "1": "a",
+          "2": "b"
+        }
       },
       {
         "args": [
-          []
+          {
+            "a": 1,
+            "b": 2
+          }
         ],
-        "expectedReturn": null
+        "expectedReturn": {
+          "1": "a",
+          "2": "b"
+        }
+      },
+      {
+        "args": [
+          {
+            "a": 1,
+            "b": 2
+          }
+        ],
+        "expectedReturn": {
+          "1": "a",
+          "2": "b"
+        }
       }
     ]
   }

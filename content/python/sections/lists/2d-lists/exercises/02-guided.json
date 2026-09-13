@@ -6,45 +6,59 @@
     "id": "python-lists-2d"
   },
   "kind": "guided",
-  "title": "Главная диагональ",
-  "statement": "Верните сумму главной диагонали квадратной матрицы.",
+  "title": "Наибольшее в таблице",
+  "statement": "Пройдите все строки и элементы, чтобы найти общий максимум.\n\nТренируемый приём: двумерные списки.",
   "difficulty": "standard",
-  "starterCode": "def diagonal_sum(...):\n    pass\n",
+  "starterCode": "def matrix_max(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «двумерные списки».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def diagonal_sum(matrix):\n    return sum(matrix[i][i] for i in range(len(matrix)))",
+  "solution": "def matrix_max(matrix):\n    return max((value for row in matrix for value in row), default=None)",
   "examples": [
     {
-      "input": "[[[1,2],[3,4]]]",
-      "output": "5"
+      "input": "[[[1,7],[3]]]",
+      "output": "7"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "diagonal_sum",
+    "functionName": "matrix_max",
     "tests": [
       {
         "args": [
           [
             [
               1,
-              2
+              7
             ],
             [
-              3,
-              4
+              3
             ]
           ]
         ],
-        "expectedReturn": 5
+        "expectedReturn": 7
       },
       {
         "args": [
           []
         ],
-        "expectedReturn": 0
+        "expectedReturn": null
+      },
+      {
+        "args": [
+          [
+            [
+              1,
+              7
+            ],
+            [
+              3
+            ]
+          ]
+        ],
+        "expectedReturn": 7
       }
     ]
   }

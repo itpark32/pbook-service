@@ -6,13 +6,14 @@
     "id": "python-graphs-paths"
   },
   "kind": "guided",
-  "title": "Число путей в DAG",
-  "statement": "Для ориентированного ациклического графа верните число путей из start в finish.",
+  "title": "Число путей DAG",
+  "statement": "Посчитайте пути по ориентированному ациклическому графу с мемоизацией.\n\nТренируемый приём: пути и расстояния в графах.",
   "difficulty": "intro",
   "starterCode": "def count_paths(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «пути и расстояния в графах».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "def count_paths(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n    memo = {}\n    def visit(vertex):\n        if vertex == finish:\n            return 1\n        if vertex not in memo:\n            memo[vertex] = sum(visit(neighbour) for neighbour in graph[vertex])\n        return memo[vertex]\n    return visit(start)",
   "examples": [
@@ -64,6 +65,32 @@
           2
         ],
         "expectedReturn": 0
+      },
+      {
+        "args": [
+          4,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          0,
+          3
+        ],
+        "expectedReturn": 2
       }
     ]
   }

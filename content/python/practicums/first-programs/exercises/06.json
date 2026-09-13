@@ -6,19 +6,20 @@
     "id": "python-practicum-first-programs"
   },
   "kind": "practicum",
-  "title": "6. Знак числа",
-  "statement": "Выведите `positive`, `negative` или `zero` в зависимости от числа.",
+  "title": "6. контрольная сумма",
+  "statement": "Практикум: контрольная сумма. Для трёхзначного номера вычислите сумму его цифр без преобразования в строку.\n\nТренируемый приём: целочисленное деление и остаток.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: контрольная сумма.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nif n > 0:\n    print('positive')\nelif n < 0:\n    print('negative')\nelse:\n    print('zero')",
+  "solution": "n = int(input())\nprint(n // 100 + n // 10 % 10 + n % 10)",
   "examples": [
     {
-      "input": "8\n",
-      "output": "positive\n"
+      "input": "247\n",
+      "output": "13\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "8\n",
-        "expectedOutput": "positive\n"
+        "input": "247\n",
+        "expectedOutput": "13\n"
       },
       {
-        "input": "-2\n",
-        "expectedOutput": "negative\n"
+        "input": "100\n",
+        "expectedOutput": "1\n"
       },
       {
-        "input": "0\n",
-        "expectedOutput": "zero\n"
+        "input": "247\n\n",
+        "expectedOutput": "13\n"
       }
     ]
   }

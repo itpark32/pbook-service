@@ -6,44 +6,61 @@
     "id": "python-lists-2d"
   },
   "kind": "checkpoint",
-  "title": "Максимум матрицы",
-  "statement": "Верните максимальный элемент матрицы или None для пустой матрицы.",
+  "title": "Диагональ таблицы",
+  "statement": "Используйте одинаковые индексы строки и столбца для главной диагонали.\n\nТренируемый приём: двумерные списки.",
   "difficulty": "challenge",
-  "starterCode": "def matrix_max(...):\n    pass\n",
+  "starterCode": "def diagonal_sum(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «двумерные списки».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def matrix_max(matrix):\n    return max((value for row in matrix for value in row), default=None)",
+  "solution": "def diagonal_sum(matrix):\n    return sum(matrix[i][i] for i in range(len(matrix)))",
   "examples": [
     {
-      "input": "[[[1,7],[3]]]",
-      "output": "7"
+      "input": "[[[1,2],[3,4]]]",
+      "output": "5"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "matrix_max",
+    "functionName": "diagonal_sum",
     "tests": [
       {
         "args": [
           [
             [
               1,
-              7
+              2
             ],
             [
-              3
+              3,
+              4
             ]
           ]
         ],
-        "expectedReturn": 7
+        "expectedReturn": 5
       },
       {
         "args": [
           []
         ],
-        "expectedReturn": null
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        ],
+        "expectedReturn": 5
       }
     ]
   }

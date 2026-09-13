@@ -6,19 +6,20 @@
     "id": "python-basics-types-arithmetic"
   },
   "kind": "guided",
-  "title": "Периметр прямоугольника",
-  "statement": "Даны стороны прямоугольника. Выведите его периметр.",
+  "title": "Стоимость набора",
+  "statement": "По цене и количеству вычислите стоимость набора.\n\nТренируемый приём: целые, вещественные числа и арифметические операции.",
   "difficulty": "intro",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «целые, вещественные числа и арифметические операции».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "a, b = map(int, input().split())\nprint(2 * (a + b))",
+  "solution": "price, count = map(int, input().split())\nprint(price * count)",
   "examples": [
     {
-      "input": "3 5\n",
-      "output": "16\n"
+      "input": "120 3\n",
+      "output": "360\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "3 5\n",
-        "expectedOutput": "16\n"
+        "input": "120 3\n",
+        "expectedOutput": "360\n"
       },
       {
-        "input": "1 1\n",
-        "expectedOutput": "4\n"
+        "input": "7 0\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "120 3\n\n",
+        "expectedOutput": "360\n"
       }
     ]
   }

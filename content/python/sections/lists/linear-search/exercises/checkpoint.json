@@ -6,13 +6,14 @@
     "id": "python-lists-linear-search"
   },
   "kind": "checkpoint",
-  "title": "Количество вхождений",
-  "statement": "Верните количество элементов, равных target.",
+  "title": "Частота цели",
+  "statement": "Подсчитайте совпадения с целевым значением за один проход.\n\nТренируемый приём: линейный поиск.",
   "difficulty": "challenge",
   "starterCode": "def count_target(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «линейный поиск».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "def count_target(values, target):\n    count = 0\n    for value in values:\n        if value == target:\n            count += 1\n    return count",
   "examples": [
@@ -42,6 +43,17 @@
           0
         ],
         "expectedReturn": 0
+      },
+      {
+        "args": [
+          [
+            1,
+            1,
+            2
+          ],
+          1
+        ],
+        "expectedReturn": 2
       }
     ]
   }

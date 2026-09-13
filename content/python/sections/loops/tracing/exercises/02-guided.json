@@ -6,19 +6,20 @@
     "id": "python-loops-tracing"
   },
   "kind": "guided",
-  "title": "Сумма чётных",
-  "statement": "В первой строке N, во второй N чисел. Выведите сумму чётных элементов.",
+  "title": "След накопителя",
+  "statement": "Проверьте значения накопителя суммы после каждого прохода range.\n\nТренируемый приём: трассировка цикла.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «трассировка цикла».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value for value in values[:n] if value % 2 == 0))",
+  "solution": "n = int(input())\ntotal = 0\nfor value in range(1, n + 1):\n    total += value\nprint(total)",
   "examples": [
     {
-      "input": "5\n1 2 3 4 5\n",
-      "output": "6\n"
+      "input": "5\n",
+      "output": "15\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "5\n1 2 3 4 5\n",
-        "expectedOutput": "6\n"
+        "input": "5\n",
+        "expectedOutput": "15\n"
       },
       {
-        "input": "3\n1 3 5\n",
+        "input": "0\n",
         "expectedOutput": "0\n"
+      },
+      {
+        "input": "5\n\n",
+        "expectedOutput": "15\n"
       }
     ]
   }

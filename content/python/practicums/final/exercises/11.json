@@ -6,36 +6,99 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "11. В двоичную",
-  "statement": "Верните двоичную запись неотрицательного n без префикса.",
-  "difficulty": "standard",
-  "starterCode": "def to_binary(...):\n    pass\n",
+  "title": "11. кратчайший маршрут",
+  "statement": "Практикум: кратчайший маршрут. После BFS восстановите последовательность вершин от финиша к старту.\n\nТренируемый приём: пути и расстояния в графах.",
+  "difficulty": "challenge",
+  "starterCode": "def shortest_path(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: кратчайший маршрут.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def to_binary(n):\n    if n == 0:\n        return '0'\n    digits = ''\n    while n:\n        digits = str(n % 2) + digits\n        n //= 2\n    return digits",
+  "solution": "def shortest_path(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    parent = {start: None}\n    queue = [start]\n    for vertex in queue:\n        for neighbour in graph[vertex]:\n            if neighbour not in parent:\n                parent[neighbour] = vertex\n                queue.append(neighbour)\n    if finish not in parent:\n        return []\n    path = []\n    vertex = finish\n    while vertex is not None:\n        path.append(vertex)\n        vertex = parent[vertex]\n    return path[::-1]",
   "examples": [
     {
-      "input": "[10]",
-      "output": "\"1010\""
+      "input": "[4,[[0,1],[1,3],[0,2],[2,3]],0,3]",
+      "output": "[0,1,3]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "to_binary",
+    "functionName": "shortest_path",
     "tests": [
       {
         "args": [
-          10
+          4,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          0,
+          3
         ],
-        "expectedReturn": "1010"
+        "expectedReturn": [
+          0,
+          1,
+          3
+        ]
       },
       {
         "args": [
-          0
+          3,
+          [
+            [
+              0,
+              1
+            ]
+          ],
+          0,
+          2
         ],
-        "expectedReturn": "0"
+        "expectedReturn": []
+      },
+      {
+        "args": [
+          4,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          0,
+          3
+        ],
+        "expectedReturn": [
+          0,
+          1,
+          3
+        ]
       }
     ]
   }

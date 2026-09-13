@@ -6,42 +6,59 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "13. Максимальная сумма без соседей",
-  "statement": "Верните максимальную сумму несоседних неотрицательных элементов.",
+  "title": "13. сортировка данных",
+  "statement": "Практикум: сортировка данных. Используйте встроенную сортировку для создания нового списка по убыванию.\n\nТренируемый приём: sorted, sort и ключ сортировки.",
   "difficulty": "standard",
-  "starterCode": "def max_non_adjacent(...):\n    pass\n",
+  "starterCode": "def descending(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: сортировка данных.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def max_non_adjacent(values):\n    previous, current = 0, 0\n    for value in values:\n        previous, current = current, max(current, previous + value)\n    return current",
+  "solution": "def descending(values):\n    return sorted(values, reverse=True)",
   "examples": [
     {
-      "input": "[[2,7,9,3,1]]",
-      "output": "12"
+      "input": "[[3,1,2]]",
+      "output": "[3,2,1]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "max_non_adjacent",
+    "functionName": "descending",
     "tests": [
       {
         "args": [
           [
-            2,
-            7,
-            9,
             3,
-            1
+            1,
+            2
           ]
         ],
-        "expectedReturn": 12
+        "expectedReturn": [
+          3,
+          2,
+          1
+        ]
       },
       {
         "args": [
           []
         ],
-        "expectedReturn": 0
+        "expectedReturn": []
+      },
+      {
+        "args": [
+          [
+            3,
+            1,
+            2
+          ]
+        ],
+        "expectedReturn": [
+          3,
+          2,
+          1
+        ]
       }
     ]
   }

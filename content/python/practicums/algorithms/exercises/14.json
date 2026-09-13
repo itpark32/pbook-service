@@ -6,34 +6,56 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "14. Стоимость покупки",
-  "statement": "Даны цена одной вещи и количество. Выведите общую стоимость.",
-  "difficulty": "challenge",
-  "starterCode": "",
+  "title": "14. квадратичный перебор",
+  "statement": "Практикум: квадратичный перебор. Посчитайте пары и сравните число шагов с квадратичной оценкой.\n\nТренируемый приём: оценку числа операций.",
+  "difficulty": "standard",
+  "starterCode": "def pair_count(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: квадратичный перебор.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "price, count = map(int, input().split())\nprint(price * count)",
+  "solution": "def pair_count(values, target):\n    count = 0\n    for i in range(len(values)):\n        for j in range(i + 1, len(values)):\n            if values[i] + values[j] == target:\n                count += 1\n    return count",
   "examples": [
     {
-      "input": "120 3\n",
-      "output": "360\n"
+      "input": "[[1,2,3,4],5]",
+      "output": "2"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "pair_count",
     "tests": [
       {
-        "input": "120 3\n",
-        "expectedOutput": "360\n"
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          5
+        ],
+        "expectedReturn": 2
       },
       {
-        "input": "7 0\n",
-        "expectedOutput": "0\n"
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          5
+        ],
+        "expectedReturn": 2
       }
     ]
   }

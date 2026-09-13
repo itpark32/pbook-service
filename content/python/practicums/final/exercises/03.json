@@ -6,42 +6,52 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "3. Только в одном",
-  "statement": "Верните количество значений, встречающихся только в одной из двух коллекций.",
-  "difficulty": "intro",
-  "starterCode": "def symmetric_count(...):\n    pass\n",
+  "title": "3. минимум монет",
+  "statement": "Практикум: минимум монет. Заполните таблицу минимальных количеств монет от нуля до нужной суммы.\n\nТренируемый приём: состояние, базу и переход динамического программирования.",
+  "difficulty": "challenge",
+  "starterCode": "def min_coins(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: минимум монет.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def symmetric_count(left, right):\n    return len(set(left) ^ set(right))",
+  "solution": "def min_coins(amount, denominations):\n    dp = [amount + 1] * (amount + 1)\n    dp[0] = 0\n    for value in range(1, amount + 1):\n        for coin in denominations:\n            if coin <= value:\n                dp[value] = min(dp[value], dp[value - coin] + 1)\n    return -1 if dp[amount] > amount else dp[amount]",
   "examples": [
     {
-      "input": "[[1,2],[2,3]]",
+      "input": "[6,[1,3,4]]",
       "output": "2"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "symmetric_count",
+    "functionName": "min_coins",
     "tests": [
       {
         "args": [
+          6,
           [
             1,
-            2
-          ],
-          [
-            2,
-            3
+            3,
+            4
           ]
         ],
         "expectedReturn": 2
       },
       {
         "args": [
-          [],
-          []
+          2,
+          [
+            3
+          ]
+        ],
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          0,
+          [
+            2
+          ]
         ],
         "expectedReturn": 0
       }

@@ -6,67 +6,92 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "9. Полная сортировка выбором",
-  "statement": "Верните новый список, отсортированный выбором. `sorted()` и `.sort()` запрещены.",
-  "difficulty": "standard",
-  "starterCode": "def selection_sort(...):\n    pass\n",
+  "title": "9. число путей DAG",
+  "statement": "Практикум: число путей DAG. Посчитайте пути по ориентированному ациклическому графу с мемоизацией.\n\nТренируемый приём: пути и расстояния в графах.",
+  "difficulty": "challenge",
+  "starterCode": "def count_paths(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: число путей DAG.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def selection_sort(values):\n    result = list(values)\n    for left in range(len(result)):\n        smallest = left\n        for i in range(left + 1, len(result)):\n            if result[i] < result[smallest]:\n                smallest = i\n        result[left], result[smallest] = result[smallest], result[left]\n    return result",
+  "solution": "def count_paths(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n    memo = {}\n    def visit(vertex):\n        if vertex == finish:\n            return 1\n        if vertex not in memo:\n            memo[vertex] = sum(visit(neighbour) for neighbour in graph[vertex])\n        return memo[vertex]\n    return visit(start)",
   "examples": [
     {
-      "input": "[[3,1,2]]",
-      "output": "[1,2,3]"
+      "input": "[4,[[0,1],[0,2],[1,3],[2,3]],0,3]",
+      "output": "2"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "selection_sort",
+    "functionName": "count_paths",
     "tests": [
       {
         "args": [
+          4,
           [
-            3,
-            1,
-            2
-          ]
-        ],
-        "expectedReturn": [
-          1,
-          2,
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          0,
           3
-        ]
+        ],
+        "expectedReturn": 2
       },
       {
         "args": [
+          3,
           [
-            2,
-            2,
-            -1
-          ]
-        ],
-        "expectedReturn": [
-          -1,
-          2,
+            [
+              0,
+              1
+            ]
+          ],
+          0,
           2
-        ]
+        ],
+        "expectedReturn": 0
       },
       {
         "args": [
-          []
+          4,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          0,
+          3
         ],
-        "expectedReturn": []
+        "expectedReturn": 2
       }
-    ],
-    "structuralConstraints": {
-      "forbidCalls": [
-        "sorted"
-      ],
-      "forbidMethods": [
-        "sort"
-      ]
-    }
+    ]
   }
 }

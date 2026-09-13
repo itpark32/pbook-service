@@ -6,42 +6,43 @@
     "id": "python-strings-runs"
   },
   "kind": "checkpoint",
-  "title": "Первая длинная серия",
-  "statement": "Реализуйте `first_double(text)`: индекс первого символа первой пары одинаковых соседей или -1.",
+  "title": "Длина лучшей серии",
+  "statement": "Реализуйте функцию с текущей и максимальной длиной серии.\n\nТренируемый приём: серии одинаковых символов.",
   "difficulty": "challenge",
-  "starterCode": "def first_double(...):\n    pass\n",
+  "starterCode": "def max_run(text):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «серии одинаковых символов».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def first_double(text):\n    for i in range(len(text) - 1):\n        if text[i] == text[i + 1]:\n            return i\n    return -1",
+  "solution": "def max_run(text):\n    best = current = 0\n    previous = None\n    for char in text:\n        if char == previous:\n            current += 1\n        else:\n            previous = char\n            current = 1\n        best = max(best, current)\n    return best",
   "examples": [
     {
-      "input": "[\"abcc\"]",
-      "output": "2"
+      "input": "[\"aaabbc\"]",
+      "output": "3"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "first_double",
+    "functionName": "max_run",
     "tests": [
       {
         "args": [
-          "abcc"
+          "aaabbc"
         ],
-        "expectedReturn": 2
+        "expectedReturn": 3
       },
       {
         "args": [
-          "abc"
-        ],
-        "expectedReturn": -1
-      },
-      {
-        "args": [
-          "aa"
+          ""
         ],
         "expectedReturn": 0
+      },
+      {
+        "args": [
+          "x"
+        ],
+        "expectedReturn": 1
       }
     ]
   }

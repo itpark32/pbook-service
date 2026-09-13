@@ -6,34 +6,51 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "14. Количество букв a",
-  "statement": "Прочитайте строку и выведите количество латинских букв `a`.",
+  "title": "14. частый элемент",
+  "statement": "Практикум: частый элемент. Выберите наиболее частый элемент, предусмотрев пустой вход и ничью.\n\nТренируемый приём: словари и таблицы частот.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "def most_frequent(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: частый элемент.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "text = input()\nprint(text.count('a'))",
+  "solution": "def most_frequent(values):\n    if not values:\n        return None\n    counts = {}\n    for value in values:\n        counts[value] = counts.get(value, 0) + 1\n    return min(counts, key=lambda value: (-counts[value], value))",
   "examples": [
     {
-      "input": "abracadabra\n",
-      "output": "5\n"
+      "input": "[[\"b\",\"a\",\"b\"]]",
+      "output": "\"b\""
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "most_frequent",
     "tests": [
       {
-        "input": "abracadabra\n",
-        "expectedOutput": "5\n"
+        "args": [
+          [
+            "b",
+            "a",
+            "b"
+          ]
+        ],
+        "expectedReturn": "b"
       },
       {
-        "input": "Python\n",
-        "expectedOutput": "0\n"
+        "args": [
+          []
+        ],
+        "expectedReturn": null
+      },
+      {
+        "args": [
+          [
+            "b",
+            "a",
+            "b"
+          ]
+        ],
+        "expectedReturn": "b"
       }
     ]
   }

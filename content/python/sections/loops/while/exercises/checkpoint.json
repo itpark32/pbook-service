@@ -6,19 +6,20 @@
     "id": "python-loops-while"
   },
   "kind": "checkpoint",
-  "title": "Факториал",
-  "statement": "Дано N ≥ 0. Выведите произведение чисел от 1 до N.",
+  "title": "Сумма цифр по шагам",
+  "statement": "Разберите трёхзначное число на цифры и проверьте вычисление на нуле.\n\nТренируемый приём: цикл while и изменяемое состояние.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «цикл while и изменяемое состояние».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n = int(input())\nproduct = 1\nfor value in range(2, n + 1):\n    product *= value\nprint(product)",
+  "solution": "n = int(input())\nprint(n // 100 + n // 10 % 10 + n % 10)",
   "examples": [
     {
-      "input": "5\n",
-      "output": "120\n"
+      "input": "247\n",
+      "output": "13\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "5\n",
-        "expectedOutput": "120\n"
+        "input": "247\n",
+        "expectedOutput": "13\n"
       },
       {
-        "input": "0\n",
+        "input": "100\n",
         "expectedOutput": "1\n"
+      },
+      {
+        "input": "247\n\n",
+        "expectedOutput": "13\n"
       }
     ]
   }

@@ -6,38 +6,59 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "19. В диапазоне",
-  "statement": "Даны число, левая и правая границы. Выведите `YES`, если число лежит в диапазоне включительно, иначе `NO`.",
-  "difficulty": "challenge",
-  "starterCode": "",
+  "title": "19. матрица",
+  "statement": "Практикум: матрица. Найдите максимум прямоугольной таблицы и предусмотрите пустую матрицу.\n\nТренируемый приём: матрицы и координаты.",
+  "difficulty": "standard",
+  "starterCode": "def matrix_max(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: матрица.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "x, left, right = map(int, input().split())\nprint('YES' if left <= x <= right else 'NO')",
+  "solution": "def matrix_max(matrix):\n    return max((value for row in matrix for value in row), default=None)",
   "examples": [
     {
-      "input": "5 1 10\n",
-      "output": "YES\n"
+      "input": "[[[1,7],[3]]]",
+      "output": "7"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "matrix_max",
     "tests": [
       {
-        "input": "5 1 10\n",
-        "expectedOutput": "YES\n"
+        "args": [
+          [
+            [
+              1,
+              7
+            ],
+            [
+              3
+            ]
+          ]
+        ],
+        "expectedReturn": 7
       },
       {
-        "input": "11 1 10\n",
-        "expectedOutput": "NO\n"
+        "args": [
+          []
+        ],
+        "expectedReturn": null
       },
       {
-        "input": "1 1 10\n",
-        "expectedOutput": "YES\n"
+        "args": [
+          [
+            [
+              1,
+              7
+            ],
+            [
+              3
+            ]
+          ]
+        ],
+        "expectedReturn": 7
       }
     ]
   }

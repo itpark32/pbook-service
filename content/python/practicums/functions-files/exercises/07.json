@@ -6,23 +6,24 @@
     "id": "python-practicum-functions-files"
   },
   "kind": "practicum",
-  "title": "7. Самая длинная строка",
-  "statement": "В `lines.txt` записан текст. Запишите первую самую длинную строку без перевода строки в `answer.txt`.",
-  "difficulty": "standard",
+  "title": "7. сумма из файла",
+  "statement": "Практикум: сумма из файла. Откройте входной файл, прочитайте числа и выведите итог в стандартный вывод.\n\nТренируемый приём: чтение и запись файлов.",
+  "difficulty": "intro",
   "starterCode": "# Файлы уже находятся в рабочей папке.\n",
   "hints": [
-    "Откройте файл через with, чтобы он закрылся автоматически.",
-    "Удаляйте перевод строки только там, где он мешает обработке."
+    "Сначала вспомните основной приём: сумма из файла.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
+  "solution": "with open('input.txt', encoding='utf-8') as source:\n    values = list(map(int, source.read().split()))\nprint(sum(values))",
   "examples": [],
   "fileExamples": [
     {
       "title": "Пример файлов",
       "files": [
         {
-          "path": "lines.txt",
-          "content": "кот\nпрограммирование\nкод\n"
+          "path": "input.txt",
+          "content": "1 2 3 -1\n"
         }
       ]
     }
@@ -36,16 +37,29 @@
       {
         "inputFiles": [
           {
-            "path": "lines.txt",
-            "content": "кот\nпрограммирование\nкод\n"
+            "path": "input.txt",
+            "content": "1 2 3 -1\n"
           }
         ],
-        "expectedFiles": [
+        "expectedStdout": "5\n"
+      },
+      {
+        "inputFiles": [
           {
-            "path": "answer.txt",
-            "content": "программирование"
+            "path": "input.txt",
+            "content": "1 2 3 -1\n"
           }
-        ]
+        ],
+        "expectedStdout": "5\n"
+      },
+      {
+        "inputFiles": [
+          {
+            "path": "input.txt",
+            "content": "1 2 3 -1\n"
+          }
+        ],
+        "expectedStdout": "5\n"
       }
     ]
   }

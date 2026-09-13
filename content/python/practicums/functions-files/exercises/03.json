@@ -6,41 +6,52 @@
     "id": "python-practicum-functions-files"
   },
   "kind": "practicum",
-  "title": "3. Число уникальных",
-  "statement": "Верните количество различных элементов.",
-  "difficulty": "intro",
-  "starterCode": "def unique_count(...):\n    pass\n",
+  "title": "3. локальная функция",
+  "statement": "Практикум: локальная функция. Выделите сравнение двух параметров в отдельную функцию без глобальных переменных.\n\nТренируемый приём: локальные переменные и декомпозиция.",
+  "difficulty": "standard",
+  "starterCode": "def max_of_two(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: локальная функция.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def unique_count(values):\n    return len(set(values))",
+  "solution": "def max_of_two(a, b):\n    if a > b:\n        return a\n    return b",
   "examples": [
     {
-      "input": "[[1,2,1]]",
-      "output": "2"
+      "input": "[2,7]",
+      "output": "7"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "unique_count",
+    "functionName": "max_of_two",
     "tests": [
       {
         "args": [
-          [
-            1,
-            2,
-            1
-          ]
+          2,
+          7
         ],
-        "expectedReturn": 2
+        "expectedReturn": 7
       },
       {
         "args": [
-          []
+          5,
+          5
         ],
-        "expectedReturn": 0
+        "expectedReturn": 5
+      },
+      {
+        "args": [
+          -1,
+          -3
+        ],
+        "expectedReturn": -1
       }
-    ]
+    ],
+    "structuralConstraints": {
+      "forbidCalls": [
+        "max"
+      ]
+    }
   }
 }

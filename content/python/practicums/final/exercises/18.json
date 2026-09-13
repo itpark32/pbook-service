@@ -6,39 +6,52 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "18. Зачёт",
-  "statement": "Дан балл. Выведите `PASS`, если он не меньше 60, иначе `FAIL`.",
-  "difficulty": "challenge",
-  "starterCode": "",
+  "title": "18. рекурсивная степень",
+  "statement": "Практикум: рекурсивная степень. Проследите уменьшение показателя до нуля и возврат произведений.\n\nТренируемый приём: трассировка рекурсивных вычислений.",
+  "difficulty": "standard",
+  "starterCode": "def power(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: рекурсивная степень.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "score = int(input())\nif score >= 60:\n    print('PASS')\nelse:\n    print('FAIL')",
+  "solution": "def power(a, n):\n    if n == 0:\n        return 1\n    return a * power(a, n - 1)",
   "examples": [
     {
-      "input": "60\n",
-      "output": "PASS\n"
+      "input": "[2,5]",
+      "output": "32"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "power",
     "tests": [
       {
-        "input": "60\n",
-        "expectedOutput": "PASS\n"
+        "args": [
+          2,
+          5
+        ],
+        "expectedReturn": 32
       },
       {
-        "input": "59\n",
-        "expectedOutput": "FAIL\n"
+        "args": [
+          9,
+          0
+        ],
+        "expectedReturn": 1
       },
       {
-        "input": "100\n",
-        "expectedOutput": "PASS\n"
+        "args": [
+          2,
+          5
+        ],
+        "expectedReturn": 32
       }
-    ]
+    ],
+    "structuralConstraints": {
+      "requireRecursion": [
+        "power"
+      ]
+    }
   }
 }

@@ -16,17 +16,17 @@
       "exerciseTitles": [
         {
           "id": "python-basics-input-output-guided-1",
-          "title": "Эхо",
+          "title": "Сообщение без изменений",
           "path": "sections/basics/input-output/exercises/01-guided.json"
         },
         {
           "id": "python-basics-input-output-guided-2",
-          "title": "Имя и приветствие",
+          "title": "Приветствие по имени",
           "path": "sections/basics/input-output/exercises/02-guided.json"
         },
         {
           "id": "python-basics-input-output-checkpoint",
-          "title": "Сумма двух чисел",
+          "title": "Итог двух показаний",
           "path": "sections/basics/input-output/exercises/checkpoint.json"
         }
       ]
@@ -47,17 +47,17 @@
       "exerciseTitles": [
         {
           "id": "python-basics-types-arithmetic-guided-1",
-          "title": "Периметр прямоугольника",
+          "title": "Стоимость набора",
           "path": "sections/basics/types-arithmetic/exercises/01-guided.json"
         },
         {
           "id": "python-basics-types-arithmetic-guided-2",
-          "title": "Среднее трёх",
+          "title": "Рамка участка",
           "path": "sections/basics/types-arithmetic/exercises/02-guided.json"
         },
         {
           "id": "python-basics-types-arithmetic-checkpoint",
-          "title": "Стоимость покупки",
+          "title": "Средняя оценка",
           "path": "sections/basics/types-arithmetic/exercises/checkpoint.json"
         }
       ]
@@ -78,17 +78,17 @@
       "exerciseTitles": [
         {
           "id": "python-basics-div-mod-digits-guided-1",
-          "title": "Последняя цифра",
+          "title": "Последняя цифра кода",
           "path": "sections/basics/div-mod-digits/exercises/01-guided.json"
         },
         {
           "id": "python-basics-div-mod-digits-guided-2",
-          "title": "Десятки",
+          "title": "Цифра десятков",
           "path": "sections/basics/div-mod-digits/exercises/02-guided.json"
         },
         {
           "id": "python-basics-div-mod-digits-checkpoint",
-          "title": "Сумма цифр",
+          "title": "Контрольная сумма номера",
           "path": "sections/basics/div-mod-digits/exercises/checkpoint.json"
         }
       ]
@@ -109,17 +109,17 @@
       "exerciseTitles": [
         {
           "id": "python-basics-logic-guided-1",
-          "title": "Знак числа",
+          "title": "Подходит ли число",
           "path": "sections/basics/logic/exercises/01-guided.json"
         },
         {
           "id": "python-basics-logic-guided-2",
-          "title": "В диапазоне",
+          "title": "Проверка границ",
           "path": "sections/basics/logic/exercises/02-guided.json"
         },
         {
           "id": "python-basics-logic-checkpoint",
-          "title": "Делимость",
+          "title": "Чётный пропуск",
           "path": "sections/basics/logic/exercises/checkpoint.json"
         }
       ]
@@ -140,17 +140,17 @@
       "exerciseTitles": [
         {
           "id": "python-branches-if-else-guided-1",
-          "title": "Максимум двух",
+          "title": "Чётность через if",
           "path": "sections/branches/if-else/exercises/01-guided.json"
         },
         {
           "id": "python-branches-if-else-guided-2",
-          "title": "Чётное или нечётное",
+          "title": "Порог зачёта",
           "path": "sections/branches/if-else/exercises/02-guided.json"
         },
         {
           "id": "python-branches-if-else-checkpoint",
-          "title": "Зачёт",
+          "title": "Большее показание",
           "path": "sections/branches/if-else/exercises/checkpoint.json"
         }
       ]
@@ -171,17 +171,17 @@
       "exerciseTitles": [
         {
           "id": "python-branches-elif-ranges-guided-1",
-          "title": "Знак числа",
+          "title": "Класс знака",
           "path": "sections/branches/elif-ranges/exercises/01-guided.json"
         },
         {
           "id": "python-branches-elif-ranges-guided-2",
-          "title": "В диапазоне",
+          "title": "Температурный коридор",
           "path": "sections/branches/elif-ranges/exercises/02-guided.json"
         },
         {
           "id": "python-branches-elif-ranges-checkpoint",
-          "title": "Делимость",
+          "title": "Категория результата",
           "path": "sections/branches/elif-ranges/exercises/checkpoint.json"
         }
       ]
@@ -202,17 +202,17 @@
       "exerciseTitles": [
         {
           "id": "python-branches-compound-guided-1",
-          "title": "Знак числа",
+          "title": "Допуск по двум условиям",
           "path": "sections/branches/compound/exercises/01-guided.json"
         },
         {
           "id": "python-branches-compound-guided-2",
-          "title": "В диапазоне",
+          "title": "Внутри отрезка",
           "path": "sections/branches/compound/exercises/02-guided.json"
         },
         {
           "id": "python-branches-compound-checkpoint",
-          "title": "Делимость",
+          "title": "Сигнал состояния",
           "path": "sections/branches/compound/exercises/checkpoint.json"
         }
       ]
@@ -233,17 +233,17 @@
       "exerciseTitles": [
         {
           "id": "python-debugging-basics-guided-1",
-          "title": "Знак числа",
+          "title": "Исправьте метку чётности",
           "path": "sections/branches/debugging/exercises/01-guided.json"
         },
         {
           "id": "python-debugging-basics-guided-2",
-          "title": "В диапазоне",
+          "title": "Три исхода без пропуска",
           "path": "sections/branches/debugging/exercises/02-guided.json"
         },
         {
           "id": "python-debugging-basics-checkpoint",
-          "title": "Делимость",
+          "title": "Равные числа",
           "path": "sections/branches/debugging/exercises/checkpoint.json"
         }
       ]
@@ -264,17 +264,17 @@
       "exerciseTitles": [
         {
           "id": "python-loops-while-guided-1",
-          "title": "Сумма от 1 до N",
+          "title": "Сумма до N",
           "path": "sections/loops/while/exercises/01-guided.json"
         },
         {
           "id": "python-loops-while-guided-2",
-          "title": "Количество кратных",
+          "title": "Произведение шагов",
           "path": "sections/loops/while/exercises/02-guided.json"
         },
         {
           "id": "python-loops-while-checkpoint",
-          "title": "Факториал",
+          "title": "Сумма цифр по шагам",
           "path": "sections/loops/while/exercises/checkpoint.json"
         }
       ]
@@ -295,17 +295,17 @@
       "exerciseTitles": [
         {
           "id": "python-loops-for-range-guided-1",
-          "title": "Сумма от 1 до N",
+          "title": "Лестница чисел",
           "path": "sections/loops/for-range/exercises/01-guided.json"
         },
         {
           "id": "python-loops-for-range-guided-2",
-          "title": "Количество кратных",
+          "title": "Кратные на отрезке",
           "path": "sections/loops/for-range/exercises/02-guided.json"
         },
         {
           "id": "python-loops-for-range-checkpoint",
-          "title": "Факториал",
+          "title": "Факториал диапазона",
           "path": "sections/loops/for-range/exercises/checkpoint.json"
         }
       ]
@@ -326,17 +326,17 @@
       "exerciseTitles": [
         {
           "id": "python-loops-nested-guided-1",
-          "title": "Сумма от 1 до N",
+          "title": "Пары с суммой",
           "path": "sections/loops/nested/exercises/01-guided.json"
         },
         {
           "id": "python-loops-nested-guided-2",
-          "title": "Количество кратных",
+          "title": "Минимум в хвосте",
           "path": "sections/loops/nested/exercises/02-guided.json"
         },
         {
           "id": "python-loops-nested-checkpoint",
-          "title": "Факториал",
+          "title": "Тройки с суммой",
           "path": "sections/loops/nested/exercises/checkpoint.json"
         }
       ]
@@ -357,17 +357,17 @@
       "exerciseTitles": [
         {
           "id": "python-loops-accumulators-guided-1",
-          "title": "Положительные элементы",
+          "title": "Счётчик положительных",
           "path": "sections/loops/accumulators/exercises/01-guided.json"
         },
         {
           "id": "python-loops-accumulators-guided-2",
-          "title": "Сумма чётных",
+          "title": "Накопитель чётных",
           "path": "sections/loops/accumulators/exercises/02-guided.json"
         },
         {
           "id": "python-loops-accumulators-checkpoint",
-          "title": "Максимум последовательности",
+          "title": "Сумма последовательности",
           "path": "sections/loops/accumulators/exercises/checkpoint.json"
         }
       ]
@@ -388,17 +388,17 @@
       "exerciseTitles": [
         {
           "id": "python-loops-min-max-average-guided-1",
-          "title": "Положительные элементы",
+          "title": "Максимум потока",
           "path": "sections/loops/min-max-average/exercises/01-guided.json"
         },
         {
           "id": "python-loops-min-max-average-guided-2",
-          "title": "Сумма чётных",
+          "title": "Сколько выше нуля",
           "path": "sections/loops/min-max-average/exercises/02-guided.json"
         },
         {
           "id": "python-loops-min-max-average-checkpoint",
-          "title": "Максимум последовательности",
+          "title": "Сумма для среднего",
           "path": "sections/loops/min-max-average/exercises/checkpoint.json"
         }
       ]
@@ -419,17 +419,17 @@
       "exerciseTitles": [
         {
           "id": "python-loops-sequences-guided-1",
-          "title": "Положительные элементы",
+          "title": "Положительные в последовательности",
           "path": "sections/loops/sequences/exercises/01-guided.json"
         },
         {
           "id": "python-loops-sequences-guided-2",
-          "title": "Сумма чётных",
+          "title": "Чётная сумма последовательности",
           "path": "sections/loops/sequences/exercises/02-guided.json"
         },
         {
           "id": "python-loops-sequences-checkpoint",
-          "title": "Максимум последовательности",
+          "title": "Наибольший член",
           "path": "sections/loops/sequences/exercises/checkpoint.json"
         }
       ]
@@ -450,17 +450,17 @@
       "exerciseTitles": [
         {
           "id": "python-loops-tracing-guided-1",
-          "title": "Положительные элементы",
+          "title": "След счётчика кратных",
           "path": "sections/loops/tracing/exercises/01-guided.json"
         },
         {
           "id": "python-loops-tracing-guided-2",
-          "title": "Сумма чётных",
+          "title": "След накопителя",
           "path": "sections/loops/tracing/exercises/02-guided.json"
         },
         {
           "id": "python-loops-tracing-checkpoint",
-          "title": "Максимум последовательности",
+          "title": "След максимума",
           "path": "sections/loops/tracing/exercises/checkpoint.json"
         }
       ]
@@ -481,17 +481,17 @@
       "exerciseTitles": [
         {
           "id": "python-strings-basics-guided-1",
-          "title": "Количество букв a",
+          "title": "Буква в сообщении",
           "path": "sections/strings/basics/exercises/01-guided.json"
         },
         {
           "id": "python-strings-basics-guided-2",
-          "title": "Строка наоборот",
+          "title": "Обратная подпись",
           "path": "sections/strings/basics/exercises/02-guided.json"
         },
         {
           "id": "python-strings-basics-checkpoint",
-          "title": "Палиндром",
+          "title": "Зеркальное слово",
           "path": "sections/strings/basics/exercises/checkpoint.json"
         }
       ]
@@ -512,17 +512,17 @@
       "exerciseTitles": [
         {
           "id": "python-strings-methods-slices-guided-1",
-          "title": "Количество букв a",
+          "title": "Подсчёт символа методом",
           "path": "sections/strings/methods-slices/exercises/01-guided.json"
         },
         {
           "id": "python-strings-methods-slices-guided-2",
-          "title": "Строка наоборот",
+          "title": "Разворот срезом",
           "path": "sections/strings/methods-slices/exercises/02-guided.json"
         },
         {
           "id": "python-strings-methods-slices-checkpoint",
-          "title": "Палиндром",
+          "title": "Палиндром срезом",
           "path": "sections/strings/methods-slices/exercises/checkpoint.json"
         }
       ]
@@ -543,17 +543,17 @@
       "exerciseTitles": [
         {
           "id": "python-strings-algorithms-guided-1",
-          "title": "Количество букв a",
+          "title": "Первая соседняя пара",
           "path": "sections/strings/algorithms/exercises/01-guided.json"
         },
         {
           "id": "python-strings-algorithms-guided-2",
-          "title": "Строка наоборот",
+          "title": "Количество смен",
           "path": "sections/strings/algorithms/exercises/02-guided.json"
         },
         {
           "id": "python-strings-algorithms-checkpoint",
-          "title": "Палиндром",
+          "title": "Самая длинная серия",
           "path": "sections/strings/algorithms/exercises/checkpoint.json"
         }
       ]
@@ -574,17 +574,17 @@
       "exerciseTitles": [
         {
           "id": "python-strings-runs-guided-1",
-          "title": "Максимальная серия",
+          "title": "Старт первой серии",
           "path": "sections/strings/runs/exercises/01-guided.json"
         },
         {
           "id": "python-strings-runs-guided-2",
-          "title": "Число смен",
+          "title": "Границы серий",
           "path": "sections/strings/runs/exercises/02-guided.json"
         },
         {
           "id": "python-strings-runs-checkpoint",
-          "title": "Первая длинная серия",
+          "title": "Длина лучшей серии",
           "path": "sections/strings/runs/exercises/checkpoint.json"
         }
       ]
@@ -605,17 +605,17 @@
       "exerciseTitles": [
         {
           "id": "python-lists-basics-guided-1",
-          "title": "Сумма положительных",
+          "title": "Удвоенный список",
           "path": "sections/lists/basics/exercises/01-guided.json"
         },
         {
           "id": "python-lists-basics-guided-2",
-          "title": "Удвоение",
+          "title": "Позиции чётных",
           "path": "sections/lists/basics/exercises/02-guided.json"
         },
         {
           "id": "python-lists-basics-checkpoint",
-          "title": "Индексы чётных",
+          "title": "Положительная сумма",
           "path": "sections/lists/basics/exercises/checkpoint.json"
         }
       ]
@@ -636,17 +636,17 @@
       "exerciseTitles": [
         {
           "id": "python-lists-mutation-guided-1",
-          "title": "Сумма положительных",
+          "title": "Новая копия с изменениями",
           "path": "sections/lists/mutation/exercises/01-guided.json"
         },
         {
           "id": "python-lists-mutation-guided-2",
-          "title": "Удвоение",
+          "title": "Обмен с минимумом",
           "path": "sections/lists/mutation/exercises/02-guided.json"
         },
         {
           "id": "python-lists-mutation-checkpoint",
-          "title": "Индексы чётных",
+          "title": "Подсчёт до изменения",
           "path": "sections/lists/mutation/exercises/checkpoint.json"
         }
       ]
@@ -667,17 +667,17 @@
       "exerciseTitles": [
         {
           "id": "python-lists-processing-guided-1",
-          "title": "Сумма положительных",
+          "title": "Сумма полезных значений",
           "path": "sections/lists/processing/exercises/01-guided.json"
         },
         {
           "id": "python-lists-processing-guided-2",
-          "title": "Удвоение",
+          "title": "Преобразованный маршрут",
           "path": "sections/lists/processing/exercises/02-guided.json"
         },
         {
           "id": "python-lists-processing-checkpoint",
-          "title": "Индексы чётных",
+          "title": "Индексы фильтра",
           "path": "sections/lists/processing/exercises/checkpoint.json"
         }
       ]
@@ -698,17 +698,17 @@
       "exerciseTitles": [
         {
           "id": "python-lists-linear-search-guided-1",
-          "title": "Первое вхождение",
+          "title": "Первый нужный индекс",
           "path": "sections/lists/linear-search/exercises/01-guided.json"
         },
         {
           "id": "python-lists-linear-search-guided-2",
-          "title": "Последнее вхождение",
+          "title": "Последний нужный индекс",
           "path": "sections/lists/linear-search/exercises/02-guided.json"
         },
         {
           "id": "python-lists-linear-search-checkpoint",
-          "title": "Количество вхождений",
+          "title": "Частота цели",
           "path": "sections/lists/linear-search/exercises/checkpoint.json"
         }
       ]
@@ -729,17 +729,17 @@
       "exerciseTitles": [
         {
           "id": "python-lists-neighbours-guided-1",
-          "title": "Рост относительно соседа",
+          "title": "Рост после соседа",
           "path": "sections/lists/neighbours/exercises/01-guided.json"
         },
         {
           "id": "python-lists-neighbours-guided-2",
-          "title": "Равные пары",
+          "title": "Равные соседние пары",
           "path": "sections/lists/neighbours/exercises/02-guided.json"
         },
         {
           "id": "python-lists-neighbours-checkpoint",
-          "title": "Локальные максимумы",
+          "title": "Локальные вершины",
           "path": "sections/lists/neighbours/exercises/checkpoint.json"
         }
       ]
@@ -760,17 +760,17 @@
       "exerciseTitles": [
         {
           "id": "python-lists-2d-guided-1",
-          "title": "Суммы строк",
+          "title": "Сумма каждой строки",
           "path": "sections/lists/2d-lists/exercises/01-guided.json"
         },
         {
           "id": "python-lists-2d-guided-2",
-          "title": "Главная диагональ",
+          "title": "Наибольшее в таблице",
           "path": "sections/lists/2d-lists/exercises/02-guided.json"
         },
         {
           "id": "python-lists-2d-checkpoint",
-          "title": "Максимум матрицы",
+          "title": "Диагональ таблицы",
           "path": "sections/lists/2d-lists/exercises/checkpoint.json"
         }
       ]
@@ -791,17 +791,17 @@
       "exerciseTitles": [
         {
           "id": "python-lists-matrices-guided-1",
-          "title": "Суммы строк",
+          "title": "Итоги строк матрицы",
           "path": "sections/lists/matrix-algorithms/exercises/01-guided.json"
         },
         {
           "id": "python-lists-matrices-guided-2",
-          "title": "Главная диагональ",
+          "title": "Сумма главной диагонали",
           "path": "sections/lists/matrix-algorithms/exercises/02-guided.json"
         },
         {
           "id": "python-lists-matrices-checkpoint",
-          "title": "Максимум матрицы",
+          "title": "Максимальный элемент матрицы",
           "path": "sections/lists/matrix-algorithms/exercises/checkpoint.json"
         }
       ]
@@ -822,17 +822,17 @@
       "exerciseTitles": [
         {
           "id": "python-collections-sets-guided-1",
-          "title": "Число уникальных",
+          "title": "Сколько разных кодов",
           "path": "sections/collections/sets/exercises/01-guided.json"
         },
         {
           "id": "python-collections-sets-guided-2",
-          "title": "Общие значения",
+          "title": "Общие участники",
           "path": "sections/collections/sets/exercises/02-guided.json"
         },
         {
           "id": "python-collections-sets-checkpoint",
-          "title": "Только в одном",
+          "title": "Только один список",
           "path": "sections/collections/sets/exercises/checkpoint.json"
         }
       ]
@@ -853,17 +853,17 @@
       "exerciseTitles": [
         {
           "id": "python-collections-dicts-frequency-guided-1",
-          "title": "Таблица частот",
+          "title": "Частоты букв",
           "path": "sections/collections/dicts-frequency/exercises/01-guided.json"
         },
         {
           "id": "python-collections-dicts-frequency-guided-2",
-          "title": "Самый частый",
+          "title": "Обратное соответствие",
           "path": "sections/collections/dicts-frequency/exercises/02-guided.json"
         },
         {
           "id": "python-collections-dicts-frequency-checkpoint",
-          "title": "Инверсия словаря",
+          "title": "Частый победитель",
           "path": "sections/collections/dicts-frequency/exercises/checkpoint.json"
         }
       ]
@@ -884,17 +884,17 @@
       "exerciseTitles": [
         {
           "id": "python-functions-basics-guided-1",
-          "title": "Чётность",
+          "title": "Функция чётности",
           "path": "sections/functions/basics/exercises/01-guided.json"
         },
         {
           "id": "python-functions-basics-guided-2",
-          "title": "Максимум двух",
+          "title": "Функция большего",
           "path": "sections/functions/basics/exercises/02-guided.json"
         },
         {
           "id": "python-functions-basics-checkpoint",
-          "title": "Сумма цифр",
+          "title": "Функция суммы цифр",
           "path": "sections/functions/basics/exercises/checkpoint.json"
         }
       ]
@@ -915,17 +915,17 @@
       "exerciseTitles": [
         {
           "id": "python-functions-scope-decomposition-guided-1",
-          "title": "Чётность",
+          "title": "Изолированная проверка",
           "path": "sections/functions/scope-decomposition/exercises/01-guided.json"
         },
         {
           "id": "python-functions-scope-decomposition-guided-2",
-          "title": "Максимум двух",
+          "title": "Помощник сравнения",
           "path": "sections/functions/scope-decomposition/exercises/02-guided.json"
         },
         {
           "id": "python-functions-scope-decomposition-checkpoint",
-          "title": "Сумма цифр",
+          "title": "Помощник обработки цифр",
           "path": "sections/functions/scope-decomposition/exercises/checkpoint.json"
         }
       ]
@@ -946,17 +946,17 @@
       "exerciseTitles": [
         {
           "id": "python-recursion-basics-guided-1",
-          "title": "Рекурсивный факториал",
+          "title": "Факториал с базой",
           "path": "sections/recursion/basics/exercises/01-guided.json"
         },
         {
           "id": "python-recursion-basics-guided-2",
-          "title": "Рекурсивная степень",
+          "title": "Степень рекурсией",
           "path": "sections/recursion/basics/exercises/02-guided.json"
         },
         {
           "id": "python-recursion-basics-checkpoint",
-          "title": "Рекурсивная сумма цифр",
+          "title": "Сумма цифр рекурсией",
           "path": "sections/recursion/basics/exercises/checkpoint.json"
         }
       ]
@@ -977,17 +977,17 @@
       "exerciseTitles": [
         {
           "id": "python-recursion-calculations-guided-1",
-          "title": "Рекурсивный факториал",
+          "title": "Цепочка степеней",
           "path": "sections/recursion/calculations/exercises/01-guided.json"
         },
         {
           "id": "python-recursion-calculations-guided-2",
-          "title": "Рекурсивная степень",
+          "title": "Цепочка цифр",
           "path": "sections/recursion/calculations/exercises/02-guided.json"
         },
         {
           "id": "python-recursion-calculations-checkpoint",
-          "title": "Рекурсивная сумма цифр",
+          "title": "Возврат факториала",
           "path": "sections/recursion/calculations/exercises/checkpoint.json"
         }
       ]
@@ -1008,17 +1008,17 @@
       "exerciseTitles": [
         {
           "id": "python-files-basics-guided-1",
-          "title": "Сумма чисел из файла",
+          "title": "Сумма из input.txt",
           "path": "sections/files/basics/exercises/01-guided.json"
         },
         {
           "id": "python-files-basics-guided-2",
-          "title": "Удвоенные значения",
+          "title": "Запись удвоенных чисел",
           "path": "sections/files/basics/exercises/02-guided.json"
         },
         {
           "id": "python-files-basics-checkpoint",
-          "title": "Самая длинная строка",
+          "title": "Длинная строка в файл",
           "path": "sections/files/basics/exercises/checkpoint.json"
         }
       ]
@@ -1039,17 +1039,17 @@
       "exerciseTitles": [
         {
           "id": "python-files-numbers-guided-1",
-          "title": "Сумма чисел из файла",
+          "title": "Числовой итог файла",
           "path": "sections/files/numbers/exercises/01-guided.json"
         },
         {
           "id": "python-files-numbers-guided-2",
-          "title": "Удвоенные значения",
+          "title": "Преобразование файла чисел",
           "path": "sections/files/numbers/exercises/02-guided.json"
         },
         {
           "id": "python-files-numbers-checkpoint",
-          "title": "Самая длинная строка",
+          "title": "Поток чётных чисел",
           "path": "sections/files/numbers/exercises/checkpoint.json"
         }
       ]
@@ -1070,17 +1070,17 @@
       "exerciseTitles": [
         {
           "id": "python-files-text-guided-1",
-          "title": "Сумма чисел из файла",
+          "title": "Самая длинная строка файла",
           "path": "sections/files/text/exercises/01-guided.json"
         },
         {
           "id": "python-files-text-guided-2",
-          "title": "Удвоенные значения",
+          "title": "Символ в строке файла",
           "path": "sections/files/text/exercises/02-guided.json"
         },
         {
           "id": "python-files-text-checkpoint",
-          "title": "Самая длинная строка",
+          "title": "Частоты слов файла",
           "path": "sections/files/text/exercises/checkpoint.json"
         }
       ]
@@ -1101,17 +1101,17 @@
       "exerciseTitles": [
         {
           "id": "python-algorithms-binary-search-guided-1",
-          "title": "Двоичный поиск",
+          "title": "Есть ли ключ",
           "path": "sections/algorithms/binary-search/exercises/01-guided.json"
         },
         {
           "id": "python-algorithms-binary-search-guided-2",
-          "title": "Левая граница",
+          "title": "Левая граница ключа",
           "path": "sections/algorithms/binary-search/exercises/02-guided.json"
         },
         {
           "id": "python-algorithms-binary-search-checkpoint",
-          "title": "Есть ли значение",
+          "title": "Индекс бинарным поиском",
           "path": "sections/algorithms/binary-search/exercises/checkpoint.json"
         }
       ]
@@ -1132,17 +1132,17 @@
       "exerciseTitles": [
         {
           "id": "python-algorithms-selection-sort-guided-1",
-          "title": "Минимум в хвосте",
+          "title": "Минимум неотсортированного хвоста",
           "path": "sections/algorithms/selection-sort/exercises/01-guided.json"
         },
         {
           "id": "python-algorithms-selection-sort-guided-2",
-          "title": "Один шаг выбора",
+          "title": "Первый шаг выбора",
           "path": "sections/algorithms/selection-sort/exercises/02-guided.json"
         },
         {
           "id": "python-algorithms-selection-sort-checkpoint",
-          "title": "Полная сортировка выбором",
+          "title": "Полный проход выбором",
           "path": "sections/algorithms/selection-sort/exercises/checkpoint.json"
         }
       ]
@@ -1163,17 +1163,17 @@
       "exerciseTitles": [
         {
           "id": "python-algorithms-python-sort-guided-1",
-          "title": "Сортировка выбором",
+          "title": "Порядок по убыванию",
           "path": "sections/algorithms/python-sort/exercises/01-guided.json"
         },
         {
           "id": "python-algorithms-python-sort-guided-2",
-          "title": "По убыванию",
+          "title": "Слова по длине",
           "path": "sections/algorithms/python-sort/exercises/02-guided.json"
         },
         {
           "id": "python-algorithms-python-sort-checkpoint",
-          "title": "По длине",
+          "title": "Сравнение подходов",
           "path": "sections/algorithms/python-sort/exercises/checkpoint.json"
         }
       ]
@@ -1194,17 +1194,17 @@
       "exerciseTitles": [
         {
           "id": "python-numbers-divisibility-divisors-guided-1",
-          "title": "Делители",
+          "title": "Проверка кратности",
           "path": "sections/numbers/divisibility-divisors/exercises/01-guided.json"
         },
         {
           "id": "python-numbers-divisibility-divisors-guided-2",
-          "title": "Простое число",
+          "title": "Все делители",
           "path": "sections/numbers/divisibility-divisors/exercises/02-guided.json"
         },
         {
           "id": "python-numbers-divisibility-divisors-checkpoint",
-          "title": "НОД",
+          "title": "Проверка простоты",
           "path": "sections/numbers/divisibility-divisors/exercises/checkpoint.json"
         }
       ]
@@ -1225,17 +1225,17 @@
       "exerciseTitles": [
         {
           "id": "python-numbers-primes-gcd-guided-1",
-          "title": "Делители",
+          "title": "Признак простого",
           "path": "sections/numbers/primes-gcd/exercises/01-guided.json"
         },
         {
           "id": "python-numbers-primes-gcd-guided-2",
-          "title": "Простое число",
+          "title": "НОД по остаткам",
           "path": "sections/numbers/primes-gcd/exercises/02-guided.json"
         },
         {
           "id": "python-numbers-primes-gcd-checkpoint",
-          "title": "НОД",
+          "title": "Делители для проверки",
           "path": "sections/numbers/primes-gcd/exercises/checkpoint.json"
         }
       ]
@@ -1256,12 +1256,12 @@
       "exerciseTitles": [
         {
           "id": "python-numbers-bases-guided-1",
-          "title": "В двоичную",
+          "title": "Запись в двоичной системе",
           "path": "sections/numbers/bases/exercises/01-guided.json"
         },
         {
           "id": "python-numbers-bases-guided-2",
-          "title": "Из двоичной",
+          "title": "Чтение двоичной записи",
           "path": "sections/numbers/bases/exercises/02-guided.json"
         },
         {
@@ -1287,17 +1287,17 @@
       "exerciseTitles": [
         {
           "id": "python-brute-force-basics-guided-1",
-          "title": "Пары с заданной суммой",
+          "title": "Подходящие пары",
           "path": "sections/efficiency/brute-force/exercises/01-guided.json"
         },
         {
           "id": "python-brute-force-basics-guided-2",
-          "title": "Тройки с заданной суммой",
+          "title": "Подходящие тройки",
           "path": "sections/efficiency/brute-force/exercises/02-guided.json"
         },
         {
           "id": "python-brute-force-basics-checkpoint",
-          "title": "Лучший допустимый",
+          "title": "Лучший допустимый вариант",
           "path": "sections/efficiency/brute-force/exercises/checkpoint.json"
         }
       ]
@@ -1318,17 +1318,17 @@
       "exerciseTitles": [
         {
           "id": "python-complexity-basics-guided-1",
-          "title": "Пары с заданной суммой",
+          "title": "Один проход поиска",
           "path": "sections/efficiency/complexity/exercises/01-guided.json"
         },
         {
           "id": "python-complexity-basics-guided-2",
-          "title": "Тройки с заданной суммой",
+          "title": "Два вложенных прохода",
           "path": "sections/efficiency/complexity/exercises/02-guided.json"
         },
         {
           "id": "python-complexity-basics-checkpoint",
-          "title": "Лучший допустимый",
+          "title": "Три вложенных прохода",
           "path": "sections/efficiency/complexity/exercises/checkpoint.json"
         }
       ]
@@ -1349,12 +1349,12 @@
       "exerciseTitles": [
         {
           "id": "python-dp-basics-guided-1",
-          "title": "Число способов",
+          "title": "Пути по ступеням",
           "path": "sections/dp/basics/exercises/01-guided.json"
         },
         {
           "id": "python-dp-basics-guided-2",
-          "title": "Максимальная сумма без соседей",
+          "title": "Несоседний выбор",
           "path": "sections/dp/basics/exercises/02-guided.json"
         },
         {
@@ -1385,12 +1385,12 @@
         },
         {
           "id": "python-graphs-basics-guided-2",
-          "title": "Достижимые вершины",
+          "title": "Компонента старта",
           "path": "sections/graphs/basics/exercises/02-guided.json"
         },
         {
           "id": "python-graphs-basics-checkpoint",
-          "title": "Кратчайшее расстояние",
+          "title": "Расстояние по рёбрам",
           "path": "sections/graphs/basics/exercises/checkpoint.json"
         }
       ]
@@ -1411,17 +1411,17 @@
       "exerciseTitles": [
         {
           "id": "python-graphs-traversal-guided-1",
-          "title": "Степени вершин",
+          "title": "Достижимые DFS",
           "path": "sections/graphs/traversal/exercises/01-guided.json"
         },
         {
           "id": "python-graphs-traversal-guided-2",
-          "title": "Достижимые вершины",
+          "title": "Расстояния BFS",
           "path": "sections/graphs/traversal/exercises/02-guided.json"
         },
         {
           "id": "python-graphs-traversal-checkpoint",
-          "title": "Кратчайшее расстояние",
+          "title": "Восстановление BFS-пути",
           "path": "sections/graphs/traversal/exercises/checkpoint.json"
         }
       ]
@@ -1442,7 +1442,7 @@
       "exerciseTitles": [
         {
           "id": "python-graphs-paths-guided-1",
-          "title": "Число путей в DAG",
+          "title": "Число путей DAG",
           "path": "sections/graphs/paths/exercises/01-guided.json"
         },
         {
@@ -1452,7 +1452,7 @@
         },
         {
           "id": "python-graphs-paths-checkpoint",
-          "title": "Восстановление пути",
+          "title": "Один кратчайший путь",
           "path": "sections/graphs/paths/exercises/checkpoint.json"
         }
       ]
@@ -1490,62 +1490,62 @@
       "exerciseTitles": [
         {
           "id": "python-practicum-first-programs-task-01",
-          "title": "1. Делимость",
+          "title": "1. передача сообщения",
           "path": "practicums/first-programs/exercises/01.json"
         },
         {
           "id": "python-practicum-first-programs-task-02",
-          "title": "2. В диапазоне",
+          "title": "2. сборка приветствия",
           "path": "practicums/first-programs/exercises/02.json"
         },
         {
           "id": "python-practicum-first-programs-task-03",
-          "title": "3. Периметр прямоугольника",
+          "title": "3. стоимость покупки",
           "path": "practicums/first-programs/exercises/03.json"
         },
         {
           "id": "python-practicum-first-programs-task-04",
-          "title": "4. Сумма цифр",
+          "title": "4. периметр",
           "path": "practicums/first-programs/exercises/04.json"
         },
         {
           "id": "python-practicum-first-programs-task-05",
-          "title": "5. Чётное или нечётное",
+          "title": "5. последняя цифра",
           "path": "practicums/first-programs/exercises/05.json"
         },
         {
           "id": "python-practicum-first-programs-task-06",
-          "title": "6. Знак числа",
+          "title": "6. контрольная сумма",
           "path": "practicums/first-programs/exercises/06.json"
         },
         {
           "id": "python-practicum-first-programs-task-07",
-          "title": "7. Делимость",
+          "title": "7. условие допуска",
           "path": "practicums/first-programs/exercises/07.json"
         },
         {
           "id": "python-practicum-first-programs-task-08",
-          "title": "8. Среднее трёх",
+          "title": "8. пороговый выбор",
           "path": "practicums/first-programs/exercises/08.json"
         },
         {
           "id": "python-practicum-first-programs-task-09",
-          "title": "9. Знак числа",
+          "title": "9. три состояния",
           "path": "practicums/first-programs/exercises/09.json"
         },
         {
           "id": "python-practicum-first-programs-task-10",
-          "title": "10. Зачёт",
+          "title": "10. два критерия",
           "path": "practicums/first-programs/exercises/10.json"
         },
         {
           "id": "python-practicum-first-programs-task-11",
-          "title": "11. В диапазоне",
+          "title": "11. проверка интервала",
           "path": "practicums/first-programs/exercises/11.json"
         },
         {
           "id": "python-practicum-first-programs-task-12",
-          "title": "12. Эхо",
+          "title": "12. выбор большего",
           "path": "practicums/first-programs/exercises/12.json"
         }
       ]
@@ -1591,77 +1591,77 @@
       "exerciseTitles": [
         {
           "id": "python-practicum-loops-task-01",
-          "title": "1. Знак числа",
+          "title": "1. накопление суммы",
           "path": "practicums/loops/exercises/01.json"
         },
         {
           "id": "python-practicum-loops-task-02",
-          "title": "2. Факториал",
+          "title": "2. кратные в диапазоне",
           "path": "practicums/loops/exercises/02.json"
         },
         {
           "id": "python-practicum-loops-task-03",
-          "title": "3. Количество кратных",
+          "title": "3. произведение диапазона",
           "path": "practicums/loops/exercises/03.json"
         },
         {
           "id": "python-practicum-loops-task-04",
-          "title": "4. Положительные элементы",
+          "title": "4. счётчик положительных",
           "path": "practicums/loops/exercises/04.json"
         },
         {
           "id": "python-practicum-loops-task-05",
-          "title": "5. Максимум последовательности",
+          "title": "5. сумма чётных",
           "path": "practicums/loops/exercises/05.json"
         },
         {
           "id": "python-practicum-loops-task-06",
-          "title": "6. Имя и приветствие",
+          "title": "6. поиск максимума",
           "path": "practicums/loops/exercises/06.json"
         },
         {
           "id": "python-practicum-loops-task-07",
-          "title": "7. Последняя цифра",
+          "title": "7. обработка N чисел",
           "path": "practicums/loops/exercises/07.json"
         },
         {
           "id": "python-practicum-loops-task-08",
-          "title": "8. Делимость",
+          "title": "8. максимум последовательности",
           "path": "practicums/loops/exercises/08.json"
         },
         {
           "id": "python-practicum-loops-task-09",
-          "title": "9. В диапазоне",
+          "title": "9. трассировка счётчика",
           "path": "practicums/loops/exercises/09.json"
         },
         {
           "id": "python-practicum-loops-task-10",
-          "title": "10. Знак числа",
+          "title": "10. перебор пар",
           "path": "practicums/loops/exercises/10.json"
         },
         {
           "id": "python-practicum-loops-task-11",
-          "title": "11. Факториал",
+          "title": "11. минимум в хвосте",
           "path": "practicums/loops/exercises/11.json"
         },
         {
           "id": "python-practicum-loops-task-12",
-          "title": "12. Количество кратных",
+          "title": "12. перебор троек",
           "path": "practicums/loops/exercises/12.json"
         },
         {
           "id": "python-practicum-loops-task-13",
-          "title": "13. Положительные элементы",
+          "title": "13. факториал while",
           "path": "practicums/loops/exercises/13.json"
         },
         {
           "id": "python-practicum-loops-task-14",
-          "title": "14. Максимум последовательности",
+          "title": "14. счётчик значений",
           "path": "practicums/loops/exercises/14.json"
         },
         {
           "id": "python-practicum-loops-task-15",
-          "title": "15. Имя и приветствие",
+          "title": "15. трассировка максимума",
           "path": "practicums/loops/exercises/15.json"
         }
       ]
@@ -1717,77 +1717,77 @@
       "exerciseTitles": [
         {
           "id": "python-practicum-data-task-01",
-          "title": "1. Последнее вхождение",
+          "title": "1. частота буквы",
           "path": "practicums/data/exercises/01.json"
         },
         {
           "id": "python-practicum-data-task-02",
-          "title": "2. Суммы строк",
+          "title": "2. разворот строки",
           "path": "practicums/data/exercises/02.json"
         },
         {
           "id": "python-practicum-data-task-03",
-          "title": "3. Максимум матрицы",
+          "title": "3. первая пара",
           "path": "practicums/data/exercises/03.json"
         },
         {
           "id": "python-practicum-data-task-04",
-          "title": "4. Самый частый",
+          "title": "4. длинная серия",
           "path": "practicums/data/exercises/04.json"
         },
         {
           "id": "python-practicum-data-task-05",
-          "title": "5. Периметр прямоугольника",
+          "title": "5. индексы чётных",
           "path": "practicums/data/exercises/05.json"
         },
         {
           "id": "python-practicum-data-task-06",
-          "title": "6. Сумма цифр",
+          "title": "6. обмен минимумом",
           "path": "practicums/data/exercises/06.json"
         },
         {
           "id": "python-practicum-data-task-07",
-          "title": "7. Чётное или нечётное",
+          "title": "7. фильтрация",
           "path": "practicums/data/exercises/07.json"
         },
         {
           "id": "python-practicum-data-task-08",
-          "title": "8. Знак числа",
+          "title": "8. первый индекс",
           "path": "practicums/data/exercises/08.json"
         },
         {
           "id": "python-practicum-data-task-09",
-          "title": "9. Делимость",
+          "title": "9. локальные вершины",
           "path": "practicums/data/exercises/09.json"
         },
         {
           "id": "python-practicum-data-task-10",
-          "title": "10. Количество кратных",
+          "title": "10. суммы строк",
           "path": "practicums/data/exercises/10.json"
         },
         {
           "id": "python-practicum-data-task-11",
-          "title": "11. Положительные элементы",
+          "title": "11. диагональ",
           "path": "practicums/data/exercises/11.json"
         },
         {
           "id": "python-practicum-data-task-12",
-          "title": "12. Максимум последовательности",
+          "title": "12. пересечение",
           "path": "practicums/data/exercises/12.json"
         },
         {
           "id": "python-practicum-data-task-13",
-          "title": "13. Сумма чётных",
+          "title": "13. частоты",
           "path": "practicums/data/exercises/13.json"
         },
         {
           "id": "python-practicum-data-task-14",
-          "title": "14. Количество букв a",
+          "title": "14. частый элемент",
           "path": "practicums/data/exercises/14.json"
         },
         {
           "id": "python-practicum-data-task-15",
-          "title": "15. Палиндром",
+          "title": "15. серии символов",
           "path": "practicums/data/exercises/15.json"
         }
       ]
@@ -1847,62 +1847,62 @@
       "exerciseTitles": [
         {
           "id": "python-practicum-functions-files-task-01",
-          "title": "1. Количество вхождений",
+          "title": "1. булева функция",
           "path": "practicums/functions-files/exercises/01.json"
         },
         {
           "id": "python-practicum-functions-files-task-02",
-          "title": "2. Главная диагональ",
+          "title": "2. сравнение параметров",
           "path": "practicums/functions-files/exercises/02.json"
         },
         {
           "id": "python-practicum-functions-files-task-03",
-          "title": "3. Число уникальных",
+          "title": "3. локальная функция",
           "path": "practicums/functions-files/exercises/03.json"
         },
         {
           "id": "python-practicum-functions-files-task-04",
-          "title": "4. Инверсия словаря",
+          "title": "4. декомпозиция цифр",
           "path": "practicums/functions-files/exercises/04.json"
         },
         {
           "id": "python-practicum-functions-files-task-05",
-          "title": "5. Максимум двух",
+          "title": "5. рекурсивный факториал",
           "path": "practicums/functions-files/exercises/05.json"
         },
         {
           "id": "python-practicum-functions-files-task-06",
-          "title": "6. Рекурсивный факториал",
+          "title": "6. трассировка цифр",
           "path": "practicums/functions-files/exercises/06.json"
         },
         {
           "id": "python-practicum-functions-files-task-07",
-          "title": "7. Самая длинная строка",
+          "title": "7. сумма из файла",
           "path": "practicums/functions-files/exercises/07.json"
         },
         {
           "id": "python-practicum-functions-files-task-08",
-          "title": "8. Удвоенные значения",
+          "title": "8. выходной файл",
           "path": "practicums/functions-files/exercises/08.json"
         },
         {
           "id": "python-practicum-functions-files-task-09",
-          "title": "9. Периметр прямоугольника",
+          "title": "9. числа в файле",
           "path": "practicums/functions-files/exercises/09.json"
         },
         {
           "id": "python-practicum-functions-files-task-10",
-          "title": "10. Сумма цифр",
+          "title": "10. самая длинная строка",
           "path": "practicums/functions-files/exercises/10.json"
         },
         {
           "id": "python-practicum-functions-files-task-11",
-          "title": "11. Чётное или нечётное",
+          "title": "11. рекурсивная сумма цифр",
           "path": "practicums/functions-files/exercises/11.json"
         },
         {
           "id": "python-practicum-functions-files-task-12",
-          "title": "12. Знак числа",
+          "title": "12. частоты текста",
           "path": "practicums/functions-files/exercises/12.json"
         }
       ]
@@ -1973,77 +1973,77 @@
       "exerciseTitles": [
         {
           "id": "python-practicum-algorithms-task-01",
-          "title": "1. Рост относительно соседа",
+          "title": "1. наличие ключа",
           "path": "practicums/algorithms/exercises/01.json"
         },
         {
           "id": "python-practicum-algorithms-task-02",
-          "title": "2. Максимум матрицы",
+          "title": "2. левая граница",
           "path": "practicums/algorithms/exercises/02.json"
         },
         {
           "id": "python-practicum-algorithms-task-03",
-          "title": "3. Общие значения",
+          "title": "3. минимум хвоста",
           "path": "practicums/algorithms/exercises/03.json"
         },
         {
           "id": "python-practicum-algorithms-task-04",
-          "title": "4. Чётность",
+          "title": "4. сортировка выбором",
           "path": "practicums/algorithms/exercises/04.json"
         },
         {
           "id": "python-practicum-algorithms-task-05",
-          "title": "5. Сумма цифр",
+          "title": "5. ключ сортировки",
           "path": "practicums/algorithms/exercises/05.json"
         },
         {
           "id": "python-practicum-algorithms-task-06",
-          "title": "6. Рекурсивная степень",
+          "title": "6. перечень делителей",
           "path": "practicums/algorithms/exercises/06.json"
         },
         {
           "id": "python-practicum-algorithms-task-07",
-          "title": "7. Сумма чисел из файла",
+          "title": "7. простое число",
           "path": "practicums/algorithms/exercises/07.json"
         },
         {
           "id": "python-practicum-algorithms-task-08",
-          "title": "8. Самая длинная строка",
+          "title": "8. алгоритм Евклида",
           "path": "practicums/algorithms/exercises/08.json"
         },
         {
           "id": "python-practicum-algorithms-task-09",
-          "title": "9. Один шаг выбора",
+          "title": "9. двоичная запись",
           "path": "practicums/algorithms/exercises/09.json"
         },
         {
           "id": "python-practicum-algorithms-task-10",
-          "title": "10. Делители",
+          "title": "10. двоичное значение",
           "path": "practicums/algorithms/exercises/10.json"
         },
         {
           "id": "python-practicum-algorithms-task-11",
-          "title": "11. НОД",
+          "title": "11. перебор пар",
           "path": "practicums/algorithms/exercises/11.json"
         },
         {
           "id": "python-practicum-algorithms-task-12",
-          "title": "12. Тройки с заданной суммой",
+          "title": "12. перебор троек",
           "path": "practicums/algorithms/exercises/12.json"
         },
         {
           "id": "python-practicum-algorithms-task-13",
-          "title": "13. Эхо",
+          "title": "13. линейный поиск",
           "path": "practicums/algorithms/exercises/13.json"
         },
         {
           "id": "python-practicum-algorithms-task-14",
-          "title": "14. Стоимость покупки",
+          "title": "14. квадратичный перебор",
           "path": "practicums/algorithms/exercises/14.json"
         },
         {
           "id": "python-practicum-algorithms-task-15",
-          "title": "15. В диапазоне",
+          "title": "15. кубический перебор",
           "path": "practicums/algorithms/exercises/15.json"
         }
       ]
@@ -2123,102 +2123,102 @@
       "exerciseTitles": [
         {
           "id": "python-practicum-final-task-01",
-          "title": "1. Равные пары",
+          "title": "1. число путей",
           "path": "practicums/final/exercises/01.json"
         },
         {
           "id": "python-practicum-final-task-02",
-          "title": "2. Суммы строк",
+          "title": "2. несоседний максимум",
           "path": "practicums/final/exercises/02.json"
         },
         {
           "id": "python-practicum-final-task-03",
-          "title": "3. Только в одном",
+          "title": "3. минимум монет",
           "path": "practicums/final/exercises/03.json"
         },
         {
           "id": "python-practicum-final-task-04",
-          "title": "4. Максимум двух",
+          "title": "4. степени вершин",
           "path": "practicums/final/exercises/04.json"
         },
         {
           "id": "python-practicum-final-task-05",
-          "title": "5. Рекурсивный факториал",
+          "title": "5. достижимость",
           "path": "practicums/final/exercises/05.json"
         },
         {
           "id": "python-practicum-final-task-06",
-          "title": "6. Рекурсивная сумма цифр",
+          "title": "6. обход графа",
           "path": "practicums/final/exercises/06.json"
         },
         {
           "id": "python-practicum-final-task-07",
-          "title": "7. Удвоенные значения",
+          "title": "7. расстояние BFS",
           "path": "practicums/final/exercises/07.json"
         },
         {
           "id": "python-practicum-final-task-08",
-          "title": "8. Двоичный поиск",
+          "title": "8. восстановление пути",
           "path": "practicums/final/exercises/08.json"
         },
         {
           "id": "python-practicum-final-task-09",
-          "title": "9. Полная сортировка выбором",
+          "title": "9. число путей DAG",
           "path": "practicums/final/exercises/09.json"
         },
         {
           "id": "python-practicum-final-task-10",
-          "title": "10. Простое число",
+          "title": "10. взвешенный путь",
           "path": "practicums/final/exercises/10.json"
         },
         {
           "id": "python-practicum-final-task-11",
-          "title": "11. В двоичную",
+          "title": "11. кратчайший маршрут",
           "path": "practicums/final/exercises/11.json"
         },
         {
           "id": "python-practicum-final-task-12",
-          "title": "12. Лучший допустимый",
+          "title": "12. бинарный индекс",
           "path": "practicums/final/exercises/12.json"
         },
         {
           "id": "python-practicum-final-task-13",
-          "title": "13. Максимальная сумма без соседей",
+          "title": "13. сортировка данных",
           "path": "practicums/final/exercises/13.json"
         },
         {
           "id": "python-practicum-final-task-14",
-          "title": "14. Степени вершин",
+          "title": "14. НОД",
           "path": "practicums/final/exercises/14.json"
         },
         {
           "id": "python-practicum-final-task-15",
-          "title": "15. Восстановление пути",
+          "title": "15. лучший кандидат",
           "path": "practicums/final/exercises/15.json"
         },
         {
           "id": "python-practicum-final-task-16",
-          "title": "16. Среднее трёх",
+          "title": "16. частотный выбор",
           "path": "practicums/final/exercises/16.json"
         },
         {
           "id": "python-practicum-final-task-17",
-          "title": "17. Знак числа",
+          "title": "17. файловый результат",
           "path": "practicums/final/exercises/17.json"
         },
         {
           "id": "python-practicum-final-task-18",
-          "title": "18. Зачёт",
+          "title": "18. рекурсивная степень",
           "path": "practicums/final/exercises/18.json"
         },
         {
           "id": "python-practicum-final-task-19",
-          "title": "19. В диапазоне",
+          "title": "19. матрица",
           "path": "practicums/final/exercises/19.json"
         },
         {
           "id": "python-practicum-final-task-20",
-          "title": "20. Сумма от 1 до N",
+          "title": "20. тройки",
           "path": "practicums/final/exercises/20.json"
         }
       ]

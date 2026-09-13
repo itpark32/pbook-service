@@ -6,19 +6,20 @@
     "id": "python-practicum-first-programs"
   },
   "kind": "practicum",
-  "title": "10. Зачёт",
-  "statement": "Дан балл. Выведите `PASS`, если он не меньше 60, иначе `FAIL`.",
-  "difficulty": "challenge",
-  "starterCode": "",
+  "title": "10. два критерия",
+  "statement": "Практикум: два критерия. Выведите YES, только если число одновременно положительно и кратно трём.\n\nТренируемый приём: составные условия.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: два критерия.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "score = int(input())\nif score >= 60:\n    print('PASS')\nelse:\n    print('FAIL')",
+  "solution": "n = int(input())\nprint('YES' if n > 0 and n % 3 == 0 else 'NO')",
   "examples": [
     {
-      "input": "60\n",
-      "output": "PASS\n"
+      "input": "12\n",
+      "output": "YES\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "60\n",
-        "expectedOutput": "PASS\n"
+        "input": "12\n",
+        "expectedOutput": "YES\n"
       },
       {
-        "input": "59\n",
-        "expectedOutput": "FAIL\n"
+        "input": "-3\n",
+        "expectedOutput": "NO\n"
       },
       {
-        "input": "100\n",
-        "expectedOutput": "PASS\n"
+        "input": "10\n",
+        "expectedOutput": "NO\n"
       }
     ]
   }

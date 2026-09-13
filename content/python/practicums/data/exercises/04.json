@@ -6,40 +6,43 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "4. Самый частый",
-  "statement": "Верните самый частый элемент; при равенстве — лексикографически меньший. Для пустого списка верните None.",
-  "difficulty": "intro",
-  "starterCode": "def most_frequent(...):\n    pass\n",
+  "title": "4. длинная серия",
+  "statement": "Практикум: длинная серия. Реализуйте функцию с текущей и максимальной длиной серии.\n\nТренируемый приём: серии одинаковых символов.",
+  "difficulty": "standard",
+  "starterCode": "def max_run(text):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: длинная серия.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def most_frequent(values):\n    if not values:\n        return None\n    counts = {}\n    for value in values:\n        counts[value] = counts.get(value, 0) + 1\n    return min(counts, key=lambda value: (-counts[value], value))",
+  "solution": "def max_run(text):\n    best = current = 0\n    previous = None\n    for char in text:\n        if char == previous:\n            current += 1\n        else:\n            previous = char\n            current = 1\n        best = max(best, current)\n    return best",
   "examples": [
     {
-      "input": "[[\"b\",\"a\",\"b\"]]",
-      "output": "\"b\""
+      "input": "[\"aaabbc\"]",
+      "output": "3"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "most_frequent",
+    "functionName": "max_run",
     "tests": [
       {
         "args": [
-          [
-            "b",
-            "a",
-            "b"
-          ]
+          "aaabbc"
         ],
-        "expectedReturn": "b"
+        "expectedReturn": 3
       },
       {
         "args": [
-          []
+          ""
         ],
-        "expectedReturn": null
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          "x"
+        ],
+        "expectedReturn": 1
       }
     ]
   }

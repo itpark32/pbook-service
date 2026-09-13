@@ -6,19 +6,20 @@
     "id": "python-practicum-first-programs"
   },
   "kind": "practicum",
-  "title": "2. В диапазоне",
-  "statement": "Даны число, левая и правая границы. Выведите `YES`, если число лежит в диапазоне включительно, иначе `NO`.",
+  "title": "2. сборка приветствия",
+  "statement": "Практикум: сборка приветствия. Соберите строку приветствия из введённого имени.\n\nТренируемый приём: ввод одной и нескольких строк.",
   "difficulty": "intro",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: сборка приветствия.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "x, left, right = map(int, input().split())\nprint('YES' if left <= x <= right else 'NO')",
+  "solution": "name = input()\nprint(f'Привет, {name}!')",
   "examples": [
     {
-      "input": "5 1 10\n",
-      "output": "YES\n"
+      "input": "Аня\n",
+      "output": "Привет, Аня!\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "5 1 10\n",
-        "expectedOutput": "YES\n"
+        "input": "Аня\n",
+        "expectedOutput": "Привет, Аня!\n"
       },
       {
-        "input": "11 1 10\n",
-        "expectedOutput": "NO\n"
+        "input": "Макс\n",
+        "expectedOutput": "Привет, Макс!\n"
       },
       {
-        "input": "1 1 10\n",
-        "expectedOutput": "YES\n"
+        "input": "Аня\n\n",
+        "expectedOutput": "Привет, Аня!\n"
       }
     ]
   }

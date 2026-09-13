@@ -6,13 +6,14 @@
     "id": "python-graphs-basics"
   },
   "kind": "guided",
-  "title": "Достижимые вершины",
-  "statement": "Верните отсортированные вершины, достижимые из start в неориентированном графе.",
+  "title": "Компонента старта",
+  "statement": "Соберите список смежности и определите достижимые от start вершины.\n\nТренируемый приём: список смежности.",
   "difficulty": "standard",
   "starterCode": "def reachable(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «список смежности».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "def reachable(n, edges, start):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    seen = {start}\n    stack = [start]\n    while stack:\n        vertex = stack.pop()\n        for neighbour in graph[vertex]:\n            if neighbour not in seen:\n                seen.add(neighbour)\n                stack.append(neighbour)\n    return sorted(seen)",
   "examples": [
@@ -58,6 +59,31 @@
         ],
         "expectedReturn": [
           0
+        ]
+      },
+      {
+        "args": [
+          5,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          0
+        ],
+        "expectedReturn": [
+          0,
+          1,
+          2
         ]
       }
     ]

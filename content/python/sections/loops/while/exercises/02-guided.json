@@ -6,19 +6,20 @@
     "id": "python-loops-while"
   },
   "kind": "guided",
-  "title": "Количество кратных",
-  "statement": "Даны N и K. Посчитайте числа от 1 до N, кратные K.",
+  "title": "Произведение шагов",
+  "statement": "Через повторение умножьте числа от 1 до N; для нуля оставьте единицу.\n\nТренируемый приём: цикл while и изменяемое состояние.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «цикл while и изменяемое состояние».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n, k = map(int, input().split())\ncount = 0\nfor value in range(1, n + 1):\n    if value % k == 0:\n        count += 1\nprint(count)",
+  "solution": "n = int(input())\nproduct = 1\nfor value in range(2, n + 1):\n    product *= value\nprint(product)",
   "examples": [
     {
-      "input": "10 3\n",
-      "output": "3\n"
+      "input": "5\n",
+      "output": "120\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "10 3\n",
-        "expectedOutput": "3\n"
+        "input": "5\n",
+        "expectedOutput": "120\n"
       },
       {
-        "input": "4 9\n",
-        "expectedOutput": "0\n"
+        "input": "0\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "5\n\n",
+        "expectedOutput": "120\n"
       }
     ]
   }

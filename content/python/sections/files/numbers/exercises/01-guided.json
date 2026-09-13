@@ -6,13 +6,14 @@
     "id": "python-files-numbers"
   },
   "kind": "guided",
-  "title": "Сумма чисел из файла",
-  "statement": "В `input.txt` записаны целые числа через пробел. Выведите их сумму.",
+  "title": "Числовой итог файла",
+  "statement": "Разберите числа из input.txt и вычислите их сумму.\n\nТренируемый приём: числовые данные в файлах.",
   "difficulty": "intro",
   "starterCode": "# Файлы уже находятся в рабочей папке.\n",
   "hints": [
-    "Откройте файл через with, чтобы он закрылся автоматически.",
-    "Удаляйте перевод строки только там, где он мешает обработке."
+    "Определите, какие данные нужны для шага «числовые данные в файлах».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "with open('input.txt', encoding='utf-8') as source:\n    values = list(map(int, source.read().split()))\nprint(sum(values))",
   "examples": [],
@@ -33,6 +34,24 @@
       "mode": "normalized_text"
     },
     "tests": [
+      {
+        "inputFiles": [
+          {
+            "path": "input.txt",
+            "content": "1 2 3 -1\n"
+          }
+        ],
+        "expectedStdout": "5\n"
+      },
+      {
+        "inputFiles": [
+          {
+            "path": "input.txt",
+            "content": "1 2 3 -1\n"
+          }
+        ],
+        "expectedStdout": "5\n"
+      },
       {
         "inputFiles": [
           {

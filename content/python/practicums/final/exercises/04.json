@@ -6,51 +6,75 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "4. Максимум двух",
-  "statement": "Реализуйте функцию `max_of_two(a, b)` без вызова max.",
+  "title": "4. степени вершин",
+  "statement": "Практикум: степени вершин. По рёбрам неориентированного графа постройте список степеней вершин.\n\nТренируемый приём: список смежности.",
   "difficulty": "intro",
-  "starterCode": "def max_of_two(...):\n    pass\n",
+  "starterCode": "def degrees(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: степени вершин.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def max_of_two(a, b):\n    if a > b:\n        return a\n    return b",
+  "solution": "def degrees(n, edges):\n    result = [0] * n\n    for left, right in edges:\n        result[left] += 1\n        result[right] += 1\n    return result",
   "examples": [
     {
-      "input": "[2,7]",
-      "output": "7"
+      "input": "[4,[[0,1],[1,2]]]",
+      "output": "[1,2,1,0]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "max_of_two",
+    "functionName": "degrees",
     "tests": [
       {
         "args": [
+          4,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        ],
+        "expectedReturn": [
+          1,
           2,
-          7
-        ],
-        "expectedReturn": 7
+          1,
+          0
+        ]
       },
       {
         "args": [
-          5,
-          5
+          0,
+          []
         ],
-        "expectedReturn": 5
+        "expectedReturn": []
       },
       {
         "args": [
-          -1,
-          -3
+          4,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ]
         ],
-        "expectedReturn": -1
+        "expectedReturn": [
+          1,
+          2,
+          1,
+          0
+        ]
       }
-    ],
-    "structuralConstraints": {
-      "forbidCalls": [
-        "max"
-      ]
-    }
+    ]
   }
 }

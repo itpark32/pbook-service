@@ -6,43 +6,43 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "10. Делители",
-  "statement": "Верните делители положительного n по возрастанию.",
+  "title": "10. двоичное значение",
+  "statement": "Практикум: двоичное значение. Наращивайте значение слева направо, умножая предыдущий результат на 2.\n\nТренируемый приём: позиционные системы счисления.",
   "difficulty": "standard",
-  "starterCode": "def divisors(...):\n    pass\n",
+  "starterCode": "def from_binary(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: двоичное значение.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def divisors(n):\n    return [value for value in range(1, n + 1) if n % value == 0]",
+  "solution": "def from_binary(text):\n    value = 0\n    for digit in text:\n        value = value * 2 + int(digit)\n    return value",
   "examples": [
     {
-      "input": "[6]",
-      "output": "[1,2,3,6]"
+      "input": "[\"1010\"]",
+      "output": "10"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "divisors",
+    "functionName": "from_binary",
     "tests": [
       {
         "args": [
-          6
+          "1010"
         ],
-        "expectedReturn": [
-          1,
-          2,
-          3,
-          6
-        ]
+        "expectedReturn": 10
       },
       {
         "args": [
-          1
+          "0"
         ],
-        "expectedReturn": [
-          1
-        ]
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          "1010"
+        ],
+        "expectedReturn": 10
       }
     ]
   }

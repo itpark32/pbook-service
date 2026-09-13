@@ -6,44 +6,43 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "3. Максимум матрицы",
-  "statement": "Верните максимальный элемент матрицы или None для пустой матрицы.",
-  "difficulty": "intro",
-  "starterCode": "def matrix_max(...):\n    pass\n",
+  "title": "3. первая пара",
+  "statement": "Практикум: первая пара. Во время прохода найдите индекс первого одинакового соседства.\n\nТренируемый приём: проход по символам и состояние.",
+  "difficulty": "standard",
+  "starterCode": "def first_double(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: первая пара.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def matrix_max(matrix):\n    return max((value for row in matrix for value in row), default=None)",
+  "solution": "def first_double(text):\n    for i in range(len(text) - 1):\n        if text[i] == text[i + 1]:\n            return i\n    return -1",
   "examples": [
     {
-      "input": "[[[1,7],[3]]]",
-      "output": "7"
+      "input": "[\"abcc\"]",
+      "output": "2"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "matrix_max",
+    "functionName": "first_double",
     "tests": [
       {
         "args": [
-          [
-            [
-              1,
-              7
-            ],
-            [
-              3
-            ]
-          ]
+          "abcc"
         ],
-        "expectedReturn": 7
+        "expectedReturn": 2
       },
       {
         "args": [
-          []
+          "abc"
         ],
-        "expectedReturn": null
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          "aa"
+        ],
+        "expectedReturn": 0
       }
     ]
   }

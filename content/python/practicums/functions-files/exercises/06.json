@@ -6,41 +6,48 @@
     "id": "python-practicum-functions-files"
   },
   "kind": "practicum",
-  "title": "6. Рекурсивный факториал",
-  "statement": "Реализуйте рекурсивную функцию `factorial(n)` для n ≥ 0.",
+  "title": "6. трассировка цифр",
+  "statement": "Практикум: трассировка цифр. Проследите отделение последней цифры и достижение одноразрядного числа.\n\nТренируемый приём: трассировка рекурсивных вычислений.",
   "difficulty": "standard",
-  "starterCode": "def factorial(...):\n    pass\n",
+  "starterCode": "def digit_sum(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: трассировка цифр.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)",
+  "solution": "def digit_sum(n):\n    if n < 10:\n        return n\n    return n % 10 + digit_sum(n // 10)",
   "examples": [
     {
-      "input": "[5]",
-      "output": "120"
+      "input": "[247]",
+      "output": "13"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "factorial",
+    "functionName": "digit_sum",
     "tests": [
       {
         "args": [
-          5
+          247
         ],
-        "expectedReturn": 120
+        "expectedReturn": 13
       },
       {
         "args": [
           0
         ],
-        "expectedReturn": 1
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          247
+        ],
+        "expectedReturn": 13
       }
     ],
     "structuralConstraints": {
       "requireRecursion": [
-        "factorial"
+        "digit_sum"
       ]
     }
   }

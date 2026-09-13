@@ -11,7 +11,7 @@ import {
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { lessonExercises, practicumExercises } from "./exercise-factories.mjs";
-import { lessons, sections } from "./curriculum-map.mjs";
+import { lessons, practicums, sections } from "./curriculum-map.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const contentRoot = join(projectRoot, "content/python");
@@ -256,14 +256,7 @@ function lessonMarkdown(item) {
   return `# ${item.title}\n\nПосле урока вы сможете ${item.focus}.\n\n${body}\n`;
 }
 
-const practicumDefinitions = [
-  { batch: "A", id: "python-practicum-first-programs", slug: "first-programs", title: "Практикум 1. Первые программы", count: 12 },
-  { batch: "B", id: "python-practicum-loops", slug: "loops", title: "Практикум 2. Циклы", count: 15 },
-  { batch: "C", id: "python-practicum-data", slug: "data", title: "Практикум 3. Строки и коллекции", count: 15 },
-  { batch: "D", id: "python-practicum-functions-files", slug: "functions-files", title: "Практикум 4. Функции, рекурсия и файлы", count: 12 },
-  { batch: "E", id: "python-practicum-algorithms", slug: "algorithms", title: "Практикум 5. Алгоритмы", count: 15 },
-  { batch: "F", id: "python-practicum-final", slug: "final", title: "Практикум 6. Итоговый", count: 20 }
-];
+const practicumDefinitions = practicums;
 
 function writeLesson(item) {
   const directory = join(contentRoot, "sections", item.sectionId, item.slug);
@@ -297,7 +290,7 @@ function writePracticum(definition) {
   const exerciseDirectory = join(directory, "exercises");
   ensureDirectory(exerciseDirectory);
   const availableLessons = includedLessons.filter((item) => batches.indexOf(item.batch) <= batches.indexOf(definition.batch));
-  const exercises = practicumExercises(definition, availableLessons);
+  const exercises = practicumExercises(definition);
   const skillIds = [...new Set(availableLessons.flatMap((item) => item.skillIds))];
   writeFileSync(join(directory, "practicum.json"), json({
     schemaVersion: 1,
@@ -466,7 +459,7 @@ function writeFrontendCatalog() {
       const availableLessons = includedLessons.filter(
         (lesson) => batches.indexOf(lesson.batch) <= batches.indexOf(item.batch)
       );
-      const exercises = practicumExercises(item, availableLessons);
+      const exercises = practicumExercises(item);
       return {
         id: item.id,
         title: item.title,

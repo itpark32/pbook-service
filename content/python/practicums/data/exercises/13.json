@@ -6,34 +6,57 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "13. Сумма чётных",
-  "statement": "В первой строке N, во второй N чисел. Выведите сумму чётных элементов.",
-  "difficulty": "challenge",
-  "starterCode": "",
+  "title": "13. частоты",
+  "statement": "Практикум: частоты. Постройте словарь: каждому элементу поставьте в соответствие число встреч.\n\nТренируемый приём: словари и таблицы частот.",
+  "difficulty": "standard",
+  "starterCode": "def frequencies(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: частоты.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value for value in values[:n] if value % 2 == 0))",
+  "solution": "def frequencies(values):\n    result = {}\n    for value in values:\n        result[value] = result.get(value, 0) + 1\n    return result",
   "examples": [
     {
-      "input": "5\n1 2 3 4 5\n",
-      "output": "6\n"
+      "input": "[[\"a\",\"b\",\"a\"]]",
+      "output": "{\"a\":2,\"b\":1}"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "frequencies",
     "tests": [
       {
-        "input": "5\n1 2 3 4 5\n",
-        "expectedOutput": "6\n"
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
+        ],
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
       },
       {
-        "input": "3\n1 3 5\n",
-        "expectedOutput": "0\n"
+        "args": [
+          []
+        ],
+        "expectedReturn": {}
+      },
+      {
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
+        ],
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
       }
     ]
   }

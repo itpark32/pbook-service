@@ -6,19 +6,20 @@
     "id": "python-loops-min-max-average"
   },
   "kind": "guided",
-  "title": "Положительные элементы",
-  "statement": "В первой строке N, во второй N целых чисел. Выведите количество положительных.",
+  "title": "Максимум потока",
+  "statement": "Инициализируйте максимум первым элементом и обновляйте его при проходе.\n\nТренируемый приём: ручное обновление экстремума и суммы.",
   "difficulty": "intro",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «ручное обновление экстремума и суммы».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value > 0 for value in values[:n]))",
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nmaximum = values[0]\nfor value in values[1:n]:\n    if value > maximum:\n        maximum = value\nprint(maximum)",
   "examples": [
     {
-      "input": "5\n-1 2 0 3 4\n",
-      "output": "3\n"
+      "input": "5\n-3 8 2 8 1\n",
+      "output": "8\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "5\n-1 2 0 3 4\n",
-        "expectedOutput": "3\n"
+        "input": "5\n-3 8 2 8 1\n",
+        "expectedOutput": "8\n"
       },
       {
-        "input": "0\n\n",
-        "expectedOutput": "0\n"
+        "input": "1\n-7\n",
+        "expectedOutput": "-7\n"
+      },
+      {
+        "input": "5\n-3 8 2 8 1\n\n",
+        "expectedOutput": "8\n"
       }
     ]
   }

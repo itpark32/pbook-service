@@ -6,42 +6,63 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "5. Сумма цифр",
-  "statement": "Реализуйте функцию `sum_digits(n)` для неотрицательного целого числа.",
-  "difficulty": "intro",
-  "starterCode": "def sum_digits(...):\n    pass\n",
+  "title": "5. ключ сортировки",
+  "statement": "Практикум: ключ сортировки. Задайте ключ: сначала длина слова, затем лексикографический порядок.\n\nТренируемый приём: sorted, sort и ключ сортировки.",
+  "difficulty": "standard",
+  "starterCode": "def by_length(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: ключ сортировки.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def sum_digits(n):\n    total = 0\n    while n > 0:\n        total += n % 10\n        n //= 10\n    return total",
+  "solution": "def by_length(words):\n    return sorted(words, key=lambda word: (len(word), word))",
   "examples": [
     {
-      "input": "[247]",
-      "output": "13"
+      "input": "[[\"bbb\",\"a\",\"cc\",\"bb\"]]",
+      "output": "[\"a\",\"bb\",\"cc\",\"bbb\"]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "sum_digits",
+    "functionName": "by_length",
     "tests": [
       {
         "args": [
-          247
+          [
+            "bbb",
+            "a",
+            "cc",
+            "bb"
+          ]
         ],
-        "expectedReturn": 13
+        "expectedReturn": [
+          "a",
+          "bb",
+          "cc",
+          "bbb"
+        ]
       },
       {
         "args": [
-          0
+          []
         ],
-        "expectedReturn": 0
+        "expectedReturn": []
       },
       {
         "args": [
-          1000
+          [
+            "bbb",
+            "a",
+            "cc",
+            "bb"
+          ]
         ],
-        "expectedReturn": 1
+        "expectedReturn": [
+          "a",
+          "bb",
+          "cc",
+          "bbb"
+        ]
       }
     ]
   }

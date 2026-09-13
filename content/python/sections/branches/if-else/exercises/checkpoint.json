@@ -6,19 +6,20 @@
     "id": "python-branches-if-else"
   },
   "kind": "checkpoint",
-  "title": "Зачёт",
-  "statement": "Дан балл. Выведите `PASS`, если он не меньше 60, иначе `FAIL`.",
+  "title": "Большее показание",
+  "statement": "Выведите большее из двух показаний через полную конструкцию if/else.\n\nТренируемый приём: две взаимоисключающие ветви.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «две взаимоисключающие ветви».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "score = int(input())\nif score >= 60:\n    print('PASS')\nelse:\n    print('FAIL')",
+  "solution": "a, b = map(int, input().split())\nif a > b:\n    print(a)\nelse:\n    print(b)",
   "examples": [
     {
-      "input": "60\n",
-      "output": "PASS\n"
+      "input": "3 8\n",
+      "output": "8\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "60\n",
-        "expectedOutput": "PASS\n"
+        "input": "3 8\n",
+        "expectedOutput": "8\n"
       },
       {
-        "input": "59\n",
-        "expectedOutput": "FAIL\n"
+        "input": "5 5\n",
+        "expectedOutput": "5\n"
       },
       {
-        "input": "100\n",
-        "expectedOutput": "PASS\n"
+        "input": "-2 -7\n",
+        "expectedOutput": "-2\n"
       }
     ]
   }

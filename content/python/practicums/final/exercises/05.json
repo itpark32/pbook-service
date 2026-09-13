@@ -6,42 +6,86 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "5. Рекурсивный факториал",
-  "statement": "Реализуйте рекурсивную функцию `factorial(n)` для n ≥ 0.",
-  "difficulty": "intro",
-  "starterCode": "def factorial(...):\n    pass\n",
+  "title": "5. достижимость",
+  "statement": "Практикум: достижимость. Соберите список смежности и определите достижимые от start вершины.\n\nТренируемый приём: список смежности.",
+  "difficulty": "standard",
+  "starterCode": "def reachable(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: достижимость.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)",
+  "solution": "def reachable(n, edges, start):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    seen = {start}\n    stack = [start]\n    while stack:\n        vertex = stack.pop()\n        for neighbour in graph[vertex]:\n            if neighbour not in seen:\n                seen.add(neighbour)\n                stack.append(neighbour)\n    return sorted(seen)",
   "examples": [
     {
-      "input": "[5]",
-      "output": "120"
+      "input": "[5,[[0,1],[1,2],[3,4]],0]",
+      "output": "[0,1,2]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "factorial",
+    "functionName": "reachable",
     "tests": [
       {
         "args": [
-          5
+          5,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          0
         ],
-        "expectedReturn": 120
+        "expectedReturn": [
+          0,
+          1,
+          2
+        ]
       },
       {
         "args": [
+          1,
+          [],
           0
         ],
-        "expectedReturn": 1
+        "expectedReturn": [
+          0
+        ]
+      },
+      {
+        "args": [
+          5,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          0
+        ],
+        "expectedReturn": [
+          0,
+          1,
+          2
+        ]
       }
-    ],
-    "structuralConstraints": {
-      "requireRecursion": [
-        "factorial"
-      ]
-    }
+    ]
   }
 }

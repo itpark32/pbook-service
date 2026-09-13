@@ -6,38 +6,56 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "15. В диапазоне",
-  "statement": "Даны число, левая и правая границы. Выведите `YES`, если число лежит в диапазоне включительно, иначе `NO`.",
+  "title": "15. кубический перебор",
+  "statement": "Практикум: кубический перебор. Постройте перебор троек и соотнесите его с кубической сложностью.\n\nТренируемый приём: оценку числа операций.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "def triple_count(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: кубический перебор.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "x, left, right = map(int, input().split())\nprint('YES' if left <= x <= right else 'NO')",
+  "solution": "def triple_count(values, target):\n    count = 0\n    for i in range(len(values)):\n        for j in range(i + 1, len(values)):\n            for k in range(j + 1, len(values)):\n                if values[i] + values[j] + values[k] == target:\n                    count += 1\n    return count",
   "examples": [
     {
-      "input": "5 1 10\n",
-      "output": "YES\n"
+      "input": "[[1,2,3,4],6]",
+      "output": "1"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "triple_count",
     "tests": [
       {
-        "input": "5 1 10\n",
-        "expectedOutput": "YES\n"
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          6
+        ],
+        "expectedReturn": 1
       },
       {
-        "input": "11 1 10\n",
-        "expectedOutput": "NO\n"
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
       },
       {
-        "input": "1 1 10\n",
-        "expectedOutput": "YES\n"
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          6
+        ],
+        "expectedReturn": 1
       }
     ]
   }

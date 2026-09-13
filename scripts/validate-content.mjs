@@ -17,6 +17,7 @@ const DEFAULT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../conten
 const COMPARISON_MODES = new Set(["normalized_text", "tokens", "float_tokens"]);
 const JUDGE_TYPES = new Set(["stdin_stdout", "function", "files", "manual"]);
 const EXERCISE_KINDS = new Set(["guided", "checkpoint", "practicum", "manual"]);
+const DIFFICULTIES = new Set(["intro", "standard", "challenge"]);
 const STRUCTURAL_RULES = new Set([
   "requireFunctions",
   "forbidCalls",
@@ -357,9 +358,21 @@ export function validateContent(contentRoot = DEFAULT_ROOT, options = {}) {
   for (const exercise of exercises) {
     if (exercise.schemaVersion !== 1) errors.push(`${exercise.id}: unsupported schemaVersion`);
     if (!EXERCISE_KINDS.has(exercise.kind)) errors.push(`${exercise.id}: invalid exercise kind`);
+    if (!DIFFICULTIES.has(exercise.difficulty)) errors.push(`${exercise.id}: invalid difficulty`);
+    for (const field of ["title", "statement", "starterCode", "solution"]) {
+      if (typeof exercise[field] !== "string" || exercise[field].trim() === "") {
+        errors.push(`${exercise.id}: ${field} must be non-empty`);
+      }
+    }
+    if (!Array.isArray(exercise.hints) || exercise.hints.length < 2 || exercise.hints.some((hint) => typeof hint !== "string" || !hint.trim())) {
+      errors.push(`${exercise.id}: needs at least two non-empty hints`);
+    }
     if (!JUDGE_TYPES.has(exercise.judge?.type)) errors.push(`${exercise.id}: invalid judge type`);
     if (exercise.judge?.type !== "manual" && (!(exercise.judge?.tests?.length) || !exercise.solution)) {
       errors.push(`${exercise.id}: auto-checked exercise needs tests and solution`);
+    }
+    if (exercise.judge?.type !== "manual" && exercise.judge.tests.length < 3) {
+      errors.push(`${exercise.id}: auto-checked exercise needs at least three tests`);
     }
     if (exercise.judge?.comparison && !COMPARISON_MODES.has(exercise.judge.comparison.mode)) {
       errors.push(`${exercise.id}: invalid comparison mode`);
@@ -398,6 +411,23 @@ export function validateContent(contentRoot = DEFAULT_ROOT, options = {}) {
     }
     validateFixturePaths(exercise, contentRoot, errors);
     if (options.solutions !== false) runReferenceSolution(exercise, errors, contentRoot);
+  }
+  const practicumStatements = new Map();
+  for (const practicum of practicums) {
+    for (const exerciseId of practicum.exerciseOrder ?? []) {
+      const exercise = exerciseById.get(exerciseId);
+      if (!exercise) continue;
+      const previous = practicumStatements.get(exercise.statement);
+      if (previous) errors.push(`${practicum.id}: duplicate practicum statement in ${previous} and ${exercise.id}`);
+      practicumStatements.set(exercise.statement, exercise.id);
+    }
+  }
+  const checkpointStatements = new Set(exercises.filter((exercise) => exercise.kind === "checkpoint").map((exercise) => exercise.statement));
+  for (const practicum of practicums) {
+    for (const exerciseId of practicum.exerciseOrder ?? []) {
+      const exercise = exerciseById.get(exerciseId);
+      if (exercise && checkpointStatements.has(exercise.statement)) errors.push(`${exercise.id}: practicum statement duplicates a lesson checkpoint`);
+    }
   }
   const knownRoutes = new Set([
     ...lessons.map((lesson) => `/python/${lesson.sectionId}/${lesson.slug}`),

@@ -6,48 +6,55 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "2. Суммы строк",
-  "statement": "Верните список сумм строк матрицы.",
-  "difficulty": "intro",
-  "starterCode": "def row_sums(...):\n    pass\n",
+  "title": "2. несоседний максимум",
+  "statement": "Практикум: несоседний максимум. Поддерживайте лучший ответ с учётом последнего выбранного или пропущенного элемента.\n\nТренируемый приём: состояние, базу и переход динамического программирования.",
+  "difficulty": "challenge",
+  "starterCode": "def max_non_adjacent(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: несоседний максимум.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def row_sums(matrix):\n    return [sum(row) for row in matrix]",
+  "solution": "def max_non_adjacent(values):\n    previous, current = 0, 0\n    for value in values:\n        previous, current = current, max(current, previous + value)\n    return current",
   "examples": [
     {
-      "input": "[[[1,2],[3,4]]]",
-      "output": "[3,7]"
+      "input": "[[2,7,9,3,1]]",
+      "output": "12"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "row_sums",
+    "functionName": "max_non_adjacent",
     "tests": [
       {
         "args": [
           [
-            [
-              1,
-              2
-            ],
-            [
-              3,
-              4
-            ]
+            2,
+            7,
+            9,
+            3,
+            1
           ]
         ],
-        "expectedReturn": [
-          3,
-          7
-        ]
+        "expectedReturn": 12
       },
       {
         "args": [
           []
         ],
-        "expectedReturn": []
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          [
+            2,
+            7,
+            9,
+            3,
+            1
+          ]
+        ],
+        "expectedReturn": 12
       }
     ]
   }

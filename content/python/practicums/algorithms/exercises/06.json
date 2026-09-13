@@ -6,44 +6,56 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "6. Рекурсивная степень",
-  "statement": "Реализуйте рекурсивную функцию `power(a, n)` для n ≥ 0.",
+  "title": "6. перечень делителей",
+  "statement": "Практикум: перечень делителей. Переберите возможные делители положительного числа и соберите подходящие.\n\nТренируемый приём: делимость и делители.",
   "difficulty": "standard",
-  "starterCode": "def power(...):\n    pass\n",
+  "starterCode": "def divisors(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: перечень делителей.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def power(a, n):\n    if n == 0:\n        return 1\n    return a * power(a, n - 1)",
+  "solution": "def divisors(n):\n    return [value for value in range(1, n + 1) if n % value == 0]",
   "examples": [
     {
-      "input": "[2,5]",
-      "output": "32"
+      "input": "[6]",
+      "output": "[1,2,3,6]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "power",
+    "functionName": "divisors",
     "tests": [
       {
         "args": [
-          2,
-          5
+          6
         ],
-        "expectedReturn": 32
+        "expectedReturn": [
+          1,
+          2,
+          3,
+          6
+        ]
       },
       {
         "args": [
-          9,
-          0
+          1
         ],
-        "expectedReturn": 1
+        "expectedReturn": [
+          1
+        ]
+      },
+      {
+        "args": [
+          6
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          3,
+          6
+        ]
       }
-    ],
-    "structuralConstraints": {
-      "requireRecursion": [
-        "power"
-      ]
-    }
+    ]
   }
 }

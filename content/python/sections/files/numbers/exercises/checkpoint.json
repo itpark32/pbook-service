@@ -6,46 +6,39 @@
     "id": "python-files-numbers"
   },
   "kind": "checkpoint",
-  "title": "Самая длинная строка",
-  "statement": "В `lines.txt` записан текст. Запишите первую самую длинную строку без перевода строки в `answer.txt`.",
+  "title": "Поток чётных чисел",
+  "statement": "Проверьте логику накопителя чётных значений, применимую к числам из файла.\n\nТренируемый приём: числовые данные в файлах.",
   "difficulty": "challenge",
-  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Откройте файл через with, чтобы он закрылся автоматически.",
-    "Удаляйте перевод строки только там, где он мешает обработке."
+    "Определите, какие данные нужны для шага «числовые данные в файлах».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
-  "examples": [],
-  "fileExamples": [
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value for value in values[:n] if value % 2 == 0))",
+  "examples": [
     {
-      "title": "Пример файлов",
-      "files": [
-        {
-          "path": "lines.txt",
-          "content": "кот\nпрограммирование\nкод\n"
-        }
-      ]
+      "input": "5\n1 2 3 4 5\n",
+      "output": "6\n"
     }
   ],
   "judge": {
-    "type": "files",
+    "type": "stdin_stdout",
     "comparison": {
       "mode": "normalized_text"
     },
     "tests": [
       {
-        "inputFiles": [
-          {
-            "path": "lines.txt",
-            "content": "кот\nпрограммирование\nкод\n"
-          }
-        ],
-        "expectedFiles": [
-          {
-            "path": "answer.txt",
-            "content": "программирование"
-          }
-        ]
+        "input": "5\n1 2 3 4 5\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "3\n1 3 5\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "5\n1 2 3 4 5\n\n",
+        "expectedOutput": "6\n"
       }
     ]
   }

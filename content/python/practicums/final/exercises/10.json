@@ -6,48 +6,94 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "10. Простое число",
-  "statement": "Верните True, если n — простое число.",
-  "difficulty": "standard",
-  "starterCode": "def is_prime(...):\n    pass\n",
+  "title": "10. взвешенный путь",
+  "statement": "Практикум: взвешенный путь. Поддерживайте лучшую известную дистанцию и выбирайте следующую вершину по весу.\n\nТренируемый приём: пути и расстояния в графах.",
+  "difficulty": "challenge",
+  "starterCode": "def weighted_distance(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: взвешенный путь.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def is_prime(n):\n    if n < 2:\n        return False\n    divisor = 2\n    while divisor * divisor <= n:\n        if n % divisor == 0:\n            return False\n        divisor += 1\n    return True",
+  "solution": "def weighted_distance(n, edges, start, finish):\n    import heapq\n    graph = [[] for _ in range(n)]\n    for left, right, weight in edges:\n        graph[left].append((right, weight))\n        graph[right].append((left, weight))\n    distance = [float('inf')] * n\n    distance[start] = 0\n    queue = [(0, start)]\n    while queue:\n        current, vertex = heapq.heappop(queue)\n        if current != distance[vertex]:\n            continue\n        for neighbour, weight in graph[vertex]:\n            candidate = current + weight\n            if candidate < distance[neighbour]:\n                distance[neighbour] = candidate\n                heapq.heappush(queue, (candidate, neighbour))\n    return -1 if distance[finish] == float('inf') else distance[finish]",
   "examples": [
     {
-      "input": "[2]",
-      "output": "true"
+      "input": "[4,[[0,1,5],[0,2,1],[2,1,1],[1,3,2]],0,3]",
+      "output": "4"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "is_prime",
+    "functionName": "weighted_distance",
     "tests": [
       {
         "args": [
-          2
+          4,
+          [
+            [
+              0,
+              1,
+              5
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              1,
+              3,
+              2
+            ]
+          ],
+          0,
+          3
         ],
-        "expectedReturn": true
+        "expectedReturn": 4
       },
       {
         "args": [
-          17
-        ],
-        "expectedReturn": true
-      },
-      {
-        "args": [
-          21
-        ],
-        "expectedReturn": false
-      },
-      {
-        "args": [
+          2,
+          [],
+          0,
           1
         ],
-        "expectedReturn": false
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          4,
+          [
+            [
+              0,
+              1,
+              5
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              1,
+              3,
+              2
+            ]
+          ],
+          0,
+          3
+        ],
+        "expectedReturn": 4
       }
     ]
   }

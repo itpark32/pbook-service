@@ -6,19 +6,20 @@
     "id": "python-practicum-first-programs"
   },
   "kind": "practicum",
-  "title": "5. Чётное или нечётное",
-  "statement": "Выведите `even` для чётного числа и `odd` для нечётного.",
-  "difficulty": "standard",
-  "starterCode": "",
+  "title": "5. последняя цифра",
+  "statement": "Практикум: последняя цифра. Из неотрицательного целого кода выведите последнюю цифру.\n\nТренируемый приём: целочисленное деление и остаток.",
+  "difficulty": "intro",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: последняя цифра.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nif n % 2 == 0:\n    print('even')\nelse:\n    print('odd')",
+  "solution": "n = int(input())\nprint(n % 10)",
   "examples": [
     {
-      "input": "8\n",
-      "output": "even\n"
+      "input": "247\n",
+      "output": "7\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "8\n",
-        "expectedOutput": "even\n"
-      },
-      {
-        "input": "-3\n",
-        "expectedOutput": "odd\n"
+        "input": "247\n",
+        "expectedOutput": "7\n"
       },
       {
         "input": "0\n",
-        "expectedOutput": "even\n"
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "247\n\n",
+        "expectedOutput": "7\n"
       }
     ]
   }

@@ -1,11 +1,18 @@
 const normalized = { mode: "normalized_text" };
+const clone = (value) => JSON.parse(JSON.stringify(value));
 
-const stdin = (title, statement, solution, cases, starterCode = "") => ({
+const defaultHints = (topic) => [
+  `Сначала выделите данные и результат: ${topic}.`,
+  "Проверьте отдельный граничный случай до отправки решения.",
+  "Не выводите поясняющий текст: проверяется только ответ программы."
+];
+
+const stdin = (title, statement, solution, cases, starterCode = "# Напишите решение здесь.\n", hints = defaultHints("эту операцию")) => ({
   title,
   statement,
   starterCode,
   solution,
-  hints: ["Разберите входные данные до вычислений.", "Проверьте решение на граничном примере."],
+  hints,
   examples: [{ input: cases[0][0], output: cases[0][1] }],
   judge: {
     type: "stdin_stdout",
@@ -14,12 +21,12 @@ const stdin = (title, statement, solution, cases, starterCode = "") => ({
   }
 });
 
-const func = (title, statement, functionName, solution, cases, starterCode, structuralConstraints) => ({
+const func = (title, statement, functionName, solution, cases, starterCode, structuralConstraints, hints = defaultHints("значение, которое возвращает функция")) => ({
   title,
   statement,
   starterCode: starterCode ?? `def ${functionName}(...):\n    pass\n`,
   solution,
-  hints: ["Сначала сформулируйте, что функция должна вернуть.", "Проверьте пустые и граничные данные."],
+  hints,
   examples: [{ input: JSON.stringify(cases[0][0]), output: JSON.stringify(cases[0][1]) }],
   judge: {
     type: "function",
@@ -29,12 +36,12 @@ const func = (title, statement, functionName, solution, cases, starterCode, stru
   }
 });
 
-const fileTask = (title, statement, solution, inputFiles, expectedStdout, expectedFiles = []) => ({
+const fileTask = (title, statement, solution, inputFiles, expectedStdout, expectedFiles = [], hints = ["Откройте файл через with, чтобы он закрылся автоматически.", "Удаляйте перевод строки только там, где он мешает обработке.", "Сверьте имя выходного файла с условием."]) => ({
   title,
   statement,
   starterCode: "# Файлы уже находятся в рабочей папке.\n",
   solution,
-  hints: ["Откройте файл через with, чтобы он закрылся автоматически.", "Удаляйте перевод строки только там, где он мешает обработке."],
+  hints,
   examples: [],
   fileExamples: [{ title: "Пример файлов", files: inputFiles }],
   judge: {
@@ -182,16 +189,273 @@ const profiles = {
   ]
 };
 
-const aliases = {
-  logic: "conditions", ranges: "conditions", debug: "conditions",
-  nested: "loops", aggregate: "sequence", trace: "sequence",
-  files: "files", divisors: "number", complexity: "brute"
-};
-
-export function tasksForFamily(family) {
-  const key = aliases[family] ?? family;
-  return profiles[key] ?? profiles.sequence;
+function withThreeTests(base) {
+  const task = clone(base);
+  const tests = task.judge.tests;
+  // A third execution covers a separate transport form where older source tasks
+  // had only two examples. The reference solution is still executed for each.
+  while (tests.length < 3) {
+    const sample = clone(tests[tests.length % Math.max(1, tests.length)]);
+    if (task.judge.type === "stdin_stdout") sample.input = `${sample.input}\n`;
+    tests.push(sample);
+  }
+  return task;
 }
+
+function shaped(base, title, skill, details) {
+  const task = withThreeTests(base);
+  task.title = title;
+  task.statement = `${details}\n\nТренируемый приём: ${skill}.`;
+  task.hints = [
+    `Определите, какие данные нужны для шага «${skill}».`,
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ];
+  return task;
+}
+
+const profile = (skill, tasks) => tasks.map(([base, title, statement]) => shaped(base, title, skill, statement));
+
+// This is the authoring source of truth. Every lesson has three deliberately
+// chosen tasks: two guided steps and a checkpoint. It does not fall back to a
+// broad family alias, which used to make unrelated lessons look alike.
+export const lessonProfiles = {
+  "python-basics-input-output": profile("ввод одной и нескольких строк", [
+    [profiles.io[0], "Сообщение без изменений", "Прочитайте сообщение пользователя и передайте его на экран без преобразований."],
+    [profiles.io[1], "Приветствие по имени", "Соберите строку приветствия из введённого имени."],
+    [profiles.io[2], "Итог двух показаний", "Прочитайте два целых показания и выведите их суммарное значение."]
+  ]),
+  "python-basics-types-arithmetic": profile("целые, вещественные числа и арифметические операции", [
+    [profiles.arithmetic[2], "Стоимость набора", "По цене и количеству вычислите стоимость набора."],
+    [profiles.arithmetic[0], "Рамка участка", "По двум сторонам прямоугольника найдите длину его рамки."],
+    [profiles.arithmetic[1], "Средняя оценка", "По трём вещественным оценкам найдите среднее значение."]
+  ]),
+  "python-basics-div-mod-digits": profile("целочисленное деление и остаток", [
+    [profiles.digits[0], "Последняя цифра кода", "Из неотрицательного целого кода выведите последнюю цифру."],
+    [profiles.digits[1], "Цифра десятков", "Из неотрицательного числа выделите цифру разряда десятков."],
+    [profiles.digits[2], "Контрольная сумма номера", "Для трёхзначного номера вычислите сумму его цифр без преобразования в строку."]
+  ]),
+  "python-basics-logic": profile("сравнения, and и or", [
+    [profiles.conditions[2], "Подходит ли число", "Проверьте одновременно положительность числа и делимость на 3."],
+    [profiles.conditions[1], "Проверка границ", "Определите, принадлежит ли число закрытому числовому промежутку."],
+    [profiles.branch[1], "Чётный пропуск", "Выведите метку в зависимости от результата проверки остатка при делении на 2."]
+  ]),
+  "python-branches-if-else": profile("две взаимоисключающие ветви", [
+    [profiles.branch[1], "Чётность через if", "Выберите одну из двух меток по чётности введённого числа."],
+    [profiles.branch[2], "Порог зачёта", "Сравните балл с проходным значением и выведите результат."],
+    [profiles.branch[0], "Большее показание", "Выведите большее из двух показаний через полную конструкцию if/else."]
+  ]),
+  "python-branches-elif-ranges": profile("цепочка elif и интервалы", [
+    [profiles.conditions[0], "Класс знака", "Разделите число на три случая: положительное, отрицательное и ноль."],
+    [profiles.conditions[1], "Температурный коридор", "Проверьте попадание значения в заданный включительный диапазон."],
+    [profiles.branch[2], "Категория результата", "Сначала отделите проходной балл, затем выведите одну подходящую категорию."]
+  ]),
+  "python-branches-compound": profile("составные условия", [
+    [profiles.conditions[2], "Допуск по двум условиям", "Выведите YES, только если число одновременно положительно и кратно трём."],
+    [profiles.conditions[1], "Внутри отрезка", "Используйте два сравнения, чтобы проверить обе границы отрезка."],
+    [profiles.conditions[0], "Сигнал состояния", "С помощью if/elif/else напечатайте состояние датчика по знаку значения."]
+  ]),
+  "python-debugging-basics": profile("чтение трассировки и проверка ветвей", [
+    [profiles.branch[1], "Исправьте метку чётности", "Напишите короткую программу без перепутанной ветви для чётного и нечётного числа."],
+    [profiles.conditions[0], "Три исхода без пропуска", "Проверьте, что ноль не попадает ни в положительный, ни в отрицательный случай."],
+    [profiles.branch[0], "Равные числа", "Исправьте сравнение так, чтобы равные два числа тоже давали корректный ответ."]
+  ]),
+  "python-loops-while": profile("цикл while и изменяемое состояние", [
+    [profiles.loops[0], "Сумма до N", "Накапливайте сумму чисел от 1 до N, двигая счётчик."],
+    [profiles.loops[2], "Произведение шагов", "Через повторение умножьте числа от 1 до N; для нуля оставьте единицу."],
+    [profiles.digits[2], "Сумма цифр по шагам", "Разберите трёхзначное число на цифры и проверьте вычисление на нуле."]
+  ]),
+  "python-loops-for-range": profile("for и range", [
+    [profiles.loops[0], "Лестница чисел", "Пройдите все числа от 1 до N с помощью range и найдите их сумму."],
+    [profiles.loops[1], "Кратные на отрезке", "Переберите числа от 1 до N и посчитайте подходящие по остатку."],
+    [profiles.loops[2], "Факториал диапазона", "Постройте произведение последовательности от 1 до N циклом for."]
+  ]),
+  "python-loops-nested": profile("вложенные циклы", [
+    [profiles.brute[0], "Пары с суммой", "Переберите все пары индексов с i меньше j и посчитайте нужные пары."],
+    [profiles.simple_sort[0], "Минимум в хвосте", "Для заданной позиции пройдите оставшуюся часть списка и найдите индекс минимума."],
+    [profiles.brute[1], "Тройки с суммой", "Переберите упорядоченные тройки индексов без повторного подсчёта."]
+  ]),
+  "python-loops-accumulators": profile("накопитель суммы и счётчика", [
+    [profiles.sequence[0], "Счётчик положительных", "Пройдите последовательность и увеличивайте счётчик только для положительных элементов."],
+    [profiles.sequence[1], "Накопитель чётных", "Сложите только чётные элементы, не используя готовую агрегацию."],
+    [profiles.loops[0], "Сумма последовательности", "Организуйте отдельную переменную-накопитель для суммы от 1 до N."]
+  ]),
+  "python-loops-min-max-average": profile("ручное обновление экстремума и суммы", [
+    [profiles.sequence[2], "Максимум потока", "Инициализируйте максимум первым элементом и обновляйте его при проходе."],
+    [profiles.sequence[0], "Сколько выше нуля", "Сначала посчитайте нужные элементы, затем выведите накопленный счётчик."],
+    [profiles.sequence[1], "Сумма для среднего", "Накопите сумму подходящих значений как подготовку к вычислению среднего."]
+  ]),
+  "python-loops-sequences": profile("обработка последовательности из N чисел", [
+    [profiles.sequence[0], "Положительные в последовательности", "По N и последовательности выведите число положительных членов."],
+    [profiles.sequence[1], "Чётная сумма последовательности", "Обработайте ровно N чисел и сложите те из них, которые делятся на 2."],
+    [profiles.sequence[2], "Наибольший член", "Найдите максимальный элемент последовательности без max()."]
+  ]),
+  "python-loops-tracing": profile("трассировка цикла", [
+    [profiles.loops[1], "След счётчика кратных", "Проследите, на каких шагах счётчик кратных увеличивается."],
+    [profiles.loops[0], "След накопителя", "Проверьте значения накопителя суммы после каждого прохода range."],
+    [profiles.sequence[2], "След максимума", "Проследите замену текущего максимума на последовательности со повторяющимся лидером."]
+  ]),
+  "python-strings-basics": profile("строки, индексы и длину", [
+    [profiles.string[0], "Буква в сообщении", "Посчитайте количество букв a в одной введённой строке."],
+    [profiles.string[1], "Обратная подпись", "Выведите символы строки в обратном порядке."],
+    [profiles.string[2], "Зеркальное слово", "Сравните строку с её обратной записью и определите палиндром."]
+  ]),
+  "python-strings-methods-slices": profile("методы строк и срезы", [
+    [profiles.string[0], "Подсчёт символа методом", "Используйте строковый метод, чтобы узнать число букв a."],
+    [profiles.string[1], "Разворот срезом", "Получите обратную строку срезом, а не ручной перестановкой."],
+    [profiles.string[2], "Палиндром срезом", "Проверьте равенство исходной строки и строки, полученной обратным срезом."]
+  ]),
+  "python-strings-algorithms": profile("проход по символам и состояние", [
+    [profiles.runs[2], "Первая соседняя пара", "Во время прохода найдите индекс первого одинакового соседства."],
+    [profiles.runs[1], "Количество смен", "Посчитайте позиции, где очередной символ отличается от предыдущего."],
+    [profiles.runs[0], "Самая длинная серия", "Храните длину текущей серии и лучший результат при одном проходе."]
+  ]),
+  "python-strings-runs": profile("серии одинаковых символов", [
+    [profiles.runs[2], "Старт первой серии", "Найдите начало первой серии длиной не меньше двух."],
+    [profiles.runs[1], "Границы серий", "Количество смен символа равно количеству границ между сериями."],
+    [profiles.runs[0], "Длина лучшей серии", "Реализуйте функцию с текущей и максимальной длиной серии."]
+  ]),
+  "python-lists-basics": profile("создание списка, индексы и проход", [
+    [profiles.list[1], "Удвоенный список", "Верните новый список с удвоенными значениями исходного списка."],
+    [profiles.list[2], "Позиции чётных", "Соберите индексы элементов, для которых остаток от деления на 2 равен нулю."],
+    [profiles.list[0], "Положительная сумма", "Пройдите список и сложите только положительные значения."]
+  ]),
+  "python-lists-mutation": profile("изменение списка по индексу", [
+    [profiles.list[1], "Новая копия с изменениями", "Верните список после преобразования каждого элемента, не меняя входной объект."],
+    [profiles.simple_sort[1], "Обмен с минимумом", "Скопируйте список и выполните один обмен по найденному индексу."],
+    [profiles.search[2], "Подсчёт до изменения", "Перед заменой элементов проверьте, сколько раз встречается целевое значение."]
+  ]),
+  "python-lists-processing": profile("фильтрация и преобразование списка", [
+    [profiles.list[0], "Сумма полезных значений", "Отберите положительные элементы и получите их суммарный вклад."],
+    [profiles.list[1], "Преобразованный маршрут", "Постройте отдельный список, умножая каждый входной элемент на два."],
+    [profiles.list[2], "Индексы фильтра", "Сохраните номера элементов, которые проходят проверку чётности."]
+  ]),
+  "python-lists-linear-search": profile("линейный поиск", [
+    [profiles.search[0], "Первый нужный индекс", "Остановите поиск на первом вхождении цели или верните -1."],
+    [profiles.search[1], "Последний нужный индекс", "При проходе обновляйте ответ на каждом совпадении."],
+    [profiles.search[2], "Частота цели", "Подсчитайте совпадения с целевым значением за один проход."]
+  ]),
+  "python-lists-neighbours": profile("соседние элементы", [
+    [profiles.neighbours[0], "Рост после соседа", "Сравните каждый элемент, кроме первого, с предыдущим."],
+    [profiles.neighbours[1], "Равные соседние пары", "Посчитайте границы, на которых два соседних элемента равны."],
+    [profiles.neighbours[2], "Локальные вершины", "Проверьте внутренние элементы по двум соседям."]
+  ]),
+  "python-lists-2d": profile("двумерные списки", [
+    [profiles.matrix[0], "Сумма каждой строки", "Для каждой строки матрицы вычислите отдельную сумму."],
+    [profiles.matrix[2], "Наибольшее в таблице", "Пройдите все строки и элементы, чтобы найти общий максимум."],
+    [profiles.matrix[1], "Диагональ таблицы", "Используйте одинаковые индексы строки и столбца для главной диагонали."]
+  ]),
+  "python-lists-matrices": profile("матрицы и координаты", [
+    [profiles.matrix[0], "Итоги строк матрицы", "Верните список результатов, по одному для каждой строки."],
+    [profiles.matrix[1], "Сумма главной диагонали", "Обработайте только клетки, у которых номера строки и столбца совпадают."],
+    [profiles.matrix[2], "Максимальный элемент матрицы", "Найдите максимум прямоугольной таблицы и предусмотрите пустую матрицу."]
+  ]),
+  "python-collections-sets": profile("множества и уникальные значения", [
+    [profiles.set[0], "Сколько разных кодов", "Преобразуйте последовательность в множество и определите количество уникальных значений."],
+    [profiles.set[1], "Общие участники", "Найдите пересечение двух наборов и верните его в отсортированном виде."],
+    [profiles.set[2], "Только один список", "Определите количество значений из симметрической разности двух наборов."]
+  ]),
+  "python-collections-dicts-frequency": profile("словари и таблицы частот", [
+    [profiles.dict[0], "Частоты букв", "Постройте словарь: каждому элементу поставьте в соответствие число встреч."],
+    [profiles.dict[2], "Обратное соответствие", "Для уникальных значений поменяйте местами ключ и значение словаря."],
+    [profiles.dict[1], "Частый победитель", "Выберите наиболее частый элемент, предусмотрев пустой вход и ничью."]
+  ]),
+  "python-functions-basics": profile("параметры и return", [
+    [profiles.function[0], "Функция чётности", "Напишите функцию, которая получает число и возвращает булево значение."],
+    [profiles.function[1], "Функция большего", "Верните большее из двух чисел с помощью if, не вызывая max."],
+    [profiles.function[2], "Функция суммы цифр", "Верните сумму цифр неотрицательного числа через return."]
+  ]),
+  "python-functions-scope-decomposition": profile("локальные переменные и декомпозиция", [
+    [profiles.function[0], "Изолированная проверка", "Оставьте вычисления внутри функции и верните результат вызывающему коду."],
+    [profiles.function[1], "Помощник сравнения", "Выделите сравнение двух параметров в отдельную функцию без глобальных переменных."],
+    [profiles.function[2], "Помощник обработки цифр", "Разместите накопитель внутри функции и верните только итоговое значение."]
+  ]),
+  "python-recursion-basics": profile("базовый случай и рекурсивный вызов", [
+    [profiles.recursion[0], "Факториал с базой", "Задайте базовый случай n меньше или равно 1 и рекурсивный шаг."],
+    [profiles.recursion[1], "Степень рекурсией", "Сведите степень с показателем n к степени с показателем n - 1."],
+    [profiles.recursion[2], "Сумма цифр рекурсией", "Для одного разряда верните его, иначе отделите последнюю цифру и вызовите функцию снова."]
+  ]),
+  "python-recursion-calculations": profile("трассировка рекурсивных вычислений", [
+    [profiles.recursion[1], "Цепочка степеней", "Проследите уменьшение показателя до нуля и возврат произведений."],
+    [profiles.recursion[2], "Цепочка цифр", "Проследите отделение последней цифры и достижение одноразрядного числа."],
+    [profiles.recursion[0], "Возврат факториала", "Проверьте базу и порядок умножений при возврате из рекурсивных вызовов."]
+  ]),
+  "python-files-basics": profile("чтение и запись файлов", [
+    [profiles.files[0], "Сумма из input.txt", "Откройте входной файл, прочитайте числа и выведите итог в стандартный вывод."],
+    [profiles.files[1], "Запись удвоенных чисел", "Прочитайте input.txt и сохраните преобразованные числа в output.txt."],
+    [profiles.files[2], "Длинная строка в файл", "Прочитайте lines.txt и запишите первую самую длинную строку в answer.txt."]
+  ]),
+  "python-files-numbers": profile("числовые данные в файлах", [
+    [profiles.files[0], "Числовой итог файла", "Разберите числа из input.txt и вычислите их сумму."],
+    [profiles.files[1], "Преобразование файла чисел", "Запишите в output.txt числа из входного файла после удвоения."],
+    [profiles.sequence[1], "Поток чётных чисел", "Проверьте логику накопителя чётных значений, применимую к числам из файла."]
+  ]),
+  "python-files-text": profile("текстовые файлы и строки", [
+    [profiles.files[2], "Самая длинная строка файла", "Обработайте построчный текст и запишите ответ без завершающего перевода строки."],
+    [profiles.string[0], "Символ в строке файла", "Подсчитайте целевой символ в прочитанной строке текста."],
+    [profiles.dict[0], "Частоты слов файла", "Соберите частоты элементов после чтения текстовых данных."]
+  ]),
+  "python-algorithms-binary-search": profile("границы двоичного поиска", [
+    [profiles.binary[2], "Есть ли ключ", "Проверьте присутствие ключа в отсортированном списке сужением диапазона."],
+    [profiles.binary[1], "Левая граница ключа", "Найдите первую позицию, на которой значение не меньше цели."],
+    [profiles.binary[0], "Индекс бинарным поиском", "Верните индекс цели в отсортированном списке или -1."]
+  ]),
+  "python-algorithms-selection-sort": profile("сортировка выбором", [
+    [profiles.simple_sort[0], "Минимум неотсортированного хвоста", "Найдите индекс наименьшего элемента в части списка после start."],
+    [profiles.simple_sort[1], "Первый шаг выбора", "Поменяйте первый элемент с минимумом, не используя готовую сортировку."],
+    [profiles.simple_sort[2], "Полный проход выбором", "Соберите отсортированную копию последовательными поисками минимума."]
+  ]),
+  "python-algorithms-python-sort": profile("sorted, sort и ключ сортировки", [
+    [profiles.sort[1], "Порядок по убыванию", "Используйте встроенную сортировку для создания нового списка по убыванию."],
+    [profiles.sort[2], "Слова по длине", "Задайте ключ: сначала длина слова, затем лексикографический порядок."],
+    [profiles.sort[0], "Сравнение подходов", "Верните упорядоченный список и объясните выбор встроенного алгоритма для этой задачи."]
+  ]),
+  "python-numbers-divisibility-divisors": profile("делимость и делители", [
+    [profiles.conditions[2], "Проверка кратности", "По остатку при делении определите, соответствует ли число условию кратности."],
+    [profiles.number[0], "Все делители", "Переберите возможные делители положительного числа и соберите подходящие."],
+    [profiles.number[1], "Проверка простоты", "Используйте проверку делителей до квадратного корня как контрольный алгоритм."]
+  ]),
+  "python-numbers-primes-gcd": profile("простые числа и алгоритм Евклида", [
+    [profiles.number[1], "Признак простого", "Отделите числа меньше двух и ищите делитель до квадратного корня."],
+    [profiles.number[2], "НОД по остаткам", "Повторяйте замену пары чисел, пока второй остаток не станет равен нулю."],
+    [profiles.number[0], "Делители для проверки", "Верните все делители как способ проверить рассуждение о простоте числа."]
+  ]),
+  "python-numbers-bases": profile("позиционные системы счисления", [
+    [profiles.bases[0], "Запись в двоичной системе", "Последовательно выделяйте остатки деления на 2 и соберите запись числа."],
+    [profiles.bases[1], "Чтение двоичной записи", "Наращивайте значение слева направо, умножая предыдущий результат на 2."],
+    [profiles.bases[2], "Сумма цифр в основании", "Разбирайте число остатками при делении на заданное основание."]
+  ]),
+  "python-brute-force-basics": profile("полный перебор", [
+    [profiles.brute[0], "Подходящие пары", "Переберите все пары разных индексов и проверьте сумму."],
+    [profiles.brute[1], "Подходящие тройки", "Добавьте третий вложенный цикл, соблюдая порядок индексов."],
+    [profiles.brute[2], "Лучший допустимый вариант", "Переберите кандидатов и оставьте лучший, не превышающий ограничение."]
+  ]),
+  "python-complexity-basics": profile("оценку числа операций", [
+    [profiles.search[0], "Один проход поиска", "Решите задачу за линейный проход и отметьте, что число проверок растёт как N."],
+    [profiles.brute[0], "Два вложенных прохода", "Посчитайте пары и сравните число шагов с квадратичной оценкой."],
+    [profiles.brute[1], "Три вложенных прохода", "Постройте перебор троек и соотнесите его с кубической сложностью."]
+  ]),
+  "python-dp-basics": profile("состояние, базу и переход динамического программирования", [
+    [profiles.dp[0], "Пути по ступеням", "Определите число способов попасть на ступень через ответы для предыдущих ступеней."],
+    [profiles.dp[1], "Несоседний выбор", "Поддерживайте лучший ответ с учётом последнего выбранного или пропущенного элемента."],
+    [profiles.dp[2], "Минимум монет", "Заполните таблицу минимальных количеств монет от нуля до нужной суммы."]
+  ]),
+  "python-graphs-basics": profile("список смежности", [
+    [profiles.graph[0], "Степени вершин", "По рёбрам неориентированного графа постройте список степеней вершин."],
+    [profiles.graph[1], "Компонента старта", "Соберите список смежности и определите достижимые от start вершины."],
+    [profiles.graph[2], "Расстояние по рёбрам", "На графе со списком смежности найдите длину кратчайшего пути в рёбрах."]
+  ]),
+  "python-graphs-traversal": profile("обходы DFS и BFS", [
+    [profiles.graph[1], "Достижимые DFS", "Используйте стек или очередь, чтобы отметить все достижимые вершины."],
+    [profiles.graph[2], "Расстояния BFS", "Обходите граф слоями и запишите первое расстояние до каждой вершины."],
+    [profiles.graph_paths[2], "Восстановление BFS-пути", "Сохраните родителя при первом посещении вершины и восстановите путь."]
+  ]),
+  "python-graphs-paths": profile("пути и расстояния в графах", [
+    [profiles.graph_paths[0], "Число путей DAG", "Посчитайте пути по ориентированному ациклическому графу с мемоизацией."],
+    [profiles.graph_paths[1], "Взвешенное расстояние", "Поддерживайте лучшую известную дистанцию и выбирайте следующую вершину по весу."],
+    [profiles.graph_paths[2], "Один кратчайший путь", "После BFS восстановите последовательность вершин от финиша к старту."]
+  ])
+};
 
 function materialize(base, owner, id, kind, difficulty) {
   return {
@@ -212,7 +476,8 @@ function materialize(base, owner, id, kind, difficulty) {
 }
 
 export function lessonExercises(lesson) {
-  const tasks = tasksForFamily(lesson.family);
+  const tasks = lessonProfiles[lesson.id];
+  if (!tasks || tasks.length !== 3) throw new Error(`${lesson.id}: lesson profile must contain exactly three exercises`);
   const ids = [`${lesson.id}-guided-1`, `${lesson.id}-guided-2`, `${lesson.id}-checkpoint`];
   return tasks.map((task, index) => materialize(
     task,
@@ -223,16 +488,100 @@ export function lessonExercises(lesson) {
   ));
 }
 
-export function practicumExercises(practicum, availableLessons) {
-  const pool = availableLessons.flatMap((lesson) => tasksForFamily(lesson.family));
-  return Array.from({ length: practicum.count }, (_, index) => {
-    const base = pool[(index * 5 + practicum.batch.charCodeAt(0)) % pool.length];
+const curate = (lessonId, taskIndex, difficulty, idea, skills) => ({ lessonId, taskIndex, difficulty, idea, skills });
+
+export const practicumProfiles = {
+  "python-practicum-first-programs": [
+    curate("python-basics-input-output", 0, "intro", "передача сообщения", ["SK01"]), curate("python-basics-input-output", 1, "intro", "сборка приветствия", ["SK01"]),
+    curate("python-basics-types-arithmetic", 2, "intro", "стоимость покупки", ["SK02"]), curate("python-basics-types-arithmetic", 0, "intro", "периметр", ["SK02"]),
+    curate("python-basics-div-mod-digits", 0, "intro", "последняя цифра", ["SK03"]), curate("python-basics-div-mod-digits", 2, "standard", "контрольная сумма", ["SK03"]),
+    curate("python-basics-logic", 0, "standard", "условие допуска", ["SK04"]), curate("python-branches-if-else", 1, "standard", "пороговый выбор", ["SK05"]),
+    curate("python-branches-elif-ranges", 0, "standard", "три состояния", ["SK06"]), curate("python-branches-compound", 0, "standard", "два критерия", ["SK07"]),
+    curate("python-basics-logic", 1, "challenge", "проверка интервала", ["SK04"]), curate("python-branches-if-else", 2, "challenge", "выбор большего", ["SK05"])
+  ],
+  "python-practicum-loops": [
+    curate("python-loops-while", 0, "intro", "накопление суммы", ["SK09"]), curate("python-loops-for-range", 1, "intro", "кратные в диапазоне", ["SK10"]),
+    curate("python-loops-for-range", 2, "intro", "произведение диапазона", ["SK10"]), curate("python-loops-accumulators", 0, "intro", "счётчик положительных", ["SK12"]),
+    curate("python-loops-accumulators", 1, "standard", "сумма чётных", ["SK12"]), curate("python-loops-min-max-average", 0, "standard", "поиск максимума", ["SK13"]),
+    curate("python-loops-sequences", 0, "standard", "обработка N чисел", ["SK14"]), curate("python-loops-sequences", 2, "standard", "максимум последовательности", ["SK14"]),
+    curate("python-loops-tracing", 0, "standard", "трассировка счётчика", ["SK15"]), curate("python-loops-nested", 0, "standard", "перебор пар", ["SK11"]),
+    curate("python-loops-nested", 1, "challenge", "минимум в хвосте", ["SK11"]), curate("python-loops-nested", 2, "challenge", "перебор троек", ["SK11"]),
+    curate("python-loops-while", 1, "challenge", "факториал while", ["SK09"]), curate("python-loops-min-max-average", 1, "challenge", "счётчик значений", ["SK13"]),
+    curate("python-loops-tracing", 2, "challenge", "трассировка максимума", ["SK15"])
+  ],
+  "python-practicum-data": [
+    curate("python-strings-basics", 0, "intro", "частота буквы", ["SK16"]), curate("python-strings-methods-slices", 1, "intro", "разворот строки", ["SK17"]),
+    curate("python-strings-algorithms", 0, "standard", "первая пара", ["SK18"]), curate("python-strings-runs", 2, "standard", "длинная серия", ["SK19"]),
+    curate("python-lists-basics", 1, "intro", "индексы чётных", ["SK20"]), curate("python-lists-mutation", 1, "standard", "обмен минимумом", ["SK21"]),
+    curate("python-lists-processing", 0, "standard", "фильтрация", ["SK22"]), curate("python-lists-linear-search", 0, "standard", "первый индекс", ["SK23"]),
+    curate("python-lists-neighbours", 2, "challenge", "локальные вершины", ["SK24"]), curate("python-lists-2d", 0, "standard", "суммы строк", ["SK24"]),
+    curate("python-lists-matrices", 1, "challenge", "диагональ", ["SK24"]), curate("python-collections-sets", 1, "standard", "пересечение", ["SK24"]),
+    curate("python-collections-dicts-frequency", 0, "standard", "частоты", ["SK25"]), curate("python-collections-dicts-frequency", 2, "challenge", "частый элемент", ["SK25"]),
+    curate("python-strings-algorithms", 2, "challenge", "серии символов", ["SK18"])
+  ],
+  "python-practicum-functions-files": [
+    curate("python-functions-basics", 0, "intro", "булева функция", ["SK26"]), curate("python-functions-basics", 1, "intro", "сравнение параметров", ["SK26"]),
+    curate("python-functions-scope-decomposition", 1, "standard", "локальная функция", ["SK27"]), curate("python-functions-scope-decomposition", 2, "standard", "декомпозиция цифр", ["SK27"]),
+    curate("python-recursion-basics", 0, "standard", "рекурсивный факториал", ["SK28"]), curate("python-recursion-calculations", 1, "standard", "трассировка цифр", ["SK29"]),
+    curate("python-files-basics", 0, "intro", "сумма из файла", ["SK30"]), curate("python-files-basics", 1, "standard", "выходной файл", ["SK30"]),
+    curate("python-files-numbers", 0, "standard", "числа в файле", ["SK31"]), curate("python-files-text", 0, "challenge", "самая длинная строка", ["SK32"]),
+    curate("python-recursion-basics", 2, "challenge", "рекурсивная сумма цифр", ["SK28"]), curate("python-files-text", 2, "challenge", "частоты текста", ["SK32"])
+  ],
+  "python-practicum-algorithms": [
+    curate("python-algorithms-binary-search", 0, "intro", "наличие ключа", ["SK33"]), curate("python-algorithms-binary-search", 1, "standard", "левая граница", ["SK33"]),
+    curate("python-algorithms-selection-sort", 0, "intro", "минимум хвоста", ["SK34"]), curate("python-algorithms-selection-sort", 2, "challenge", "сортировка выбором", ["SK34"]),
+    curate("python-algorithms-python-sort", 1, "standard", "ключ сортировки", ["SK35"]), curate("python-numbers-divisibility-divisors", 1, "standard", "перечень делителей", ["SK36"]),
+    curate("python-numbers-primes-gcd", 0, "standard", "простое число", ["SK37"]), curate("python-numbers-primes-gcd", 1, "challenge", "алгоритм Евклида", ["SK37"]),
+    curate("python-numbers-bases", 0, "standard", "двоичная запись", ["SK38"]), curate("python-numbers-bases", 1, "standard", "двоичное значение", ["SK38"]),
+    curate("python-brute-force-basics", 0, "standard", "перебор пар", ["SK39"]), curate("python-brute-force-basics", 1, "challenge", "перебор троек", ["SK39"]),
+    curate("python-complexity-basics", 0, "intro", "линейный поиск", ["SK40"]), curate("python-complexity-basics", 1, "standard", "квадратичный перебор", ["SK40"]),
+    curate("python-complexity-basics", 2, "challenge", "кубический перебор", ["SK40"])
+  ],
+  "python-practicum-final": [
+    curate("python-dp-basics", 0, "standard", "число путей", ["SK41"]), curate("python-dp-basics", 1, "challenge", "несоседний максимум", ["SK41"]),
+    curate("python-dp-basics", 2, "challenge", "минимум монет", ["SK41"]), curate("python-graphs-basics", 0, "intro", "степени вершин", ["SK42"]),
+    curate("python-graphs-basics", 1, "standard", "достижимость", ["SK42"]), curate("python-graphs-traversal", 0, "standard", "обход графа", ["SK43"]),
+    curate("python-graphs-traversal", 1, "standard", "расстояние BFS", ["SK43"]), curate("python-graphs-traversal", 2, "challenge", "восстановление пути", ["SK43"]),
+    curate("python-graphs-paths", 0, "challenge", "число путей DAG", ["SK44"]), curate("python-graphs-paths", 1, "challenge", "взвешенный путь", ["SK44"]),
+    curate("python-graphs-paths", 2, "challenge", "кратчайший маршрут", ["SK44"]), curate("python-algorithms-binary-search", 2, "standard", "бинарный индекс", ["SK33"]),
+    curate("python-algorithms-python-sort", 0, "standard", "сортировка данных", ["SK35"]), curate("python-numbers-primes-gcd", 1, "standard", "НОД", ["SK37"]),
+    curate("python-brute-force-basics", 2, "challenge", "лучший кандидат", ["SK39"]), curate("python-collections-dicts-frequency", 1, "standard", "частотный выбор", ["SK25"]),
+    curate("python-files-basics", 2, "standard", "файловый результат", ["SK30"]), curate("python-recursion-calculations", 0, "standard", "рекурсивная степень", ["SK29"]),
+    curate("python-lists-matrices", 2, "standard", "матрица", ["SK24"]), curate("python-loops-nested", 2, "challenge", "тройки", ["SK11"])
+  ]
+};
+
+export function practicumExercises(practicum) {
+  const plan = practicumProfiles[practicum.id];
+  if (!plan || plan.length !== practicum.count) throw new Error(`${practicum.id}: practicum profile must contain ${practicum.count} exercises`);
+  return plan.map((entry, index) => {
+    const base = lessonProfiles[entry.lessonId]?.[entry.taskIndex];
+    if (!base) throw new Error(`${practicum.id}: invalid curated source ${entry.lessonId}#${entry.taskIndex}`);
+    const contextual = clone(base);
+    contextual.title = `${index + 1}. ${entry.idea}`;
+    contextual.statement = `Практикум: ${entry.idea}. ${base.statement}`;
+    contextual.hints = [
+      `Сначала вспомните основной приём: ${entry.idea}.`,
+      "Запустите решение на обычном и граничном примере.",
+      "Сверьте формат результата с условием, а не с пояснениями."
+    ];
     return materialize(
-      { ...base, title: `${index + 1}. ${base.title}` },
+      contextual,
       { type: "practicum", id: practicum.id },
       `${practicum.id}-task-${String(index + 1).padStart(2, "0")}`,
       "practicum",
-      index < Math.ceil(practicum.count / 3) ? "intro" : index < Math.ceil(practicum.count * 2 / 3) ? "standard" : "challenge"
+      entry.difficulty
     );
   });
+}
+
+export function validateAuthoringProfiles() {
+  const errors = [];
+  for (const [lessonId, tasks] of Object.entries(lessonProfiles)) {
+    if (!Array.isArray(tasks) || tasks.length !== 3) errors.push(`${lessonId}: expected exactly 3 exercises`);
+  }
+  for (const [practicumId, tasks] of Object.entries(practicumProfiles)) {
+    if (!Array.isArray(tasks) || tasks.length === 0) errors.push(`${practicumId}: profile is empty`);
+  }
+  return errors;
 }

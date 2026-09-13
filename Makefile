@@ -1,4 +1,4 @@
-.PHONY: import-content validate-content test-content-solutions test-validator acceptance test-backend test-frontend lint format up
+.PHONY: import-content validate-content test-content-solutions test-validator test-exercise-bank exercise-redesign-map acceptance test-backend test-frontend lint format up
 
 import-content:
 	node scripts/import-metodichka.mjs --through=F --reset
@@ -11,6 +11,12 @@ test-content-solutions:
 
 test-validator:
 	node scripts/validate-content.test.mjs
+
+test-exercise-bank:
+	node scripts/validate-exercise-bank.mjs
+
+exercise-redesign-map:
+	node scripts/write-exercise-redesign-map.mjs
 
 acceptance:
 	node scripts/final-acceptance.mjs

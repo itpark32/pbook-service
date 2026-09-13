@@ -6,19 +6,20 @@
     "id": "python-debugging-basics"
   },
   "kind": "checkpoint",
-  "title": "Делимость",
-  "statement": "Выведите `YES`, если число положительное и делится на 3, иначе `NO`.",
+  "title": "Равные числа",
+  "statement": "Исправьте сравнение так, чтобы равные два числа тоже давали корректный ответ.\n\nТренируемый приём: чтение трассировки и проверка ветвей.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «чтение трассировки и проверка ветвей».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n = int(input())\nprint('YES' if n > 0 and n % 3 == 0 else 'NO')",
+  "solution": "a, b = map(int, input().split())\nif a > b:\n    print(a)\nelse:\n    print(b)",
   "examples": [
     {
-      "input": "12\n",
-      "output": "YES\n"
+      "input": "3 8\n",
+      "output": "8\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "12\n",
-        "expectedOutput": "YES\n"
+        "input": "3 8\n",
+        "expectedOutput": "8\n"
       },
       {
-        "input": "-3\n",
-        "expectedOutput": "NO\n"
+        "input": "5 5\n",
+        "expectedOutput": "5\n"
       },
       {
-        "input": "10\n",
-        "expectedOutput": "NO\n"
+        "input": "-2 -7\n",
+        "expectedOutput": "-2\n"
       }
     ]
   }

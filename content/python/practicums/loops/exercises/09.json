@@ -6,19 +6,20 @@
     "id": "python-practicum-loops"
   },
   "kind": "practicum",
-  "title": "9. В диапазоне",
-  "statement": "Даны число, левая и правая границы. Выведите `YES`, если число лежит в диапазоне включительно, иначе `NO`.",
+  "title": "9. трассировка счётчика",
+  "statement": "Практикум: трассировка счётчика. Проследите, на каких шагах счётчик кратных увеличивается.\n\nТренируемый приём: трассировка цикла.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: трассировка счётчика.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "x, left, right = map(int, input().split())\nprint('YES' if left <= x <= right else 'NO')",
+  "solution": "n, k = map(int, input().split())\ncount = 0\nfor value in range(1, n + 1):\n    if value % k == 0:\n        count += 1\nprint(count)",
   "examples": [
     {
-      "input": "5 1 10\n",
-      "output": "YES\n"
+      "input": "10 3\n",
+      "output": "3\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "5 1 10\n",
-        "expectedOutput": "YES\n"
+        "input": "10 3\n",
+        "expectedOutput": "3\n"
       },
       {
-        "input": "11 1 10\n",
-        "expectedOutput": "NO\n"
+        "input": "4 9\n",
+        "expectedOutput": "0\n"
       },
       {
-        "input": "1 1 10\n",
-        "expectedOutput": "YES\n"
+        "input": "10 3\n\n",
+        "expectedOutput": "3\n"
       }
     ]
   }

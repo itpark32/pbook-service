@@ -6,34 +6,43 @@
     "id": "python-strings-algorithms"
   },
   "kind": "guided",
-  "title": "Количество букв a",
-  "statement": "Прочитайте строку и выведите количество латинских букв `a`.",
+  "title": "Первая соседняя пара",
+  "statement": "Во время прохода найдите индекс первого одинакового соседства.\n\nТренируемый приём: проход по символам и состояние.",
   "difficulty": "intro",
-  "starterCode": "",
+  "starterCode": "def first_double(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «проход по символам и состояние».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "text = input()\nprint(text.count('a'))",
+  "solution": "def first_double(text):\n    for i in range(len(text) - 1):\n        if text[i] == text[i + 1]:\n            return i\n    return -1",
   "examples": [
     {
-      "input": "abracadabra\n",
-      "output": "5\n"
+      "input": "[\"abcc\"]",
+      "output": "2"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "first_double",
     "tests": [
       {
-        "input": "abracadabra\n",
-        "expectedOutput": "5\n"
+        "args": [
+          "abcc"
+        ],
+        "expectedReturn": 2
       },
       {
-        "input": "Python\n",
-        "expectedOutput": "0\n"
+        "args": [
+          "abc"
+        ],
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          "aa"
+        ],
+        "expectedReturn": 0
       }
     ]
   }

@@ -6,38 +6,50 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "7. Чётное или нечётное",
-  "statement": "Выведите `even` для чётного числа и `odd` для нечётного.",
+  "title": "7. фильтрация",
+  "statement": "Практикум: фильтрация. Отберите положительные элементы и получите их суммарный вклад.\n\nТренируемый приём: фильтрация и преобразование списка.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "def positive_sum(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: фильтрация.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nif n % 2 == 0:\n    print('even')\nelse:\n    print('odd')",
+  "solution": "def positive_sum(values):\n    return sum(value for value in values if value > 0)",
   "examples": [
     {
-      "input": "8\n",
-      "output": "even\n"
+      "input": "[[1,-2,3]]",
+      "output": "4"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "positive_sum",
     "tests": [
       {
-        "input": "8\n",
-        "expectedOutput": "even\n"
+        "args": [
+          [
+            1,
+            -2,
+            3
+          ]
+        ],
+        "expectedReturn": 4
       },
       {
-        "input": "-3\n",
-        "expectedOutput": "odd\n"
+        "args": [
+          [
+            -5,
+            0
+          ]
+        ],
+        "expectedReturn": 0
       },
       {
-        "input": "0\n",
-        "expectedOutput": "even\n"
+        "args": [
+          []
+        ],
+        "expectedReturn": 0
       }
     ]
   }

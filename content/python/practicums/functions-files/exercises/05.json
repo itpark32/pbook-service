@@ -6,50 +6,48 @@
     "id": "python-practicum-functions-files"
   },
   "kind": "practicum",
-  "title": "5. Максимум двух",
-  "statement": "Реализуйте функцию `max_of_two(a, b)` без вызова max.",
+  "title": "5. рекурсивный факториал",
+  "statement": "Практикум: рекурсивный факториал. Задайте базовый случай n меньше или равно 1 и рекурсивный шаг.\n\nТренируемый приём: базовый случай и рекурсивный вызов.",
   "difficulty": "standard",
-  "starterCode": "def max_of_two(...):\n    pass\n",
+  "starterCode": "def factorial(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: рекурсивный факториал.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def max_of_two(a, b):\n    if a > b:\n        return a\n    return b",
+  "solution": "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)",
   "examples": [
     {
-      "input": "[2,7]",
-      "output": "7"
+      "input": "[5]",
+      "output": "120"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "max_of_two",
+    "functionName": "factorial",
     "tests": [
       {
         "args": [
-          2,
-          7
-        ],
-        "expectedReturn": 7
-      },
-      {
-        "args": [
-          5,
           5
         ],
-        "expectedReturn": 5
+        "expectedReturn": 120
       },
       {
         "args": [
-          -1,
-          -3
+          0
         ],
-        "expectedReturn": -1
+        "expectedReturn": 1
+      },
+      {
+        "args": [
+          5
+        ],
+        "expectedReturn": 120
       }
     ],
     "structuralConstraints": {
-      "forbidCalls": [
-        "max"
+      "requireRecursion": [
+        "factorial"
       ]
     }
   }

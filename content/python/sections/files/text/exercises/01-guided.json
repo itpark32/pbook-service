@@ -6,23 +6,24 @@
     "id": "python-files-text"
   },
   "kind": "guided",
-  "title": "Сумма чисел из файла",
-  "statement": "В `input.txt` записаны целые числа через пробел. Выведите их сумму.",
+  "title": "Самая длинная строка файла",
+  "statement": "Обработайте построчный текст и запишите ответ без завершающего перевода строки.\n\nТренируемый приём: текстовые файлы и строки.",
   "difficulty": "intro",
   "starterCode": "# Файлы уже находятся в рабочей папке.\n",
   "hints": [
-    "Откройте файл через with, чтобы он закрылся автоматически.",
-    "Удаляйте перевод строки только там, где он мешает обработке."
+    "Определите, какие данные нужны для шага «текстовые файлы и строки».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "with open('input.txt', encoding='utf-8') as source:\n    values = list(map(int, source.read().split()))\nprint(sum(values))",
+  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
   "examples": [],
   "fileExamples": [
     {
       "title": "Пример файлов",
       "files": [
         {
-          "path": "input.txt",
-          "content": "1 2 3 -1\n"
+          "path": "lines.txt",
+          "content": "кот\nпрограммирование\nкод\n"
         }
       ]
     }
@@ -36,11 +37,44 @@
       {
         "inputFiles": [
           {
-            "path": "input.txt",
-            "content": "1 2 3 -1\n"
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
           }
         ],
-        "expectedStdout": "5\n"
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
+      },
+      {
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
+      },
+      {
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
       }
     ]
   }

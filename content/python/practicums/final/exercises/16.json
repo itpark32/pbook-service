@@ -6,34 +6,61 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "16. Среднее трёх",
-  "statement": "Даны три числа. Выведите их среднее арифметическое.",
-  "difficulty": "challenge",
-  "starterCode": "",
+  "title": "16. частотный выбор",
+  "statement": "Практикум: частотный выбор. Для уникальных значений поменяйте местами ключ и значение словаря.\n\nТренируемый приём: словари и таблицы частот.",
+  "difficulty": "standard",
+  "starterCode": "def invert(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: частотный выбор.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "a, b, c = map(float, input().split())\nprint((a + b + c) / 3)",
+  "solution": "def invert(mapping):\n    return {value: key for key, value in mapping.items()}",
   "examples": [
     {
-      "input": "3 6 9\n",
-      "output": "6.0\n"
+      "input": "[{\"a\":1,\"b\":2}]",
+      "output": "{\"1\":\"a\",\"2\":\"b\"}"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "invert",
     "tests": [
       {
-        "input": "3 6 9\n",
-        "expectedOutput": "6.0\n"
+        "args": [
+          {
+            "a": 1,
+            "b": 2
+          }
+        ],
+        "expectedReturn": {
+          "1": "a",
+          "2": "b"
+        }
       },
       {
-        "input": "1 2 3\n",
-        "expectedOutput": "2.0\n"
+        "args": [
+          {
+            "a": 1,
+            "b": 2
+          }
+        ],
+        "expectedReturn": {
+          "1": "a",
+          "2": "b"
+        }
+      },
+      {
+        "args": [
+          {
+            "a": 1,
+            "b": 2
+          }
+        ],
+        "expectedReturn": {
+          "1": "a",
+          "2": "b"
+        }
       }
     ]
   }

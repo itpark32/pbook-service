@@ -6,19 +6,20 @@
     "id": "python-practicum-loops"
   },
   "kind": "practicum",
-  "title": "7. Последняя цифра",
-  "statement": "Выведите последнюю цифру неотрицательного целого числа.",
+  "title": "7. обработка N чисел",
+  "statement": "Практикум: обработка N чисел. По N и последовательности выведите число положительных членов.\n\nТренируемый приём: обработка последовательности из N чисел.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: обработка N чисел.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nprint(n % 10)",
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value > 0 for value in values[:n]))",
   "examples": [
     {
-      "input": "247\n",
-      "output": "7\n"
+      "input": "5\n-1 2 0 3 4\n",
+      "output": "3\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "247\n",
-        "expectedOutput": "7\n"
+        "input": "5\n-1 2 0 3 4\n",
+        "expectedOutput": "3\n"
       },
       {
-        "input": "0\n",
+        "input": "0\n\n",
         "expectedOutput": "0\n"
+      },
+      {
+        "input": "5\n-1 2 0 3 4\n\n",
+        "expectedOutput": "3\n"
       }
     ]
   }

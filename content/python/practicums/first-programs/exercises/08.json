@@ -6,19 +6,20 @@
     "id": "python-practicum-first-programs"
   },
   "kind": "practicum",
-  "title": "8. Среднее трёх",
-  "statement": "Даны три числа. Выведите их среднее арифметическое.",
+  "title": "8. пороговый выбор",
+  "statement": "Практикум: пороговый выбор. Сравните балл с проходным значением и выведите результат.\n\nТренируемый приём: две взаимоисключающие ветви.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: пороговый выбор.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "a, b, c = map(float, input().split())\nprint((a + b + c) / 3)",
+  "solution": "score = int(input())\nif score >= 60:\n    print('PASS')\nelse:\n    print('FAIL')",
   "examples": [
     {
-      "input": "3 6 9\n",
-      "output": "6.0\n"
+      "input": "60\n",
+      "output": "PASS\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "3 6 9\n",
-        "expectedOutput": "6.0\n"
+        "input": "60\n",
+        "expectedOutput": "PASS\n"
       },
       {
-        "input": "1 2 3\n",
-        "expectedOutput": "2.0\n"
+        "input": "59\n",
+        "expectedOutput": "FAIL\n"
+      },
+      {
+        "input": "100\n",
+        "expectedOutput": "PASS\n"
       }
     ]
   }

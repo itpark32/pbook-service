@@ -6,52 +6,67 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "3. Общие значения",
-  "statement": "Верните отсортированный список общих значений двух коллекций.",
+  "title": "3. минимум хвоста",
+  "statement": "Практикум: минимум хвоста. Найдите индекс наименьшего элемента в части списка после start.\n\nТренируемый приём: сортировка выбором.",
   "difficulty": "intro",
-  "starterCode": "def common(...):\n    pass\n",
+  "starterCode": "def minimum_index(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: минимум хвоста.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def common(left, right):\n    return sorted(set(left) & set(right))",
+  "solution": "def minimum_index(values, start):\n    smallest = start\n    for i in range(start + 1, len(values)):\n        if values[i] < values[smallest]:\n            smallest = i\n    return smallest",
   "examples": [
     {
-      "input": "[[3,1,2],[2,3,4]]",
-      "output": "[2,3]"
+      "input": "[[5,2,7,1],1]",
+      "output": "3"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "common",
+    "functionName": "minimum_index",
     "tests": [
       {
         "args": [
           [
-            3,
-            1,
-            2
-          ],
-          [
+            5,
             2,
-            3,
-            4
-          ]
+            7,
+            1
+          ],
+          1
         ],
-        "expectedReturn": [
-          2,
-          3
-        ]
+        "expectedReturn": 3
       },
       {
         "args": [
-          [],
           [
-            1
-          ]
+            3
+          ],
+          0
         ],
-        "expectedReturn": []
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          [
+            5,
+            2,
+            7,
+            1
+          ],
+          1
+        ],
+        "expectedReturn": 3
       }
-    ]
+    ],
+    "structuralConstraints": {
+      "forbidCalls": [
+        "sorted"
+      ],
+      "forbidMethods": [
+        "sort"
+      ]
+    }
   }
 }

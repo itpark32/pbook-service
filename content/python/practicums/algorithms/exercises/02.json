@@ -6,44 +6,54 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "2. Максимум матрицы",
-  "statement": "Верните максимальный элемент матрицы или None для пустой матрицы.",
-  "difficulty": "intro",
-  "starterCode": "def matrix_max(...):\n    pass\n",
+  "title": "2. левая граница",
+  "statement": "Практикум: левая граница. Найдите первую позицию, на которой значение не меньше цели.\n\nТренируемый приём: границы двоичного поиска.",
+  "difficulty": "standard",
+  "starterCode": "def lower_bound(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: левая граница.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def matrix_max(matrix):\n    return max((value for row in matrix for value in row), default=None)",
+  "solution": "def lower_bound(values, target):\n    left, right = 0, len(values)\n    while left < right:\n        middle = (left + right) // 2\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle\n    return left",
   "examples": [
     {
-      "input": "[[[1,7],[3]]]",
-      "output": "7"
+      "input": "[[1,3,3,7],3]",
+      "output": "1"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "matrix_max",
+    "functionName": "lower_bound",
     "tests": [
       {
         "args": [
           [
-            [
-              1,
-              7
-            ],
-            [
-              3
-            ]
-          ]
+            1,
+            3,
+            3,
+            7
+          ],
+          3
         ],
-        "expectedReturn": 7
+        "expectedReturn": 1
       },
       {
         "args": [
-          []
+          [
+            1,
+            2
+          ],
+          9
         ],
-        "expectedReturn": null
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
       }
     ]
   }

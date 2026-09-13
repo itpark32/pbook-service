@@ -6,35 +6,72 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "6. Сумма цифр",
-  "statement": "Дано трёхзначное неотрицательное число. Выведите сумму его цифр.",
+  "title": "6. обмен минимумом",
+  "statement": "Практикум: обмен минимумом. Скопируйте список и выполните один обмен по найденному индексу.\n\nТренируемый приём: изменение списка по индексу.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "def selection_step(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: обмен минимумом.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nprint(n // 100 + n // 10 % 10 + n % 10)",
+  "solution": "def selection_step(values):\n    result = list(values)\n    if not result:\n        return result\n    smallest = 0\n    for i in range(1, len(result)):\n        if result[i] < result[smallest]:\n            smallest = i\n    result[0], result[smallest] = result[smallest], result[0]\n    return result",
   "examples": [
     {
-      "input": "247\n",
-      "output": "13\n"
+      "input": "[[4,2,3,1]]",
+      "output": "[1,2,3,4]"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "selection_step",
     "tests": [
       {
-        "input": "247\n",
-        "expectedOutput": "13\n"
+        "args": [
+          [
+            4,
+            2,
+            3,
+            1
+          ]
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          3,
+          4
+        ]
       },
       {
-        "input": "100\n",
-        "expectedOutput": "1\n"
+        "args": [
+          []
+        ],
+        "expectedReturn": []
+      },
+      {
+        "args": [
+          [
+            4,
+            2,
+            3,
+            1
+          ]
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          3,
+          4
+        ]
       }
-    ]
+    ],
+    "structuralConstraints": {
+      "forbidCalls": [
+        "sorted"
+      ],
+      "forbidMethods": [
+        "sort"
+      ]
+    }
   }
 }

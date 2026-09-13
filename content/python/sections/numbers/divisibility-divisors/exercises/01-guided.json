@@ -6,43 +6,39 @@
     "id": "python-numbers-divisibility-divisors"
   },
   "kind": "guided",
-  "title": "Делители",
-  "statement": "Верните делители положительного n по возрастанию.",
+  "title": "Проверка кратности",
+  "statement": "По остатку при делении определите, соответствует ли число условию кратности.\n\nТренируемый приём: делимость и делители.",
   "difficulty": "intro",
-  "starterCode": "def divisors(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «делимость и делители».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def divisors(n):\n    return [value for value in range(1, n + 1) if n % value == 0]",
+  "solution": "n = int(input())\nprint('YES' if n > 0 and n % 3 == 0 else 'NO')",
   "examples": [
     {
-      "input": "[6]",
-      "output": "[1,2,3,6]"
+      "input": "12\n",
+      "output": "YES\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "divisors",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          6
-        ],
-        "expectedReturn": [
-          1,
-          2,
-          3,
-          6
-        ]
+        "input": "12\n",
+        "expectedOutput": "YES\n"
       },
       {
-        "args": [
-          1
-        ],
-        "expectedReturn": [
-          1
-        ]
+        "input": "-3\n",
+        "expectedOutput": "NO\n"
+      },
+      {
+        "input": "10\n",
+        "expectedOutput": "NO\n"
       }
     ]
   }

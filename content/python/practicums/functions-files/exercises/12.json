@@ -6,38 +6,57 @@
     "id": "python-practicum-functions-files"
   },
   "kind": "practicum",
-  "title": "12. Знак числа",
-  "statement": "Выведите `positive`, `negative` или `zero` в зависимости от числа.",
+  "title": "12. частоты текста",
+  "statement": "Практикум: частоты текста. Соберите частоты элементов после чтения текстовых данных.\n\nТренируемый приём: текстовые файлы и строки.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "def frequencies(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: частоты текста.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nif n > 0:\n    print('positive')\nelif n < 0:\n    print('negative')\nelse:\n    print('zero')",
+  "solution": "def frequencies(values):\n    result = {}\n    for value in values:\n        result[value] = result.get(value, 0) + 1\n    return result",
   "examples": [
     {
-      "input": "8\n",
-      "output": "positive\n"
+      "input": "[[\"a\",\"b\",\"a\"]]",
+      "output": "{\"a\":2,\"b\":1}"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "frequencies",
     "tests": [
       {
-        "input": "8\n",
-        "expectedOutput": "positive\n"
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
+        ],
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
       },
       {
-        "input": "-2\n",
-        "expectedOutput": "negative\n"
+        "args": [
+          []
+        ],
+        "expectedReturn": {}
       },
       {
-        "input": "0\n",
-        "expectedOutput": "zero\n"
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
+        ],
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
       }
     ]
   }

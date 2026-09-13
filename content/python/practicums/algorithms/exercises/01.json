@@ -6,49 +6,57 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "1. Рост относительно соседа",
-  "statement": "Посчитайте элементы, которые больше предыдущего.",
+  "title": "1. наличие ключа",
+  "statement": "Практикум: наличие ключа. Проверьте присутствие ключа в отсортированном списке сужением диапазона.\n\nТренируемый приём: границы двоичного поиска.",
   "difficulty": "intro",
-  "starterCode": "def greater_than_previous(...):\n    pass\n",
+  "starterCode": "def contains_sorted(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: наличие ключа.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def greater_than_previous(values):\n    return sum(values[i] > values[i - 1] for i in range(1, len(values)))",
+  "solution": "def contains_sorted(values, target):\n    left, right = 0, len(values)\n    while left < right:\n        middle = (left + right) // 2\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle\n    return left < len(values) and values[left] == target",
   "examples": [
     {
-      "input": "[[1,3,2,5]]",
-      "output": "2"
+      "input": "[[1,4,9],4]",
+      "output": "true"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "greater_than_previous",
+    "functionName": "contains_sorted",
     "tests": [
       {
         "args": [
           [
             1,
-            3,
-            2,
-            5
-          ]
+            4,
+            9
+          ],
+          4
         ],
-        "expectedReturn": 2
+        "expectedReturn": true
       },
       {
         "args": [
           [
-            1
-          ]
+            1,
+            4
+          ],
+          3
         ],
-        "expectedReturn": 0
+        "expectedReturn": false
       },
       {
         "args": [
-          []
+          [
+            1,
+            4,
+            9
+          ],
+          4
         ],
-        "expectedReturn": 0
+        "expectedReturn": true
       }
     ]
   }

@@ -6,48 +6,39 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "2. Суммы строк",
-  "statement": "Верните список сумм строк матрицы.",
+  "title": "2. разворот строки",
+  "statement": "Практикум: разворот строки. Получите обратную строку срезом, а не ручной перестановкой.\n\nТренируемый приём: методы строк и срезы.",
   "difficulty": "intro",
-  "starterCode": "def row_sums(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: разворот строки.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def row_sums(matrix):\n    return [sum(row) for row in matrix]",
+  "solution": "text = input()\nprint(text[::-1])",
   "examples": [
     {
-      "input": "[[[1,2],[3,4]]]",
-      "output": "[3,7]"
+      "input": "python\n",
+      "output": "nohtyp\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "row_sums",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            [
-              1,
-              2
-            ],
-            [
-              3,
-              4
-            ]
-          ]
-        ],
-        "expectedReturn": [
-          3,
-          7
-        ]
+        "input": "python\n",
+        "expectedOutput": "nohtyp\n"
       },
       {
-        "args": [
-          []
-        ],
-        "expectedReturn": []
+        "input": "a\n",
+        "expectedOutput": "a\n"
+      },
+      {
+        "input": "python\n\n",
+        "expectedOutput": "nohtyp\n"
       }
     ]
   }

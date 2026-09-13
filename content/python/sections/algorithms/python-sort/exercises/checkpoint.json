@@ -6,39 +6,38 @@
     "id": "python-algorithms-python-sort"
   },
   "kind": "checkpoint",
-  "title": "По длине",
-  "statement": "Верните строки, отсортированные сначала по длине, затем лексикографически.",
+  "title": "Сравнение подходов",
+  "statement": "Верните упорядоченный список и объясните выбор встроенного алгоритма для этой задачи.\n\nТренируемый приём: sorted, sort и ключ сортировки.",
   "difficulty": "challenge",
-  "starterCode": "def by_length(...):\n    pass\n",
+  "starterCode": "def selection_sort(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «sorted, sort и ключ сортировки».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def by_length(words):\n    return sorted(words, key=lambda word: (len(word), word))",
+  "solution": "def selection_sort(values):\n    result = list(values)\n    for left in range(len(result)):\n        smallest = left\n        for i in range(left + 1, len(result)):\n            if result[i] < result[smallest]:\n                smallest = i\n        result[left], result[smallest] = result[smallest], result[left]\n    return result",
   "examples": [
     {
-      "input": "[[\"bbb\",\"a\",\"cc\",\"bb\"]]",
-      "output": "[\"a\",\"bb\",\"cc\",\"bbb\"]"
+      "input": "[[3,1,2]]",
+      "output": "[1,2,3]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "by_length",
+    "functionName": "selection_sort",
     "tests": [
       {
         "args": [
           [
-            "bbb",
-            "a",
-            "cc",
-            "bb"
+            3,
+            1,
+            2
           ]
         ],
         "expectedReturn": [
-          "a",
-          "bb",
-          "cc",
-          "bbb"
+          1,
+          2,
+          3
         ]
       },
       {
@@ -46,6 +45,20 @@
           []
         ],
         "expectedReturn": []
+      },
+      {
+        "args": [
+          [
+            3,
+            1,
+            2
+          ]
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          3
+        ]
       }
     ]
   }

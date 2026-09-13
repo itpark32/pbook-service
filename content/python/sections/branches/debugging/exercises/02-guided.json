@@ -6,19 +6,20 @@
     "id": "python-debugging-basics"
   },
   "kind": "guided",
-  "title": "В диапазоне",
-  "statement": "Даны число, левая и правая границы. Выведите `YES`, если число лежит в диапазоне включительно, иначе `NO`.",
+  "title": "Три исхода без пропуска",
+  "statement": "Проверьте, что ноль не попадает ни в положительный, ни в отрицательный случай.\n\nТренируемый приём: чтение трассировки и проверка ветвей.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «чтение трассировки и проверка ветвей».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "x, left, right = map(int, input().split())\nprint('YES' if left <= x <= right else 'NO')",
+  "solution": "n = int(input())\nif n > 0:\n    print('positive')\nelif n < 0:\n    print('negative')\nelse:\n    print('zero')",
   "examples": [
     {
-      "input": "5 1 10\n",
-      "output": "YES\n"
+      "input": "8\n",
+      "output": "positive\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "5 1 10\n",
-        "expectedOutput": "YES\n"
+        "input": "8\n",
+        "expectedOutput": "positive\n"
       },
       {
-        "input": "11 1 10\n",
-        "expectedOutput": "NO\n"
+        "input": "-2\n",
+        "expectedOutput": "negative\n"
       },
       {
-        "input": "1 1 10\n",
-        "expectedOutput": "YES\n"
+        "input": "0\n",
+        "expectedOutput": "zero\n"
       }
     ]
   }

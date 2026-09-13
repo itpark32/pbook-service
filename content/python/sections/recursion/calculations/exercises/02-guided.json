@@ -6,43 +6,48 @@
     "id": "python-recursion-calculations"
   },
   "kind": "guided",
-  "title": "Рекурсивная степень",
-  "statement": "Реализуйте рекурсивную функцию `power(a, n)` для n ≥ 0.",
+  "title": "Цепочка цифр",
+  "statement": "Проследите отделение последней цифры и достижение одноразрядного числа.\n\nТренируемый приём: трассировка рекурсивных вычислений.",
   "difficulty": "standard",
-  "starterCode": "def power(...):\n    pass\n",
+  "starterCode": "def digit_sum(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «трассировка рекурсивных вычислений».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def power(a, n):\n    if n == 0:\n        return 1\n    return a * power(a, n - 1)",
+  "solution": "def digit_sum(n):\n    if n < 10:\n        return n\n    return n % 10 + digit_sum(n // 10)",
   "examples": [
     {
-      "input": "[2,5]",
-      "output": "32"
+      "input": "[247]",
+      "output": "13"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "power",
+    "functionName": "digit_sum",
     "tests": [
       {
         "args": [
-          2,
-          5
+          247
         ],
-        "expectedReturn": 32
+        "expectedReturn": 13
       },
       {
         "args": [
-          9,
           0
         ],
-        "expectedReturn": 1
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          247
+        ],
+        "expectedReturn": 13
       }
     ],
     "structuralConstraints": {
       "requireRecursion": [
-        "power"
+        "digit_sum"
       ]
     }
   }

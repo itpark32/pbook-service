@@ -6,13 +6,14 @@
     "id": "python-lists-linear-search"
   },
   "kind": "guided",
-  "title": "Первое вхождение",
-  "statement": "Верните индекс первого вхождения target или -1.",
+  "title": "Первый нужный индекс",
+  "statement": "Остановите поиск на первом вхождении цели или верните -1.\n\nТренируемый приём: линейный поиск.",
   "difficulty": "intro",
   "starterCode": "def find_first(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «линейный поиск».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "def find_first(values, target):\n    for i, value in enumerate(values):\n        if value == target:\n            return i\n    return -1",
   "examples": [

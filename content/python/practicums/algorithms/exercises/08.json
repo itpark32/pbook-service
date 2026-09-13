@@ -6,46 +6,46 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "8. Самая длинная строка",
-  "statement": "В `lines.txt` записан текст. Запишите первую самую длинную строку без перевода строки в `answer.txt`.",
-  "difficulty": "standard",
-  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
+  "title": "8. алгоритм Евклида",
+  "statement": "Практикум: алгоритм Евклида. Повторяйте замену пары чисел, пока второй остаток не станет равен нулю.\n\nТренируемый приём: простые числа и алгоритм Евклида.",
+  "difficulty": "challenge",
+  "starterCode": "def gcd(...):\n    pass\n",
   "hints": [
-    "Откройте файл через with, чтобы он закрылся автоматически.",
-    "Удаляйте перевод строки только там, где он мешает обработке."
+    "Сначала вспомните основной приём: алгоритм Евклида.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
-  "examples": [],
-  "fileExamples": [
+  "solution": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a",
+  "examples": [
     {
-      "title": "Пример файлов",
-      "files": [
-        {
-          "path": "lines.txt",
-          "content": "кот\nпрограммирование\nкод\n"
-        }
-      ]
+      "input": "[18,24]",
+      "output": "6"
     }
   ],
   "judge": {
-    "type": "files",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "gcd",
     "tests": [
       {
-        "inputFiles": [
-          {
-            "path": "lines.txt",
-            "content": "кот\nпрограммирование\nкод\n"
-          }
+        "args": [
+          18,
+          24
         ],
-        "expectedFiles": [
-          {
-            "path": "answer.txt",
-            "content": "программирование"
-          }
-        ]
+        "expectedReturn": 6
+      },
+      {
+        "args": [
+          7,
+          0
+        ],
+        "expectedReturn": 7
+      },
+      {
+        "args": [
+          18,
+          24
+        ],
+        "expectedReturn": 6
       }
     ]
   }

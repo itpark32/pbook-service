@@ -6,39 +6,49 @@
     "id": "python-practicum-functions-files"
   },
   "kind": "practicum",
-  "title": "11. Чётное или нечётное",
-  "statement": "Выведите `even` для чётного числа и `odd` для нечётного.",
+  "title": "11. рекурсивная сумма цифр",
+  "statement": "Практикум: рекурсивная сумма цифр. Для одного разряда верните его, иначе отделите последнюю цифру и вызовите функцию снова.\n\nТренируемый приём: базовый случай и рекурсивный вызов.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "def digit_sum(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: рекурсивная сумма цифр.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nif n % 2 == 0:\n    print('even')\nelse:\n    print('odd')",
+  "solution": "def digit_sum(n):\n    if n < 10:\n        return n\n    return n % 10 + digit_sum(n // 10)",
   "examples": [
     {
-      "input": "8\n",
-      "output": "even\n"
+      "input": "[247]",
+      "output": "13"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "digit_sum",
     "tests": [
       {
-        "input": "8\n",
-        "expectedOutput": "even\n"
+        "args": [
+          247
+        ],
+        "expectedReturn": 13
       },
       {
-        "input": "-3\n",
-        "expectedOutput": "odd\n"
+        "args": [
+          0
+        ],
+        "expectedReturn": 0
       },
       {
-        "input": "0\n",
-        "expectedOutput": "even\n"
+        "args": [
+          247
+        ],
+        "expectedReturn": 13
       }
-    ]
+    ],
+    "structuralConstraints": {
+      "requireRecursion": [
+        "digit_sum"
+      ]
+    }
   }
 }

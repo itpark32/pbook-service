@@ -6,13 +6,14 @@
     "id": "python-algorithms-binary-search"
   },
   "kind": "guided",
-  "title": "Левая граница",
-  "statement": "Верните индекс первого элемента, не меньшего target.",
+  "title": "Левая граница ключа",
+  "statement": "Найдите первую позицию, на которой значение не меньше цели.\n\nТренируемый приём: границы двоичного поиска.",
   "difficulty": "standard",
   "starterCode": "def lower_bound(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «границы двоичного поиска».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "def lower_bound(values, target):\n    left, right = 0, len(values)\n    while left < right:\n        middle = (left + right) // 2\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle\n    return left",
   "examples": [

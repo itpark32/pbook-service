@@ -6,35 +6,67 @@
     "id": "python-loops-nested"
   },
   "kind": "guided",
-  "title": "Количество кратных",
-  "statement": "Даны N и K. Посчитайте числа от 1 до N, кратные K.",
+  "title": "Минимум в хвосте",
+  "statement": "Для заданной позиции пройдите оставшуюся часть списка и найдите индекс минимума.\n\nТренируемый приём: вложенные циклы.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "def minimum_index(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «вложенные циклы».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n, k = map(int, input().split())\ncount = 0\nfor value in range(1, n + 1):\n    if value % k == 0:\n        count += 1\nprint(count)",
+  "solution": "def minimum_index(values, start):\n    smallest = start\n    for i in range(start + 1, len(values)):\n        if values[i] < values[smallest]:\n            smallest = i\n    return smallest",
   "examples": [
     {
-      "input": "10 3\n",
-      "output": "3\n"
+      "input": "[[5,2,7,1],1]",
+      "output": "3"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "minimum_index",
     "tests": [
       {
-        "input": "10 3\n",
-        "expectedOutput": "3\n"
+        "args": [
+          [
+            5,
+            2,
+            7,
+            1
+          ],
+          1
+        ],
+        "expectedReturn": 3
       },
       {
-        "input": "4 9\n",
-        "expectedOutput": "0\n"
+        "args": [
+          [
+            3
+          ],
+          0
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          [
+            5,
+            2,
+            7,
+            1
+          ],
+          1
+        ],
+        "expectedReturn": 3
       }
-    ]
+    ],
+    "structuralConstraints": {
+      "forbidCalls": [
+        "sorted"
+      ],
+      "forbidMethods": [
+        "sort"
+      ]
+    }
   }
 }

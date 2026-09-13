@@ -6,34 +6,53 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "5. Периметр прямоугольника",
-  "statement": "Даны стороны прямоугольника. Выведите его периметр.",
+  "title": "5. индексы чётных",
+  "statement": "Практикум: индексы чётных. Соберите индексы элементов, для которых остаток от деления на 2 равен нулю.\n\nТренируемый приём: создание списка, индексы и проход.",
   "difficulty": "intro",
-  "starterCode": "",
+  "starterCode": "def even_indices(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: индексы чётных.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "a, b = map(int, input().split())\nprint(2 * (a + b))",
+  "solution": "def even_indices(values):\n    return [i for i, value in enumerate(values) if value % 2 == 0]",
   "examples": [
     {
-      "input": "3 5\n",
-      "output": "16\n"
+      "input": "[[3,4,6]]",
+      "output": "[1,2]"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "even_indices",
     "tests": [
       {
-        "input": "3 5\n",
-        "expectedOutput": "16\n"
+        "args": [
+          [
+            3,
+            4,
+            6
+          ]
+        ],
+        "expectedReturn": [
+          1,
+          2
+        ]
       },
       {
-        "input": "1 1\n",
-        "expectedOutput": "4\n"
+        "args": [
+          [
+            1,
+            3
+          ]
+        ],
+        "expectedReturn": []
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": []
       }
     ]
   }

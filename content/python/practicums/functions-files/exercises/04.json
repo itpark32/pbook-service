@@ -6,36 +6,43 @@
     "id": "python-practicum-functions-files"
   },
   "kind": "practicum",
-  "title": "4. Инверсия словаря",
-  "statement": "Поменяйте местами ключи и значения словаря с уникальными значениями.",
-  "difficulty": "intro",
-  "starterCode": "def invert(...):\n    pass\n",
+  "title": "4. декомпозиция цифр",
+  "statement": "Практикум: декомпозиция цифр. Разместите накопитель внутри функции и верните только итоговое значение.\n\nТренируемый приём: локальные переменные и декомпозиция.",
+  "difficulty": "standard",
+  "starterCode": "def sum_digits(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: декомпозиция цифр.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def invert(mapping):\n    return {value: key for key, value in mapping.items()}",
+  "solution": "def sum_digits(n):\n    total = 0\n    while n > 0:\n        total += n % 10\n        n //= 10\n    return total",
   "examples": [
     {
-      "input": "[{\"a\":1,\"b\":2}]",
-      "output": "{\"1\":\"a\",\"2\":\"b\"}"
+      "input": "[247]",
+      "output": "13"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "invert",
+    "functionName": "sum_digits",
     "tests": [
       {
         "args": [
-          {
-            "a": 1,
-            "b": 2
-          }
+          247
         ],
-        "expectedReturn": {
-          "1": "a",
-          "2": "b"
-        }
+        "expectedReturn": 13
+      },
+      {
+        "args": [
+          0
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          1000
+        ],
+        "expectedReturn": 1
       }
     ]
   }

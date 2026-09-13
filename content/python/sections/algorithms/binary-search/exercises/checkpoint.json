@@ -6,45 +6,54 @@
     "id": "python-algorithms-binary-search"
   },
   "kind": "checkpoint",
-  "title": "Есть ли значение",
-  "statement": "Верните True, если target есть в отсортированном списке.",
+  "title": "Индекс бинарным поиском",
+  "statement": "Верните индекс цели в отсортированном списке или -1.\n\nТренируемый приём: границы двоичного поиска.",
   "difficulty": "challenge",
-  "starterCode": "def contains_sorted(...):\n    pass\n",
+  "starterCode": "def binary_search(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «границы двоичного поиска».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def contains_sorted(values, target):\n    left, right = 0, len(values)\n    while left < right:\n        middle = (left + right) // 2\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle\n    return left < len(values) and values[left] == target",
+  "solution": "def binary_search(values, target):\n    left, right = 0, len(values) - 1\n    while left <= right:\n        middle = (left + right) // 2\n        if values[middle] == target:\n            return middle\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle - 1\n    return -1",
   "examples": [
     {
-      "input": "[[1,4,9],4]",
-      "output": "true"
+      "input": "[[1,3,5,7],5]",
+      "output": "2"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "contains_sorted",
+    "functionName": "binary_search",
     "tests": [
       {
         "args": [
           [
             1,
-            4,
-            9
+            3,
+            5,
+            7
           ],
-          4
+          5
         ],
-        "expectedReturn": true
+        "expectedReturn": 2
       },
       {
         "args": [
           [
             1,
-            4
+            3
           ],
-          3
+          2
         ],
-        "expectedReturn": false
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          [],
+          1
+        ],
+        "expectedReturn": -1
       }
     ]
   }

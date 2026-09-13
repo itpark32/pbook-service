@@ -6,44 +6,54 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "12. Лучший допустимый",
-  "statement": "Верните наибольшее число из values, не превосходящее limit, или None.",
+  "title": "12. бинарный индекс",
+  "statement": "Практикум: бинарный индекс. Верните индекс цели в отсортированном списке или -1.\n\nТренируемый приём: границы двоичного поиска.",
   "difficulty": "standard",
-  "starterCode": "def best_allowed(...):\n    pass\n",
+  "starterCode": "def binary_search(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: бинарный индекс.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def best_allowed(values, limit):\n    candidates = [value for value in values if value <= limit]\n    return max(candidates, default=None)",
+  "solution": "def binary_search(values, target):\n    left, right = 0, len(values) - 1\n    while left <= right:\n        middle = (left + right) // 2\n        if values[middle] == target:\n            return middle\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle - 1\n    return -1",
   "examples": [
     {
-      "input": "[[2,9,5],6]",
-      "output": "5"
+      "input": "[[1,3,5,7],5]",
+      "output": "2"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "best_allowed",
+    "functionName": "binary_search",
     "tests": [
       {
         "args": [
           [
-            2,
-            9,
-            5
+            1,
+            3,
+            5,
+            7
           ],
-          6
+          5
         ],
-        "expectedReturn": 5
+        "expectedReturn": 2
       },
       {
         "args": [
           [
-            8
+            1,
+            3
           ],
-          3
+          2
         ],
-        "expectedReturn": null
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          [],
+          1
+        ],
+        "expectedReturn": -1
       }
     ]
   }

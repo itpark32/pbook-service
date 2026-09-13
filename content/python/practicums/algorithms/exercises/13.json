@@ -6,34 +6,53 @@
     "id": "python-practicum-algorithms"
   },
   "kind": "practicum",
-  "title": "13. Эхо",
-  "statement": "Прочитайте строку и выведите её без изменений.",
-  "difficulty": "challenge",
-  "starterCode": "",
+  "title": "13. линейный поиск",
+  "statement": "Практикум: линейный поиск. Решите задачу за линейный проход и отметьте, что число проверок растёт как N.\n\nТренируемый приём: оценку числа операций.",
+  "difficulty": "intro",
+  "starterCode": "def find_first(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: линейный поиск.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "print(input())",
+  "solution": "def find_first(values, target):\n    for i, value in enumerate(values):\n        if value == target:\n            return i\n    return -1",
   "examples": [
     {
-      "input": "Python\n",
-      "output": "Python\n"
+      "input": "[[4,2,4],4]",
+      "output": "0"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "find_first",
     "tests": [
       {
-        "input": "Python\n",
-        "expectedOutput": "Python\n"
+        "args": [
+          [
+            4,
+            2,
+            4
+          ],
+          4
+        ],
+        "expectedReturn": 0
       },
       {
-        "input": "42\n",
-        "expectedOutput": "42\n"
+        "args": [
+          [
+            1,
+            2
+          ],
+          9
+        ],
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          [],
+          1
+        ],
+        "expectedReturn": -1
       }
     ]
   }

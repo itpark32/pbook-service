@@ -6,19 +6,20 @@
     "id": "python-branches-compound"
   },
   "kind": "checkpoint",
-  "title": "Делимость",
-  "statement": "Выведите `YES`, если число положительное и делится на 3, иначе `NO`.",
+  "title": "Сигнал состояния",
+  "statement": "С помощью if/elif/else напечатайте состояние датчика по знаку значения.\n\nТренируемый приём: составные условия.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «составные условия».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n = int(input())\nprint('YES' if n > 0 and n % 3 == 0 else 'NO')",
+  "solution": "n = int(input())\nif n > 0:\n    print('positive')\nelif n < 0:\n    print('negative')\nelse:\n    print('zero')",
   "examples": [
     {
-      "input": "12\n",
-      "output": "YES\n"
+      "input": "8\n",
+      "output": "positive\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "12\n",
-        "expectedOutput": "YES\n"
+        "input": "8\n",
+        "expectedOutput": "positive\n"
       },
       {
-        "input": "-3\n",
-        "expectedOutput": "NO\n"
+        "input": "-2\n",
+        "expectedOutput": "negative\n"
       },
       {
-        "input": "10\n",
-        "expectedOutput": "NO\n"
+        "input": "0\n",
+        "expectedOutput": "zero\n"
       }
     ]
   }

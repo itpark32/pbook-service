@@ -6,13 +6,14 @@
     "id": "python-collections-dicts-frequency"
   },
   "kind": "guided",
-  "title": "Таблица частот",
-  "statement": "Верните словарь частот элементов.",
+  "title": "Частоты букв",
+  "statement": "Постройте словарь: каждому элементу поставьте в соответствие число встреч.\n\nТренируемый приём: словари и таблицы частот.",
   "difficulty": "intro",
   "starterCode": "def frequencies(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «словари и таблицы частот».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "def frequencies(values):\n    result = {}\n    for value in values:\n        result[value] = result.get(value, 0) + 1\n    return result",
   "examples": [
@@ -43,6 +44,19 @@
           []
         ],
         "expectedReturn": {}
+      },
+      {
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
+        ],
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
       }
     ]
   }

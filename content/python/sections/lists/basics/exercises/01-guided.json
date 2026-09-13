@@ -6,49 +6,59 @@
     "id": "python-lists-basics"
   },
   "kind": "guided",
-  "title": "Сумма положительных",
-  "statement": "Верните сумму положительных элементов списка.",
+  "title": "Удвоенный список",
+  "statement": "Верните новый список с удвоенными значениями исходного списка.\n\nТренируемый приём: создание списка, индексы и проход.",
   "difficulty": "intro",
-  "starterCode": "def positive_sum(...):\n    pass\n",
+  "starterCode": "def doubled(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «создание списка, индексы и проход».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def positive_sum(values):\n    return sum(value for value in values if value > 0)",
+  "solution": "def doubled(values):\n    return [value * 2 for value in values]",
   "examples": [
     {
-      "input": "[[1,-2,3]]",
-      "output": "4"
+      "input": "[[1,-2,0]]",
+      "output": "[2,-4,0]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "positive_sum",
+    "functionName": "doubled",
     "tests": [
       {
         "args": [
           [
             1,
             -2,
-            3
-          ]
-        ],
-        "expectedReturn": 4
-      },
-      {
-        "args": [
-          [
-            -5,
             0
           ]
         ],
-        "expectedReturn": 0
+        "expectedReturn": [
+          2,
+          -4,
+          0
+        ]
       },
       {
         "args": [
           []
         ],
-        "expectedReturn": 0
+        "expectedReturn": []
+      },
+      {
+        "args": [
+          [
+            1,
+            -2,
+            0
+          ]
+        ],
+        "expectedReturn": [
+          2,
+          -4,
+          0
+        ]
       }
     ]
   }

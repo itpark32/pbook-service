@@ -6,52 +6,46 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "14. Степени вершин",
-  "statement": "По числу вершин и списку неориентированных рёбер верните степени вершин.",
+  "title": "14. НОД",
+  "statement": "Практикум: НОД. Повторяйте замену пары чисел, пока второй остаток не станет равен нулю.\n\nТренируемый приём: простые числа и алгоритм Евклида.",
   "difficulty": "standard",
-  "starterCode": "def degrees(...):\n    pass\n",
+  "starterCode": "def gcd(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: НОД.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def degrees(n, edges):\n    result = [0] * n\n    for left, right in edges:\n        result[left] += 1\n        result[right] += 1\n    return result",
+  "solution": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a",
   "examples": [
     {
-      "input": "[4,[[0,1],[1,2]]]",
-      "output": "[1,2,1,0]"
+      "input": "[18,24]",
+      "output": "6"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "degrees",
+    "functionName": "gcd",
     "tests": [
       {
         "args": [
-          4,
-          [
-            [
-              0,
-              1
-            ],
-            [
-              1,
-              2
-            ]
-          ]
+          18,
+          24
         ],
-        "expectedReturn": [
-          1,
-          2,
-          1,
-          0
-        ]
+        "expectedReturn": 6
       },
       {
         "args": [
-          0,
-          []
+          7,
+          0
         ],
-        "expectedReturn": []
+        "expectedReturn": 7
+      },
+      {
+        "args": [
+          18,
+          24
+        ],
+        "expectedReturn": 6
       }
     ]
   }

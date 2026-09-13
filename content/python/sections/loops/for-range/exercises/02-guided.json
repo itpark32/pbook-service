@@ -6,13 +6,14 @@
     "id": "python-loops-for-range"
   },
   "kind": "guided",
-  "title": "Количество кратных",
-  "statement": "Даны N и K. Посчитайте числа от 1 до N, кратные K.",
+  "title": "Кратные на отрезке",
+  "statement": "Переберите числа от 1 до N и посчитайте подходящие по остатку.\n\nТренируемый приём: for и range.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «for и range».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "n, k = map(int, input().split())\ncount = 0\nfor value in range(1, n + 1):\n    if value % k == 0:\n        count += 1\nprint(count)",
   "examples": [
@@ -34,6 +35,10 @@
       {
         "input": "4 9\n",
         "expectedOutput": "0\n"
+      },
+      {
+        "input": "10 3\n\n",
+        "expectedOutput": "3\n"
       }
     ]
   }

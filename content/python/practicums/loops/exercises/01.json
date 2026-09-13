@@ -6,19 +6,20 @@
     "id": "python-practicum-loops"
   },
   "kind": "practicum",
-  "title": "1. Знак числа",
-  "statement": "Выведите `positive`, `negative` или `zero` в зависимости от числа.",
+  "title": "1. накопление суммы",
+  "statement": "Практикум: накопление суммы. Накапливайте сумму чисел от 1 до N, двигая счётчик.\n\nТренируемый приём: цикл while и изменяемое состояние.",
   "difficulty": "intro",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: накопление суммы.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nif n > 0:\n    print('positive')\nelif n < 0:\n    print('negative')\nelse:\n    print('zero')",
+  "solution": "n = int(input())\ntotal = 0\nfor value in range(1, n + 1):\n    total += value\nprint(total)",
   "examples": [
     {
-      "input": "8\n",
-      "output": "positive\n"
+      "input": "5\n",
+      "output": "15\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "8\n",
-        "expectedOutput": "positive\n"
-      },
-      {
-        "input": "-2\n",
-        "expectedOutput": "negative\n"
+        "input": "5\n",
+        "expectedOutput": "15\n"
       },
       {
         "input": "0\n",
-        "expectedOutput": "zero\n"
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "5\n\n",
+        "expectedOutput": "15\n"
       }
     ]
   }

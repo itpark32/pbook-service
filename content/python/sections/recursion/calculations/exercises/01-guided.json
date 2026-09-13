@@ -6,41 +6,51 @@
     "id": "python-recursion-calculations"
   },
   "kind": "guided",
-  "title": "Рекурсивный факториал",
-  "statement": "Реализуйте рекурсивную функцию `factorial(n)` для n ≥ 0.",
+  "title": "Цепочка степеней",
+  "statement": "Проследите уменьшение показателя до нуля и возврат произведений.\n\nТренируемый приём: трассировка рекурсивных вычислений.",
   "difficulty": "intro",
-  "starterCode": "def factorial(...):\n    pass\n",
+  "starterCode": "def power(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «трассировка рекурсивных вычислений».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)",
+  "solution": "def power(a, n):\n    if n == 0:\n        return 1\n    return a * power(a, n - 1)",
   "examples": [
     {
-      "input": "[5]",
-      "output": "120"
+      "input": "[2,5]",
+      "output": "32"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "factorial",
+    "functionName": "power",
     "tests": [
       {
         "args": [
+          2,
           5
         ],
-        "expectedReturn": 120
+        "expectedReturn": 32
       },
       {
         "args": [
+          9,
           0
         ],
         "expectedReturn": 1
+      },
+      {
+        "args": [
+          2,
+          5
+        ],
+        "expectedReturn": 32
       }
     ],
     "structuralConstraints": {
       "requireRecursion": [
-        "factorial"
+        "power"
       ]
     }
   }

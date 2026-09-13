@@ -6,46 +6,57 @@
     "id": "python-files-text"
   },
   "kind": "checkpoint",
-  "title": "Самая длинная строка",
-  "statement": "В `lines.txt` записан текст. Запишите первую самую длинную строку без перевода строки в `answer.txt`.",
+  "title": "Частоты слов файла",
+  "statement": "Соберите частоты элементов после чтения текстовых данных.\n\nТренируемый приём: текстовые файлы и строки.",
   "difficulty": "challenge",
-  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
+  "starterCode": "def frequencies(...):\n    pass\n",
   "hints": [
-    "Откройте файл через with, чтобы он закрылся автоматически.",
-    "Удаляйте перевод строки только там, где он мешает обработке."
+    "Определите, какие данные нужны для шага «текстовые файлы и строки».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
-  "examples": [],
-  "fileExamples": [
+  "solution": "def frequencies(values):\n    result = {}\n    for value in values:\n        result[value] = result.get(value, 0) + 1\n    return result",
+  "examples": [
     {
-      "title": "Пример файлов",
-      "files": [
-        {
-          "path": "lines.txt",
-          "content": "кот\nпрограммирование\nкод\n"
-        }
-      ]
+      "input": "[[\"a\",\"b\",\"a\"]]",
+      "output": "{\"a\":2,\"b\":1}"
     }
   ],
   "judge": {
-    "type": "files",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "frequencies",
     "tests": [
       {
-        "inputFiles": [
-          {
-            "path": "lines.txt",
-            "content": "кот\nпрограммирование\nкод\n"
-          }
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
         ],
-        "expectedFiles": [
-          {
-            "path": "answer.txt",
-            "content": "программирование"
-          }
-        ]
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": {}
+      },
+      {
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
+        ],
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
       }
     ]
   }

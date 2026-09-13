@@ -6,34 +6,75 @@
     "id": "python-practicum-functions-files"
   },
   "kind": "practicum",
-  "title": "10. Сумма цифр",
-  "statement": "Дано трёхзначное неотрицательное число. Выведите сумму его цифр.",
+  "title": "10. самая длинная строка",
+  "statement": "Практикум: самая длинная строка. Обработайте построчный текст и запишите ответ без завершающего перевода строки.\n\nТренируемый приём: текстовые файлы и строки.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: самая длинная строка.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nprint(n // 100 + n // 10 % 10 + n % 10)",
-  "examples": [
+  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
+  "examples": [],
+  "fileExamples": [
     {
-      "input": "247\n",
-      "output": "13\n"
+      "title": "Пример файлов",
+      "files": [
+        {
+          "path": "lines.txt",
+          "content": "кот\nпрограммирование\nкод\n"
+        }
+      ]
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
+    "type": "files",
     "comparison": {
       "mode": "normalized_text"
     },
     "tests": [
       {
-        "input": "247\n",
-        "expectedOutput": "13\n"
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
       },
       {
-        "input": "100\n",
-        "expectedOutput": "1\n"
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
+      },
+      {
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
       }
     ]
   }

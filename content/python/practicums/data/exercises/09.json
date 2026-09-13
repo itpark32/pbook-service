@@ -6,38 +6,58 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "9. Делимость",
-  "statement": "Выведите `YES`, если число положительное и делится на 3, иначе `NO`.",
-  "difficulty": "standard",
-  "starterCode": "",
+  "title": "9. локальные вершины",
+  "statement": "Практикум: локальные вершины. Проверьте внутренние элементы по двум соседям.\n\nТренируемый приём: соседние элементы.",
+  "difficulty": "challenge",
+  "starterCode": "def local_maxima(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: локальные вершины.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nprint('YES' if n > 0 and n % 3 == 0 else 'NO')",
+  "solution": "def local_maxima(values):\n    return sum(values[i] > values[i - 1] and values[i] > values[i + 1] for i in range(1, len(values) - 1))",
   "examples": [
     {
-      "input": "12\n",
-      "output": "YES\n"
+      "input": "[[1,4,2,5,3]]",
+      "output": "2"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "local_maxima",
     "tests": [
       {
-        "input": "12\n",
-        "expectedOutput": "YES\n"
+        "args": [
+          [
+            1,
+            4,
+            2,
+            5,
+            3
+          ]
+        ],
+        "expectedReturn": 2
       },
       {
-        "input": "-3\n",
-        "expectedOutput": "NO\n"
+        "args": [
+          [
+            1,
+            2
+          ]
+        ],
+        "expectedReturn": 0
       },
       {
-        "input": "10\n",
-        "expectedOutput": "NO\n"
+        "args": [
+          [
+            1,
+            4,
+            2,
+            5,
+            3
+          ]
+        ],
+        "expectedReturn": 2
       }
     ]
   }

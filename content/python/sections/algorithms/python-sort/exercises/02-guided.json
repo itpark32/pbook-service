@@ -6,37 +6,40 @@
     "id": "python-algorithms-python-sort"
   },
   "kind": "guided",
-  "title": "По убыванию",
-  "statement": "Верните новый список, отсортированный по убыванию.",
+  "title": "Слова по длине",
+  "statement": "Задайте ключ: сначала длина слова, затем лексикографический порядок.\n\nТренируемый приём: sorted, sort и ключ сортировки.",
   "difficulty": "standard",
-  "starterCode": "def descending(...):\n    pass\n",
+  "starterCode": "def by_length(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «sorted, sort и ключ сортировки».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def descending(values):\n    return sorted(values, reverse=True)",
+  "solution": "def by_length(words):\n    return sorted(words, key=lambda word: (len(word), word))",
   "examples": [
     {
-      "input": "[[3,1,2]]",
-      "output": "[3,2,1]"
+      "input": "[[\"bbb\",\"a\",\"cc\",\"bb\"]]",
+      "output": "[\"a\",\"bb\",\"cc\",\"bbb\"]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "descending",
+    "functionName": "by_length",
     "tests": [
       {
         "args": [
           [
-            3,
-            1,
-            2
+            "bbb",
+            "a",
+            "cc",
+            "bb"
           ]
         ],
         "expectedReturn": [
-          3,
-          2,
-          1
+          "a",
+          "bb",
+          "cc",
+          "bbb"
         ]
       },
       {
@@ -44,6 +47,22 @@
           []
         ],
         "expectedReturn": []
+      },
+      {
+        "args": [
+          [
+            "bbb",
+            "a",
+            "cc",
+            "bb"
+          ]
+        ],
+        "expectedReturn": [
+          "a",
+          "bb",
+          "cc",
+          "bbb"
+        ]
       }
     ]
   }

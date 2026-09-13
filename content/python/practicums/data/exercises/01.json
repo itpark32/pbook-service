@@ -6,44 +6,39 @@
     "id": "python-practicum-data"
   },
   "kind": "practicum",
-  "title": "1. Последнее вхождение",
-  "statement": "Верните индекс последнего вхождения target или -1.",
+  "title": "1. частота буквы",
+  "statement": "Практикум: частота буквы. Посчитайте количество букв a в одной введённой строке.\n\nТренируемый приём: строки, индексы и длину.",
   "difficulty": "intro",
-  "starterCode": "def find_last(...):\n    pass\n",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: частота буквы.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def find_last(values, target):\n    answer = -1\n    for i, value in enumerate(values):\n        if value == target:\n            answer = i\n    return answer",
+  "solution": "text = input()\nprint(text.count('a'))",
   "examples": [
     {
-      "input": "[[4,2,4],4]",
-      "output": "2"
+      "input": "abracadabra\n",
+      "output": "5\n"
     }
   ],
   "judge": {
-    "type": "function",
-    "functionName": "find_last",
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
     "tests": [
       {
-        "args": [
-          [
-            4,
-            2,
-            4
-          ],
-          4
-        ],
-        "expectedReturn": 2
+        "input": "abracadabra\n",
+        "expectedOutput": "5\n"
       },
       {
-        "args": [
-          [
-            1
-          ],
-          2
-        ],
-        "expectedReturn": -1
+        "input": "Python\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "abracadabra\n\n",
+        "expectedOutput": "5\n"
       }
     ]
   }

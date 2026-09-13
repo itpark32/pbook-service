@@ -6,19 +6,20 @@
     "id": "python-loops-accumulators"
   },
   "kind": "checkpoint",
-  "title": "Максимум последовательности",
-  "statement": "В первой строке N > 0, во второй N чисел. Найдите максимум.",
+  "title": "Сумма последовательности",
+  "statement": "Организуйте отдельную переменную-накопитель для суммы от 1 до N.\n\nТренируемый приём: накопитель суммы и счётчика.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «накопитель суммы и счётчика».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nmaximum = values[0]\nfor value in values[1:n]:\n    if value > maximum:\n        maximum = value\nprint(maximum)",
+  "solution": "n = int(input())\ntotal = 0\nfor value in range(1, n + 1):\n    total += value\nprint(total)",
   "examples": [
     {
-      "input": "5\n-3 8 2 8 1\n",
-      "output": "8\n"
+      "input": "5\n",
+      "output": "15\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "5\n-3 8 2 8 1\n",
-        "expectedOutput": "8\n"
+        "input": "5\n",
+        "expectedOutput": "15\n"
       },
       {
-        "input": "1\n-7\n",
-        "expectedOutput": "-7\n"
+        "input": "0\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "5\n\n",
+        "expectedOutput": "15\n"
       }
     ]
   }

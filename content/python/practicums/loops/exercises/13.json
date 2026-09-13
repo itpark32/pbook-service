@@ -6,19 +6,20 @@
     "id": "python-practicum-loops"
   },
   "kind": "practicum",
-  "title": "13. Положительные элементы",
-  "statement": "В первой строке N, во второй N целых чисел. Выведите количество положительных.",
+  "title": "13. факториал while",
+  "statement": "Практикум: факториал while. Через повторение умножьте числа от 1 до N; для нуля оставьте единицу.\n\nТренируемый приём: цикл while и изменяемое состояние.",
   "difficulty": "challenge",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: факториал while.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value > 0 for value in values[:n]))",
+  "solution": "n = int(input())\nproduct = 1\nfor value in range(2, n + 1):\n    product *= value\nprint(product)",
   "examples": [
     {
-      "input": "5\n-1 2 0 3 4\n",
-      "output": "3\n"
+      "input": "5\n",
+      "output": "120\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "5\n-1 2 0 3 4\n",
-        "expectedOutput": "3\n"
+        "input": "5\n",
+        "expectedOutput": "120\n"
       },
       {
-        "input": "0\n\n",
-        "expectedOutput": "0\n"
+        "input": "0\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "5\n\n",
+        "expectedOutput": "120\n"
       }
     ]
   }

@@ -6,37 +6,40 @@
     "id": "python-lists-mutation"
   },
   "kind": "guided",
-  "title": "Удвоение",
-  "statement": "Верните новый список, в котором каждый элемент удвоен.",
+  "title": "Обмен с минимумом",
+  "statement": "Скопируйте список и выполните один обмен по найденному индексу.\n\nТренируемый приём: изменение списка по индексу.",
   "difficulty": "standard",
-  "starterCode": "def doubled(...):\n    pass\n",
+  "starterCode": "def selection_step(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «изменение списка по индексу».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def doubled(values):\n    return [value * 2 for value in values]",
+  "solution": "def selection_step(values):\n    result = list(values)\n    if not result:\n        return result\n    smallest = 0\n    for i in range(1, len(result)):\n        if result[i] < result[smallest]:\n            smallest = i\n    result[0], result[smallest] = result[smallest], result[0]\n    return result",
   "examples": [
     {
-      "input": "[[1,-2,0]]",
-      "output": "[2,-4,0]"
+      "input": "[[4,2,3,1]]",
+      "output": "[1,2,3,4]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "doubled",
+    "functionName": "selection_step",
     "tests": [
       {
         "args": [
           [
-            1,
-            -2,
-            0
+            4,
+            2,
+            3,
+            1
           ]
         ],
         "expectedReturn": [
+          1,
           2,
-          -4,
-          0
+          3,
+          4
         ]
       },
       {
@@ -44,7 +47,31 @@
           []
         ],
         "expectedReturn": []
+      },
+      {
+        "args": [
+          [
+            4,
+            2,
+            3,
+            1
+          ]
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          3,
+          4
+        ]
       }
-    ]
+    ],
+    "structuralConstraints": {
+      "forbidCalls": [
+        "sorted"
+      ],
+      "forbidMethods": [
+        "sort"
+      ]
+    }
   }
 }

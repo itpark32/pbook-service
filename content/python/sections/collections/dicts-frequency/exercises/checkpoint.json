@@ -6,36 +6,51 @@
     "id": "python-collections-dicts-frequency"
   },
   "kind": "checkpoint",
-  "title": "Инверсия словаря",
-  "statement": "Поменяйте местами ключи и значения словаря с уникальными значениями.",
+  "title": "Частый победитель",
+  "statement": "Выберите наиболее частый элемент, предусмотрев пустой вход и ничью.\n\nТренируемый приём: словари и таблицы частот.",
   "difficulty": "challenge",
-  "starterCode": "def invert(...):\n    pass\n",
+  "starterCode": "def most_frequent(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «словари и таблицы частот».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def invert(mapping):\n    return {value: key for key, value in mapping.items()}",
+  "solution": "def most_frequent(values):\n    if not values:\n        return None\n    counts = {}\n    for value in values:\n        counts[value] = counts.get(value, 0) + 1\n    return min(counts, key=lambda value: (-counts[value], value))",
   "examples": [
     {
-      "input": "[{\"a\":1,\"b\":2}]",
-      "output": "{\"1\":\"a\",\"2\":\"b\"}"
+      "input": "[[\"b\",\"a\",\"b\"]]",
+      "output": "\"b\""
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "invert",
+    "functionName": "most_frequent",
     "tests": [
       {
         "args": [
-          {
-            "a": 1,
-            "b": 2
-          }
+          [
+            "b",
+            "a",
+            "b"
+          ]
         ],
-        "expectedReturn": {
-          "1": "a",
-          "2": "b"
-        }
+        "expectedReturn": "b"
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": null
+      },
+      {
+        "args": [
+          [
+            "b",
+            "a",
+            "b"
+          ]
+        ],
+        "expectedReturn": "b"
       }
     ]
   }

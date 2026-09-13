@@ -6,38 +6,75 @@
     "id": "python-practicum-final"
   },
   "kind": "practicum",
-  "title": "17. Знак числа",
-  "statement": "Выведите `positive`, `negative` или `zero` в зависимости от числа.",
-  "difficulty": "challenge",
-  "starterCode": "",
+  "title": "17. файловый результат",
+  "statement": "Практикум: файловый результат. Прочитайте lines.txt и запишите первую самую длинную строку в answer.txt.\n\nТренируемый приём: чтение и запись файлов.",
+  "difficulty": "standard",
+  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: файловый результат.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nif n > 0:\n    print('positive')\nelif n < 0:\n    print('negative')\nelse:\n    print('zero')",
-  "examples": [
+  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
+  "examples": [],
+  "fileExamples": [
     {
-      "input": "8\n",
-      "output": "positive\n"
+      "title": "Пример файлов",
+      "files": [
+        {
+          "path": "lines.txt",
+          "content": "кот\nпрограммирование\nкод\n"
+        }
+      ]
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
+    "type": "files",
     "comparison": {
       "mode": "normalized_text"
     },
     "tests": [
       {
-        "input": "8\n",
-        "expectedOutput": "positive\n"
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
       },
       {
-        "input": "-2\n",
-        "expectedOutput": "negative\n"
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
       },
       {
-        "input": "0\n",
-        "expectedOutput": "zero\n"
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
       }
     ]
   }

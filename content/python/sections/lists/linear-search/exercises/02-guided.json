@@ -6,13 +6,14 @@
     "id": "python-lists-linear-search"
   },
   "kind": "guided",
-  "title": "Последнее вхождение",
-  "statement": "Верните индекс последнего вхождения target или -1.",
+  "title": "Последний нужный индекс",
+  "statement": "При проходе обновляйте ответ на каждом совпадении.\n\nТренируемый приём: линейный поиск.",
   "difficulty": "standard",
   "starterCode": "def find_last(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «линейный поиск».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "def find_last(values, target):\n    answer = -1\n    for i, value in enumerate(values):\n        if value == target:\n            answer = i\n    return answer",
   "examples": [
@@ -44,6 +45,17 @@
           2
         ],
         "expectedReturn": -1
+      },
+      {
+        "args": [
+          [
+            4,
+            2,
+            4
+          ],
+          4
+        ],
+        "expectedReturn": 2
       }
     ]
   }

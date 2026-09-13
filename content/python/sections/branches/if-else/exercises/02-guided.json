@@ -6,19 +6,20 @@
     "id": "python-branches-if-else"
   },
   "kind": "guided",
-  "title": "Чётное или нечётное",
-  "statement": "Выведите `even` для чётного числа и `odd` для нечётного.",
+  "title": "Порог зачёта",
+  "statement": "Сравните балл с проходным значением и выведите результат.\n\nТренируемый приём: две взаимоисключающие ветви.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «две взаимоисключающие ветви».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n = int(input())\nif n % 2 == 0:\n    print('even')\nelse:\n    print('odd')",
+  "solution": "score = int(input())\nif score >= 60:\n    print('PASS')\nelse:\n    print('FAIL')",
   "examples": [
     {
-      "input": "8\n",
-      "output": "even\n"
+      "input": "60\n",
+      "output": "PASS\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "8\n",
-        "expectedOutput": "even\n"
+        "input": "60\n",
+        "expectedOutput": "PASS\n"
       },
       {
-        "input": "-3\n",
-        "expectedOutput": "odd\n"
+        "input": "59\n",
+        "expectedOutput": "FAIL\n"
       },
       {
-        "input": "0\n",
-        "expectedOutput": "even\n"
+        "input": "100\n",
+        "expectedOutput": "PASS\n"
       }
     ]
   }

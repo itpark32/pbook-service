@@ -6,34 +6,43 @@
     "id": "python-strings-algorithms"
   },
   "kind": "guided",
-  "title": "Строка наоборот",
-  "statement": "Выведите строку в обратном порядке.",
+  "title": "Количество смен",
+  "statement": "Посчитайте позиции, где очередной символ отличается от предыдущего.\n\nТренируемый приём: проход по символам и состояние.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "def changes(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «проход по символам и состояние».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "text = input()\nprint(text[::-1])",
+  "solution": "def changes(text):\n    return sum(text[i] != text[i - 1] for i in range(1, len(text)))",
   "examples": [
     {
-      "input": "python\n",
-      "output": "nohtyp\n"
+      "input": "[\"aabcca\"]",
+      "output": "3"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "changes",
     "tests": [
       {
-        "input": "python\n",
-        "expectedOutput": "nohtyp\n"
+        "args": [
+          "aabcca"
+        ],
+        "expectedReturn": 3
       },
       {
-        "input": "a\n",
-        "expectedOutput": "a\n"
+        "args": [
+          ""
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          "xxx"
+        ],
+        "expectedReturn": 0
       }
     ]
   }

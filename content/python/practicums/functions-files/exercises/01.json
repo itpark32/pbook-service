@@ -6,42 +6,43 @@
     "id": "python-practicum-functions-files"
   },
   "kind": "practicum",
-  "title": "1. Количество вхождений",
-  "statement": "Верните количество элементов, равных target.",
+  "title": "1. булева функция",
+  "statement": "Практикум: булева функция. Напишите функцию, которая получает число и возвращает булево значение.\n\nТренируемый приём: параметры и return.",
   "difficulty": "intro",
-  "starterCode": "def count_target(...):\n    pass\n",
+  "starterCode": "def is_even(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Сначала вспомните основной приём: булева функция.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "def count_target(values, target):\n    count = 0\n    for value in values:\n        if value == target:\n            count += 1\n    return count",
+  "solution": "def is_even(n):\n    return n % 2 == 0",
   "examples": [
     {
-      "input": "[[1,1,2],1]",
-      "output": "2"
+      "input": "[4]",
+      "output": "true"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "count_target",
+    "functionName": "is_even",
     "tests": [
       {
         "args": [
-          [
-            1,
-            1,
-            2
-          ],
-          1
+          4
         ],
-        "expectedReturn": 2
+        "expectedReturn": true
       },
       {
         "args": [
-          [],
+          -3
+        ],
+        "expectedReturn": false
+      },
+      {
+        "args": [
           0
         ],
-        "expectedReturn": 0
+        "expectedReturn": true
       }
     ]
   }

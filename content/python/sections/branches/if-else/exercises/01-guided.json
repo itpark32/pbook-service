@@ -6,19 +6,20 @@
     "id": "python-branches-if-else"
   },
   "kind": "guided",
-  "title": "Максимум двух",
-  "statement": "Даны два целых числа. Выведите большее из них, используя if и else.",
+  "title": "Чётность через if",
+  "statement": "Выберите одну из двух меток по чётности введённого числа.\n\nТренируемый приём: две взаимоисключающие ветви.",
   "difficulty": "intro",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «две взаимоисключающие ветви».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "a, b = map(int, input().split())\nif a > b:\n    print(a)\nelse:\n    print(b)",
+  "solution": "n = int(input())\nif n % 2 == 0:\n    print('even')\nelse:\n    print('odd')",
   "examples": [
     {
-      "input": "3 8\n",
-      "output": "8\n"
+      "input": "8\n",
+      "output": "even\n"
     }
   ],
   "judge": {
@@ -28,16 +29,16 @@
     },
     "tests": [
       {
-        "input": "3 8\n",
-        "expectedOutput": "8\n"
+        "input": "8\n",
+        "expectedOutput": "even\n"
       },
       {
-        "input": "5 5\n",
-        "expectedOutput": "5\n"
+        "input": "-3\n",
+        "expectedOutput": "odd\n"
       },
       {
-        "input": "-2 -7\n",
-        "expectedOutput": "-2\n"
+        "input": "0\n",
+        "expectedOutput": "even\n"
       }
     ]
   }

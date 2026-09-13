@@ -6,38 +6,47 @@
     "id": "python-lists-basics"
   },
   "kind": "guided",
-  "title": "Удвоение",
-  "statement": "Верните новый список, в котором каждый элемент удвоен.",
+  "title": "Позиции чётных",
+  "statement": "Соберите индексы элементов, для которых остаток от деления на 2 равен нулю.\n\nТренируемый приём: создание списка, индексы и проход.",
   "difficulty": "standard",
-  "starterCode": "def doubled(...):\n    pass\n",
+  "starterCode": "def even_indices(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «создание списка, индексы и проход».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def doubled(values):\n    return [value * 2 for value in values]",
+  "solution": "def even_indices(values):\n    return [i for i, value in enumerate(values) if value % 2 == 0]",
   "examples": [
     {
-      "input": "[[1,-2,0]]",
-      "output": "[2,-4,0]"
+      "input": "[[3,4,6]]",
+      "output": "[1,2]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "doubled",
+    "functionName": "even_indices",
     "tests": [
       {
         "args": [
           [
-            1,
-            -2,
-            0
+            3,
+            4,
+            6
           ]
         ],
         "expectedReturn": [
-          2,
-          -4,
-          0
+          1,
+          2
         ]
+      },
+      {
+        "args": [
+          [
+            1,
+            3
+          ]
+        ],
+        "expectedReturn": []
       },
       {
         "args": [

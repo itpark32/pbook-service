@@ -6,38 +6,56 @@
     "id": "python-practicum-loops"
   },
   "kind": "practicum",
-  "title": "10. Знак числа",
-  "statement": "Выведите `positive`, `negative` или `zero` в зависимости от числа.",
+  "title": "10. перебор пар",
+  "statement": "Практикум: перебор пар. Переберите все пары индексов с i меньше j и посчитайте нужные пары.\n\nТренируемый приём: вложенные циклы.",
   "difficulty": "standard",
-  "starterCode": "",
+  "starterCode": "def pair_count(...):\n    pass\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: перебор пар.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nif n > 0:\n    print('positive')\nelif n < 0:\n    print('negative')\nelse:\n    print('zero')",
+  "solution": "def pair_count(values, target):\n    count = 0\n    for i in range(len(values)):\n        for j in range(i + 1, len(values)):\n            if values[i] + values[j] == target:\n                count += 1\n    return count",
   "examples": [
     {
-      "input": "8\n",
-      "output": "positive\n"
+      "input": "[[1,2,3,4],5]",
+      "output": "2"
     }
   ],
   "judge": {
-    "type": "stdin_stdout",
-    "comparison": {
-      "mode": "normalized_text"
-    },
+    "type": "function",
+    "functionName": "pair_count",
     "tests": [
       {
-        "input": "8\n",
-        "expectedOutput": "positive\n"
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          5
+        ],
+        "expectedReturn": 2
       },
       {
-        "input": "-2\n",
-        "expectedOutput": "negative\n"
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
       },
       {
-        "input": "0\n",
-        "expectedOutput": "zero\n"
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          5
+        ],
+        "expectedReturn": 2
       }
     ]
   }

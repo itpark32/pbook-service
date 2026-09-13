@@ -6,38 +6,55 @@
     "id": "python-numbers-primes-gcd"
   },
   "kind": "checkpoint",
-  "title": "НОД",
-  "statement": "Верните наибольший общий делитель двух неотрицательных чисел.",
+  "title": "Делители для проверки",
+  "statement": "Верните все делители как способ проверить рассуждение о простоте числа.\n\nТренируемый приём: простые числа и алгоритм Евклида.",
   "difficulty": "challenge",
-  "starterCode": "def gcd(...):\n    pass\n",
+  "starterCode": "def divisors(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «простые числа и алгоритм Евклида».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a",
+  "solution": "def divisors(n):\n    return [value for value in range(1, n + 1) if n % value == 0]",
   "examples": [
     {
-      "input": "[18,24]",
-      "output": "6"
+      "input": "[6]",
+      "output": "[1,2,3,6]"
     }
   ],
   "judge": {
     "type": "function",
-    "functionName": "gcd",
+    "functionName": "divisors",
     "tests": [
       {
         "args": [
-          18,
-          24
+          6
         ],
-        "expectedReturn": 6
+        "expectedReturn": [
+          1,
+          2,
+          3,
+          6
+        ]
       },
       {
         "args": [
-          7,
-          0
+          1
         ],
-        "expectedReturn": 7
+        "expectedReturn": [
+          1
+        ]
+      },
+      {
+        "args": [
+          6
+        ],
+        "expectedReturn": [
+          1,
+          2,
+          3,
+          6
+        ]
       }
     ]
   }

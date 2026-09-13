@@ -6,13 +6,14 @@
     "id": "python-algorithms-selection-sort"
   },
   "kind": "checkpoint",
-  "title": "Полная сортировка выбором",
-  "statement": "Верните новый список, отсортированный выбором. `sorted()` и `.sort()` запрещены.",
+  "title": "Полный проход выбором",
+  "statement": "Соберите отсортированную копию последовательными поисками минимума.\n\nТренируемый приём: сортировка выбором.",
   "difficulty": "challenge",
   "starterCode": "def selection_sort(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «сортировка выбором».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "def selection_sort(values):\n    result = list(values)\n    for left in range(len(result)):\n        smallest = left\n        for i in range(left + 1, len(result)):\n            if result[i] < result[smallest]:\n                smallest = i\n        result[left], result[smallest] = result[smallest], result[left]\n    return result",
   "examples": [

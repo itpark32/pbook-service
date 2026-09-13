@@ -7,12 +7,13 @@
   },
   "kind": "checkpoint",
   "title": "Минимум монет",
-  "statement": "Верните минимальное число монет из denominations для суммы amount или -1.",
+  "statement": "Заполните таблицу минимальных количеств монет от нуля до нужной суммы.\n\nТренируемый приём: состояние, базу и переход динамического программирования.",
   "difficulty": "challenge",
   "starterCode": "def min_coins(...):\n    pass\n",
   "hints": [
-    "Сначала сформулируйте, что функция должна вернуть.",
-    "Проверьте пустые и граничные данные."
+    "Определите, какие данные нужны для шага «состояние, базу и переход динамического программирования».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
   "solution": "def min_coins(amount, denominations):\n    dp = [amount + 1] * (amount + 1)\n    dp[0] = 0\n    for value in range(1, amount + 1):\n        for coin in denominations:\n            if coin <= value:\n                dp[value] = min(dp[value], dp[value - coin] + 1)\n    return -1 if dp[amount] > amount else dp[amount]",
   "examples": [

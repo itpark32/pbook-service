@@ -6,19 +6,20 @@
     "id": "python-debugging-basics"
   },
   "kind": "guided",
-  "title": "Знак числа",
-  "statement": "Выведите `positive`, `negative` или `zero` в зависимости от числа.",
+  "title": "Исправьте метку чётности",
+  "statement": "Напишите короткую программу без перепутанной ветви для чётного и нечётного числа.\n\nТренируемый приём: чтение трассировки и проверка ветвей.",
   "difficulty": "intro",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Определите, какие данные нужны для шага «чтение трассировки и проверка ветвей».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
   ],
-  "solution": "n = int(input())\nif n > 0:\n    print('positive')\nelif n < 0:\n    print('negative')\nelse:\n    print('zero')",
+  "solution": "n = int(input())\nif n % 2 == 0:\n    print('even')\nelse:\n    print('odd')",
   "examples": [
     {
       "input": "8\n",
-      "output": "positive\n"
+      "output": "even\n"
     }
   ],
   "judge": {
@@ -29,15 +30,15 @@
     "tests": [
       {
         "input": "8\n",
-        "expectedOutput": "positive\n"
+        "expectedOutput": "even\n"
       },
       {
-        "input": "-2\n",
-        "expectedOutput": "negative\n"
+        "input": "-3\n",
+        "expectedOutput": "odd\n"
       },
       {
         "input": "0\n",
-        "expectedOutput": "zero\n"
+        "expectedOutput": "even\n"
       }
     ]
   }

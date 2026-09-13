@@ -75,12 +75,12 @@ export const lessons = [
 ];
 
 export const practicums = [
-  { id: "python-practicum-1", slug: "first-programs", title: "Практикум 1. Первые программы", batch: "A", count: 12 },
-  { id: "python-practicum-2", slug: "loops", title: "Практикум 2. Циклы", batch: "B", count: 15 },
-  { id: "python-practicum-3", slug: "data-structures", title: "Практикум 3. Строки и коллекции", batch: "C", count: 15 },
-  { id: "python-practicum-4", slug: "functions-files", title: "Практикум 4. Функции, рекурсия и файлы", batch: "D", count: 12 },
-  { id: "python-practicum-5", slug: "algorithms", title: "Практикум 5. Алгоритмы", batch: "E", count: 15 },
-  { id: "python-practicum-6", slug: "final", title: "Практикум 6. Итоговый", batch: "F", count: 20 }
+  { id: "python-practicum-first-programs", slug: "first-programs", title: "Практикум 1. Первые программы", batch: "A", count: 12 },
+  { id: "python-practicum-loops", slug: "loops", title: "Практикум 2. Циклы", batch: "B", count: 15 },
+  { id: "python-practicum-data", slug: "data", title: "Практикум 3. Строки и коллекции", batch: "C", count: 15 },
+  { id: "python-practicum-functions-files", slug: "functions-files", title: "Практикум 4. Функции, рекурсия и файлы", batch: "D", count: 12 },
+  { id: "python-practicum-algorithms", slug: "algorithms", title: "Практикум 5. Алгоритмы", batch: "E", count: 15 },
+  { id: "python-practicum-final", slug: "final", title: "Практикум 6. Итоговый", batch: "F", count: 20 }
 ];
 
 export const batchOrder = ["A", "B", "C", "D", "E", "F"];

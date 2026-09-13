@@ -6,19 +6,20 @@
     "id": "python-practicum-first-programs"
   },
   "kind": "practicum",
-  "title": "4. Сумма цифр",
-  "statement": "Дано трёхзначное неотрицательное число. Выведите сумму его цифр.",
+  "title": "4. периметр",
+  "statement": "Практикум: периметр. По цене и количеству вычислите стоимость набора.\n\nТренируемый приём: целые, вещественные числа и арифметические операции.",
   "difficulty": "intro",
-  "starterCode": "",
+  "starterCode": "# Напишите решение здесь.\n",
   "hints": [
-    "Разберите входные данные до вычислений.",
-    "Проверьте решение на граничном примере."
+    "Сначала вспомните основной приём: периметр.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
   ],
-  "solution": "n = int(input())\nprint(n // 100 + n // 10 % 10 + n % 10)",
+  "solution": "price, count = map(int, input().split())\nprint(price * count)",
   "examples": [
     {
-      "input": "247\n",
-      "output": "13\n"
+      "input": "120 3\n",
+      "output": "360\n"
     }
   ],
   "judge": {
@@ -28,12 +29,16 @@
     },
     "tests": [
       {
-        "input": "247\n",
-        "expectedOutput": "13\n"
+        "input": "120 3\n",
+        "expectedOutput": "360\n"
       },
       {
-        "input": "100\n",
-        "expectedOutput": "1\n"
+        "input": "7 0\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "120 3\n\n",
+        "expectedOutput": "360\n"
       }
     ]
   }

@@ -3,6 +3,8 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateContent } from "./validate-content.mjs";
+import { practicumProfiles, validateAuthoringProfiles } from "./exercise-factories.mjs";
+import { practicums } from "./curriculum-map.mjs";
 
 const projectRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const contentRoot = join(projectRoot, "content/python");
@@ -14,6 +16,10 @@ const walk = (directory) => readdirSync(directory, { withFileTypes: true }).flat
 
 const content = validateContent(contentRoot, { solutions: true });
 assert.deepEqual(content, { lessons: 47, exercises: 230, practicums: 6 });
+assert.deepEqual(validateAuthoringProfiles(), [], "authoring profiles must be complete");
+for (const practicum of practicums) {
+  assert.equal(practicumProfiles[practicum.id]?.length, practicum.count, `${practicum.id} needs its explicit curated task count`);
+}
 
 const course = json(join(contentRoot, "course.json"));
 const sourceManifest = json(join(contentRoot, "source-manifest.json"));
