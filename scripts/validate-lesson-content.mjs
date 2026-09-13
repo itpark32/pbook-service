@@ -45,8 +45,10 @@ for (const lesson of lessons) {
   const headings = [...text.matchAll(/^#{2,} (.+)$/gm)].map((match) => match[1].trim());
   if (headings.some((heading) => !heading) || new Set(headings).size !== headings.length) errors.push(`${label}: duplicate or empty heading`);
   if (/^(!!!|\?\?\?)\s|\{\.[^}]+\}/m.test(text)) errors.push(`${label}: MkDocs-only syntax remains`);
-  if (/Это важно именно для темы|Полезно знать:\s*практику из урока|нужен, когда решение зависит не от угадывания/i.test(text)) {
-    errors.push(`${label}: v4 template boilerplate remains`);
+  if (
+    /Это важно именно для темы|В этой теме это относится к умению|Здесь важно увидеть конкретный механизм|Полезно знать:\s*(?:практику из урока|сначала выполните Guided 1)|конструкции предыдущего урока|нужен, когда решение зависит не от угадывания/i.test(text)
+  ) {
+    errors.push(`${label}: synthetic lesson boilerplate remains`);
   }
   const fences = [...text.matchAll(/```python\n([\s\S]*?)```/g)];
   if (fences.length < 2 || fences.length > 4) errors.push(`${label}: expected 2–4 Python examples`);
