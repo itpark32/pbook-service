@@ -6,7 +6,7 @@ import type {
 } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Link, Navigate, Route, Routes, useParams, useSearchParams } from "react-router-dom";
+import { Link, Route, Routes, useParams, useSearchParams } from "react-router-dom";
 import { courseEntries, loadLessonContent } from "./content";
 import type { LessonContent } from "./content";
 import { judgeFiles, judgeFunction, judgeStdinStdout } from "./lib/judge";
@@ -56,8 +56,8 @@ function Output({
         className={`result ${judge.passed ? "result--success" : "result--error"}`}
         aria-live="polite"
       >
-        <strong>{judge.passed ? "Готово" : "Нужно исправить"}</strong>
-        <p>{judge.message}</p>
+        <strong>{judge.passed ? "Все тесты пройдены" : "Есть ошибка"}</strong>
+        <p>{judge.passed ? "Решение принято." : "Посмотрите, на каком тесте результат отличается от ожидаемого."}</p>
         {judge.tests.length > 0 && (
           <details className="judge-report" open>
             <summary>Протокол тестов</summary>
@@ -141,6 +141,7 @@ function ExerciseWorkspace({
   );
   const [isSolutionDialogOpen, setSolutionDialogOpen] = useState(false);
   const [selectedFileExample, setSelectedFileExample] = useState(0);
+  const [visibleHints, setVisibleHints] = useState(1);
   const solutionButtonRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -152,6 +153,7 @@ function ExerciseWorkspace({
     setSolutionVisible(guestProgress.solutionRevealed(exercise.id));
     setSolutionDialogOpen(false);
     setSelectedFileExample(0);
+    setVisibleHints(1);
   }, [exercise]);
   useEffect(() => {
     let active = true;
@@ -212,7 +214,7 @@ function ExerciseWorkspace({
     setResult(next);
     setPythonStatus(
       next.kind === "timeout"
-        ? "Worker пересоздан; Python загрузится при следующем запуске"
+        ? "Программа выполняется слишком долго. Возможно, цикл не завершается или алгоритм делает слишком много операций. Python будет готов при следующем запуске."
         : "Python готов"
     );
     setRunning(false);
@@ -281,7 +283,7 @@ function ExerciseWorkspace({
       <div className="workspace-header">
         <div>
           <p className="eyebrow">
-            {exercise.kind === "checkpoint" ? "Контрольная задача" : "Практика"}
+            {exercise.kind === "checkpoint" ? "Самостоятельно" : exercise.id.endsWith("guided-1") ? "Шаг 1 · Новый приём" : "Шаг 2 · Перенос навыка"}
           </p>
           <h2>{exercise.title}</h2>
         </div>
@@ -289,12 +291,14 @@ function ExerciseWorkspace({
       </div>
       <p>{exercise.statement}</p>
       <details>
-        <summary>Подсказки</summary>
+        <summary>Нужна подсказка?</summary>
+        <p>Используйте подсказки по одной. После каждой попробуйте продолжить самостоятельно.</p>
         <ol>
-          {exercise.hints.map((hint) => (
+          {exercise.hints.slice(0, visibleHints).map((hint) => (
             <li key={hint}>{hint}</li>
           ))}
         </ol>
+        {visibleHints < exercise.hints.length && <button type="button" className="link-button" onClick={() => setVisibleHints((count) => count + 1)}>Показать ещё подсказку</button>}
       </details>
       {exercise.judge.type === "stdin_stdout" ? (
         <>
@@ -377,10 +381,9 @@ function ExerciseWorkspace({
           {solutionVisible ? "Решение открыто" : "Решение"}
         </button>
       </div>
+      <p className="muted">Запустить — на ваших входных данных. Проверить — на наборе тестов, включая другие случаи.</p>
       {solutionVisible && (
-        <pre className="solution">
-          <code>{exercise.solution}</code>
-        </pre>
+        <section><p className="eyebrow">Разберите решение</p><p className="muted">Сравните его со своей попыткой: где алгоритм начал отличаться?</p><pre className="solution"><code>{exercise.solution}</code></pre></section>
       )}
       <Output result={result} judge={judge} />
       {isSolutionDialogOpen && (
@@ -405,8 +408,7 @@ function ExerciseWorkspace({
             </div>
             <h3 id="solution-dialog-title">Показать готовое решение?</h3>
             <p id="solution-dialog-description">
-              Сначала попробуйте найти ошибку сами или воспользуйтесь подсказкой. Решение поможет
-              разобраться, но лучше сначала сделать ещё одну попытку.
+              Сначала попробуйте следующую подсказку или проверьте алгоритм на маленьком примере. Если всё равно не получается, откройте решение и разберите, зачем нужна каждая часть.
             </p>
             <div className="solution-dialog__actions">
               <button
@@ -414,7 +416,7 @@ function ExerciseWorkspace({
                 className="button button--secondary"
                 onClick={closeSolutionDialog}
               >
-                Отмена
+                Вернуться к задаче
               </button>
               <button type="button" className="button" onClick={confirmRevealSolution}>
                 Показать решение
@@ -684,7 +686,7 @@ function LessonPage({
               {exercises.map((exercise, index) => {
                 const isActive = activeId === exercise.id;
                 const isCompleted = completedExerciseIds.has(exercise.id);
-                const title = exercise.kind === "checkpoint" ? "Контрольная" : exercise.title;
+                const title = exercise.kind === "checkpoint" ? "Самостоятельно" : index === 0 ? "Шаг 1 · Новый приём" : "Шаг 2 · Перенос навыка";
                 return (
                   <button
                     type="button"
@@ -721,6 +723,7 @@ function LessonPage({
 }
 
 function Home({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme: () => void }) {
+  useEffect(() => { document.title = "Python для школьников — IT-ПАРК"; }, []);
   return (
     <>
       <header className="topbar topbar--home">
@@ -738,22 +741,21 @@ function Home({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme
       <main className="home home--landing">
         <section className="home-hero" aria-labelledby="home-title">
           <p className="eyebrow">Интерактивный курс IT-ПАРКА</p>
-          <h1 id="home-title">Python: от первой программы до алгоритмов</h1>
+          <h1 id="home-title">Python для школьников: от первой программы до алгоритмов</h1>
           <p className="home-lead">
-            Это курс программирования для школьников: разбирайте алгоритмы, пишите код,
-            проверяйте себя и находите ошибки прямо в браузере.
+            Короткая теория, код прямо в браузере, задачи с автоматической проверкой и практикумы, где способ решения нужно выбрать самостоятельно.
           </p>
           <div className="home-actions">
             <Link className="button home-start" to="/python/basics/input-output">
-              Начать изучение <span aria-hidden="true">→</span>
+              Начать с первого урока <span aria-hidden="true">→</span>
             </Link>
           </div>
-          <p className="home-note">Начнём с ввода, вывода и первых переменных. Аккаунт не нужен, чтобы попробовать урок.</p>
+          <p className="home-note">Начать можно без регистрации. Аккаунт нужен, чтобы сохранять прогресс между устройствами и работать с преподавателем.</p>
         </section>
         <section className="home-principles" aria-label="Как устроено обучение">
           <article>
             <span aria-hidden="true">01</span>
-            <h2>Понимайте</h2>
+            <h2>Разберитесь</h2>
             <p>
               Короткая теория и примеры объясняют не только как написать код, но и почему он
               работает.
@@ -761,14 +763,14 @@ function Home({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme
           </article>
           <article>
             <span aria-hidden="true">02</span>
-            <h2>Пробуйте</h2>
+            <h2>Примените</h2>
             <p>
               Решайте задачи в редакторе, запускайте программы и разбирайте результат каждого теста.
             </p>
           </article>
           <article>
             <span aria-hidden="true">03</span>
-            <h2>Закрепляйте</h2>
+            <h2>Проверьте себя</h2>
             <p>
               Контрольная задача помогает перенести навык в новую ситуацию, а прогресс сохраняется.
             </p>
@@ -824,8 +826,14 @@ function LessonRoute({ theme, onToggleTheme }: { theme: "light" | "dark"; onTogg
     loadLessonContent(path).then((next) => { if (live) setContent(next ?? null); }).catch(() => { if (live) setContent(null); });
     return () => { live = false; };
   }, [path]);
+  useEffect(() => { if (content) document.title = `${content.lesson.title} — Python для школьников | IT-ПАРК`; }, [content]);
   if (!content) return <main className="lesson-loading" aria-live="polite">Загружаем урок…</main>;
   return <LessonPage key={content.lesson.id} content={content} theme={theme} onToggleTheme={onToggleTheme} />;
+}
+
+function NotFound() {
+  useEffect(() => { document.title = "Страница не найдена — IT-ПАРК"; }, []);
+  return <main className="lesson-loading"><h1>Страница не найдена</h1><p>Возможно, ссылка устарела или в адресе есть ошибка.</p><p><Link className="button" to="/">На главную</Link> <Link className="button button--secondary" to="/python/basics/input-output">К курсу</Link></p></main>;
 }
 
 function ProgressMigration() {
@@ -884,7 +892,7 @@ export default function App() {
       <Route path="/teacher/groups" element={<TeacherGroupsPage theme={theme} onToggleTheme={toggleTheme} />} />
       <Route path="/admin" element={<AdminPage theme={theme} onToggleTheme={toggleTheme} />} />
       <Route path="/python/:sectionId/:slug" element={<LessonRoute theme={theme} onToggleTheme={toggleTheme} />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<NotFound />} />
     </Routes></>
   );
 }

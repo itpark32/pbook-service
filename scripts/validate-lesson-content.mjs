@@ -7,6 +7,7 @@ import { lessons } from "./curriculum-map.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "content-source/python/sections");
+const practicumSourceRoot = join(root, "content-source/python/practicums");
 const generatedRoot = join(root, "content/python/sections");
 const errors = [];
 const hash = (value) => createHash("sha256").update(value).digest("hex");
@@ -17,6 +18,15 @@ let previousParagraphs = new Set();
 
 function paragraphs(text) {
   return text.replace(/```[\s\S]*?```/g, "").split(/\n\s*\n/).map((part) => part.replace(/\s+/g, " ").trim()).filter((part) => part.length >= 120 && !part.startsWith("#") && !part.startsWith(">"));
+}
+
+function normalizeParagraph(text, lesson) {
+  return text
+    .replaceAll(lesson.title, "<title>")
+    .replace(new RegExp(lesson.id, "g"), "<id>")
+    .replace(/[«»"']/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 for (const lesson of lessons) {
@@ -35,6 +45,9 @@ for (const lesson of lessons) {
   const headings = [...text.matchAll(/^#{2,} (.+)$/gm)].map((match) => match[1].trim());
   if (headings.some((heading) => !heading) || new Set(headings).size !== headings.length) errors.push(`${label}: duplicate or empty heading`);
   if (/^(!!!|\?\?\?)\s|\{\.[^}]+\}/m.test(text)) errors.push(`${label}: MkDocs-only syntax remains`);
+  if (/Это важно именно для темы|Полезно знать:\s*практику из урока|нужен, когда решение зависит не от угадывания/i.test(text)) {
+    errors.push(`${label}: v4 template boilerplate remains`);
+  }
   const fences = [...text.matchAll(/```python\n([\s\S]*?)```/g)];
   if (fences.length < 2 || fences.length > 4) errors.push(`${label}: expected 2–4 Python examples`);
   for (const [index, fence] of fences.entries()) {
@@ -51,7 +64,7 @@ for (const lesson of lessons) {
   for (const token of disallow) if (codeText.includes(token)) errors.push(`${label}: forbidden future construct ${token}`);
   const current = new Set();
   for (const paragraph of paragraphs(text)) {
-    const digest = hash(paragraph);
+    const digest = hash(normalizeParagraph(paragraph, lesson));
     if (paragraphHashes.has(digest)) errors.push(`${label}: repeats a long paragraph from ${paragraphHashes.get(digest)}`);
     if (previousParagraphs.has(digest)) errors.push(`${label}: repeats a long paragraph from preceding lesson`);
     paragraphHashes.set(digest, label);
@@ -62,5 +75,12 @@ for (const lesson of lessons) {
 
 const sourceCount = lessons.reduce((count, lesson) => count + Number(existsSync(sourceFor(lesson))), 0);
 if (sourceCount !== 49) errors.push(`expected 49 authored sources, got ${sourceCount}`);
+const practicumSlugs = ["first-programs", "loops", "data", "functions-files", "algorithms", "final"];
+for (const slug of practicumSlugs) {
+  const source = join(practicumSourceRoot, `${slug}.md`);
+  const generated = join(root, "content/python/practicums", slug, "practicum.md");
+  if (!existsSync(source) || !existsSync(generated)) errors.push(`practicum ${slug}: authored and generated intro are required`);
+  else if (readFileSync(source, "utf8").trimEnd() !== readFileSync(generated, "utf8").trimEnd()) errors.push(`practicum ${slug}: generated intro differs from source`);
+}
 if (errors.length) throw new Error(`Lesson-content validation failed:\n- ${errors.join("\n- ")}`);
 console.log("Lesson content valid: 49 authored sources, generated theory matches, boundaries checked.");

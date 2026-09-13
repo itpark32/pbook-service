@@ -23,6 +23,7 @@ const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 const ensureDirectory = (path) => mkdirSync(path, { recursive: true });
 const authoredPath = (item) => join(projectRoot, "content-source/python/sections", item.sectionId, `${item.slug}.md`);
+const practicumSourcePath = (item) => join(projectRoot, "content-source/python/practicums", `${item.slug}.md`);
 
 function lessonMarkdown(item) {
   const path = authoredPath(item);
@@ -49,11 +50,15 @@ function writeLesson(item, writeExercises) {
   exercises.forEach((exercise, index) => writeFileSync(join(exerciseDirectory, index === 2 ? "checkpoint.json" : `${String(index + 1).padStart(2, "0")}-guided.json`), json(exercise)));
 }
 
-function writePracticum(definition) {
+function writePracticum(definition, writeExercises = true) {
   const directory = join(contentRoot, "practicums", definition.slug);
   const exercises = practicumExercises(definition);
   ensureDirectory(join(directory, "exercises"));
+  const introPath = practicumSourcePath(definition);
+  if (!existsSync(introPath)) throw new Error(`${definition.id}: authored practicum intro is missing`);
+  writeFileSync(join(directory, "practicum.md"), `${readFileSync(introPath, "utf8").replace(/\r\n?/g, "\n").trimEnd()}\n`);
   const availableLessons = includedLessons.filter((item) => batches.indexOf(item.batch) <= batches.indexOf(definition.batch));
+  if (!writeExercises) return;
   writeFileSync(join(directory, "practicum.json"), json({ schemaVersion: 1, id: definition.id, title: definition.title, slug: definition.slug, skillIds: [...new Set(availableLessons.flatMap((item) => item.skillIds))], exerciseOrder: exercises.map((exercise) => exercise.id) }));
   exercises.forEach((exercise, index) => writeFileSync(join(directory, "exercises", `${String(index + 1).padStart(2, "0")}.json`), json(exercise)));
 }
@@ -93,13 +98,13 @@ function writeFrontendCatalog() {
 if (reset) for (const path of [join(contentRoot, "sections"), join(contentRoot, "practicums")]) if (existsSync(path) && statSync(path).isDirectory()) rmSync(path, { recursive: true });
 ensureDirectory(contentRoot);
 for (const item of includedLessons) writeLesson(item, !theoryOnly);
+for (const practicum of includedPracticums) writePracticum(practicum, !theoryOnly);
 const course = buildCourse();
 const manifest = sourceManifest();
 writeFileSync(join(contentRoot, "source-manifest.json"), json(manifest));
 writeReports(manifest, course);
+writeFileSync(join(contentRoot, "course.json"), json(course));
 if (!theoryOnly) {
-  for (const practicum of includedPracticums) writePracticum(practicum);
-  writeFileSync(join(contentRoot, "course.json"), json(course));
   writeBackendCatalog();
   writeFrontendCatalog();
 }

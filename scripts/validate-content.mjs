@@ -252,6 +252,10 @@ export function validateContent(contentRoot = DEFAULT_ROOT, options = {}) {
   if (course.schemaVersion !== 1) errors.push("course.json: unsupported schemaVersion");
   const knownSkills = new Set(skills.ids ?? []);
   const sectionIds = addUnique(course.sections ?? [], "course sections", errors);
+  for (const section of course.sections ?? []) {
+    if (typeof section.description !== "string" || section.description.trim().length < 20) errors.push(`section ${section.id}: description is required`);
+    if (typeof section.outcome !== "string" || section.outcome.trim().length < 10) errors.push(`section ${section.id}: outcome is required`);
+  }
   const practicumEntries = course.practicums ?? [];
   const coursePracticumIds = addUnique(practicumEntries, "course practicums", errors);
 

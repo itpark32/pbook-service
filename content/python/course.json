@@ -55,6 +55,8 @@
     {
       "id": "basics",
       "title": "Основы Python",
+      "description": "Данные, переменные и выражения — из них собирается первая программа.",
+      "outcome": "читать ввод и получать осмысленный результат",
       "lessonIds": [
         "python-basics-input-output",
         "python-basics-types-arithmetic",
@@ -65,6 +67,8 @@
     {
       "id": "branches",
       "title": "Ветвления и отладка",
+      "description": "Программа учится выбирать действие и находить ошибки в уже знакомом коде.",
+      "outcome": "писать условия и проверять логику",
       "lessonIds": [
         "python-branches-if-else",
         "python-branches-elif-ranges",
@@ -75,6 +79,8 @@
     {
       "id": "loops",
       "title": "Циклы и последовательности",
+      "description": "Повторяем действия и храним состояние по мере обработки данных.",
+      "outcome": "считать, накапливать и трассировать последовательности",
       "lessonIds": [
         "python-loops-while",
         "python-loops-for-range",
@@ -88,6 +94,8 @@
     {
       "id": "strings",
       "title": "Строки",
+      "description": "Знакомые алгоритмы работают и для последовательностей символов.",
+      "outcome": "обрабатывать символы и серии",
       "lessonIds": [
         "python-strings-basics",
         "python-strings-methods-slices",
@@ -98,6 +106,8 @@
     {
       "id": "lists",
       "title": "Списки и матрицы",
+      "description": "Храним наборы данных, ищем в них и рассматриваем соседние элементы.",
+      "outcome": "анализировать списки и таблицы",
       "lessonIds": [
         "python-lists-basics",
         "python-lists-mutation",
@@ -111,6 +121,8 @@
     {
       "id": "collections",
       "title": "Коллекции и структуры данных",
+      "description": "Выбираем структуру под порядок, уникальность и доступ по ключу.",
+      "outcome": "использовать множества, словари, стек и очередь",
       "lessonIds": [
         "python-collections-sets",
         "python-collections-dicts-frequency",
@@ -120,6 +132,8 @@
     {
       "id": "functions",
       "title": "Функции",
+      "description": "Разделяем решение на понятные части с входом и результатом.",
+      "outcome": "проектировать небольшие функции",
       "lessonIds": [
         "python-functions-basics",
         "python-functions-scope-decomposition"
@@ -128,6 +142,8 @@
     {
       "id": "recursion",
       "title": "Рекурсия",
+      "description": "Решаем задачу через меньшую версию той же задачи.",
+      "outcome": "задавать базу и рекурсивный переход",
       "lessonIds": [
         "python-recursion-basics",
         "python-recursion-calculations"
@@ -136,6 +152,8 @@
     {
       "id": "files",
       "title": "Файлы",
+      "description": "Применяем знакомые алгоритмы к данным, которые живут вне программы.",
+      "outcome": "читать и записывать текстовые данные",
       "lessonIds": [
         "python-files-basics",
         "python-files-numbers",
@@ -145,6 +163,8 @@
     {
       "id": "algorithms",
       "title": "Поиск и сортировка",
+      "description": "Сравниваем способы поиска и упорядочивания данных.",
+      "outcome": "выбирать поиск и сортировку по условию",
       "lessonIds": [
         "python-algorithms-binary-search",
         "python-algorithms-selection-sort",
@@ -154,6 +174,8 @@
     {
       "id": "numbers",
       "title": "Числовые алгоритмы",
+      "description": "Исследуем свойства целых чисел и позиционные системы.",
+      "outcome": "работать с делителями, НОД и основаниями",
       "lessonIds": [
         "python-numbers-divisibility-divisors",
         "python-numbers-primes-gcd",
@@ -163,6 +185,8 @@
     {
       "id": "efficiency",
       "title": "Перебор и эффективность",
+      "description": "Оцениваем варианты до запуска программы на больших данных.",
+      "outcome": "видеть стоимость алгоритма",
       "lessonIds": [
         "python-brute-force-basics",
         "python-complexity-basics"
@@ -171,6 +195,8 @@
     {
       "id": "dp",
       "title": "Динамическое программирование",
+      "description": "Строим ответ по состояниям, базовым случаям и переходам.",
+      "outcome": "проектировать таблицу динамики",
       "lessonIds": [
         "python-dp-basics"
       ]
@@ -178,6 +204,8 @@
     {
       "id": "graphs",
       "title": "Графы",
+      "description": "Описываем связи, обходим вершины и выбираем алгоритм пути.",
+      "outcome": "решать задачи на графах",
       "lessonIds": [
         "python-graphs-basics",
         "python-graphs-traversal",

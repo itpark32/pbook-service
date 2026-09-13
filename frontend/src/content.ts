@@ -12,7 +12,7 @@ export type LessonContent = {
 };
 
 type Course = {
-  sections: { id: string; title: string; lessonIds: string[] }[];
+  sections: { id: string; title: string; description: string; outcome: string; lessonIds: string[] }[];
   practicums: { id: string; title: string; path: string }[];
   sequence: { type: "section" | "practicum"; id: string }[];
 };
@@ -49,6 +49,9 @@ const exerciseModules = import.meta.glob("../../content/python/**/exercises/*.js
   import: "default"
 }) as Record<string, () => Promise<Exercise>>;
 const markdownModules = import.meta.glob("../../content/python/sections/**/lesson.md", {
+  as: "raw"
+}) as Record<string, () => Promise<string>>;
+const practicumMarkdownModules = import.meta.glob("../../content/python/practicums/**/practicum.md", {
   as: "raw"
 }) as Record<string, () => Promise<string>>;
 const fixtureModules = import.meta.glob("../../content/python/fixtures/**/*", {
@@ -155,7 +158,7 @@ export async function loadLessonContent(path: string): Promise<LessonContent | u
     return {
       ...entry,
       exercises: await exercisesFor(entry.lesson.exerciseOrder),
-      markdown: `# ${entry.lesson.title}\n\nРешите задачи по порядку. Если застряли, вернитесь к уроку соответствующего раздела и разберите пример ещё раз.`
+      markdown: (await Object.entries(practicumMarkdownModules).find(([file]) => file.endsWith(`/practicums/${entry.lesson.slug}/practicum.md`))?.[1]?.()) ?? ""
     };
   }
   const sourcePath = Object.entries(lessonModules).find(([, lesson]) => lesson.id === entry.lesson.id)?.[0];
