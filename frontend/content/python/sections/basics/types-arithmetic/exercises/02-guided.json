@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-basics-types-arithmetic-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-basics-types-arithmetic"
+  },
+  "kind": "guided",
+  "title": "Рамка участка",
+  "statement": "По двум сторонам прямоугольника найдите длину его рамки.\n\nТренируемый приём: целые, вещественные числа и арифметические операции.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «целые, вещественные числа и арифметические операции».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "a, b = map(int, input().split())\nprint(2 * (a + b))",
+  "examples": [
+    {
+      "input": "3 5\n",
+      "output": "16\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "3 5\n",
+        "expectedOutput": "16\n"
+      },
+      {
+        "input": "1 1\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "3 5\n\n",
+        "expectedOutput": "16\n"
+      }
+    ]
+  }
+}

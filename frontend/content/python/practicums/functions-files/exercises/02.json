@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-functions-files-task-02",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-functions-files"
+  },
+  "kind": "practicum",
+  "title": "2. сравнение параметров",
+  "statement": "Практикум: сравнение параметров. Верните большее из двух чисел с помощью if, не вызывая max.\n\nТренируемый приём: параметры и return.",
+  "difficulty": "intro",
+  "starterCode": "def max_of_two(...):\n    pass\n",
+  "hints": [
+    "Сначала вспомните основной приём: сравнение параметров.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "def max_of_two(a, b):\n    if a > b:\n        return a\n    return b",
+  "examples": [
+    {
+      "input": "[2,7]",
+      "output": "7"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "max_of_two",
+    "tests": [
+      {
+        "args": [
+          2,
+          7
+        ],
+        "expectedReturn": 7
+      },
+      {
+        "args": [
+          5,
+          5
+        ],
+        "expectedReturn": 5
+      },
+      {
+        "args": [
+          -1,
+          -3
+        ],
+        "expectedReturn": -1
+      }
+    ],
+    "structuralConstraints": {
+      "forbidCalls": [
+        "max"
+      ]
+    }
+  }
+}

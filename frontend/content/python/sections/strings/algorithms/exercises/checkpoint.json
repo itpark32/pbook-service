@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-algorithms-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-algorithms"
+  },
+  "kind": "checkpoint",
+  "title": "Самая длинная серия",
+  "statement": "Храните длину текущей серии и лучший результат при одном проходе.\n\nТренируемый приём: проход по символам и состояние.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «проход по символам и состояние».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "text = input()\nbest = 0\ncurrent = 0\nprevious = None\nfor char in text:\n    if char == previous:\n        current += 1\n    else:\n        previous = char\n        current = 1\n    if current > best:\n        best = current\nprint(best)",
+  "examples": [
+    {
+      "input": "aaabbc\n",
+      "output": "3\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "aaabbc\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "x\n",
+        "expectedOutput": "1\n"
+      }
+    ]
+  }
+}

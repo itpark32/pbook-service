@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-01",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "1. частота буквы",
+  "statement": "Практикум: частота буквы. Посчитайте количество букв a в одной введённой строке.\n\nТренируемый приём: строки, индексы и длину.",
+  "difficulty": "intro",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: частота буквы.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "text = input()\ncount = 0\nfor char in text:\n    if char == 'a':\n        count += 1\nprint(count)",
+  "examples": [
+    {
+      "input": "abracadabra\n",
+      "output": "5\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "abracadabra\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "Python\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "aaa\n",
+        "expectedOutput": "3\n"
+      }
+    ]
+  }
+}

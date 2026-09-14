@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-loops-task-05",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-loops"
+  },
+  "kind": "practicum",
+  "title": "5. сумма чётных",
+  "statement": "Практикум: сумма чётных. Сложите только чётные элементы, не используя готовую агрегацию.\n\nТренируемый приём: накопитель суммы и счётчика.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: сумма чётных.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value for value in values[:n] if value % 2 == 0))",
+  "examples": [
+    {
+      "input": "5\n1 2 3 4 5\n",
+      "output": "6\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n1 2 3 4 5\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "3\n1 3 5\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "5\n1 2 3 4 5\n\n",
+        "expectedOutput": "6\n"
+      }
+    ]
+  }
+}

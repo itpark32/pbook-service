@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-loops-task-14",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-loops"
+  },
+  "kind": "practicum",
+  "title": "14. счётчик значений",
+  "statement": "Практикум: счётчик значений. Сначала посчитайте нужные элементы, затем выведите накопленный счётчик.\n\nТренируемый приём: ручное обновление экстремума и суммы.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: счётчик значений.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nprint(sum(value > 0 for value in values[:n]))",
+  "examples": [
+    {
+      "input": "5\n-1 2 0 3 4\n",
+      "output": "3\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n-1 2 0 3 4\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "0\n\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "5\n-1 2 0 3 4\n\n",
+        "expectedOutput": "3\n"
+      }
+    ]
+  }
+}

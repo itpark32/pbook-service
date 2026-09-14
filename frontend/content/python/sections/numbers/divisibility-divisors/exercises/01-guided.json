@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-numbers-divisibility-divisors-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-numbers-divisibility-divisors"
+  },
+  "kind": "guided",
+  "title": "Проверка кратности",
+  "statement": "По остатку при делении определите, соответствует ли число условию кратности.\n\nТренируемый приём: делимость и делители.",
+  "difficulty": "intro",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «делимость и делители».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n = int(input())\nprint('YES' if n > 0 and n % 3 == 0 else 'NO')",
+  "examples": [
+    {
+      "input": "12\n",
+      "output": "YES\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "12\n",
+        "expectedOutput": "YES\n"
+      },
+      {
+        "input": "-3\n",
+        "expectedOutput": "NO\n"
+      },
+      {
+        "input": "10\n",
+        "expectedOutput": "NO\n"
+      }
+    ]
+  }
+}

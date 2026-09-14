@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-13",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "13. линейный поиск",
+  "statement": "Практикум: линейный поиск. Решите задачу за линейный проход и отметьте, что число проверок растёт как N.\n\nТренируемый приём: оценку числа операций.",
+  "difficulty": "intro",
+  "starterCode": "def find_first(...):\n    pass\n",
+  "hints": [
+    "Сначала вспомните основной приём: линейный поиск.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "def find_first(values, target):\n    for i, value in enumerate(values):\n        if value == target:\n            return i\n    return -1",
+  "examples": [
+    {
+      "input": "[[4,2,4],4]",
+      "output": "0"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "find_first",
+    "tests": [
+      {
+        "args": [
+          [
+            4,
+            2,
+            4
+          ],
+          4
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          [
+            1,
+            2
+          ],
+          9
+        ],
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          [],
+          1
+        ],
+        "expectedReturn": -1
+      }
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "python-graphs-paths-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-graphs-paths"
+  },
+  "kind": "checkpoint",
+  "title": "Один кратчайший путь",
+  "statement": "После BFS восстановите последовательность вершин от финиша к старту.\n\nТренируемый приём: пути и расстояния в невзвешенном графе.",
+  "difficulty": "challenge",
+  "starterCode": "def shortest_path(...):\n    pass\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «пути и расстояния в невзвешенном графе».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "def shortest_path(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    parent = {start: None}\n    queue = [start]\n    for vertex in queue:\n        for neighbour in graph[vertex]:\n            if neighbour not in parent:\n                parent[neighbour] = vertex\n                queue.append(neighbour)\n    if finish not in parent:\n        return []\n    path = []\n    vertex = finish\n    while vertex is not None:\n        path.append(vertex)\n        vertex = parent[vertex]\n    return path[::-1]",
+  "examples": [
+    {
+      "input": "[4,[[0,1],[1,3],[0,2],[2,3]],0,3]",
+      "output": "[0,1,3]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "shortest_path",
+    "tests": [
+      {
+        "args": [
+          4,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          0,
+          3
+        ],
+        "expectedReturn": [
+          0,
+          1,
+          3
+        ]
+      },
+      {
+        "args": [
+          3,
+          [
+            [
+              0,
+              1
+            ]
+          ],
+          0,
+          2
+        ],
+        "expectedReturn": []
+      },
+      {
+        "args": [
+          4,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          0,
+          3
+        ],
+        "expectedReturn": [
+          0,
+          1,
+          3
+        ]
+      }
+    ]
+  }
+}

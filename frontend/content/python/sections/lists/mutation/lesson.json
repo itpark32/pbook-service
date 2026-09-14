@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-mutation",
+  "sectionId": "lists",
+  "title": "Изменение списков",
+  "slug": "mutation",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_c",
+    "sk19"
+  ],
+  "skillIds": [
+    "SK19"
+  ],
+  "sourcePaths": [
+    "docs/lists/basics.md"
+  ],
+  "localSourcePath": "content-source/python/sections/lists/mutation.md",
+  "exerciseOrder": [
+    "python-lists-mutation-guided-1",
+    "python-lists-mutation-guided-2",
+    "python-lists-mutation-checkpoint"
+  ],
+  "checkpointExerciseId": "python-lists-mutation-checkpoint"
+}

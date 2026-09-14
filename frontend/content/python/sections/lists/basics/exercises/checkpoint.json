@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-basics-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-basics"
+  },
+  "kind": "checkpoint",
+  "title": "Положительная сумма",
+  "statement": "Пройдите список и сложите только положительные значения.\n\nТренируемый приём: создание списка, индексы и проход.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «создание списка, индексы и проход».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ntotal = 0\nfor value in values[:n]:\n    if value > 0:\n        total += value\nprint(total)",
+  "examples": [
+    {
+      "input": "3\n1 -2 3\n",
+      "output": "4\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "3\n1 -2 3\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "2\n-5 0\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "0\n\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

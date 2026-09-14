@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-functions-files-task-10",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-functions-files"
+  },
+  "kind": "practicum",
+  "title": "10. самая длинная строка",
+  "statement": "Практикум: самая длинная строка. Обработайте построчный текст и запишите ответ без завершающего перевода строки.\n\nТренируемый приём: текстовые файлы и строки.",
+  "difficulty": "challenge",
+  "starterCode": "# Файлы уже находятся в рабочей папке.\n",
+  "hints": [
+    "Сначала вспомните основной приём: самая длинная строка.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "with open('lines.txt', encoding='utf-8') as source:\n    lines = [line.rstrip('\\n') for line in source]\nanswer = max(lines, key=len, default='')\nwith open('answer.txt', 'w', encoding='utf-8') as target:\n    target.write(answer)",
+  "examples": [],
+  "fileExamples": [
+    {
+      "title": "Пример файлов",
+      "files": [
+        {
+          "path": "lines.txt",
+          "content": "кот\nпрограммирование\nкод\n"
+        }
+      ]
+    }
+  ],
+  "judge": {
+    "type": "files",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
+      },
+      {
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
+      },
+      {
+        "inputFiles": [
+          {
+            "path": "lines.txt",
+            "content": "кот\nпрограммирование\nкод\n"
+          }
+        ],
+        "expectedFiles": [
+          {
+            "path": "answer.txt",
+            "content": "программирование"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-loops-accumulators-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-loops-accumulators"
+  },
+  "kind": "checkpoint",
+  "title": "Сумма последовательности",
+  "statement": "Организуйте отдельную переменную-накопитель для суммы от 1 до N.\n\nТренируемый приём: накопитель суммы и счётчика.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «накопитель суммы и счётчика».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n = int(input())\ntotal = 0\nfor value in range(1, n + 1):\n    total += value\nprint(total)",
+  "examples": [
+    {
+      "input": "5\n",
+      "output": "15\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n",
+        "expectedOutput": "15\n"
+      },
+      {
+        "input": "0\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "5\n\n",
+        "expectedOutput": "15\n"
+      }
+    ]
+  }
+}

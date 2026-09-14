@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-collections-stack-queue",
+  "sectionId": "collections",
+  "title": "Стек и очередь",
+  "slug": "stack-queue",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_c",
+    "sk26"
+  ],
+  "skillIds": [
+    "SK26"
+  ],
+  "sourcePaths": [
+    "docs/collections/tuples-sets.md"
+  ],
+  "localSourcePath": "content-source/python/sections/collections/stack-queue.md",
+  "exerciseOrder": [
+    "python-collections-stack-queue-guided-1",
+    "python-collections-stack-queue-guided-2",
+    "python-collections-stack-queue-checkpoint"
+  ],
+  "checkpointExerciseId": "python-collections-stack-queue-checkpoint"
+}

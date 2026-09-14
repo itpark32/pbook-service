@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-branches-if-else-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-branches-if-else"
+  },
+  "kind": "guided",
+  "title": "Порог зачёта",
+  "statement": "Сравните балл с проходным значением и выведите результат.\n\nТренируемый приём: две взаимоисключающие ветви.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «две взаимоисключающие ветви».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "score = int(input())\nif score >= 60:\n    print('PASS')\nelse:\n    print('FAIL')",
+  "examples": [
+    {
+      "input": "60\n",
+      "output": "PASS\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "60\n",
+        "expectedOutput": "PASS\n"
+      },
+      {
+        "input": "59\n",
+        "expectedOutput": "FAIL\n"
+      },
+      {
+        "input": "100\n",
+        "expectedOutput": "PASS\n"
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-loops-nested",
+  "sectionId": "loops",
+  "title": "Вложенные циклы",
+  "slug": "nested",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_b",
+    "sk11"
+  ],
+  "skillIds": [
+    "SK11"
+  ],
+  "sourcePaths": [
+    "docs/loops/nested-loops.md"
+  ],
+  "localSourcePath": "content-source/python/sections/loops/nested.md",
+  "exerciseOrder": [
+    "python-loops-nested-guided-1",
+    "python-loops-nested-guided-2",
+    "python-loops-nested-checkpoint"
+  ],
+  "checkpointExerciseId": "python-loops-nested-checkpoint"
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "python-graphs-traversal-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-graphs-traversal"
+  },
+  "kind": "guided",
+  "title": "Достижимые DFS",
+  "statement": "Используйте стек или очередь, чтобы отметить все достижимые вершины.\n\nТренируемый приём: обходы DFS и BFS.",
+  "difficulty": "intro",
+  "starterCode": "def reachable(...):\n    pass\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «обходы DFS и BFS».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "def reachable(n, edges, start):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    seen = {start}\n    stack = [start]\n    while stack:\n        vertex = stack.pop()\n        for neighbour in graph[vertex]:\n            if neighbour not in seen:\n                seen.add(neighbour)\n                stack.append(neighbour)\n    return sorted(seen)",
+  "examples": [
+    {
+      "input": "[5,[[0,1],[1,2],[3,4]],0]",
+      "output": "[0,1,2]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "reachable",
+    "tests": [
+      {
+        "args": [
+          5,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          0
+        ],
+        "expectedReturn": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "args": [
+          1,
+          [],
+          0
+        ],
+        "expectedReturn": [
+          0
+        ]
+      },
+      {
+        "args": [
+          5,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          0
+        ],
+        "expectedReturn": [
+          0,
+          1,
+          2
+        ]
+      }
+    ]
+  }
+}

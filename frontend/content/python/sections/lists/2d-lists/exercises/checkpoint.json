@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-2d-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-2d"
+  },
+  "kind": "checkpoint",
+  "title": "Диагональ таблицы",
+  "statement": "Используйте одинаковые индексы строки и столбца для главной диагонали.\n\nТренируемый приём: двумерные списки.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «двумерные списки».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n = int(input())\ntotal = 0\nfor i in range(n):\n    row = list(map(int, input().split()))\n    total += row[i]\nprint(total)",
+  "examples": [
+    {
+      "input": "2\n1 2\n3 4\n",
+      "output": "5\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "2\n1 2\n3 4\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "1\n-7\n",
+        "expectedOutput": "-7\n"
+      },
+      {
+        "input": "3\n1 0 0\n0 2 0\n0 0 3\n",
+        "expectedOutput": "6\n"
+      }
+    ]
+  }
+}

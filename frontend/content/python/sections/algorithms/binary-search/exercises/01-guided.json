@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "python-algorithms-binary-search-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-algorithms-binary-search"
+  },
+  "kind": "guided",
+  "title": "Есть ли ключ",
+  "statement": "Проверьте присутствие ключа в отсортированном списке сужением диапазона.\n\nТренируемый приём: границы двоичного поиска.",
+  "difficulty": "intro",
+  "starterCode": "def contains_sorted(...):\n    pass\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «границы двоичного поиска».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "def contains_sorted(values, target):\n    left, right = 0, len(values)\n    while left < right:\n        middle = (left + right) // 2\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle\n    return left < len(values) and values[left] == target",
+  "examples": [
+    {
+      "input": "[[1,4,9],4]",
+      "output": "true"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "contains_sorted",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            4,
+            9
+          ],
+          4
+        ],
+        "expectedReturn": true
+      },
+      {
+        "args": [
+          [
+            1,
+            4
+          ],
+          3
+        ],
+        "expectedReturn": false
+      },
+      {
+        "args": [
+          [
+            1,
+            4,
+            9
+          ],
+          4
+        ],
+        "expectedReturn": true
+      }
+    ]
+  }
+}

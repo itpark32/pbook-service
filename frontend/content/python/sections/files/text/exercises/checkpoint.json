@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "python-files-text-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-files-text"
+  },
+  "kind": "checkpoint",
+  "title": "Частоты слов файла",
+  "statement": "Соберите частоты элементов после чтения текстовых данных.\n\nТренируемый приём: текстовые файлы и строки.",
+  "difficulty": "challenge",
+  "starterCode": "def frequencies(...):\n    pass\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «текстовые файлы и строки».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "def frequencies(values):\n    result = {}\n    for value in values:\n        result[value] = result.get(value, 0) + 1\n    return result",
+  "examples": [
+    {
+      "input": "[[\"a\",\"b\",\"a\"]]",
+      "output": "{\"a\":2,\"b\":1}"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "frequencies",
+    "tests": [
+      {
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
+        ],
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": {}
+      },
+      {
+        "args": [
+          [
+            "a",
+            "b",
+            "a"
+          ]
+        ],
+        "expectedReturn": {
+          "a": 2,
+          "b": 1
+        }
+      }
+    ]
+  }
+}

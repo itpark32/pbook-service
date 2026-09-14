@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "python-numbers-primes-gcd-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-numbers-primes-gcd"
+  },
+  "kind": "guided",
+  "title": "НОД по остаткам",
+  "statement": "Повторяйте замену пары чисел, пока второй остаток не станет равен нулю.\n\nТренируемый приём: простые числа и алгоритм Евклида.",
+  "difficulty": "standard",
+  "starterCode": "def gcd(...):\n    pass\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «простые числа и алгоритм Евклида».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a",
+  "examples": [
+    {
+      "input": "[18,24]",
+      "output": "6"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "gcd",
+    "tests": [
+      {
+        "args": [
+          18,
+          24
+        ],
+        "expectedReturn": 6
+      },
+      {
+        "args": [
+          7,
+          0
+        ],
+        "expectedReturn": 7
+      },
+      {
+        "args": [
+          18,
+          24
+        ],
+        "expectedReturn": 6
+      }
+    ]
+  }
+}

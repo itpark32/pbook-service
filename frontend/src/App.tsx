@@ -836,6 +836,39 @@ function NotFound() {
   return <main className="lesson-loading"><h1>Страница не найдена</h1><p>Возможно, ссылка устарела или в адресе есть ошибка.</p><p><Link className="button" to="/">На главную</Link> <Link className="button button--secondary" to="/python/basics/input-output">К курсу</Link></p></main>;
 }
 
+function VerifyEmailPage() {
+  const [params] = useSearchParams();
+  const [status, setStatus] = useState<"loading" | "success" | "error">("loading");
+  const [message, setMessage] = useState("Подтверждаем email…");
+  const started = useRef(false);
+  useEffect(() => {
+    document.title = "Подтверждение email — IT-ПАРК";
+    const token = params.get("token");
+    if (!token) {
+      setStatus("error");
+      setMessage("В ссылке нет токена подтверждения.");
+      return;
+    }
+    if (started.current) return;
+    started.current = true;
+    fetch("/api/v1/auth/verify-email", {
+      method: "POST",
+      credentials: "same-origin",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token })
+    }).then(async (response) => {
+      const body = await response.json().catch(() => ({})) as { error?: { message?: string } };
+      if (!response.ok) throw new Error(body.error?.message ?? "Не удалось подтвердить email.");
+      setStatus("success");
+      setMessage("Email подтверждён. Теперь можно создавать группы и пользоваться кабинетом преподавателя.");
+    }).catch((reason: unknown) => {
+      setStatus("error");
+      setMessage(reason instanceof Error ? reason.message : "Не удалось подтвердить email.");
+    });
+  }, [params]);
+  return <main className="lesson-loading" aria-live="polite"><h1>{status === "success" ? "Email подтверждён" : status === "error" ? "Не удалось подтвердить email" : "Подтверждаем email"}</h1><p>{message}</p><p><Link className="button" to="/teacher/groups">В кабинет преподавателя</Link> <Link className="button button--secondary" to="/">На главную</Link></p></main>;
+}
+
 function ProgressMigration() {
   const [open, setOpen] = useState(false);
   const [conflicts, setConflicts] = useState<{ exerciseId: string; localCode: string; cloudCode: string }[]>([]);
@@ -891,6 +924,7 @@ export default function App() {
       <Route path="/invite/:token" element={<InvitePage theme={theme} onToggleTheme={toggleTheme} />} />
       <Route path="/teacher/groups" element={<TeacherGroupsPage theme={theme} onToggleTheme={toggleTheme} />} />
       <Route path="/admin" element={<AdminPage theme={theme} onToggleTheme={toggleTheme} />} />
+      <Route path="/verify-email" element={<VerifyEmailPage />} />
       <Route path="/python/:sectionId/:slug" element={<LessonRoute theme={theme} onToggleTheme={toggleTheme} />} />
       <Route path="*" element={<NotFound />} />
     </Routes></>

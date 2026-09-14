@@ -1,0 +1,13 @@
+replicaCount: 1
+
+scheduling:
+  region: ru-spb
+
+ingress:
+  defaultHost:
+    enabled: false
+  extraHosts:
+    - pbook.itpark32.ru
+
+env:
+  BACKEND_URL: "http://itpark-pbook-service-backend-prod.itpark-pbook-service-backend.svc.cluster.local"

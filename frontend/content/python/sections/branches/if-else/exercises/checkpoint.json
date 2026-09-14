@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-branches-if-else-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-branches-if-else"
+  },
+  "kind": "checkpoint",
+  "title": "Большее показание",
+  "statement": "Выведите большее из двух показаний через полную конструкцию if/else.\n\nТренируемый приём: две взаимоисключающие ветви.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «две взаимоисключающие ветви».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "a, b = map(int, input().split())\nif a > b:\n    print(a)\nelse:\n    print(b)",
+  "examples": [
+    {
+      "input": "3 8\n",
+      "output": "8\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "3 8\n",
+        "expectedOutput": "8\n"
+      },
+      {
+        "input": "5 5\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "-2 -7\n",
+        "expectedOutput": "-2\n"
+      }
+    ]
+  }
+}

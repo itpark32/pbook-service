@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-final-task-09",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-final"
+  },
+  "kind": "practicum",
+  "title": "9. расстояние BFS",
+  "statement": "Практикум: расстояние BFS. Обходите невзвешенный граф слоями: первая встреча вершины задаёт число рёбер до неё.\n\nТренируемый приём: пути и расстояния в невзвешенном графе.",
+  "difficulty": "challenge",
+  "starterCode": "def shortest_distance(...):\n    pass\n",
+  "hints": [
+    "Сначала вспомните основной приём: расстояние BFS.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "def shortest_distance(n, edges, start, finish):\n    graph = [[] for _ in range(n)]\n    for left, right in edges:\n        graph[left].append(right)\n        graph[right].append(left)\n    distance = [-1] * n\n    distance[start] = 0\n    queue = [start]\n    for vertex in queue:\n        for neighbour in graph[vertex]:\n            if distance[neighbour] == -1:\n                distance[neighbour] = distance[vertex] + 1\n                queue.append(neighbour)\n    return distance[finish]",
+  "examples": [
+    {
+      "input": "[5,[[0,1],[1,2],[0,3],[3,2]],0,2]",
+      "output": "2"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "shortest_distance",
+    "tests": [
+      {
+        "args": [
+          5,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          0,
+          2
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          3,
+          [
+            [
+              0,
+              1
+            ]
+          ],
+          0,
+          2
+        ],
+        "expectedReturn": -1
+      },
+      {
+        "args": [
+          5,
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          0,
+          2
+        ],
+        "expectedReturn": 2
+      }
+    ]
+  }
+}

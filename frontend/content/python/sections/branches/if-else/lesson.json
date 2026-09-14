@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-branches-if-else",
+  "sectionId": "branches",
+  "title": "if и else",
+  "slug": "if-else",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_a",
+    "sk05"
+  ],
+  "skillIds": [
+    "SK05"
+  ],
+  "sourcePaths": [
+    "docs/basics/conditions.md"
+  ],
+  "localSourcePath": "content-source/python/sections/branches/if-else.md",
+  "exerciseOrder": [
+    "python-branches-if-else-guided-1",
+    "python-branches-if-else-guided-2",
+    "python-branches-if-else-checkpoint"
+  ],
+  "checkpointExerciseId": "python-branches-if-else-checkpoint"
+}

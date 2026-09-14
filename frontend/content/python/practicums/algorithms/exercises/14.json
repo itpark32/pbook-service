@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-14",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "14. квадратичный перебор",
+  "statement": "Практикум: квадратичный перебор. Посчитайте пары и сравните число шагов с квадратичной оценкой.\n\nТренируемый приём: оценку числа операций.",
+  "difficulty": "standard",
+  "starterCode": "def pair_count(...):\n    pass\n",
+  "hints": [
+    "Сначала вспомните основной приём: квадратичный перебор.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "def pair_count(values, target):\n    count = 0\n    for i in range(len(values)):\n        for j in range(i + 1, len(values)):\n            if values[i] + values[j] == target:\n                count += 1\n    return count",
+  "examples": [
+    {
+      "input": "[[1,2,3,4],5]",
+      "output": "2"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "pair_count",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          5
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          5
+        ],
+        "expectedReturn": 2
+      }
+    ]
+  }
+}

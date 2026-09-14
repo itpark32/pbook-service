@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-branches-compound-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-branches-compound"
+  },
+  "kind": "guided",
+  "title": "Допуск по двум условиям",
+  "statement": "Выведите YES, только если число одновременно положительно и кратно трём.\n\nТренируемый приём: составные условия.",
+  "difficulty": "intro",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «составные условия».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n = int(input())\nprint('YES' if n > 0 and n % 3 == 0 else 'NO')",
+  "examples": [
+    {
+      "input": "12\n",
+      "output": "YES\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "12\n",
+        "expectedOutput": "YES\n"
+      },
+      {
+        "input": "-3\n",
+        "expectedOutput": "NO\n"
+      },
+      {
+        "input": "10\n",
+        "expectedOutput": "NO\n"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+include:
+  - project: infra/ci
+    file: non-platform.yml
+
+variables:
+  SERVICE_NAME: "itpark-pbook-service"
+  CUSTOM_DOCKERFILE: "Dockerfile"
+  EGOP_ENABLE_DOCKER_CACHE: "true"

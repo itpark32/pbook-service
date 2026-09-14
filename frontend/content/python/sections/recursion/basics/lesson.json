@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-recursion-basics",
+  "sectionId": "recursion",
+  "title": "Основы рекурсии",
+  "slug": "basics",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_d",
+    "sk29"
+  ],
+  "skillIds": [
+    "SK29"
+  ],
+  "sourcePaths": [
+    "docs/recursion/basics.md"
+  ],
+  "localSourcePath": "content-source/python/sections/recursion/basics.md",
+  "exerciseOrder": [
+    "python-recursion-basics-guided-1",
+    "python-recursion-basics-guided-2",
+    "python-recursion-basics-checkpoint"
+  ],
+  "checkpointExerciseId": "python-recursion-basics-checkpoint"
+}

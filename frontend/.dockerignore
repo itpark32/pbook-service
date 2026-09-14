@@ -1,3 +1,6 @@
+.git
+.egop
+.gitlab-ci.yml
 node_modules
 dist
 npm-debug.log*

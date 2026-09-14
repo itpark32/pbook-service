@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-basics-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-basics"
+  },
+  "kind": "checkpoint",
+  "title": "Зеркальное слово",
+  "statement": "Сравните строку с её обратной записью и определите палиндром.\n\nТренируемый приём: строки, индексы и длину.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «строки, индексы и длину».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "text = input()\nif text == text[::-1]:\n    print('YES')\nelse:\n    print('NO')",
+  "examples": [
+    {
+      "input": "level\n",
+      "output": "YES\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "level\n",
+        "expectedOutput": "YES\n"
+      },
+      {
+        "input": "python\n",
+        "expectedOutput": "NO\n"
+      },
+      {
+        "input": "\n",
+        "expectedOutput": "YES\n"
+      }
+    ]
+  }
+}

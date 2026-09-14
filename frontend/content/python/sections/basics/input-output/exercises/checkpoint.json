@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-basics-input-output-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-basics-input-output"
+  },
+  "kind": "checkpoint",
+  "title": "Итог двух показаний",
+  "statement": "Прочитайте два целых показания и выведите их суммарное значение.\n\nТренируемый приём: ввод одной и нескольких строк.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «ввод одной и нескольких строк».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "a, b = map(int, input().split())\nprint(a + b)",
+  "examples": [
+    {
+      "input": "2 3\n",
+      "output": "5\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "2 3\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "-4 9\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "0 0\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

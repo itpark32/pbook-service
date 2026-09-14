@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "python-graphs-dijkstra-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-graphs-dijkstra"
+  },
+  "kind": "checkpoint",
+  "title": "Дешёвый маршрут",
+  "statement": "Помимо дистанции храните родителя вершины, чтобы восстановить маршрут минимальной стоимости.\n\nТренируемый приём: алгоритм Дейкстры.",
+  "difficulty": "challenge",
+  "starterCode": "def cheapest_route(...):\n    pass\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «алгоритм Дейкстры».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "def cheapest_route(n, edges, start, finish):\n    import heapq\n    graph = [[] for _ in range(n)]\n    for left, right, weight in edges:\n        graph[left].append((right, weight))\n        graph[right].append((left, weight))\n    distance = [None] * n\n    parent = [None] * n\n    distance[start] = 0\n    heap = [(0, start)]\n    while heap:\n        current, vertex = heapq.heappop(heap)\n        if current != distance[vertex]:\n            continue\n        for neighbour, weight in graph[vertex]:\n            candidate = current + weight\n            if distance[neighbour] is None or candidate < distance[neighbour]:\n                distance[neighbour] = candidate\n                parent[neighbour] = vertex\n                heapq.heappush(heap, (candidate, neighbour))\n    if distance[finish] is None:\n        return []\n    path = []\n    vertex = finish\n    while vertex is not None:\n        path.append(vertex)\n        vertex = parent[vertex]\n    return path[::-1]",
+  "examples": [
+    {
+      "input": "[4,[[0,1,8],[0,2,2],[2,1,2],[1,3,3],[2,3,10]],0,3]",
+      "output": "[0,2,1,3]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "cheapest_route",
+    "tests": [
+      {
+        "args": [
+          4,
+          [
+            [
+              0,
+              1,
+              8
+            ],
+            [
+              0,
+              2,
+              2
+            ],
+            [
+              2,
+              1,
+              2
+            ],
+            [
+              1,
+              3,
+              3
+            ],
+            [
+              2,
+              3,
+              10
+            ]
+          ],
+          0,
+          3
+        ],
+        "expectedReturn": [
+          0,
+          2,
+          1,
+          3
+        ]
+      },
+      {
+        "args": [
+          3,
+          [
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          0,
+          2
+        ],
+        "expectedReturn": []
+      },
+      {
+        "args": [
+          1,
+          [],
+          0,
+          0
+        ],
+        "expectedReturn": [
+          0
+        ]
+      }
+    ]
+  }
+}

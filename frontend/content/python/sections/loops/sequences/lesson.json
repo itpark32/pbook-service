@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-loops-sequences",
+  "sectionId": "loops",
+  "title": "Последовательности и ввод до стоп-сигнала",
+  "slug": "sequences",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_b",
+    "sk14"
+  ],
+  "skillIds": [
+    "SK14"
+  ],
+  "sourcePaths": [
+    "docs/loops/sequences.md"
+  ],
+  "localSourcePath": "content-source/python/sections/loops/sequences.md",
+  "exerciseOrder": [
+    "python-loops-sequences-guided-1",
+    "python-loops-sequences-guided-2",
+    "python-loops-sequences-checkpoint"
+  ],
+  "checkpointExerciseId": "python-loops-sequences-checkpoint"
+}

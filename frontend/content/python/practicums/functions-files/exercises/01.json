@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-functions-files-task-01",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-functions-files"
+  },
+  "kind": "practicum",
+  "title": "1. булева функция",
+  "statement": "Практикум: булева функция. Напишите функцию, которая получает число и возвращает булево значение.\n\nТренируемый приём: параметры и return.",
+  "difficulty": "intro",
+  "starterCode": "def is_even(...):\n    pass\n",
+  "hints": [
+    "Сначала вспомните основной приём: булева функция.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "def is_even(n):\n    return n % 2 == 0",
+  "examples": [
+    {
+      "input": "[4]",
+      "output": "true"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "is_even",
+    "tests": [
+      {
+        "args": [
+          4
+        ],
+        "expectedReturn": true
+      },
+      {
+        "args": [
+          -3
+        ],
+        "expectedReturn": false
+      },
+      {
+        "args": [
+          0
+        ],
+        "expectedReturn": true
+      }
+    ]
+  }
+}

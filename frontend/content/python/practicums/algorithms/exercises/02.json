@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-02",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "2. левая граница",
+  "statement": "Практикум: левая граница. Найдите первую позицию, на которой значение не меньше цели.\n\nТренируемый приём: границы двоичного поиска.",
+  "difficulty": "standard",
+  "starterCode": "def lower_bound(...):\n    pass\n",
+  "hints": [
+    "Сначала вспомните основной приём: левая граница.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "def lower_bound(values, target):\n    left, right = 0, len(values)\n    while left < right:\n        middle = (left + right) // 2\n        if values[middle] < target:\n            left = middle + 1\n        else:\n            right = middle\n    return left",
+  "examples": [
+    {
+      "input": "[[1,3,3,7],3]",
+      "output": "1"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "lower_bound",
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            3,
+            3,
+            7
+          ],
+          3
+        ],
+        "expectedReturn": 1
+      },
+      {
+        "args": [
+          [
+            1,
+            2
+          ],
+          9
+        ],
+        "expectedReturn": 2
+      },
+      {
+        "args": [
+          [],
+          0
+        ],
+        "expectedReturn": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-11",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "11. диагональ",
+  "statement": "Практикум: диагональ. Обработайте только клетки, у которых номера строки и столбца совпадают.\n\nТренируемый приём: матрицы и координаты.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: диагональ.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\ntotal = 0\nfor i in range(n):\n    row = list(map(int, input().split()))\n    total += row[i]\nprint(total)",
+  "examples": [
+    {
+      "input": "2\n1 2\n3 4\n",
+      "output": "5\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "2\n1 2\n3 4\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "1\n-7\n",
+        "expectedOutput": "-7\n"
+      },
+      {
+        "input": "3\n1 0 0\n0 2 0\n0 0 3\n",
+        "expectedOutput": "6\n"
+      }
+    ]
+  }
+}

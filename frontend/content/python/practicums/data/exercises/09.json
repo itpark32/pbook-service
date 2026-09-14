@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-09",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "9. локальные вершины",
+  "statement": "Практикум: локальные вершины. Проверьте внутренние элементы по двум соседям.\n\nТренируемый приём: соседние элементы.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: локальные вершины.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ncount = 0\nfor i in range(1, n - 1):\n    if values[i] > values[i - 1] and values[i] > values[i + 1]:\n        count += 1\nprint(count)",
+  "examples": [
+    {
+      "input": "5\n1 4 2 5 3\n",
+      "output": "2\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n1 4 2 5 3\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "2\n1 2\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "3\n2 1 2\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

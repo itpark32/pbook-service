@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-algorithms-selection-sort",
+  "sectionId": "algorithms",
+  "title": "Простые сортировки",
+  "slug": "selection-sort",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_e",
+    "sk35"
+  ],
+  "skillIds": [
+    "SK35"
+  ],
+  "sourcePaths": [
+    "docs/algorithms/simple-sorts.md"
+  ],
+  "localSourcePath": "content-source/python/sections/algorithms/selection-sort.md",
+  "exerciseOrder": [
+    "python-algorithms-selection-sort-guided-1",
+    "python-algorithms-selection-sort-guided-2",
+    "python-algorithms-selection-sort-checkpoint"
+  ],
+  "checkpointExerciseId": "python-algorithms-selection-sort-checkpoint"
+}

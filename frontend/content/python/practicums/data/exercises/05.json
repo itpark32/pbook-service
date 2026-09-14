@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-05",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "5. индексы чётных",
+  "statement": "Практикум: индексы чётных. Соберите индексы элементов, для которых остаток от деления на 2 равен нулю.\n\nТренируемый приём: создание списка, индексы и проход.",
+  "difficulty": "intro",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: индексы чётных.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nresult = []\nfor i in range(n):\n    if values[i] % 2 == 0:\n        result.append(str(i))\nprint(' '.join(result))",
+  "examples": [
+    {
+      "input": "3\n3 4 6\n",
+      "output": "1 2\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "3\n3 4 6\n",
+        "expectedOutput": "1 2\n"
+      },
+      {
+        "input": "2\n1 3\n",
+        "expectedOutput": "\n"
+      },
+      {
+        "input": "0\n\n",
+        "expectedOutput": "\n"
+      }
+    ]
+  }
+}

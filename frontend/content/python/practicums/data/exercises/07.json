@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-07",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "7. фильтрация",
+  "statement": "Практикум: фильтрация. Отберите положительные элементы и получите их суммарный вклад.\n\nТренируемый приём: фильтрация и преобразование списка.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: фильтрация.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ntotal = 0\nfor value in values[:n]:\n    if value > 0:\n        total += value\nprint(total)",
+  "examples": [
+    {
+      "input": "3\n1 -2 3\n",
+      "output": "4\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "3\n1 -2 3\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "2\n-5 0\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "0\n\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

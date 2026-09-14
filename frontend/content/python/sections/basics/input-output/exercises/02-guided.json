@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-basics-input-output-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-basics-input-output"
+  },
+  "kind": "guided",
+  "title": "Приветствие по имени",
+  "statement": "Соберите строку приветствия из введённого имени.\n\nТренируемый приём: ввод одной и нескольких строк.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «ввод одной и нескольких строк».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "name = input()\nprint(f'Привет, {name}!')",
+  "examples": [
+    {
+      "input": "Аня\n",
+      "output": "Привет, Аня!\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "Аня\n",
+        "expectedOutput": "Привет, Аня!\n"
+      },
+      {
+        "input": "Макс\n",
+        "expectedOutput": "Привет, Макс!\n"
+      },
+      {
+        "input": "Аня\n\n",
+        "expectedOutput": "Привет, Аня!\n"
+      }
+    ]
+  }
+}

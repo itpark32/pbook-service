@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-neighbours-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-neighbours"
+  },
+  "kind": "checkpoint",
+  "title": "Локальные вершины",
+  "statement": "Проверьте внутренние элементы по двум соседям.\n\nТренируемый приём: соседние элементы.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «соседние элементы».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ncount = 0\nfor i in range(1, n - 1):\n    if values[i] > values[i - 1] and values[i] > values[i + 1]:\n        count += 1\nprint(count)",
+  "examples": [
+    {
+      "input": "5\n1 4 2 5 3\n",
+      "output": "2\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n1 4 2 5 3\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "2\n1 2\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "3\n2 1 2\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-algorithms-python-sort",
+  "sectionId": "algorithms",
+  "title": "sort, sorted и key",
+  "slug": "python-sort",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_e",
+    "sk36"
+  ],
+  "skillIds": [
+    "SK36"
+  ],
+  "sourcePaths": [
+    "docs/algorithms/python-sort.md"
+  ],
+  "localSourcePath": "content-source/python/sections/algorithms/python-sort.md",
+  "exerciseOrder": [
+    "python-algorithms-python-sort-guided-1",
+    "python-algorithms-python-sort-guided-2",
+    "python-algorithms-python-sort-checkpoint"
+  ],
+  "checkpointExerciseId": "python-algorithms-python-sort-checkpoint"
+}

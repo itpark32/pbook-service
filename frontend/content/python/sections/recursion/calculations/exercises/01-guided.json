@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "python-recursion-calculations-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-recursion-calculations"
+  },
+  "kind": "guided",
+  "title": "Цепочка степеней",
+  "statement": "Проследите уменьшение показателя до нуля и возврат произведений.\n\nТренируемый приём: трассировка рекурсивных вычислений.",
+  "difficulty": "intro",
+  "starterCode": "def power(...):\n    pass\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «трассировка рекурсивных вычислений».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "def power(a, n):\n    if n == 0:\n        return 1\n    return a * power(a, n - 1)",
+  "examples": [
+    {
+      "input": "[2,5]",
+      "output": "32"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "power",
+    "tests": [
+      {
+        "args": [
+          2,
+          5
+        ],
+        "expectedReturn": 32
+      },
+      {
+        "args": [
+          9,
+          0
+        ],
+        "expectedReturn": 1
+      },
+      {
+        "args": [
+          2,
+          5
+        ],
+        "expectedReturn": 32
+      }
+    ],
+    "structuralConstraints": {
+      "requireRecursion": [
+        "power"
+      ]
+    }
+  }
+}

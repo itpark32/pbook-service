@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-basics-input-output",
+  "sectionId": "basics",
+  "title": "Ввод, вывод и переменные",
+  "slug": "input-output",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_a",
+    "sk01"
+  ],
+  "skillIds": [
+    "SK01"
+  ],
+  "sourcePaths": [
+    "docs/basics/input-output-variables.md"
+  ],
+  "localSourcePath": "content-source/python/sections/basics/input-output.md",
+  "exerciseOrder": [
+    "python-basics-input-output-guided-1",
+    "python-basics-input-output-guided-2",
+    "python-basics-input-output-checkpoint"
+  ],
+  "checkpointExerciseId": "python-basics-input-output-checkpoint"
+}

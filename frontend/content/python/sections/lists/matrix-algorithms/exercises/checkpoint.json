@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-matrices-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-matrices"
+  },
+  "kind": "checkpoint",
+  "title": "Максимальный элемент матрицы",
+  "statement": "Найдите максимум прямоугольной таблицы.\n\nТренируемый приём: матрицы и координаты.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «матрицы и координаты».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n, m = map(int, input().split())\nmaximum = None\nfor _ in range(n):\n    row = list(map(int, input().split()))\n    for value in row[:m]:\n        if maximum is None or value > maximum:\n            maximum = value\nprint(maximum)",
+  "examples": [
+    {
+      "input": "2 2\n1 7\n3 4\n",
+      "output": "7\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "2 2\n1 7\n3 4\n",
+        "expectedOutput": "7\n"
+      },
+      {
+        "input": "1 1\n-2\n",
+        "expectedOutput": "-2\n"
+      },
+      {
+        "input": "1 3\n0 0 0\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

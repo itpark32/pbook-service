@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-loops-while-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-loops-while"
+  },
+  "kind": "guided",
+  "title": "Произведение шагов",
+  "statement": "Через повторение умножьте числа от 1 до N; для нуля оставьте единицу.\n\nТренируемый приём: цикл while и изменяемое состояние.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «цикл while и изменяемое состояние».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n = int(input())\nproduct = 1\nfor value in range(2, n + 1):\n    product *= value\nprint(product)",
+  "examples": [
+    {
+      "input": "5\n",
+      "output": "120\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n",
+        "expectedOutput": "120\n"
+      },
+      {
+        "input": "0\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "5\n\n",
+        "expectedOutput": "120\n"
+      }
+    ]
+  }
+}

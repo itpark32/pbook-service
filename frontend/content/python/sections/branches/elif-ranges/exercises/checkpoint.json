@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-branches-elif-ranges-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-branches-elif-ranges"
+  },
+  "kind": "checkpoint",
+  "title": "Категория результата",
+  "statement": "Сначала отделите проходной балл, затем выведите одну подходящую категорию.\n\nТренируемый приём: цепочка elif и интервалы.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «цепочка elif и интервалы».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "score = int(input())\nif score >= 60:\n    print('PASS')\nelse:\n    print('FAIL')",
+  "examples": [
+    {
+      "input": "60\n",
+      "output": "PASS\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "60\n",
+        "expectedOutput": "PASS\n"
+      },
+      {
+        "input": "59\n",
+        "expectedOutput": "FAIL\n"
+      },
+      {
+        "input": "100\n",
+        "expectedOutput": "PASS\n"
+      }
+    ]
+  }
+}

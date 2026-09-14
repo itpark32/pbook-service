@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-07",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "7. простое число",
+  "statement": "Практикум: простое число. Отделите числа меньше двух и ищите делитель до квадратного корня.\n\nТренируемый приём: простые числа и алгоритм Евклида.",
+  "difficulty": "standard",
+  "starterCode": "def is_prime(...):\n    pass\n",
+  "hints": [
+    "Сначала вспомните основной приём: простое число.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "def is_prime(n):\n    if n < 2:\n        return False\n    divisor = 2\n    while divisor * divisor <= n:\n        if n % divisor == 0:\n            return False\n        divisor += 1\n    return True",
+  "examples": [
+    {
+      "input": "[2]",
+      "output": "true"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "is_prime",
+    "tests": [
+      {
+        "args": [
+          2
+        ],
+        "expectedReturn": true
+      },
+      {
+        "args": [
+          17
+        ],
+        "expectedReturn": true
+      },
+      {
+        "args": [
+          21
+        ],
+        "expectedReturn": false
+      },
+      {
+        "args": [
+          1
+        ],
+        "expectedReturn": false
+      }
+    ]
+  }
+}

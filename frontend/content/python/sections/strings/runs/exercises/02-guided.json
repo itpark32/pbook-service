@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-runs-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-runs"
+  },
+  "kind": "guided",
+  "title": "Границы серий",
+  "statement": "Количество смен символа равно количеству границ между сериями.\n\nТренируемый приём: серии одинаковых символов.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «серии одинаковых символов».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "text = input()\ncount = 0\nfor i in range(1, len(text)):\n    if text[i] != text[i - 1]:\n        count += 1\nprint(count)",
+  "examples": [
+    {
+      "input": "aabcca\n",
+      "output": "3\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "aabcca\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "xxx\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

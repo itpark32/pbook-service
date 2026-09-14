@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "python-functions-scope-decomposition-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-functions-scope-decomposition"
+  },
+  "kind": "guided",
+  "title": "Изолированная проверка",
+  "statement": "Оставьте вычисления внутри функции и верните результат вызывающему коду.\n\nТренируемый приём: локальные переменные и декомпозиция.",
+  "difficulty": "intro",
+  "starterCode": "def is_even(...):\n    pass\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «локальные переменные и декомпозиция».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "def is_even(n):\n    return n % 2 == 0",
+  "examples": [
+    {
+      "input": "[4]",
+      "output": "true"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "is_even",
+    "tests": [
+      {
+        "args": [
+          4
+        ],
+        "expectedReturn": true
+      },
+      {
+        "args": [
+          -3
+        ],
+        "expectedReturn": false
+      },
+      {
+        "args": [
+          0
+        ],
+        "expectedReturn": true
+      }
+    ]
+  }
+}

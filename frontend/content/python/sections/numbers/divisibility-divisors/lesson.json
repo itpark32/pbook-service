@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-numbers-divisibility-divisors",
+  "sectionId": "numbers",
+  "title": "Делимость и делители",
+  "slug": "divisibility-divisors",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_e",
+    "sk37"
+  ],
+  "skillIds": [
+    "SK37"
+  ],
+  "sourcePaths": [
+    "docs/numbers/divisibility-divisors.md"
+  ],
+  "localSourcePath": "content-source/python/sections/numbers/divisibility-divisors.md",
+  "exerciseOrder": [
+    "python-numbers-divisibility-divisors-guided-1",
+    "python-numbers-divisibility-divisors-guided-2",
+    "python-numbers-divisibility-divisors-checkpoint"
+  ],
+  "checkpointExerciseId": "python-numbers-divisibility-divisors-checkpoint"
+}

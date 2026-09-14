@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-loops-nested-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-loops-nested"
+  },
+  "kind": "guided",
+  "title": "Минимум в хвосте",
+  "statement": "Для заданной позиции пройдите оставшуюся часть списка и найдите минимум.\n\nТренируемый приём: вложенные циклы.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «вложенные циклы».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n, start = map(int, input().split())\nvalues = list(map(int, input().split()))\nsmallest = values[start]\nfor i in range(start + 1, n):\n    if values[i] < smallest:\n        smallest = values[i]\nprint(smallest)",
+  "examples": [
+    {
+      "input": "4 1\n5 2 7 1\n",
+      "output": "1\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "4 1\n5 2 7 1\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "3 0\n4 4 4\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "1 0\n-3\n",
+        "expectedOutput": "-3\n"
+      }
+    ]
+  }
+}

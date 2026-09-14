@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-basics-div-mod-digits",
+  "sectionId": "basics",
+  "title": "Целочисленное деление и цифры",
+  "slug": "div-mod-digits",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_a",
+    "sk03"
+  ],
+  "skillIds": [
+    "SK03"
+  ],
+  "sourcePaths": [
+    "docs/basics/div-mod-digits.md"
+  ],
+  "localSourcePath": "content-source/python/sections/basics/div-mod-digits.md",
+  "exerciseOrder": [
+    "python-basics-div-mod-digits-guided-1",
+    "python-basics-div-mod-digits-guided-2",
+    "python-basics-div-mod-digits-checkpoint"
+  ],
+  "checkpointExerciseId": "python-basics-div-mod-digits-checkpoint"
+}

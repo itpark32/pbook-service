@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "python-recursion-calculations-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-recursion-calculations"
+  },
+  "kind": "guided",
+  "title": "Цепочка цифр",
+  "statement": "Проследите отделение последней цифры и достижение одноразрядного числа.\n\nТренируемый приём: трассировка рекурсивных вычислений.",
+  "difficulty": "standard",
+  "starterCode": "def digit_sum(...):\n    pass\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «трассировка рекурсивных вычислений».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "def digit_sum(n):\n    if n < 10:\n        return n\n    return n % 10 + digit_sum(n // 10)",
+  "examples": [
+    {
+      "input": "[247]",
+      "output": "13"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "digit_sum",
+    "tests": [
+      {
+        "args": [
+          247
+        ],
+        "expectedReturn": 13
+      },
+      {
+        "args": [
+          0
+        ],
+        "expectedReturn": 0
+      },
+      {
+        "args": [
+          247
+        ],
+        "expectedReturn": 13
+      }
+    ],
+    "structuralConstraints": {
+      "requireRecursion": [
+        "digit_sum"
+      ]
+    }
+  }
+}

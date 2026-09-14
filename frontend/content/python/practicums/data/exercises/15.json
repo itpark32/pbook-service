@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-15",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "15. серии символов",
+  "statement": "Практикум: серии символов. Храните длину текущей серии и лучший результат при одном проходе.\n\nТренируемый приём: проход по символам и состояние.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: серии символов.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "text = input()\nbest = 0\ncurrent = 0\nprevious = None\nfor char in text:\n    if char == previous:\n        current += 1\n    else:\n        previous = char\n        current = 1\n    if current > best:\n        best = current\nprint(best)",
+  "examples": [
+    {
+      "input": "aaabbc\n",
+      "output": "3\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "aaabbc\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "x\n",
+        "expectedOutput": "1\n"
+      }
+    ]
+  }
+}

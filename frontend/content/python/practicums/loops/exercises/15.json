@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-loops-task-15",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-loops"
+  },
+  "kind": "practicum",
+  "title": "15. трассировка максимума",
+  "statement": "Практикум: трассировка максимума. Проследите замену текущего максимума на последовательности со повторяющимся лидером.\n\nТренируемый приём: трассировка цикла.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: трассировка максимума.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nmaximum = values[0]\nfor value in values[1:n]:\n    if value > maximum:\n        maximum = value\nprint(maximum)",
+  "examples": [
+    {
+      "input": "5\n-3 8 2 8 1\n",
+      "output": "8\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n-3 8 2 8 1\n",
+        "expectedOutput": "8\n"
+      },
+      {
+        "input": "1\n-7\n",
+        "expectedOutput": "-7\n"
+      },
+      {
+        "input": "5\n-3 8 2 8 1\n\n",
+        "expectedOutput": "8\n"
+      }
+    ]
+  }
+}

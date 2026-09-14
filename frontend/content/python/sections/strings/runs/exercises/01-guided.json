@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-runs-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-runs"
+  },
+  "kind": "guided",
+  "title": "Старт первой серии",
+  "statement": "Найдите начало первой серии длиной не меньше двух.\n\nТренируемый приём: серии одинаковых символов.",
+  "difficulty": "intro",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «серии одинаковых символов».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "text = input()\nanswer = -1\nfor i in range(len(text) - 1):\n    if text[i] == text[i + 1]:\n        answer = i\n        break\nprint(answer)",
+  "examples": [
+    {
+      "input": "abcc\n",
+      "output": "2\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "abcc\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "abc\n",
+        "expectedOutput": "-1\n"
+      },
+      {
+        "input": "aa\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

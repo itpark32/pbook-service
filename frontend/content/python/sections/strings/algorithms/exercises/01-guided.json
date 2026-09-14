@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-algorithms-guided-1",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-algorithms"
+  },
+  "kind": "guided",
+  "title": "Первая соседняя пара",
+  "statement": "Во время прохода найдите индекс первого одинакового соседства.\n\nТренируемый приём: проход по символам и состояние.",
+  "difficulty": "intro",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «проход по символам и состояние».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "text = input()\nanswer = -1\nfor i in range(len(text) - 1):\n    if text[i] == text[i + 1]:\n        answer = i\n        break\nprint(answer)",
+  "examples": [
+    {
+      "input": "abcc\n",
+      "output": "2\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "abcc\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "abc\n",
+        "expectedOutput": "-1\n"
+      },
+      {
+        "input": "aa\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

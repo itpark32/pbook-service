@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-loops-task-03",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-loops"
+  },
+  "kind": "practicum",
+  "title": "3. произведение диапазона",
+  "statement": "Практикум: произведение диапазона. Постройте произведение последовательности от 1 до N циклом for.\n\nТренируемый приём: for и range.",
+  "difficulty": "intro",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: произведение диапазона.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nproduct = 1\nfor value in range(2, n + 1):\n    product *= value\nprint(product)",
+  "examples": [
+    {
+      "input": "5\n",
+      "output": "120\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n",
+        "expectedOutput": "120\n"
+      },
+      {
+        "input": "0\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "5\n\n",
+        "expectedOutput": "120\n"
+      }
+    ]
+  }
+}

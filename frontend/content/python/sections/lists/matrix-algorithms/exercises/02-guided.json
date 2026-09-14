@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-matrices-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-matrices"
+  },
+  "kind": "guided",
+  "title": "Сумма главной диагонали",
+  "statement": "Обработайте только клетки, у которых номера строки и столбца совпадают.\n\nТренируемый приём: матрицы и координаты.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «матрицы и координаты».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n = int(input())\ntotal = 0\nfor i in range(n):\n    row = list(map(int, input().split()))\n    total += row[i]\nprint(total)",
+  "examples": [
+    {
+      "input": "2\n1 2\n3 4\n",
+      "output": "5\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "2\n1 2\n3 4\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "1\n-7\n",
+        "expectedOutput": "-7\n"
+      },
+      {
+        "input": "3\n1 0 0\n0 2 0\n0 0 3\n",
+        "expectedOutput": "6\n"
+      }
+    ]
+  }
+}

@@ -1,5 +1,5 @@
-import courseData from "../../content/python/course.json";
-import frontendManifestData from "../../content/python/frontend-manifest.json";
+import courseData from "../content/python/course.json";
+import frontendManifestData from "../content/python/frontend-manifest.json";
 import type { Exercise, Lesson } from "./types";
 
 export type LessonContent = {
@@ -37,24 +37,24 @@ export type CourseEntry = {
   isPracticum?: boolean;
 };
 
-const lessonModules = import.meta.glob("../../content/python/sections/**/lesson.json", {
+const lessonModules = import.meta.glob("../content/python/sections/**/lesson.json", {
   eager: true,
   import: "default"
 }) as Record<string, Lesson>;
-const practicumModules = import.meta.glob("../../content/python/practicums/**/practicum.json", {
+const practicumModules = import.meta.glob("../content/python/practicums/**/practicum.json", {
   eager: true,
   import: "default"
 }) as Record<string, Practicum>;
-const exerciseModules = import.meta.glob("../../content/python/**/exercises/*.json", {
+const exerciseModules = import.meta.glob("../content/python/**/exercises/*.json", {
   import: "default"
 }) as Record<string, () => Promise<Exercise>>;
-const markdownModules = import.meta.glob("../../content/python/sections/**/lesson.md", {
+const markdownModules = import.meta.glob("../content/python/sections/**/lesson.md", {
   as: "raw"
 }) as Record<string, () => Promise<string>>;
-const practicumMarkdownModules = import.meta.glob("../../content/python/practicums/**/practicum.md", {
+const practicumMarkdownModules = import.meta.glob("../content/python/practicums/**/practicum.md", {
   as: "raw"
 }) as Record<string, () => Promise<string>>;
-const fixtureModules = import.meta.glob("../../content/python/fixtures/**/*", {
+const fixtureModules = import.meta.glob("../content/python/fixtures/**/*", {
   as: "raw"
 }) as Record<string, () => Promise<string>>;
 

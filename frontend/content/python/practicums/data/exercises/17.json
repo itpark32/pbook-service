@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-data-task-17",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-data"
+  },
+  "kind": "practicum",
+  "title": "17. очередь заявок",
+  "statement": "Практикум: очередь заявок. Храните элементы в списке и перемещайте отдельный индекс головы вместо удаления из начала.\n\nТренируемый приём: стек и очередь.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: очередь заявок.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nqueue = []\nhead = 0\nfor _ in range(n):\n    command = input().split()\n    if command[0] == '+':\n        queue.append(command[1])\n    else:\n        print(queue[head])\n        head += 1",
+  "examples": [
+    {
+      "input": "5\n+ ann\n+ bob\n-\n+ cat\n-\n",
+      "output": "ann\nbob\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "5\n+ ann\n+ bob\n-\n+ cat\n-\n",
+        "expectedOutput": "ann\nbob\n"
+      },
+      {
+        "input": "2\n+ 10\n-\n",
+        "expectedOutput": "10\n"
+      },
+      {
+        "input": "6\n+ a\n+ b\n-\n-\n+ c\n-\n",
+        "expectedOutput": "a\nb\nc\n"
+      }
+    ]
+  }
+}

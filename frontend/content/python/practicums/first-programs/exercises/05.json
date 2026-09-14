@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-first-programs-task-05",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-first-programs"
+  },
+  "kind": "practicum",
+  "title": "5. последняя цифра",
+  "statement": "Практикум: последняя цифра. Из неотрицательного целого кода выведите последнюю цифру.\n\nТренируемый приём: целочисленное деление и остаток.",
+  "difficulty": "intro",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: последняя цифра.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nprint(n % 10)",
+  "examples": [
+    {
+      "input": "247\n",
+      "output": "7\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "247\n",
+        "expectedOutput": "7\n"
+      },
+      {
+        "input": "0\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "247\n\n",
+        "expectedOutput": "7\n"
+      }
+    ]
+  }
+}

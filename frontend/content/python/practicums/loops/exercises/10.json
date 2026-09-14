@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-loops-task-10",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-loops"
+  },
+  "kind": "practicum",
+  "title": "10. перебор пар",
+  "statement": "Практикум: перебор пар. Переберите все пары индексов с i меньше j и посчитайте нужные пары.\n\nТренируемый приём: вложенные циклы.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: перебор пар.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\ntarget = int(input())\ncount = 0\nfor i in range(n):\n    for j in range(i + 1, n):\n        if values[i] + values[j] == target:\n            count += 1\nprint(count)",
+  "examples": [
+    {
+      "input": "4\n1 2 3 4\n5\n",
+      "output": "2\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "4\n1 2 3 4\n5\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "3\n1 1 1\n2\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "1\n7\n7\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}

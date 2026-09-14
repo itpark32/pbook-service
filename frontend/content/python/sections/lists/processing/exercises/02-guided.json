@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-lists-processing-guided-2",
+  "owner": {
+    "type": "lesson",
+    "id": "python-lists-processing"
+  },
+  "kind": "guided",
+  "title": "Преобразованный маршрут",
+  "statement": "Постройте отдельный список, умножая каждый входной элемент на два.\n\nТренируемый приём: фильтрация и преобразование списка.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «фильтрация и преобразование списка».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "n = int(input())\nvalues = list(map(int, input().split()))\nresult = []\nfor value in values[:n]:\n    result.append(str(value * 2))\nprint(' '.join(result))",
+  "examples": [
+    {
+      "input": "3\n1 -2 0\n",
+      "output": "2 -4 0\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "3\n1 -2 0\n",
+        "expectedOutput": "2 -4 0\n"
+      },
+      {
+        "input": "1\n7\n",
+        "expectedOutput": "14\n"
+      },
+      {
+        "input": "0\n\n",
+        "expectedOutput": "\n"
+      }
+    ]
+  }
+}

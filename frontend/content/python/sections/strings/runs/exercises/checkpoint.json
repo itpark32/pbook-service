@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-strings-runs-checkpoint",
+  "owner": {
+    "type": "lesson",
+    "id": "python-strings-runs"
+  },
+  "kind": "checkpoint",
+  "title": "Длина лучшей серии",
+  "statement": "Храните текущую и максимальную длину серии в обычной программе.\n\nТренируемый приём: серии одинаковых символов.",
+  "difficulty": "challenge",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Определите, какие данные нужны для шага «серии одинаковых символов».",
+    "Проследите решение на одном небольшом примере вручную.",
+    "Проверьте крайний случай из тестов до отправки."
+  ],
+  "solution": "text = input()\nbest = 0\ncurrent = 0\nprevious = None\nfor char in text:\n    if char == previous:\n        current += 1\n    else:\n        previous = char\n        current = 1\n    if current > best:\n        best = current\nprint(best)",
+  "examples": [
+    {
+      "input": "aaabbc\n",
+      "output": "3\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "aaabbc\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "x\n",
+        "expectedOutput": "1\n"
+      }
+    ]
+  }
+}

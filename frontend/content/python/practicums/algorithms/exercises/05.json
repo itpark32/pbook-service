@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-algorithms-task-05",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-algorithms"
+  },
+  "kind": "practicum",
+  "title": "5. ключ сортировки",
+  "statement": "Практикум: ключ сортировки. Задайте ключ: сначала длина слова, затем лексикографический порядок.\n\nТренируемый приём: sorted, sort и ключ сортировки.",
+  "difficulty": "standard",
+  "starterCode": "def by_length(...):\n    pass\n",
+  "hints": [
+    "Сначала вспомните основной приём: ключ сортировки.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "def by_length(words):\n    return sorted(words, key=lambda word: (len(word), word))",
+  "examples": [
+    {
+      "input": "[[\"bbb\",\"a\",\"cc\",\"bb\"]]",
+      "output": "[\"a\",\"bb\",\"cc\",\"bbb\"]"
+    }
+  ],
+  "judge": {
+    "type": "function",
+    "functionName": "by_length",
+    "tests": [
+      {
+        "args": [
+          [
+            "bbb",
+            "a",
+            "cc",
+            "bb"
+          ]
+        ],
+        "expectedReturn": [
+          "a",
+          "bb",
+          "cc",
+          "bbb"
+        ]
+      },
+      {
+        "args": [
+          []
+        ],
+        "expectedReturn": []
+      },
+      {
+        "args": [
+          [
+            "bbb",
+            "a",
+            "cc",
+            "bb"
+          ]
+        ],
+        "expectedReturn": [
+          "a",
+          "bb",
+          "cc",
+          "bbb"
+        ]
+      }
+    ]
+  }
+}

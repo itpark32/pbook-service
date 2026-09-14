@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "python-loops-for-range",
+  "sectionId": "loops",
+  "title": "Цикл for и range",
+  "slug": "for-range",
+  "readingMinutes": 15,
+  "practiceMinutes": 30,
+  "tags": [
+    "python",
+    "batch_b",
+    "sk10"
+  ],
+  "skillIds": [
+    "SK10"
+  ],
+  "sourcePaths": [
+    "docs/loops/for-range.md"
+  ],
+  "localSourcePath": "content-source/python/sections/loops/for-range.md",
+  "exerciseOrder": [
+    "python-loops-for-range-guided-1",
+    "python-loops-for-range-guided-2",
+    "python-loops-for-range-checkpoint"
+  ],
+  "checkpointExerciseId": "python-loops-for-range-checkpoint"
+}

@@ -1,0 +1,412 @@
+{
+  "schemaVersion": 2,
+  "repository": "https://github.com/itpark32/python-school-metodichka",
+  "upstreamCommit": "8c9bd0ba5b36493505325d14b803b69d299e3e5b",
+  "importedThroughBatch": "F",
+  "importMode": "local-authored-theory",
+  "files": [
+    {
+      "path": "docs/basics/input-output-variables.md",
+      "sha256": "f2887486981da2ea35d6e7a18f64d474c502f9a17d9ebad6e1e8c0ccfdbb98e6"
+    },
+    {
+      "path": "docs/basics/types-arithmetic.md",
+      "sha256": "43340c595ff8738175c4999581bf9cfc3976246e8509ac296e3d2e7242c0b83e"
+    },
+    {
+      "path": "docs/basics/div-mod-digits.md",
+      "sha256": "e1653eb2650ef8a3c1e87c9ecd5c70f6129216a534a71fe40bef3c679b5fb392"
+    },
+    {
+      "path": "docs/basics/logic.md",
+      "sha256": "4635dd30b91e42fd7ce287eea0568a0dddec2469802a2ce92d6aef7fa8762aa1"
+    },
+    {
+      "path": "docs/basics/conditions.md",
+      "sha256": "994d71895445dd32e27f3eef3859463842b6996456032f788d9b2d6ea2123f4e"
+    },
+    {
+      "path": "docs/basics/debugging.md",
+      "sha256": "26714d10631082dc6d9984669d69071419548901479a2d57c2331d3051bd12f0"
+    },
+    {
+      "path": "docs/loops/while.md",
+      "sha256": "beb5d10c710ab7b2f2eef2cf62df9a8f024e95c873bacfe77a7df4e0a320b122"
+    },
+    {
+      "path": "docs/loops/for-range.md",
+      "sha256": "360f9bbea57adc2f94b122417bfe4972df2459c458ce5c246d8e34d583023232"
+    },
+    {
+      "path": "docs/loops/nested-loops.md",
+      "sha256": "e6c7396ab6e88875b6a7249d36c3ec36c853a686457ba1e3558f10920018100a"
+    },
+    {
+      "path": "docs/loops/accumulators.md",
+      "sha256": "d9c44d2a105f5b638e76e8a1b259318680a0948311c981b3d101e0d8a2e4b9a8"
+    },
+    {
+      "path": "docs/loops/sequences.md",
+      "sha256": "0c4c006398ac55cd9c8448f4288d3000fbc7b63504484ce8e11d4c88134d9338"
+    },
+    {
+      "path": "docs/loops/tracing.md",
+      "sha256": "f9d259b773bf231400d15f0b24ccd5f5efdbf0915bbceccf83da583ef877fd46"
+    },
+    {
+      "path": "docs/strings/basics.md",
+      "sha256": "22aeb554519b5bb1116465c8fc932ee5b7bb834eaad0be572e69d3a9d4a68fdb"
+    },
+    {
+      "path": "docs/strings/methods-slices.md",
+      "sha256": "8f04621204fd4e6020f478e0aa9bad93c7dfed23c3d0a559841357956adc1cec"
+    },
+    {
+      "path": "docs/strings/algorithms.md",
+      "sha256": "9fa8ff8bc8ba5168283047291b5f5d98e56a752b9119eff3f295104a83378039"
+    },
+    {
+      "path": "docs/lists/basics.md",
+      "sha256": "d4950bb2ca1028e60604eb1141053c6af700d546c001e4568af3e965e83f151b"
+    },
+    {
+      "path": "docs/lists/processing.md",
+      "sha256": "56c1856c371d1e512ed542dcf0264a28e2f3d85c063f80c6100bfddb28ed452f"
+    },
+    {
+      "path": "docs/lists/linear-search.md",
+      "sha256": "c1b8c6852ab5dca36dd2dcfafac2b7d9de97291703c724fd4130767dae6cd459"
+    },
+    {
+      "path": "docs/lists/neighbours.md",
+      "sha256": "e6656ddef76af31b44eb27103c3f9ed75f87841719f756db6a83bf2a3bc54122"
+    },
+    {
+      "path": "docs/lists/2d-lists.md",
+      "sha256": "ac1c1ac909ab40318cdfb237f0545234ba700818c211f924ffd65d15f9fa6f7f"
+    },
+    {
+      "path": "docs/collections/tuples-sets.md",
+      "sha256": "b049012cf309e48005ea0904868138406fbcc5753ad267a11deea6304719ecb3"
+    },
+    {
+      "path": "docs/collections/dicts-frequency.md",
+      "sha256": "e3d5fc22722b0fa841a669a064531241d3485078742477f424ab74f4f422c2d9"
+    },
+    {
+      "path": "docs/functions/basics.md",
+      "sha256": "e33401336464de2759fb514029bce4b6ac2077a16a6a8cc27469e252e3741d53"
+    },
+    {
+      "path": "docs/functions/scope-decomposition.md",
+      "sha256": "aebfa0a1db29475683b56461ec96f7d05b01d3c11f08efa74cf11f445a6983a4"
+    },
+    {
+      "path": "docs/recursion/basics.md",
+      "sha256": "16601fa1c3857e198407ea8fc91bb2c8b890420d7abb0cd2cf78b240997b801e"
+    },
+    {
+      "path": "docs/recursion/calculations.md",
+      "sha256": "62c3f45f3a32841960166184c65f7e2895f7672d404d729fb7a990a071415257"
+    },
+    {
+      "path": "docs/files/basics.md",
+      "sha256": "d9cf917f4d187226dbf2bb8de167d73a23cd4a89010525d58fb0a9ac0ac8a23c"
+    },
+    {
+      "path": "docs/files/numbers.md",
+      "sha256": "c1c7e307402b7ef071dafbe3d7a16058132f542f18680ee448277226491d63b0"
+    },
+    {
+      "path": "docs/files/text.md",
+      "sha256": "9673b3cd40ca24c621a028caebe41ce7192a0397ddad32f77cc06d736a742821"
+    },
+    {
+      "path": "docs/algorithms/search.md",
+      "sha256": "7229bee80999cd6d40cabb8ffa891267011ebbcf3e71bbcc1cc27d06d7a16cbb"
+    },
+    {
+      "path": "docs/algorithms/simple-sorts.md",
+      "sha256": "fd14ec2cbf38a417c4dbafb0338030d606dd21878ae38e0b2355240e4b430e6c"
+    },
+    {
+      "path": "docs/algorithms/python-sort.md",
+      "sha256": "9cfbec30de5a67c0ccfe1044c82334a7c189ea118733d7998bcaa770ed621140"
+    },
+    {
+      "path": "docs/numbers/divisibility-divisors.md",
+      "sha256": "944ce6226b771952633d85b213bee09b52303f5ffe873ee5a189a28bea9c2406"
+    },
+    {
+      "path": "docs/numbers/primes-gcd.md",
+      "sha256": "0529337d63d27b8ec249bbe7eae1a38509f9e617d931c5279505dfa5f71227f6"
+    },
+    {
+      "path": "docs/numbers/bases.md",
+      "sha256": "79b63948463d4a6e7534c31654925562cc35d4bdfcd3b5f0ebaf526fdbeec014"
+    },
+    {
+      "path": "docs/brute-force/basics.md",
+      "sha256": "226e31cbe52bdac99b576c25bad3486fb0880bd2cf140391b723054c5c23108f"
+    },
+    {
+      "path": "docs/complexity/basics.md",
+      "sha256": "13a0952ed3404c9e35c802b453577986678848e78bfd2a60734ebeec1eaa0dce"
+    },
+    {
+      "path": "docs/graphs/basics.md",
+      "sha256": "28dd8e2364c14834fae8d77d7fe61de82e6749322799e4ff1662498047dca11b"
+    },
+    {
+      "path": "docs/graphs/paths.md",
+      "sha256": "101ba6c8818d73438ea8e57b118f2cb4c3a090b9b77ca98d85982ef5e4283725"
+    }
+  ],
+  "localLessons": [
+    {
+      "id": "python-basics-input-output",
+      "path": "content-source/python/sections/basics/input-output.md",
+      "sha256": "e28878c354870d72d61d0a15074f8c7fc96356d6c7a9bef4f8c4833b9a5199cc"
+    },
+    {
+      "id": "python-basics-types-arithmetic",
+      "path": "content-source/python/sections/basics/types-arithmetic.md",
+      "sha256": "8562554c7579707dbce6a033d400f7e04541a00e62b0061c6921a0418ae98a6c"
+    },
+    {
+      "id": "python-basics-div-mod-digits",
+      "path": "content-source/python/sections/basics/div-mod-digits.md",
+      "sha256": "cd83d75c00a1c3fa48763aaf2fc6cf7733f3c33442d93a11cb5ee0058b446014"
+    },
+    {
+      "id": "python-basics-logic",
+      "path": "content-source/python/sections/basics/logic.md",
+      "sha256": "ff3eb18beac48771c8778aa653eafe34caa40191cf191fbb4390a3415e649424"
+    },
+    {
+      "id": "python-branches-if-else",
+      "path": "content-source/python/sections/branches/if-else.md",
+      "sha256": "2cc94c8f1a5426bc6e1162146625de55d603cf67378942f0bdd9e382650a8a9c"
+    },
+    {
+      "id": "python-branches-elif-ranges",
+      "path": "content-source/python/sections/branches/elif-ranges.md",
+      "sha256": "2b37fb8ee821ea7f11cb175635866a8ce60425b9025501505e706e045293977c"
+    },
+    {
+      "id": "python-branches-compound",
+      "path": "content-source/python/sections/branches/compound.md",
+      "sha256": "a7e8ec9c778743d727a6db7f992ae421e0097ef3d12cfc9b104a856e506be0d4"
+    },
+    {
+      "id": "python-debugging-basics",
+      "path": "content-source/python/sections/branches/debugging.md",
+      "sha256": "62cdfa771eec24e37ba37caeb4accbf215bea6f81c3630cc37f3234b18879c23"
+    },
+    {
+      "id": "python-loops-while",
+      "path": "content-source/python/sections/loops/while.md",
+      "sha256": "a492b87061f848784d682e4d339595dd7d90c1dcc34dc3e27570992ad9625290"
+    },
+    {
+      "id": "python-loops-for-range",
+      "path": "content-source/python/sections/loops/for-range.md",
+      "sha256": "4b6a5ac0966e02008f9379dbfa335c8720967b1daefc81717180c16327a8dcbb"
+    },
+    {
+      "id": "python-loops-nested",
+      "path": "content-source/python/sections/loops/nested.md",
+      "sha256": "a461827db4e1bd80b18ace6ad7634e4443ff72765b4795b15b6989af0587244f"
+    },
+    {
+      "id": "python-loops-accumulators",
+      "path": "content-source/python/sections/loops/accumulators.md",
+      "sha256": "1b3f9670a0685f3960547dd46ec540c207f8ee3e30ddf1eaaa882e955d370ce9"
+    },
+    {
+      "id": "python-loops-min-max-average",
+      "path": "content-source/python/sections/loops/min-max-average.md",
+      "sha256": "c73856b825508206d306bfbf66b7af27f2fb4c9eb1031213e2694f2a8bb6b34c"
+    },
+    {
+      "id": "python-loops-sequences",
+      "path": "content-source/python/sections/loops/sequences.md",
+      "sha256": "453eeea16f725dfd31ec2336bd7d307b03ea5a0a78fedf0fcec8d244bda9c4a4"
+    },
+    {
+      "id": "python-loops-tracing",
+      "path": "content-source/python/sections/loops/tracing.md",
+      "sha256": "ab684acc023682aa9f8d4c74e325af72a8eafe5e9ba197541c0d68e2c137c9e9"
+    },
+    {
+      "id": "python-strings-basics",
+      "path": "content-source/python/sections/strings/basics.md",
+      "sha256": "8f8a1941398480c99ab5626ab1f6402d2adee9dd19bc575fc1dc4e02cb7e7db0"
+    },
+    {
+      "id": "python-strings-methods-slices",
+      "path": "content-source/python/sections/strings/methods-slices.md",
+      "sha256": "1e12974ae1d3f027e38bbfe3faf7b316db7d378735d5e4292f3133ac002089c7"
+    },
+    {
+      "id": "python-strings-algorithms",
+      "path": "content-source/python/sections/strings/algorithms.md",
+      "sha256": "2c39d7d99ed4496f2f9a6e9f5e57e8e6c80a8993202f73d1f4c12c3aa5c36eb5"
+    },
+    {
+      "id": "python-strings-runs",
+      "path": "content-source/python/sections/strings/runs.md",
+      "sha256": "d2543761429b2078811d2cd91f0e0553a4b7610de5d597ff66cdd41c5283a64e"
+    },
+    {
+      "id": "python-lists-basics",
+      "path": "content-source/python/sections/lists/basics.md",
+      "sha256": "b93e83b8a0ced4c86c99ca9403bcb84ef0c3da00dbd3dbcae258106f0292df03"
+    },
+    {
+      "id": "python-lists-mutation",
+      "path": "content-source/python/sections/lists/mutation.md",
+      "sha256": "bbb61e0f2afde81beca510c8fc96662f7389f070f46db159e75806b093fba5ad"
+    },
+    {
+      "id": "python-lists-processing",
+      "path": "content-source/python/sections/lists/processing.md",
+      "sha256": "8adaea471f56563b04e90d9f315622fd7ec727c39de67ea4051722b015cbedd4"
+    },
+    {
+      "id": "python-lists-linear-search",
+      "path": "content-source/python/sections/lists/linear-search.md",
+      "sha256": "90369e08abe17d721648e7a52bcf67336cf170ce76caa4e2c6f025122b0bc838"
+    },
+    {
+      "id": "python-lists-neighbours",
+      "path": "content-source/python/sections/lists/neighbours.md",
+      "sha256": "c6dd5dc18338f9ac9650cc9883bed35acea65c26d673a314f250b6269878a367"
+    },
+    {
+      "id": "python-lists-2d",
+      "path": "content-source/python/sections/lists/2d-lists.md",
+      "sha256": "f9bf800876c33796d185e1d96e15e63652f6986c326db0f17a5dc3a926d5b0d3"
+    },
+    {
+      "id": "python-lists-matrices",
+      "path": "content-source/python/sections/lists/matrix-algorithms.md",
+      "sha256": "c58cf279c3e50a1acde6ade4ad8f2af3e48d61e83aef71ffaea871b081d68348"
+    },
+    {
+      "id": "python-collections-sets",
+      "path": "content-source/python/sections/collections/sets.md",
+      "sha256": "3f928effa11e7046f6af1e281f4e3e8559d12a75ea5b6648505e9ba439e7f692"
+    },
+    {
+      "id": "python-collections-dicts-frequency",
+      "path": "content-source/python/sections/collections/dicts-frequency.md",
+      "sha256": "61de3e4ddcb77473ca6b32bfcdb09b5ca8df94ca7bbb12bcf7e302c98167e091"
+    },
+    {
+      "id": "python-collections-stack-queue",
+      "path": "content-source/python/sections/collections/stack-queue.md",
+      "sha256": "2d65ab5068291714f5e829147740d897dde1571bfc70f71bdc5e81582c4a50c3"
+    },
+    {
+      "id": "python-functions-basics",
+      "path": "content-source/python/sections/functions/basics.md",
+      "sha256": "411eacdc6c4b61c960c647300db56d1c8aa666dca15090fa53a1ef605feafba5"
+    },
+    {
+      "id": "python-functions-scope-decomposition",
+      "path": "content-source/python/sections/functions/scope-decomposition.md",
+      "sha256": "b4601b0c42354939e65db1cacf2f17624f056124229cfd3205cc495c06a6b33f"
+    },
+    {
+      "id": "python-recursion-basics",
+      "path": "content-source/python/sections/recursion/basics.md",
+      "sha256": "acd7f9c95c9ef969f040beeca14f97b7e2a51c7cefd2278e309c5bce9e1bab05"
+    },
+    {
+      "id": "python-recursion-calculations",
+      "path": "content-source/python/sections/recursion/calculations.md",
+      "sha256": "b8653541fa4fa18adeb74d8cd01d86f0c57e4a7c0041f6b0fb900ca605be5ee7"
+    },
+    {
+      "id": "python-files-basics",
+      "path": "content-source/python/sections/files/basics.md",
+      "sha256": "b2732a72a9909c301416fbd262ba41f34350cfe7c3ea9d80c706e73d1e2e7e10"
+    },
+    {
+      "id": "python-files-numbers",
+      "path": "content-source/python/sections/files/numbers.md",
+      "sha256": "1817647abd28483f8b7a3bc311ec6602e86b946c956898be25a49b5484b35136"
+    },
+    {
+      "id": "python-files-text",
+      "path": "content-source/python/sections/files/text.md",
+      "sha256": "e7a4db4020a3becf799d478f0af374400de91eb007243cfa865e785a0473f905"
+    },
+    {
+      "id": "python-algorithms-binary-search",
+      "path": "content-source/python/sections/algorithms/binary-search.md",
+      "sha256": "78d26c74b3a2b60eb7f32488726cfe82f3cf48b308d04202c953ee4406dac15e"
+    },
+    {
+      "id": "python-algorithms-selection-sort",
+      "path": "content-source/python/sections/algorithms/selection-sort.md",
+      "sha256": "5e7eeb063913c251a9a955d5ca02059f78bd36c3c271130ddb36ebc5dd873a59"
+    },
+    {
+      "id": "python-algorithms-python-sort",
+      "path": "content-source/python/sections/algorithms/python-sort.md",
+      "sha256": "26f7580d5296ac53a4399667f10a1bc6fc2fe2ed7f11124c5d943097caada742"
+    },
+    {
+      "id": "python-numbers-divisibility-divisors",
+      "path": "content-source/python/sections/numbers/divisibility-divisors.md",
+      "sha256": "2394bfc7849868e5d72fad03a776296922279c47d3d65671d93b7024420c35e9"
+    },
+    {
+      "id": "python-numbers-primes-gcd",
+      "path": "content-source/python/sections/numbers/primes-gcd.md",
+      "sha256": "90d8075fec7c899beb3a57c09c9bab9fcc46845dcf15bac27c6a38252231b779"
+    },
+    {
+      "id": "python-numbers-bases",
+      "path": "content-source/python/sections/numbers/bases.md",
+      "sha256": "ae52b372b19534c7ed7397a27c7a7051997333b3a68490b1611ac3271f198c19"
+    },
+    {
+      "id": "python-brute-force-basics",
+      "path": "content-source/python/sections/efficiency/brute-force.md",
+      "sha256": "deff0957a0a19e9e31035c81e956bc1032b7fe56368427cfb9ca30c1961a540a"
+    },
+    {
+      "id": "python-complexity-basics",
+      "path": "content-source/python/sections/efficiency/complexity.md",
+      "sha256": "b12c9f946812ee6b4d9d6a8e44ec0897059e7f58158b0daaf69c82c68365932e"
+    },
+    {
+      "id": "python-dp-basics",
+      "path": "content-source/python/sections/dp/basics.md",
+      "sha256": "ce1ae5196faee077a307adac0ba514fb958e5fd22eb0e60520c1a8057e7cbe35"
+    },
+    {
+      "id": "python-graphs-basics",
+      "path": "content-source/python/sections/graphs/basics.md",
+      "sha256": "e7af9735e458957d533beabcfb70694261965b9d032806eeca8bce40f33d44a9"
+    },
+    {
+      "id": "python-graphs-traversal",
+      "path": "content-source/python/sections/graphs/traversal.md",
+      "sha256": "47856f7c4527ea81c52ce4250fb55b270ca8867b8ba1064d613f5cfc4e7780e7"
+    },
+    {
+      "id": "python-graphs-paths",
+      "path": "content-source/python/sections/graphs/paths.md",
+      "sha256": "6207cd3979086c42bc924ebb4252e59bf86ebd33fb6246a437499ed93836b55e"
+    },
+    {
+      "id": "python-graphs-dijkstra",
+      "path": "content-source/python/sections/graphs/dijkstra.md",
+      "sha256": "3601ace4b77168db259344abe6d2f715e6abdb57d21a34aef9d364766cf71ecf"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "python-practicum-final-task-20",
+  "owner": {
+    "type": "practicum",
+    "id": "python-practicum-final"
+  },
+  "kind": "practicum",
+  "title": "20. матрица",
+  "statement": "Практикум: матрица. Найдите максимум прямоугольной таблицы.\n\nТренируемый приём: матрицы и координаты.",
+  "difficulty": "standard",
+  "starterCode": "# Напишите решение здесь.\n",
+  "hints": [
+    "Сначала вспомните основной приём: матрица.",
+    "Запустите решение на обычном и граничном примере.",
+    "Сверьте формат результата с условием, а не с пояснениями."
+  ],
+  "solution": "n, m = map(int, input().split())\nmaximum = None\nfor _ in range(n):\n    row = list(map(int, input().split()))\n    for value in row[:m]:\n        if maximum is None or value > maximum:\n            maximum = value\nprint(maximum)",
+  "examples": [
+    {
+      "input": "2 2\n1 7\n3 4\n",
+      "output": "7\n"
+    }
+  ],
+  "judge": {
+    "type": "stdin_stdout",
+    "comparison": {
+      "mode": "normalized_text"
+    },
+    "tests": [
+      {
+        "input": "2 2\n1 7\n3 4\n",
+        "expectedOutput": "7\n"
+      },
+      {
+        "input": "1 1\n-2\n",
+        "expectedOutput": "-2\n"
+      },
+      {
+        "input": "1 3\n0 0 0\n",
+        "expectedOutput": "0\n"
+      }
+    ]
+  }
+}
