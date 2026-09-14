@@ -15,7 +15,7 @@
     "SK26"
   ],
   "sourcePaths": [
-    "docs/collections/tuples-sets.md"
+    "authored:local"
   ],
   "localSourcePath": "content-source/python/sections/collections/stack-queue.md",
   "exerciseOrder": [

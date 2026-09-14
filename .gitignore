@@ -1,0 +1,5 @@
+# This GitHub mirror intentionally contains only the frontend application.
+/*
+!/.gitignore
+!/frontend/
+!/frontend/**

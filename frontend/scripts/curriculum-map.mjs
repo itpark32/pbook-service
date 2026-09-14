@@ -50,7 +50,7 @@ export const lessons = [
   lesson("python-lists-matrices", "lists", "matrix-algorithms", "Алгоритмы обработки матриц", ["SK23"], ["docs/lists/2d-lists.md"], "C", "matrix", "считать характеристики строк, столбцов и диагоналей"),
   lesson("python-collections-sets", "collections", "sets", "Кортежи и множества", ["SK24"], ["docs/collections/tuples-sets.md"], "C", "set", "хранить уникальные значения и выполнять операции над множествами"),
   lesson("python-collections-dicts-frequency", "collections", "dicts-frequency", "Словари и частоты", ["SK25"], ["docs/collections/dicts-frequency.md"], "C", "dict", "связывать ключи со значениями и строить таблицы частот"),
-  lesson("python-collections-stack-queue", "collections", "stack-queue", "Стек и очередь", ["SK26"], ["docs/collections/tuples-sets.md"], "C", "stack_queue", "использовать стек и очередь и выбирать структуру по порядку обработки данных"),
+  lesson("python-collections-stack-queue", "collections", "stack-queue", "Стек и очередь", ["SK26"], [], "C", "stack_queue", "использовать стек и очередь и выбирать структуру по порядку обработки данных"),
 
   lesson("python-functions-basics", "functions", "basics", "Функции: параметры и return", ["SK27"], ["docs/functions/basics.md"], "D", "function", "объявлять функции, передавать аргументы и возвращать результат"),
   lesson("python-functions-scope-decomposition", "functions", "scope-decomposition", "Декомпозиция и область видимости", ["SK28"], ["docs/functions/scope-decomposition.md"], "D", "function", "разделять решение на функции и управлять локальными данными"),
